@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "employeeId": 1,
+    "type": "Leave",
+    "date": "2025-08-01",
+    "status": "Approved",
+    "notes": "Annual leave"
+  },
+  {
+    "id": 2,
+    "employeeId": 2,
+    "type": "Remote Work",
+    "date": "2025-08-02",
+    "status": "Pending",
+    "notes": "Remote work request"
+  },
+  {
+    "id": 3,
+    "employeeId": 3,
+    "type": "Permission",
+    "date": "2025-08-03",
+    "status": "Rejected",
+    "notes": "Requested early departure"
+  },
+  {
+    "id": 4,
+    "employeeId": 4,
+    "type": "Leave",
+    "date": "2025-08-04",
+    "status": "Approved",
+    "notes": "Medical appointment"
+  },
+  {
+    "id": 5,
+    "employeeId": 5,
+    "type": "Remote Work",
+    "date": "2025-08-05",
+    "status": "Pending",
+    "notes": "Internet issue at office"
+  },
+  {
+    "id": 6,
+    "employeeId": 6,
+    "type": "Permission",
+    "date": "2025-08-06",
+    "status": "Rejected",
+    "notes": "Short personal leave"
+  },
+  {
+    "id": 7,
+    "employeeId": 7,
+    "type": "Leave",
+    "date": "2025-08-07",
+    "status": "Approved",
+    "notes": "External training day"
+  },
+  {
+    "id": 8,
+    "employeeId": 8,
+    "type": "Permission",
+    "date": "2025-08-08",
+    "status": "Pending",
+    "notes": "Requested half-day"
+  },
+  {
+    "id": 9,
+    "employeeId": 9,
+    "type": "Leave",
+    "date": "2025-08-09",
+    "status": "Approved",
+    "notes": "Family emergency"
+  },
+  {
+    "id": 10,
+    "employeeId": 10,
+    "type": "Remote Work",
+    "date": "2025-08-10",
+    "status": "Rejected",
+    "notes": "Frequent WFH request"
+  },
+  {
+    "id": 11,
+    "employeeId": 11,
+    "type": "Leave",
+    "date": "2025-08-11",
+    "status": "Approved",
+    "notes": "Travel plan"
+  },
+  {
+    "id": 12,
+    "employeeId": 12,
+    "type": "Permission",
+    "date": "2025-08-12",
+    "status": "Pending",
+    "notes": "Late arrival request"
+  },
+  {
+    "id": 13,
+    "employeeId": 13,
+    "type": "Remote Work",
+    "date": "2025-08-13",
+    "status": "Rejected",
+    "notes": "Unclear justification"
+  },
+  {
+    "id": 14,
+    "employeeId": 14,
+    "type": "Leave",
+    "date": "2025-08-14",
+    "status": "Approved",
+    "notes": "Wedding event"
+  },
+  {
+    "id": 15,
+    "employeeId": 15,
+    "type": "Permission",
+    "date": "2025-08-15",
+    "status": "Pending",
+    "notes": "Doctor appointment"
+  },
+  {
+    "id": 16,
+    "employeeId": 16,
+    "type": "Remote Work",
+    "date": "2025-08-16",
+    "status": "Approved",
+    "notes": "Remote project work"
+  },
+  {
+    "id": 17,
+    "employeeId": 17,
+    "type": "Leave",
+    "date": "2025-08-17",
+    "status": "Rejected",
+    "notes": "Leave not justified"
+  },
+  {
+    "id": 18,
+    "employeeId": 18,
+    "type": "Permission",
+    "date": "2025-08-18",
+    "status": "Approved",
+    "notes": "Requested early check-out"
+  },
+  {
+    "id": 19,
+    "employeeId": 19,
+    "type": "Remote Work",
+    "date": "2025-08-19",
+    "status": "Pending",
+    "notes": "Transport issues"
+  },
+  {
+    "id": 20,
+    "employeeId": 20,
+    "type": "Leave",
+    "date": "2025-08-20",
+    "status": "Approved",
+    "notes": "Family gathering"
+  }
+]

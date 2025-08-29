@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "employeeId": 1,
+    "month": "2025-06",
+    "baseSalary": 11000,
+    "deductions": 200,
+    "bonus": 1200,
+    "netSalary": 12000
+  },
+  {
+    "id": 2,
+    "employeeId": 2,
+    "month": "2025-06",
+    "baseSalary": 9500,
+    "deductions": 150,
+    "bonus": 800,
+    "netSalary": 10150
+  },
+  {
+    "id": 3,
+    "employeeId": 3,
+    "month": "2025-06",
+    "baseSalary": 12500,
+    "deductions": 300,
+    "bonus": 1500,
+    "netSalary": 13700
+  },
+  {
+    "id": 4,
+    "employeeId": 4,
+    "month": "2025-06",
+    "baseSalary": 8700,
+    "deductions": 220,
+    "bonus": 600,
+    "netSalary": 9080
+  },
+  {
+    "id": 5,
+    "employeeId": 5,
+    "month": "2025-06",
+    "baseSalary": 10000,
+    "deductions": 180,
+    "bonus": 1000,
+    "netSalary": 10820
+  },
+  {
+    "id": 6,
+    "employeeId": 6,
+    "month": "2025-06",
+    "baseSalary": 11200,
+    "deductions": 250,
+    "bonus": 1100,
+    "netSalary": 12050
+  },
+  {
+    "id": 7,
+    "employeeId": 7,
+    "month": "2025-06",
+    "baseSalary": 9800,
+    "deductions": 100,
+    "bonus": 700,
+    "netSalary": 10400
+  },
+  {
+    "id": 8,
+    "employeeId": 8,
+    "month": "2025-06",
+    "baseSalary": 10700,
+    "deductions": 210,
+    "bonus": 950,
+    "netSalary": 11440
+  },
+  {
+    "id": 9,
+    "employeeId": 9,
+    "month": "2025-06",
+    "baseSalary": 9400,
+    "deductions": 160,
+    "bonus": 500,
+    "netSalary": 9740
+  },
+  {
+    "id": 10,
+    "employeeId": 10,
+    "month": "2025-06",
+    "baseSalary": 11800,
+    "deductions": 300,
+    "bonus": 1300,
+    "netSalary": 12800
+  },
+  {
+    "id": 11,
+    "employeeId": 11,
+    "month": "2025-06",
+    "baseSalary": 10200,
+    "deductions": 190,
+    "bonus": 800,
+    "netSalary": 10810
+  },
+  {
+    "id": 12,
+    "employeeId": 12,
+    "month": "2025-06",
+    "baseSalary": 11500,
+    "deductions": 270,
+    "bonus": 1400,
+    "netSalary": 12630
+  },
+  {
+    "id": 13,
+    "employeeId": 13,
+    "month": "2025-06",
+    "baseSalary": 8800,
+    "deductions": 120,
+    "bonus": 600,
+    "netSalary": 9280
+  },
+  {
+    "id": 14,
+    "employeeId": 14,
+    "month": "2025-06",
+    "baseSalary": 9700,
+    "deductions": 150,
+    "bonus": 750,
+    "netSalary": 10300
+  },
+  {
+    "id": 15,
+    "employeeId": 15,
+    "month": "2025-06",
+    "baseSalary": 11100,
+    "deductions": 280,
+    "bonus": 1200,
+    "netSalary": 12020
+  },
+  {
+    "id": 16,
+    "employeeId": 16,
+    "month": "2025-06",
+    "baseSalary": 9300,
+    "deductions": 140,
+    "bonus": 650,
+    "netSalary": 9810
+  },
+  {
+    "id": 17,
+    "employeeId": 17,
+    "month": "2025-06",
+    "baseSalary": 12400,
+    "deductions": 350,
+    "bonus": 1600,
+    "netSalary": 13650
+  },
+  {
+    "id": 18,
+    "employeeId": 18,
+    "month": "2025-06",
+    "baseSalary": 8900,
+    "deductions": 200,
+    "bonus": 700,
+    "netSalary": 9400
+  },
+  {
+    "id": 19,
+    "employeeId": 19,
+    "month": "2025-06",
+    "baseSalary": 10800,
+    "deductions": 260,
+    "bonus": 1000,
+    "netSalary": 11540
+  },
+  {
+    "id": 20,
+    "employeeId": 20,
+    "month": "2025-06",
+    "baseSalary": 9500,
+    "deductions": 180,
+    "bonus": 850,
+    "netSalary": 10170
+  }
+]
