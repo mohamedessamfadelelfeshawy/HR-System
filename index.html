@@ -1,5 +1,5 @@
-<!DOCTYPE data-bs-theme="light">
-<html lang="en">
+<!DOCTYPE>
+<html lang="en" data-bs-theme="light">
 
 <head>
   <meta charset="UTF-8">
@@ -25,8 +25,8 @@
           </div>
 
           <div class="right ">
-            <button class=" border-0  bg-transparent"><i
-                class="fa-solid fa-moon p-3  rounded-circle  fs-3 " id="toggleTheme"></i></button>
+            <button class=" border-0  bg-transparent"><i class="fa-solid fa-moon p-3  rounded-circle  fs-3 "
+                id="toggleTheme"></i></button>
           </div>
         </div>
       </nav>
@@ -38,15 +38,18 @@
             <div class="mb-3 text-start">
               <label for="email" class="form-label fw-semibold dark">Email</label>
               <input type="email" class="form-control my-3" id="email" placeholder="Enter your Email">
-              <div id="errorEmail" class="d-none form-text text-danger fw-bold">We'll never share lse.</div>
+              <div id="errorEmailSpace" class="d-none form-text text-danger fw-bold">Email is required</div>
+              <div id="errorEmailRegix" class="d-none form-text text-danger fw-bold">Invalid email format</div>
             </div>
             <div class="mb-3 text-start">
               <label for="password" class="form-label fw-semibold dark">Password</label>
               <input type="password" class="form-control my-3" placeholder="Enter your Password" id="password">
-              <div id="errorPassword" class="d-none form-text text-danger fw-bold">We'll never share lse.</div>
+              <div id="errorPasswordSpace" class="d-none form-text text-danger fw-bold">Password is required</div>
+              <div id="errorPasswordChar" class="d-none form-text text-danger fw-bold">Password must be at least 6
+                characters</div>
             </div>
 
-            <button type="submit" class=" btn bg-main w-75 my-3">login</button>
+            <button id="submitting" type="submit" class=" btn bg-main w-75 my-3">login</button>
           </form>
         </div>
 

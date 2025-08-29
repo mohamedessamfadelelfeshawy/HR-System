@@ -42,9 +42,10 @@ header form button:hover{
 [data-bs-theme="dark"] header {
   background: linear-gradient(to right, #0d1b2a 50%, #183153 50%);
 }
-[data-bs-theme="dark"] header form .dark {
+ [data-bs-theme="dark"] header form .dark {
   color:#0d1b2a ;
 }
+  
 [data-bs-theme="dark"] header form button {
   background-color:#183153 ;
-}
+} 
