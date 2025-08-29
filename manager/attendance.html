@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance</title>
+  <link rel="stylesheet" href="../assets/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/manger/attendance.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light   my-3 rounded shadow ">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40" class="rounded-circle me-2">
+      <span class="fw-bold  fs-6">Attendance </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center fw-bold">
+        <li class="nav-item"><a class="nav-link" href="manager.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="attendance.html">Attendance</a></li>
+        <li class="nav-item"><a class="nav-link" href="taskes.html">Tasks</a></li>
+        <li class="nav-item"><a class="nav-link" href="requestes.html">Requests</a></li>
+        <li class="nav-item  mb-2 mb-lg-0 me-lg-2 logoutIcon">
+           <a class="btn  btn-sm " href="#"><i class="fa-solid fa-arrow-right-from-bracket me-3 text-primary fs-4"></i></a>
+        </li>
+       
+        
+       <li>
+              <button class="border-0 bg-transparent" id="toggleTheme">
+    <i class="fa-solid fa-moon p-3 rounded-circle fs-3"></i>
+  </button>
+       </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+
+
+<!--  -->
+  <div class="container my-4 mt-5">
+    
+
+    <!-- Table Responsive Wrapper -->
+    <!-- <div class="table-responsive ">
+      <table class="table table-striped table-bordered align-middle">
+        <thead class="">
+          <tr>
+            <th>#</th>
+            <th>Employee</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ahmed Mohamed</td>
+            <td>2025-08-27</td>
+            <td><span class="badge bg-success"><i class="fa-solid fa-check"></i> Present</span></td>
+            <td>On time</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Sara Ali</td>
+            <td>2025-08-27</td>
+            <td><span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Absent</span></td>
+            <td>Sick leave</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Omar Hassan</td>
+            <td>2025-08-27</td>
+            <td><span class="badge bg-warning text-dark"><i class="fa-solid fa-clock"></i> Late</span></td>
+            <td>30 mins late</td>
+          </tr>
+           <tr>
+            <td>2</td>
+            <td>Sara Ali</td>
+            <td>2025-08-27</td>
+            <td><span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Absent</span></td>
+            <td>Sick leave</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Omar Hassan</td>
+            <td>2025-08-27</td>
+            <td><span class="badge bg-warning text-dark"><i class="fa-solid fa-clock"></i> Late</span></td>
+            <td>30 mins late</td>
+          </tr>
+           <tr>
+            <td>2</td>
+            <td>Sara Ali</td>
+            <td>2025-08-27</td>
+            <td><span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Absent</span></td>
+            <td>Sick leave</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Omar Hassan</td>
+            <td>2025-08-27</td>
+            <td><span class="badge bg-warning text-dark"><i class="fa-solid fa-clock"></i> Late</span></td>
+            <td>30 mins late</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+
+  <div class="table-container container ">
+      <table class="table table-hover align-middle text-center mb-0">
+        <thead >
+          <tr >
+            <th >Employee Name</th>
+            <th>Date</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mohamed Ali</td>
+            <td>2025-08-29</td>
+            <td>09:05 AM</td>
+            <td>05:10 PM</td>
+            <td><span class="badge bg-success">Present</span></td>
+          </tr>
+          <tr>
+            <td>Sarah Ahmed</td>
+            <td>2025-08-29</td>
+            <td>—</td>
+            <td>—</td>
+            <td><span class="badge bg-danger">Absent</span></td>
+          </tr>
+          <tr>
+            <td>Omar Khaled</td>
+            <td>2025-08-29</td>
+            <td>09:45 AM</td>
+            <td>05:15 PM</td>
+            <td><span class="badge bg-warning text-dark">Late</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  
+   <script src="../assets/js/bootstrap.bundle.js"></script>
+  <script src="../assets/js/manger/attendance.js"></script>
+</body>
+</html>
