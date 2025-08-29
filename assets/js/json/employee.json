@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "name": "Ahmed Mostafa",
+    "department": "Software Development",
+    "role": "Employee",
+    "monthlySalary": 12000,
+    "annualVacationDays": 25,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "YYYY-MM-DD" },
+    "email": "ahmed1@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 2,
+    "name": "Noha Ali",
+    "department": "Accounting",
+    "role": "Employee",
+    "monthlySalary": 10000,
+    "annualVacationDays": 24,
+    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "DD/MM/YYYY" },
+    "email": "noha2@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 3,
+    "name": "Khaled Gamal",
+    "department": "Logistics",
+    "role": "Employee",
+    "monthlySalary": 9000,
+    "annualVacationDays": 20,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "MM-DD-YYYY" },
+    "email": "khaled3@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 4,
+    "name": "Sara Hassan",
+    "department": "Sales",
+    "role": "Employee",
+    "monthlySalary": 11000,
+    "annualVacationDays": 23,
+    "preferences": { "language": "en", "theme": "dark", "dateFormat": "YYYY/MM/DD" },
+    "email": "sara4@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 5,
+    "name": "Mona Reda",
+    "department": "Talent Management",
+    "role": "HR",
+    "monthlySalary": 13000,
+    "annualVacationDays": 28,
+    "preferences": { "language": "ar", "theme": "light", "dateFormat": "DD-MM-YYYY" },
+    "email": "mona5@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 6,
+    "name": "Fady Sameh",
+    "department": "Executive Office",
+    "role": "Manager",
+    "monthlySalary": 17000,
+    "annualVacationDays": 35,
+    "preferences": { "language": "en", "theme": "dark", "dateFormat": "MM/DD/YYYY" },
+    "email": "fady6@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 7,
+    "name": "Omar Yasser",
+    "department": "Engineering",
+    "role": "Employee",
+    "monthlySalary": 14000,
+    "annualVacationDays": 22,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "YYYY-MM-DD" },
+    "email": "omar7@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 8,
+    "name": "Heba Mohamed",
+    "department": "Human Resources",
+    "role": "HR",
+    "monthlySalary": 12500,
+    "annualVacationDays": 26,
+    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "DD/MM/YYYY" },
+    "email": "heba8@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 9,
+    "name": "Youssef Adel",
+    "department": "Security",
+    "role": "Security",
+    "monthlySalary": 8000,
+    "annualVacationDays": 18,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "MM-DD-YYYY" },
+    "email": "youssef9@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 10,
+    "name": "Dina Samir",
+    "department": "Marketing",
+    "role": "Employee",
+    "monthlySalary": 10500,
+    "annualVacationDays": 21,
+    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "YYYY/MM/DD" },
+    "email": "dina10@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 11,
+    "name": "Mahmoud Fathi",
+    "department": "Engineering",
+    "role": "Employee",
+    "monthlySalary": 15000,
+    "annualVacationDays": 27,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "YYYY-MM-DD" },
+    "email": "mahmoud11@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 12,
+    "name": "Laila Omar",
+    "department": "Accounting",
+    "role": "Employee",
+    "monthlySalary": 9500,
+    "annualVacationDays": 20,
+    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "DD/MM/YYYY" },
+    "email": "laila12@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 13,
+    "name": "Tamer Hany",
+    "department": "Sales",
+    "role": "Employee",
+    "monthlySalary": 18000,
+    "annualVacationDays": 30,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "MM-DD-YYYY" },
+    "email": "tamer13@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 14,
+    "name": "Rana Essam",
+    "department": "Human Resources",
+    "role": "Employee",
+    "monthlySalary": 12000,
+    "annualVacationDays": 25,
+    "preferences": { "language": "en", "theme": "dark", "dateFormat": "YYYY/MM/DD" },
+    "email": "rana14@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 15,
+    "name": "Mostafa Nabil",
+    "department": "Logistics",
+    "role": "Employee",
+    "monthlySalary": 8800,
+    "annualVacationDays": 19,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "DD-MM-YYYY" },
+    "email": "mostafa15@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 16,
+    "name": "Aya Magdy",
+    "department": "Marketing",
+    "role": "Employee",
+    "monthlySalary": 10800,
+    "annualVacationDays": 22,
+    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "MM/DD/YYYY" },
+    "email": "aya16@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 17,
+    "name": "Karim Saeed",
+    "department": "Engineering",
+    "role": "Employee",
+    "monthlySalary": 14500,
+    "annualVacationDays": 26,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "YYYY-MM-DD" },
+    "email": "karim17@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 18,
+    "name": "Hanan Adel",
+    "department": "Accounting",
+    "role": "Employee",
+    "monthlySalary": 10200,
+    "annualVacationDays": 24,
+    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "DD/MM/YYYY" },
+    "email": "hanan18@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 19,
+    "name": "Walid Ahmed",
+    "department": "Security",
+    "role": "Security",
+    "monthlySalary": 8200,
+    "annualVacationDays": 18,
+    "preferences": { "language": "en", "theme": "light", "dateFormat": "MM-DD-YYYY" },
+    "email": "walid19@gmail.com",
+    "password": "12345678"
+  },
+  {
+    "id": 20,
+    "name": "Nourhan Tarek",
+    "department": "Sales",
+    "role": "Employee",
+    "monthlySalary": 11200,
+    "annualVacationDays": 23,
+    "preferences": { "language": "en", "theme": "dark", "dateFormat": "YYYY/MM/DD" },
+    "email": "nourhan20@gmail.com",
+    "password": "12345678"
+  }
+]

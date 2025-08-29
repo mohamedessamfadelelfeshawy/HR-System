@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "employeeId": 1,
+    "title": "Task for Omar Khalil",
+    "description": "Complete assigned work package",
+    "status": "Completed",
+    "dueDate": "2025-08-20"
+  },
+  {
+    "id": 2,
+    "employeeId": 2,
+    "title": "Task for Sara Ahmed",
+    "description": "Prepare monthly financial report",
+    "status": "Pending",
+    "dueDate": "2025-08-22"
+  },
+  {
+    "id": 3,
+    "employeeId": 3,
+    "title": "Task for Youssef Ali",
+    "description": "Update client documentation",
+    "status": "In Progress",
+    "dueDate": "2025-08-25"
+  },
+  {
+    "id": 4,
+    "employeeId": 4,
+    "title": "Task for Layla Hassan",
+    "description": "Develop new feature module",
+    "status": "Completed",
+    "dueDate": "2025-08-28"
+  },
+  {
+    "id": 5,
+    "employeeId": 5,
+    "title": "Task for Ahmed Magdy",
+    "description": "Fix reported bugs in system",
+    "status": "In Progress",
+    "dueDate": "2025-08-30"
+  },
+  {
+    "id": 6,
+    "employeeId": 6,
+    "title": "Task for Mariam Samir",
+    "description": "Conduct market research",
+    "status": "Pending",
+    "dueDate": "2025-09-01"
+  },
+  {
+    "id": 7,
+    "employeeId": 7,
+    "title": "Task for Karim Mostafa",
+    "description": "Optimize database queries",
+    "status": "Completed",
+    "dueDate": "2025-09-02"
+  },
+  {
+    "id": 8,
+    "employeeId": 8,
+    "title": "Task for Huda Adel",
+    "description": "Design UI mockups",
+    "status": "Pending",
+    "dueDate": "2025-09-03"
+  },
+  {
+    "id": 9,
+    "employeeId": 9,
+    "title": "Task for Tarek Hussein",
+    "description": "Test new system features",
+    "status": "In Progress",
+    "dueDate": "2025-09-04"
+  },
+  {
+    "id": 10,
+    "employeeId": 10,
+    "title": "Task for Salma Fathy",
+    "description": "Organize training session",
+    "status": "Completed",
+    "dueDate": "2025-09-05"
+  },
+  {
+    "id": 11,
+    "employeeId": 11,
+    "title": "Task for Amr Ibrahim",
+    "description": "Prepare marketing presentation",
+    "status": "Pending",
+    "dueDate": "2025-09-06"
+  },
+  {
+    "id": 12,
+    "employeeId": 12,
+    "title": "Task for Dina Reda",
+    "description": "Update employee records",
+    "status": "In Progress",
+    "dueDate": "2025-09-07"
+  },
+  {
+    "id": 13,
+    "employeeId": 13,
+    "title": "Task for Hassan Nabil",
+    "description": "Prepare quarterly budget",
+    "status": "Completed",
+    "dueDate": "2025-09-08"
+  },
+  {
+    "id": 14,
+    "employeeId": 14,
+    "title": "Task for Yasmin Saad",
+    "description": "Write technical documentation",
+    "status": "Pending",
+    "dueDate": "2025-09-09"
+  },
+  {
+    "id": 15,
+    "employeeId": 15,
+    "title": "Task for Mostafa Gamal",
+    "description": "Implement security patch",
+    "status": "In Progress",
+    "dueDate": "2025-09-10"
+  },
+  {
+    "id": 16,
+    "employeeId": 16,
+    "title": "Task for Rania Ayman",
+    "description": "Coordinate with suppliers",
+    "status": "Completed",
+    "dueDate": "2025-09-11"
+  },
+  {
+    "id": 17,
+    "employeeId": 17,
+    "title": "Task for Mohamed Salah",
+    "description": "Review team progress",
+    "status": "Pending",
+    "dueDate": "2025-09-12"
+  },
+  {
+    "id": 18,
+    "employeeId": 18,
+    "title": "Task for Noor Khaled",
+    "description": "Reconcile Q3 accounts",
+    "status": "In Progress",
+    "dueDate": "2025-09-13"
+  },
+  {
+    "id": 19,
+    "employeeId": 19,
+    "title": "Task for Eman Farouk",
+    "description": "Handle client feedback",
+    "status": "Completed",
+    "dueDate": "2025-09-14"
+  },
+  {
+    "id": 20,
+    "employeeId": 20,
+    "title": "Task for Adel Tawfik",
+    "description": "Prepare end-of-month report",
+    "status": "Pending",
+    "dueDate": "2025-09-15"
+  }
+]

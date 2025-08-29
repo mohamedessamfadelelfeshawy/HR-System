@@ -1,0 +1,11 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.bg-main {
+  background-color: #00a2ca;
+   color: #FFFFFF;
+}
+.text-color {
+  color: #878a99;
+}

@@ -1,3 +1,50 @@
-*,*::after,*::before{
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* login */
+header {
+  height: 100vh;
+  background: linear-gradient(to right, white 50%, #00A2CA 50%);
+}
+
+nav .logo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+nav .right i {
+  color: #183153;
+}
+
+header form button:hover{
+ background-color:#0d1b2a !important;
+ color: white !important;
+}
+/* Dark mode theme */
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0d1b2a;
+  --bs-body-color: #e0e1dd;
+  --bs-primary: #00a2ca;
+  --bs-secondary: #778da9;
+  --bs-success: #4caf50;
+  --bs-danger: #ff4d4d;
+  --bs-warning: #ffc107;
+  --bs-info: #17a2b8;
+
+  --bs-border-color: #415a77;
+  --bs-card-bg: #1b263b;
+  --bs-navbar-bg: #1e2a3b;
+}
+
+[data-bs-theme="dark"] header {
+  background: linear-gradient(to right, #0d1b2a 50%, #183153 50%);
+}
+[data-bs-theme="dark"] header form .dark {
+  color:#0d1b2a ;
+}
+[data-bs-theme="dark"] header form button {
+  background-color:#183153 ;
 }
