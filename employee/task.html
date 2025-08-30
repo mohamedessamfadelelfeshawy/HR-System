@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HR System" />
+    <meta name="keywords" content="HTML, CSS, JavaScript ,bootstrap,jquery-3" />
+    <title>Tasks</title>
+    <link rel="stylesheet" href="../assets/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/employee/tasks.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light fade p-0">
+        <div
+          class="container d-flex justify-content-between align-items-center rounded-2 p-3">
+          <div class="logo d-flex align-items-center">
+            <img
+              src="../assets/images/logo.jpg"
+              class="img-fluid rounded-3"
+              alt="Logo" />
+            <h3 class="ms-2 mb-0">Tasks</h3>
+          </div>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="employee.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#task">Tasks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="attendence.html">Attendance</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="employee.html">Requests</a>
+              </li>
+            </ul>
+            <div class="dark-log d-flex m-3 justify-content-center">
+              <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>
+              <i class="fa-solid fa-moon"></i>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="tasks m-4 fade" id="task">
+        <div class="container">
+          <div class="table-responsive atten-table">
+            <!-- Tasks Table -->
+            <table class="table rounded">
+              <thead>
+                <tr class="text-nowrap text-center">
+                  <th>ID</th>
+                  <th>Task</th>
+                  <th>Status</th>
+                  <th>Done</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <!-- first row -->
+                <tr class="text-nowrap">
+                  <td>1</td>
+                  <td>Task 1</td>
+                  <td><button class="btn rounded">Done</button></td>
+                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
+                  <td><button class="btn rounded">Waiting</button></td>
+                </tr>
+                <!-- second row -->
+                <tr class="text-nowrap">
+                  <td>2</td>
+                  <td>Task 2</td>
+                  <td><button class="btn rounded">Done</button></td>
+                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
+                  <td><button class="btn rounded">Waiting</button></td>
+                </tr>
+                <!-- third row -->
+                <tr class="text-nowrap">
+                  <td>3</td>
+                  <td>Task 3</td>
+                  <td><button class="btn rounded">Done</button></td>
+                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
+                  <td><button class="btn rounded">Waiting</button></td>
+                </tr>
+                <!-- fourth row -->
+                <tr class="text-nowrap">
+                  <td>4</td>
+                  <td>Task 4</td>
+                  <td><button class="btn rounded">Done</button></td>
+                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
+                  <td><button class="btn rounded">Waiting</button></td>
+                </tr>
+                <!-- fifth -->
+                <tr class="text-nowrap">
+                  <td>5</td>
+                  <td>Task 5</td>
+                  <td><button class="btn rounded">Done</button></td>
+                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
+                  <td><button class="btn rounded">Waiting</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section></section>
+      <section></section>
+    </main>
+    <footer></footer>
+
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/employee/tasks.js"></script>
+  </body>
+</html>

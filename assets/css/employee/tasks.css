@@ -1,0 +1,113 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* variables */
+:root {
+  --mint-green-color: #00a2ca;
+  --teal-gradient: linear-gradient(135deg, #00a2ca);
+  --white-color: #fff;
+  --th-color: #878a99;
+}
+
+/* navbar */
+.navbar {
+  background: var(--teal-gradient);
+  .container {
+    .logo {
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      h3 {
+        color: var(--white-color);
+        font-weight: bold;
+      }
+    }
+    #navbarTogglerDemo03 {
+      ul {
+        li {
+          a {
+            font-size: 1.2rem;
+            color: var(--white-color);
+            &:hover {
+              color: var(--mint-green-color);
+            }
+          }
+        }
+      }
+    }
+    .dark-log {
+      i {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--white-color);
+      }
+    }
+  }
+}
+
+/* Tasks */
+.tasks {
+  .container {
+    .table-responsive {
+      table {
+        tbody {
+          tr {
+            td {
+              button {
+                background-color: var(--mint-green-color);
+                color: var(--white-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Media Query */
+@media all and (max-width: 768px) {
+  /* navbar */
+  .navbar {
+    .container {
+      .logo {
+        img {
+          display: none;
+        }
+        h3 {
+          display: none;
+        }
+      }
+      #navbarTogglerDemo03 {
+        ul {
+          li {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* animation */
+.fade {
+  animation: fade 3s ease-in-out 1 forwards;
+}
+
+/* Animation */
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
