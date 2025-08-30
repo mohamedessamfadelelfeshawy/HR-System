@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,22 +7,27 @@
     <meta name="keywords" content="HTML, CSS, JavaScript ,bootstrap,jquery-3" />
     <title>Employee</title>
     <!-- Font Awesome -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="../assets/css/all.min.css" />
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <!-- page style -->
+
+    <!-- FullCalendar CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.css"
+      rel="stylesheet" />
+
+    <!-- Page style -->
     <link rel="stylesheet" href="../assets/css/employee/employee.css" />
     <!-- font family -->
   </head>
 
   <body>
     <header>
-      
-        
-
-      <nav class="navbar navbar-expand-lg navbar-light fade p-0">
+      <nav class="navbar navbar-expand-lg fade p-0">
         <div
-          class="container d-flex justify-content-between align-items-center rounded-2 p-3">
+          class="container d-flex justify-content-between align-items-center rounded-2">
           <div class="logo d-flex align-items-center">
             <img
               src="../assets/images/logo.jpg"
@@ -54,25 +59,28 @@
                 <a class="nav-link" href="attendence.html">Attendance</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#request">Requests</a>
+                <a class="nav-link" href="request.html">Requests</a>
               </li>
             </ul>
             <div class="dark-log d-flex m-3 justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>
-              <i class="fa-solid fa-moon"></i>
+              <button class="btn" title="logout">
+                <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>
+              </button>
+
+              <button id="themeToggle" class="btn" title="darktheme">
+                <i id="themeIcon" class="fa-solid fa-moon"></i>
+              </button>
             </div>
           </div>
         </div>
       </nav>
-
-    
     </header>
 
     <main>
       <!-- Profile -->
       <section class="profile m-3 p-3 fade" id="profile">
-        <div class="container text-center">
-          <!-- <h3 class="mb-0">Welcome ,Nehal</h3>
+        <div class="container">
+          <h3 class="mb-0">Welcome ,Nehal</h3>
           <div class="job-title mt-3">
             <i class="fa-solid fa-code"></i>
             <span class="ms-2 mb-0">Frontend Developer</span>
@@ -84,366 +92,115 @@
               class="ms-2 text-decoration-none"
               >nehalhamada3@gmail.com</a
             >
-          </div> -->
-        </div>
-      </section>
+          </div>
 
-      <!-- card section -->
-      <section class="card-section fade">
-        <div class="container">
-          <div class="d-flex align-items-start">
-            <div
-              class="nav flex-column nav-pills me-3 fade p-3 rounded shadow"
-              id="v-pills-tab"
-              role="tablist"
-              aria-orientation="vertical">
-              <!-- Profile -->
-              <button
-                class="nav-link active"
-                id="v-pills-home-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#v-pills-home"
-                type="button"
-                role="tab"
-                aria-controls="v-pills-home"
-                aria-selected="true">
-                Profile
-              </button>
-              <!-- Attendence -->
-              <button
-                class="nav-link"
-                id="v-pills-profile-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#v-pills-profile"
-                type="button"
-                role="tab"
-                aria-controls="v-pills-profile"
-                aria-selected="false">
-                Attendence
-              </button>
-              <!-- Tasks -->
-              <button
-                class="nav-link"
-                id="v-pills-messages-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#v-pills-messages"
-                type="button"
-                role="tab"
-                aria-controls="v-pills-messages"
-                aria-selected="false">
-                Tasks
-              </button>
-              <!-- Request -->
-              <button
-                class="nav-link"
-                id="v-pills-settings-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#v-pills-settings"
-                type="button"
-                role="tab"
-                aria-controls="v-pills-settings"
-                aria-selected="false">
-                Request
-              </button>
+          <!-- second Section -->
+          <div class="detailed-cards mt-4">
+            <div class="row row-cols-md-4 g-4">
+              <!-- card 1 -->
+              <div class="col">
+                <div class="card shadow rounded">
+                  <div class="card-body text-center align-items-center">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <h5 class="card-title mt-2">Attendence</h5>
+                    <p class="card-text">18/22</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- card 2 -->
+              <div class="col">
+                <div class="card shadow rounded">
+                  <div class="card-body text-center">
+                    <i class="fa-regular fa-clock"></i>
+                    <h5 class="card-title mt-2">Quotes</h5>
+                    <p class="card-text mb-0">Late: 1</p>
+                    <p class="mt-2">WFH:2</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- card 3 -->
+              <div class="col">
+                <div class="card shadow rounded">
+                  <div class="card-body text-center">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <h5 class="card-title mt-2">Tasks:</h5>
+                    <p class="card-text">7/10</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- card 4 -->
+              <div class="col">
+                <div class="card shadow rounded">
+                  <div class="card-body text-center">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <h5 class="card-title mt-2">Salary Impact</h5>
+                    <p class="card-text">-500 EGP</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div
-              class="tab-content d-flex justify-content-center w-100"
-              id="v-pills-tabContent">
-              <!-- Profile -->
-              <div
-                class="tab-pane fade show active text-center"
-                id="v-pills-home"
-                role="tabpanel"
-                aria-labelledby="v-pills-home-tab">
-                <div class="text">
-                  <div
-                    class="prof d-flex justify-content-center align-items-center">
-                    <img
-                      src="../assets/images/employee/formal.jpg"
-                      class="img-fluid rounded-pill me-2"
-                      alt="" />
-                    <h3 class="mb-0">Welcome ,Nehal</h3>
-                  </div>
-                  <div class="job-title mt-3">
-                    <i class="fa-solid fa-code"></i>
-                    <span class="ms-2 mb-0">Frontend Developer</span>
-                  </div>
-                  <div class="email-title mt-1">
-                    <i class="fa-regular fa-envelope"></i>
-                    <a
-                      href="mailto:nehalhamada3@gmail.com"
-                      class="ms-2 text-decoration-none"
-                      >nehalhamada3@gmail.com</a
-                    >
-                  </div>
-                </div>
-                <div class="rewards m-3">
-                  <div class="card">
-                    <div class="card-body shadow p-3">
-                      <h5 class="card-title">Rewards</h5>
-                      <div class="table">No Rewards Yet</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Attendence -->
-              <div
-                class="tab-pane fade"
-                id="v-pills-profile"
-                role="tabpanel"
-                aria-labelledby="v-pills-profile-tab">
-                <div class="table-responsive atten-table">
-                  <!-- Attendence Table -->
-                  <table class="table rounded">
-                    <thead>
-                      <tr class="text-nowrap text-center">
-                        <th>ID</th>
-                        <th>Emp ID</th>
-                        <th>Date</th>
-                        <th>Check-in</th>
-                        <th>Check-out</th>
-                        <th>Status</th>
-                        <th>Minute Late</th>
-                        <th>Work From Home</th>
-                        <th>Leave</th>
-                        <th>Notes</th>
-                      </tr>
-                    </thead>
-                    <tbody class="text-center">
-                      <!-- first row -->
-                      <tr class="text-nowrap">
-                        <td>1</td>
-                        <td>4</td>
-                        <td>July 01, 2025</td>
-                        <td>08:50 AM</td>
-                        <td>05:00 PM</td>
-                        <td>
-                          <span class="present p-2 rounded-1">Present</span>
-                        </td>
-                        <td>00:00</td>
-                        <td><span class="True p-2 rounded-1">True</span></td>
-                        <td><span class="False p-2 rounded-1">False</span></td>
-                        <td>Good Work</td>
-                      </tr>
-                      <!-- second row -->
-                      <tr class="text-nowrap">
-                        <td>2</td>
-                        <td>4</td>
-                        <td>July 02, 2025</td>
-                        <td>09:00 AM</td>
-                        <td>05:00 PM</td>
-                        <td>
-                          <span class="present p-2 rounded-1">Present</span>
-                        </td>
-                        <td>00:00</td>
-                        <td><span class="True p-2 rounded-1">False</span></td>
-                        <td><span class="False p-2 rounded-1">True</span></td>
-                        <td>Good Work</td>
-                      </tr>
-                      <!-- third row -->
-                      <tr class="text-nowrap">
-                        <td>3</td>
-                        <td>4</td>
-                        <td>July 03, 2025</td>
-                        <td>09:20 AM</td>
-                        <td>05:00 PM</td>
-                        <td><span class="late p-2 rounded-1">Late</span></td>
-                        <td>00:20 Min</td>
-                        <td><span class="True p-2 rounded-1">False</span></td>
-                        <td><span class="False p-2 rounded-1">True</span></td>
-                        <td>Good Work</td>
-                      </tr>
-                      <!-- fourth row -->
-                      <tr class="text-nowrap">
-                        <td>4</td>
-                        <td>4</td>
-                        <td>July 04, 2025</td>
-                        <td>10:20 AM</td>
-                        <td>05:00 PM</td>
-                        <td>
-                          <span class="absence p-2 rounded-1">Absence</span>
-                        </td>
-                        <td>01:20 Hours</td>
-                        <td><span class="True p-2 rounded-1">False</span></td>
-                        <td><span class="False p-2 rounded-1">True</span></td>
-                        <td>Good Work</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!-- Tasks -->
-              <div
-                class="tab-pane fade"
-                id="v-pills-messages"
-                role="tabpanel"
-                aria-labelledby="v-pills-messages-tab">
-                <div class="table-responsive task-table">
-                  <!-- Tasks Table -->
-                  <table class="table rounded">
-                    <thead>
-                      <tr class="text-nowrap text-center">
-                        <th>ID</th>
-                        <th>Task</th>
-                        <th>Status</th>
-                        <th>Done</th>
-                      </tr>
-                    </thead>
-                    <tbody class="text-center">
-                      <!-- first row -->
-                      <tr class="text-nowrap">
-                        <td>1</td>
-                        <td>Task 1</td>
-                        <td><button class="btn rounded">Done</button></td>
-                        <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                        <td><button class="btn rounded">Waiting</button></td>
-                      </tr>
-                      <!-- second row -->
-                      <tr class="text-nowrap">
-                        <td>2</td>
-                        <td>Task 2</td>
-                        <td><button class="btn rounded">Done</button></td>
-                        <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                        <td><button class="btn rounded">Waiting</button></td>
-                      </tr>
-                      <!-- third row -->
-                      <tr class="text-nowrap">
-                        <td>3</td>
-                        <td>Task 3</td>
-                        <td><button class="btn rounded">Done</button></td>
-                        <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                        <td><button class="btn rounded">Waiting</button></td>
-                      </tr>
-                      <!-- fourth row -->
-                      <tr class="text-nowrap">
-                        <td>4</td>
-                        <td>Task 4</td>
-                        <td><button class="btn rounded">Done</button></td>
-                        <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                        <td><button class="btn rounded">Waiting</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!-- Request -->
-              <div
-                class="tab-pane fade"
-                id="v-pills-settings"
-                role="tabpanel"
-                aria-labelledby="v-pills-settings-tab">
-                <div class="req">
-                  <!-- Button trigger modal -->
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    Launch demo modal
-                  </button>
+          </div>
 
-                  <!-- Modal -->
-                  <div
-                    class="modal fade"
-                    id="exampleModal"
-                    tabindex="-1"
-                    aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">
-                            Modal title
-                          </h5>
-                          <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">...</div>
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal">
-                            Close
-                          </button>
-                          <button type="button" class="btn btn-primary">
-                            Save changes
-                          </button>
-                        </div>
-                      </div>
+          <!-- Third Section -->
+          <div class="works mt-3">
+            <div class="row row-cols-md-2 g-4">
+              <!-- card 1 -->
+              <div class="col">
+                <div class="card p-3 shadow rounded">
+                  <div class="card-body">
+                    <h5 class="card-title">Rewards</h5>
+                    <div class="table-responsive re-table">
+                      <table class="table rounded">
+                        <thead>
+                          <tr class="text-nowrap text-center">
+                            <th>ID</th>
+                            <th>Emp Id</th>
+                            <th>Rewards</th>
+                            <th>Month</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-center">
+                          <!-- first row -->
+                          <tr class="text-nowrap">
+                            <td>1</td>
+                            <td>4</td>
+                            <td>Ideal Employee</td>
+                            <td>April</td>
+                          </tr>
+                          <!-- second row -->
+                          <tr class="text-nowrap">
+                            <td>2</td>
+                            <td>4</td>
+                            <td>Ideal Employee</td>
+                            <td>June</td>
+                          </tr>
+                          <!-- third row -->
+                          <tr class="text-nowrap">
+                            <td>3</td>
+                            <td>4</td>
+                            <td>Ideal Employee</td>
+                            <td>August</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                  <div class="table-responsive">
-                    <!-- Tasks Table -->
-                    <table class="table rounded">
-                      <thead>
-                        <tr class="text-nowrap text-center">
-                          <th>ID</th>
-                          <th>Request</th>
-                          <th>Status</th>
-                          <th>Date</th>
-                        </tr>
-                      </thead>
-                      <tbody class="text-center">
-                        <!-- first row -->
-                        <tr class="text-nowrap">
-                          <td>1</td>
-                          <td>Work From Home</td>
-                          <td>
-                            <span class="accept p-2 rounded">Accepted</span>
-                          </td>
-                          <td>1 July 2025</td>
-                        </tr>
-                        <!-- second row -->
-                        <tr class="text-nowrap">
-                          <td>2</td>
-                          <td>Absence</td>
-                          <td>
-                            <span class="reject p-2 rounded">Rejected</span>
-                          </td>
-                          <td>10 July 2025</td>
-                        </tr>
-                        <!-- third row -->
-                        <tr class="text-nowrap">
-                          <td>3</td>
-                          <td>Leave</td>
-                          <td>
-                            <span class="accept p-2 rounded">Accepted</span>
-                          </td>
-                          <td>20 July 2025</td>
-                        </tr>
-                        <!-- fourth row -->
-                        <tr class="text-nowrap">
-                          <td>4</td>
-                          <td>Late</td>
-                          <td>
-                            <span class="accept p-2 rounded">Accepted</span>
-                          </td>
-                          <td>25 July 2025</td>
-                        </tr>
-                        <!-- fifth row -->
-                        <tr class="text-nowrap">
-                          <td>5</td>
-                          <td>overtime</td>
-                          <td>
-                            <span class="accept p-2 rounded">Accepted</span>
-                          </td>
-                          <td>38 July 2025</td>
-                        </tr>
-                        <!-- Sixth row -->
-                        <tr class="text-nowrap">
-                          <td>6</td>
-                          <td>deadline</td>
-                          <td>
-                            <span class="reject p-2 rounded">Rejected</span>
-                          </td>
-                          <td>31 July 2025</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                </div>
+              </div>
+
+              <!-- card 2 -->
+              <div class="col">
+                <div class="card p-3 shadow rounded">
+                  <div class="card-body">
+                    <h5 class="card-title">Up Comming Deadline</h5>
+                    <ul class="custom-list">
+                      <li>Task 1 (Due to Tomorrow)</li>
+                      <li>Task 2 (Due in 2 Days)</li>
+                      <li>Overtime request pending</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -451,12 +208,14 @@
           </div>
         </div>
       </section>
-      <section></section>
+
+      <!-- detailed cards -->
     </main>
     <footer></footer>
-    <!-- <script src="../assets/js/bootstrap.bundle.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!-- Your custom JS -->
     <script src="../assets/js/employee/employee.js"></script>
   </body>
 </html>
