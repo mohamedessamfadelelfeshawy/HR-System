@@ -1,0 +1,187 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* variables */
+:root {
+  --mint-green-color: #00a2ca;
+  --green-color: #1abc9c;
+  --teal-gradient: linear-gradient(135deg, #1abc9c, #00a2ca);
+  --white-color: #fff;
+  --th-color: #878a99;
+}
+
+/* navbar */
+.navbar {
+  background: var(--teal-gradient);
+  .container {
+    .logo {
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      h3 {
+        color: var(--white-color);
+        font-weight: bold;
+      }
+    }
+    #navbarTogglerDemo03 {
+      ul {
+        li {
+          a {
+            font-size: 1.2rem;
+            color: var(--white-color);
+            &:hover {
+              color: var(--mint-green-color);
+            }
+          }
+        }
+      }
+    }
+    .dark-log {
+      i {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--mint-green-color);
+      }
+    }
+  }
+}
+
+/* component */
+.main-button {
+  background-color: var(--mint-green-color);
+  color: var(--white-color);
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+.main-button:hover {
+  transform: scale(1.05);
+  background-color: #008bb9;
+}
+
+/* request */
+.req {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .form {
+    flex-grow: 1; 
+    .row {
+      form {
+        background: rgba(255, 255, 255, 0.95);
+        width: 500px;
+        select.form-select,
+        textarea.form-control,
+        input.form-control {
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          padding: 10px 12px;
+          background-color: #f9f9f9;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+          font-size: 1rem;
+          color: #333;
+        }
+        select.form-select {
+          height: 40px;
+          &:focus {
+            border-color: var(--mint-green-color);
+            box-shadow: 0 0 5px rgba(0, 162, 202, 0.5);
+          }
+          option {
+            background-color: var(--white-color);
+            color: #000;
+            &:hover {
+              background-color: var(--green-color);
+              color: var(--white-color);
+            }
+          }
+        }
+        textarea.form-control {
+          resize: vertical;
+          min-height: 120px;
+          line-height: 1.6;
+          &:focus {
+            border-color: var(--mint-green-color);
+            box-shadow: 0 0 5px rgba(0, 162, 202, 0.5);
+          }
+        }
+        input.form-control[type="date"] {
+          height: 40px;
+          &:focus {
+            border-color: var(--mint-green-color);
+            box-shadow: 0 0 5px rgba(0, 162, 202, 0.5);
+          }
+          &::-webkit-calendar-picker-indicator {
+            filter: invert(0.5);
+            cursor: pointer;
+          }
+        }
+        input[type="submit"].main-button {
+          margin-top: 20px;
+          padding: 12px;
+          font-size: 1.1rem;
+          border-radius: 8px;
+        }
+        .form-label {
+          font-weight: 500;
+          color: #444;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}
+
+/* Media Query */
+@media all and (max-width: 768px) {
+  /* navbar */
+  .navbar {
+    .container {
+      .logo {
+        img {
+          display: none;
+        }
+        h3 {
+          display: none;
+        }
+      }
+      #navbarTogglerDemo03 {
+        ul {
+          li {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .req .form form {
+    max-width: 90%;
+    min-height: 450px;
+    padding: 15px;
+  }
+}
+
+/* animation */
+.fade {
+  animation: fade 3s ease-in-out 1 forwards;
+}
+
+/* Animation */
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
