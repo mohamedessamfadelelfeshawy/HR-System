@@ -6,30 +6,18 @@
 .colorBtn{
   background-color: #00A2CA;
 }
-/* .colorBtn:hover{
-  color: #0d1b2a !important;
-} */
+
 .colorIcon{
   color: #00A2CA;
+}
+.special-btn:hover{
+background-color: #1e2a3b;
+color: white;
 }
 /* table */
   .table-container table {
     font-size: 16px;
   }
-
- 
-  /* @media (max-width: 576px) {
-    .table-container table {
-      font-size: 12px; 
-    }
-    .table-container th,
-    .table-container td {
-      padding: 6px; 
-    }
-    .table-container .badge {
-      font-size: 11px; 
-    }
-  } */
 
     @media (max-width: 576px) {
     .controlFont  {
@@ -43,8 +31,6 @@
       font-size: 11px; 
     }
   }
-
-
 
 /* dark mode start */
 
@@ -63,13 +49,11 @@
   --bs-navbar-bg: #1e2a3b;
 }
 
+
 [data-bs-theme="dark"] header {
   background: linear-gradient(to right, #0d1b2a 50%, #183153 50%);
 }
 
-/* [data-bs-theme="dark"].colorBtn:hover{
-  color: #e0e1dd !important;
-} */
 
 [data-bs-theme="dark"] .navbar {
   background-color: #0d1b2a !important;
