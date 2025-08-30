@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "employeeId": 1,
+    "type": "Late",
+    "date": "2025-08-01",
+    "status": "Approved",
+    "notes": "Arrived 30 minutes late"
+  },
+  {
+    "id": 2,
+    "employeeId": 2,
+    "type": "WFH",
+    "date": "2025-08-02",
+    "status": "Pending",
+    "notes": "Remote work due to internet issue"
+  },
+  {
+    "id": 3,
+    "employeeId": 3,
+    "type": "Absence",
+    "date": "2025-08-03",
+    "status": "Rejected",
+    "notes": "Unexcused absence"
+  },
+  {
+    "id": 4,
+    "employeeId": 4,
+    "type": "Deadline Extension",
+    "date": "2025-08-04",
+    "status": "Approved",
+    "notes": "Requested 2 extra days for report"
+  },
+  {
+    "id": 5,
+    "employeeId": 5,
+    "type": "Overtime",
+    "date": "2025-08-05",
+    "status": "Pending",
+    "notes": "Worked 3 extra hours"
+  },
+  {
+    "id": 6,
+    "employeeId": 6,
+    "type": "Late",
+    "date": "2025-08-06",
+    "status": "Rejected",
+    "notes": "Late without reason"
+  },
+  {
+    "id": 7,
+    "employeeId": 7,
+    "type": "WFH",
+    "date": "2025-08-07",
+    "status": "Approved",
+    "notes": "Remote work for training"
+  },
+  {
+    "id": 8,
+    "employeeId": 8,
+    "type": "Absence",
+    "date": "2025-08-08",
+    "status": "Pending",
+    "notes": "Absent due to illness"
+  },
+  {
+    "id": 9,
+    "employeeId": 9,
+    "type": "Deadline Extension",
+    "date": "2025-08-09",
+    "status": "Approved",
+    "notes": "Project delivery postponed"
+  },
+  {
+    "id": 10,
+    "employeeId": 10,
+    "type": "Overtime",
+    "date": "2025-08-10",
+    "status": "Rejected",
+    "notes": "Overtime request denied"
+  },
+  {
+    "id": 11,
+    "employeeId": 11,
+    "type": "Late",
+    "date": "2025-08-11",
+    "status": "Approved",
+    "notes": "Traffic delay"
+  },
+  {
+    "id": 12,
+    "employeeId": 12,
+    "type": "Absence",
+    "date": "2025-08-12",
+    "status": "Pending",
+    "notes": "Absent for personal reasons"
+  },
+  {
+    "id": 13,
+    "employeeId": 13,
+    "type": "WFH",
+    "date": "2025-08-13",
+    "status": "Rejected",
+    "notes": "WFH request declined"
+  },
+  {
+    "id": 14,
+    "employeeId": 14,
+    "type": "Deadline Extension",
+    "date": "2025-08-14",
+    "status": "Approved",
+    "notes": "Extension granted for task completion"
+  },
+  {
+    "id": 15,
+    "employeeId": 15,
+    "type": "Overtime",
+    "date": "2025-08-15",
+    "status": "Pending",
+    "notes": "Worked late on deployment"
+  },
+  {
+    "id": 16,
+    "employeeId": 16,
+    "type": "Late",
+    "date": "2025-08-16",
+    "status": "Approved",
+    "notes": "Delayed by public transport"
+  },
+  {
+    "id": 17,
+    "employeeId": 17,
+    "type": "Absence",
+    "date": "2025-08-17",
+    "status": "Rejected",
+    "notes": "Absence without prior notice"
+  },
+  {
+    "id": 18,
+    "employeeId": 18,
+    "type": "WFH",
+    "date": "2025-08-18",
+    "status": "Approved",
+    "notes": "Remote work for family emergency"
+  },
+  {
+    "id": 19,
+    "employeeId": 19,
+    "type": "Overtime",
+    "date": "2025-08-19",
+    "status": "Pending",
+    "notes": "Extra hours for testing"
+  },
+  {
+    "id": 20,
+    "employeeId": 20,
+    "type": "Deadline Extension",
+    "date": "2025-08-20",
+    "status": "Approved",
+    "notes": "Requested delay due to workload"
+  }
+]
