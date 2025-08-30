@@ -1,4 +1,27 @@
 
+.colorBtn{
+  background-color: #00A2CA;
+}
+/* .colorBtn:hover{
+  color: #0d1b2a !important;
+} */
+.colorIcon{
+  color: #00A2CA;
+}
+
+    @media (max-width: 576px) {
+    .controlFont  {
+      font-size: 12px; 
+    }
+    .controlFont th,
+    .controlFont td {
+      padding: 6px; 
+    }
+    .controlFont .badge {
+      font-size: 11px; 
+    }
+  }
+
 
 /* dark mode start */
 [data-bs-theme="dark"] {
