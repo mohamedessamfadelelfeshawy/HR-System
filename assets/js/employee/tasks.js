@@ -19,3 +19,17 @@ themeToggle.addEventListener("click", () => {
     localStorage.setItem("theme", "dark");
   }
 });
+
+
+// create table
+async function showTasks() {}
+
+showTasks();
+
+function getTask() {
+  let getData = localStorage.getItem("tasks");
+  let taskData = JSON.parse(getData);
+  console.log(taskData);
+}
+
+getTask();
