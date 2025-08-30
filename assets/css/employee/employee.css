@@ -36,10 +36,13 @@ body {
       ul {
         li {
           a {
+            margin: 5px;
             font-size: 1.2rem;
             color: var(--white-color);
             &:hover {
+              background-color: var(--white-color);
               color: var(--mint-green-color);
+              border-radius: 5px;
             }
           }
         }
@@ -50,6 +53,7 @@ body {
         font-size: 1.5rem;
         cursor: pointer;
         color: var(--white-color);
+        margin: 20px;
       }
     }
   }
@@ -74,103 +78,45 @@ body {
         font-size: 1.2rem;
       }
     }
-  }
-}
-
-/* card section */
-.card-section {
-  .container {
-    .nav {
-      border: 1px solid var(--mint-green-color);
-      width: 300px;
-      .nav-link {
-        color: black;
-        &:not(:last-child) {
-          margin-bottom: 5px;
+    .detailed-cards {
+      .row {
+        .card {
+          height: 160px;
+          border: none;
+          border: 1px solid var(--mint-green-color);
+          .card-body {
+            i {
+              font-size: 1.5rem;
+            }
+            .fa-circle-check,
+            .fa-dollar-sign {
+              color: #3fc28a;
+            }
+            .fa-chart-simple {
+              color: var(--mint-green-color);
+            }
+          }
         }
-        &:hover {
-          background-color: var(--mint-green-color);
-          color: var(--white-color);
-        }
-      }
-      .active {
-        background-color: var(--mint-green-color);
-        color: var(--white-color);
       }
     }
-    .tab-content {
-      .tab-pane {
-        .text {
-          .prof {
-            img {
-              width: 3rem;
-              height: 3rem;
-            }
-          }
-        }
-        .rewards {
-          .card {
-            border: none;
-            border: 1px solid var(--mint-green-color);
-            width: 300px;
-            .card-body {
-              .card-title {
-                .table {
-                  color: var(--mint-green-color);
-                }
+    .works {
+      .row {
+        .card {
+          height: 280px;
+          border: none;
+          border: 1px solid var(--mint-green-color);
+          .card-body {
+            ul {
+              &.custom-list {
+                padding-left: 20px; /* adjust space */
               }
             }
-          }
-        }
-        .atten-table {
-          border-collapse: collapse;
-          th,
-          td {
-            padding: 24px;
-          }
 
-          thead {
-            tr {
-              th {
-                color: var(--th-color);
-                font-size: 1.1rem;
-              }
-            }
-          }
-
-          tbody {
-            tr {
-              td {
-                font-size: 1rem;
-              }
-            }
-          }
-          .present {
-            background-color: rgb(63, 194, 138, 0.1);
-            color: #3fc28a;
-          }
-          .late {
-            background-color: rgb(239, 190, 18, 0.1);
-            color: #efbe12;
-          }
-          .absence {
-            background-color: rgb(244, 91, 105, 0.1);
-            color: #f45b69;
-          }
-        }
-        .table-responsive {
-          table {
-            th,
-            td {
-              padding: 24px;
-            }
-            tbody {
-              tr {
-                td {
-                  button {
-                    background-color: var(--mint-green-color);
-                    color: var(--white-color);
-                  }
+            ul {
+              &.custom-list {
+                li::marker {
+                  color: var(--mint-green-color); /* change bullet color */
+                  font-size: 20px; /* change bullet size */
                 }
               }
             }
@@ -212,110 +158,6 @@ body {
       }
     }
   }
-
-  /* Card Section */
-  /* .card-section {
-  .container {
-    .nav {
-      border: 1px solid var(--mint-green-color);
-      width: 300px;
-      .nav-link {
-        color: black;
-        &:not(:last-child) {
-          margin-bottom: 5px;
-        }
-        &:hover {
-          background-color: var(--mint-green-color);
-          color: var(--white-color);
-        }
-      }
-      .active {
-        background-color: var(--mint-green-color);
-        color: var(--white-color);
-      }
-    }
-    .tab-content {
-      .tab-pane {
-        .text {
-          .prof {
-            img {
-              width: 3rem;
-              height: 3rem;
-            }
-          }
-        }
-        .rewards {
-          .card {
-            border: none;
-            border: 1px solid var(--mint-green-color);
-            width: 300px;
-            .card-body {
-              .card-title {
-                .table {
-                  color: var(--mint-green-color);
-                }
-              }
-            }
-          }
-        }
-        .atten-table {
-          border-collapse: collapse;
-          th,
-          td {
-            padding: 24px;
-          }
-
-          thead {
-            tr {
-              th {
-                color: var(--th-color);
-                font-size: 1.1rem;
-              }
-            }
-          }
-
-          tbody {
-            tr {
-              td {
-                font-size: 1rem;
-              }
-            }
-          }
-          .present {
-            background-color: rgb(63, 194, 138, 0.1);
-            color: #3fc28a;
-          }
-          .late {
-            background-color: rgb(239, 190, 18, 0.1);
-            color: #efbe12;
-          }
-          .absence {
-            background-color: rgb(244, 91, 105, 0.1);
-            color: #f45b69;
-          }
-        }
-        .table-responsive {
-          table {
-            th,
-            td {
-              padding: 24px;
-            }
-            tbody {
-              tr {
-                td {
-                  button {
-                    background-color: var(--mint-green-color);
-                    color: var(--white-color);
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-} */
 }
 
 /* animation */
@@ -334,3 +176,47 @@ body {
     transform: translateY(0);
   }
 }
+
+/* 🌙 Dark Mode */
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0d1b2a;
+  --bs-body-color: #e0e1dd;
+  --white-color: #e0e1dd;
+  --th-color: #b0b3b8;
+}
+
+[data-bs-theme="dark"] body {
+  background-color: #0d1b2a;
+  color: var(--white-color);
+}
+
+/* Navbar */
+[data-bs-theme="dark"] .navbar {
+  background: #1e2a3b;
+}
+[data-bs-theme="dark"] .nav-link {
+  color: var(--white-color);
+}
+
+[data-bs-theme="dark"] .nav-link:hover {
+  background-color: var(--white-color) !important;
+  color: #1b263b !important;
+  border-radius: 5px;
+}
+
+/* Profile + Cards */
+[data-bs-theme="dark"] .card {
+  background: #1b263b;
+  color: var(--white-color);
+  border: 1px solid #1b263b !important;
+}
+
+/* Tables */
+[data-bs-theme="dark"] .table {
+  background: #1b263b;
+  color: var(--white-color);
+}
+[data-bs-theme="dark"] .table th {
+  color: var(--th-color);
+}
+
