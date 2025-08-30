@@ -1,48 +1,20 @@
-// popup start
-document.getElementById("saveTask").addEventListener("click", function () {
-  const title = document.getElementById("taskTitle").value;
-  const assigned = document.getElementById("taskAssigned").value;
-  const deadline = document.getElementById("taskDeadline").value;
-  const status = document.getElementById("taskStatus").value;
-
-  if (title && assigned && deadline) {
-    const tableBody = document.querySelector("table tbody");
-    const rowCount = tableBody.rows.length + 1;
-
-    const newRow = `
-      <tr>
-        <td>${rowCount}</td>
-        <td>${title}</td>
-        <td>${assigned}</td>
-        <td>${deadline}</td>
-        <td><span class="badge bg-warning">${status}</span></td>
-        <td>
-          <button class="btn btn-sm "><i class="fas fa-check-circle text-success"></i></button>
-          <button class="btn btn-sm text-danger"><i class="fa fa-trash"></i></button>
-        </td>
-      </tr>
-    `;
-
-    tableBody.insertAdjacentHTML("beforeend", newRow);
-
-    
-    document.getElementById("taskForm").reset();
-    const modal = bootstrap.Modal.getInstance(document.getElementById("addTaskModal"));
-    modal.hide();
-  }
-});
-
-// popup end
-
-
-// dark mode staart
-const html = document.documentElement; 
+import { fetchEmployee } from "../../../assets/js/exportFun.js";
+const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
+
+const employeeTable = document.getElementById('employeeTable');
+const saveEmployeeBtn = document.getElementById('saveEmployee');
+
+
+
+//let employees=await fetchEmployee("/assets/js/json/employee.json");
+
+
+
+
 
 
 html.setAttribute("data-bs-theme", "light");
-
-
 btn.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-bs-theme");
   if (currentTheme === "light") {
@@ -51,4 +23,30 @@ btn.addEventListener("click", () => {
     html.setAttribute("data-bs-theme", "light");
   }
 });
-// dark mode end
+
+
+
+
+/* // saveEmployeeBtn.addEventListener('click', () => {
+
+//   const name = document.getElementById('empName').value;
+//   const email = document.getElementById('empEmail').value;
+//   const designation = document.getElementById('empDesignation').value;
+
+//   if (name && email && designation) {
+
+//     const row = `<tr><td>${name}</td><td>${email}</td><td>${designation}</td></tr>`;
+//     employeeTable.insertAdjacentHTML('beforeend', row);
+
+
+//     document.getElementById('employeeForm').reset();
+
+
+//     const modal = bootstrap.Modal.getInstance(document.getElementById('addEmployeeModal'));
+//     modal.hide();
+//   }
+// });
+
+// // pop up end
+
+ */
