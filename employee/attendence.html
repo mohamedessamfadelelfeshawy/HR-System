@@ -42,13 +42,10 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="employee.html">Profile</a>
+                <a class="nav-link" href="#attendence">Attendance</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#task">Tasks</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="attendence.html">Attendance</a>
+                <a class="nav-link" href="task.html">Tasks</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="request.html">Requests</a>
@@ -67,12 +64,121 @@
         </div>
       </nav>
     </header>
+
     <main>
-      <section class="table-atten fade" id="attendence">
+      <!-- cards -->
+      <section class="card-det mt-5" id="attendence">
+        <div class="container">
+          <!-- text section -->
+          <!-- make with js -->
+          <div class="text text-center fade">
+            <h3 class="mb-0 welcome-head"></h3>
+            <div class="job-title mt-3">
+              <i class="fa-solid fa-briefcase"></i>
+              <!-- make with js -->
+              <span class="ms-2 mb-0 emp-spetial"></span>
+            </div>
+            <div class="email-title mt-1">
+              <i class="fa-regular fa-envelope"></i>
+              <!-- make with js -->
+              <a
+                href="mailto:nehalhamada3@gmail.com"
+                class="ms-2 text-decoration-none emp-mail"
+                title="mail"></a>
+            </div>
+          </div>
+
+          <!-- cards for Details -->
+          <div class="detailed-cards mt-4 fade">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <!-- card 1 -->
+              <div class="col">
+                <div class="card card-one rounded">
+                  <div class="card-body">
+                    <div class="calendar">
+                      <div class="calendar-header">
+                        <h5 id="monthYear"></h5>
+                        <div class="calendar-nav">
+                          <button id="prev">&lt;</button>
+                          <button id="next">&gt;</button>
+                        </div>
+                      </div>
+                      <table class="calendar-table w-100">
+                        <thead>
+                          <tr>
+                            <th>Su</th>
+                            <th>Mo</th>
+                            <th>Tu</th>
+                            <th>We</th>
+                            <th>Th</th>
+                            <th>Fr</th>
+                            <th>Sa</th>
+                          </tr>
+                        </thead>
+                        <tbody id="calendar-body">
+                          <!-- JS هيملأ هنا الأيام -->
+                        </tbody>
+                      </table>
+                      <div id="selected-info">Selected: —</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- card 2 -->
+              <div class="col">
+                <div class="card p-3 card-two">
+                  <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- card 1 -->
+                    <div class="col">
+                      <div class="card card-two-one shadow">
+                        <div class="card-body">
+                          <p class="card-text">Total Present</p>
+                          <h5 class="card-title fw-bold">15</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card 2 -->
+                    <div class="col">
+                      <div class="card card-two-one shadow">
+                        <div class="card-body">
+                          <p class="card-text">Total Late</p>
+                          <h5 class="card-title fw-bold">2</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card 3 -->
+                    <div class="col">
+                      <div class="card card-two-one shadow">
+                        <div class="card-body">
+                          <p class="card-text">Total Absence</p>
+                          <h5 class="card-title fw-bold">1</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card 4 -->
+                    <div class="col">
+                      <div class="card card-two-one shadow">
+                        <div class="card-body">
+                          <p class="card-text">Total WFH</p>
+                          <h5 class="card-title fw-bold">3</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Attendance -->
+      <section class="table-atten fade">
         <div class="container">
           <div class="table-responsive atten-table">
             <!-- Attendence Table -->
-            <table class="table mt-5 rounded">
+            <table class="table mt-5 rounded fade">
               <thead>
                 <tr class="text-nowrap text-center">
                   <th>ID</th>
@@ -156,7 +262,7 @@
                   <td>
                     <span class="present p-2 rounded-1">Present</span>
                   </td>
-                  <td>00:00 Hours</td>
+                  <td>00:00 Min</td>
                   <td><span class="True p-2 rounded-1">True</span></td>
                   <td><span class="False p-2 rounded-1">False</span></td>
                   <td>Good Work</td>

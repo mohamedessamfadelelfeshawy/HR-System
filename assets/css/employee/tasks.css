@@ -36,7 +36,6 @@ body {
       ul {
         li {
           a {
-            margin: 5px;
             font-size: 1.2rem;
             color: var(--white-color);
             &:hover {
@@ -53,7 +52,7 @@ body {
         font-size: 1.5rem;
         cursor: pointer;
         color: var(--white-color);
-        margin: 20px;
+        
       }
     }
   }
