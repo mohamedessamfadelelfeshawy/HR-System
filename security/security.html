@@ -2,30 +2,195 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="HR System" />
-    <meta name="keywords" content="HTML, CSS, JavaScript ,bootstrap,jquery-3" />
-    <title>security</title>
-    <link rel="stylesheet" href="../assets/css/all.min.css" />
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/css/security.css" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Board</title>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+
+    <!--  CSS file -->
+    <link rel="stylesheet" href="css/security.css" />
   </head>
-
   <body>
-    <header>
-      <nav>ddd</nav>
-    </header>
-    <main>
-      <section>
-        <p>intial</p>
-      </section>
-      <section></section>
-      <section></section>
-    </main>
-    <footer></footer>
+     <!-- Header -->
+      <div class=" header-bar py-3 px-3">
+        <div class="container  d-flex justify-content-between align-items-center">
+      <!--  Logo + Title -->
+        <div class="d-flex gap-2">
+          <!-- <div class="box-img-logo">
+            <img class="w-100" src="images/hrlogo.jpeg" alt="Company logo" />
+          </div> -->
+          <h3 class="fw-bold fs-3 text-white text-center">Attendance Board</h3>
+        </div>
 
-    <script src="../assets/js/bootstrap.bundle.js"></script>
-    <script src="../assets/js/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/security.js"></script>
+        <!-- Dark mode toggle + Logout icon -->
+        <div class="d-flex gap-1 align-items-center">
+          <button id="darkToggle" class="btn border-0 bg-transparen">
+            <i class="fa-solid fa-sun btn-spcial"></i>
+          </button>
+          <i class="fa-solid fa-arrow-right-from-bracket btn-spcial"></i>
+        </div>
+        </div>
+  
+      </div>
+    <div class="container py-4">
+     
+
+      <div class="row g-4">
+        <!-- Attendance Form -->
+        <div class="col-lg-7">
+          <div class="card p-4">
+            <h5 class="fw-bold mb-3">
+              <i class=" clock-icon fa-solid fa-clock me-1"></i> Attendance
+            </h5>
+            <form>
+              <!-- Employee ID -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="employeeId"
+                  placeholder="Employee ID" />
+                <label for="employeeId">Employee ID</label>
+              </div>
+
+              <!-- Employee Name -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="employeeName"
+                  placeholder="Employee Name" />
+                <label for="employeeName">Employee Name</label>
+              </div>
+
+              <!-- Date -->
+              <div class="form-floating mb-3">
+                <input type="date" class="form-control" id="todayDate" />
+                <label for="todayDate">Today Date</label>
+              </div>
+
+              <!-- Check-In Time -->
+              <div class="form-floating mb-3">
+                <input type="time" class="form-control" id="checkIn" />
+                <label for="checkIn">Check-In Time</label>
+              </div>
+
+              <!-- Check-Out Time -->
+              <div class="form-floating mb-3">
+                <input type="time" class="form-control" id="checkOut" />
+                <label for="checkOut">Check-Out Time</label>
+              </div>
+
+              <!-- Save button -->
+              <button class="btn btn-primary mt-2">Save Attendance</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+          <img
+            src="images/imageclock.png"
+            alt="Clock illustration"
+            class="img-fluid rounded-4 shadow-sm w-100" />
+        </div>
+      </div>
+
+      <!-- Search + Filter Section -->
+      <div class="my-4">
+        <!-- Search bar -->
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="searchEmployee"
+            placeholder="Search Employee" />
+          <label for="searchEmployee">🔍 Search Employee</label>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="mt-3 d-flex gap-2 flex-wrap">
+          <button class="btn btn-outline-success btn-sm">Present</button>
+          <button class="btn btn-outline-danger btn-sm">Absent</button>
+          <button class="btn btn-outline-warning btn-sm">Late</button>
+          <button class="btn btn-outline-secondary btn-sm">Leave</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attendance table -->
+  <div class="container">
+  <div class=" shadow-sm rounded">
+    <table class="table table-hover align-middle text-center mb-0">
+      <thead class="">
+        <tr>
+          <th><i class="fas fa-hashtag me-2"></i>ID</th>
+          <th><i class="fas fa-user me-2"></i>Employee Name</th>
+          <th><i class="fas fa-calendar-day me-2"></i>Date</th>
+          <th><i class="fas fa-sign-in-alt me-2"></i>Check-In</th>
+          <th><i class="fas fa-sign-out-alt me-2"></i>Check-Out</th>
+          <th><i class="fas fa-circle-info me-2"></i>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mohamed Ali</td>
+          <td>2025-08-29</td>
+          <td>09:05 AM</td>
+          <td>05:10 PM</td>
+          <td><span class="badge bg-success">Present</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sarah Ahmed</td>
+          <td>2025-08-29</td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="badge bg-danger">Absent</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Omar Khaled</td>
+          <td>2025-08-29</td>
+          <td>09:45 AM</td>
+          <td>05:15 PM</td>
+          <td><span class="badge bg-warning text-dark">Late</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Toggle Light/Dark mode -->
+    <script>
+      const btn = document.getElementById("darkToggle");
+      const icon = btn.querySelector("i");
+
+      btn.addEventListener("click", () => {
+        const isDark = document.body.classList.toggle("dark-mode");
+        if (isDark) {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+          btn.title = "Light mode";
+        } else {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+          btn.title = "Dark mode";
+        }
+      });
+    </script>
   </body>
 </html>
