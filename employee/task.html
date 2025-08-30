@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +13,9 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light fade p-0">
+      <nav class="navbar navbar-expand-lg fade p-0">
         <div
-          class="container d-flex justify-content-between align-items-center rounded-2 p-3">
+          class="container d-flex justify-content-between align-items-center rounded-2">
           <div class="logo d-flex align-items-center">
             <img
               src="../assets/images/logo.jpg"
@@ -47,12 +47,17 @@
                 <a class="nav-link" href="attendence.html">Attendance</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="employee.html">Requests</a>
+                <a class="nav-link" href="request.html">Requests</a>
               </li>
             </ul>
             <div class="dark-log d-flex m-3 justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>
-              <i class="fa-solid fa-moon"></i>
+              <button class="btn" title="logout">
+                <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>
+              </button>
+
+              <button id="themeToggle" class="btn" title="darktheme">
+                <i id="themeIcon" class="fa-solid fa-moon"></i>
+              </button>
             </div>
           </div>
         </div>

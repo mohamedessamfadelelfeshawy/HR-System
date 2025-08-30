@@ -14,6 +14,10 @@
   --th-color: #878a99;
 }
 
+body {
+  font-size: 20px;
+}
+
 /* navbar */
 .navbar {
   background: var(--teal-gradient);
@@ -32,10 +36,13 @@
       ul {
         li {
           a {
+            margin: 5px;
             font-size: 1.2rem;
             color: var(--white-color);
             &:hover {
+              background-color: var(--white-color);
               color: var(--mint-green-color);
+              border-radius: 5px;
             }
           }
         }
@@ -46,6 +53,7 @@
         font-size: 1.5rem;
         cursor: pointer;
         color: var(--white-color);
+        margin: 20px;
       }
     }
   }
@@ -137,4 +145,68 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Dark Theme Overrides */
+[data-bs-theme="dark"] {
+  --bs-body-bg: #1b263b;
+  --bs-body-color: #e0e1dd;
+  --bs-primary: #00a2ca;
+  --bs-secondary: #778da9;
+  --bs-border-color: #415a77;
+
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+/* Navbar in Dark Mode */
+[data-bs-theme="dark"] body {
+  background-color: var(--bs-body-bg);
+  color: var(--white-color);
+}
+
+[data-bs-theme="dark"] .navbar {
+  background: #1e2a3b;
+}
+
+[data-bs-theme="dark"] .nav-link:hover {
+  background-color: var(--white-color) !important;
+  color: #1b263b !important;
+  border-radius: 5px;
+}
+
+/* Table in Dark Mode */
+[data-bs-theme="dark"] .atten-table {
+  background-color: #1b263b;
+  color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .atten-table th {
+  color: #a9bcd0;
+}
+
+[data-bs-theme="dark"] .atten-table td {
+  color: var(--bs-body-color);
+}
+
+/* Status colors (تفضل زي ما هي علشان تبين الحاله) */
+[data-bs-theme="dark"] .present {
+  background-color: rgba(63, 194, 138, 0.2);
+  color: #3fc28a;
+}
+[data-bs-theme="dark"] .late {
+  background-color: rgba(239, 190, 18, 0.2);
+  color: #efbe12;
+}
+[data-bs-theme="dark"] .absence {
+  background-color: rgba(244, 91, 105, 0.2);
+  color: #f45b69;
+}
+[data-bs-theme="dark"] .True {
+  background-color: rgba(63, 194, 138, 0.2);
+  color: #3fc28a;
+}
+[data-bs-theme="dark"] .False {
+  background-color: rgba(244, 91, 105, 0.2);
+  color: #f45b69;
 }

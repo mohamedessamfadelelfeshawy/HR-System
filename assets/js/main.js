@@ -1,4 +1,4 @@
-/// <reference types="../@types/jquery" />
+// <reference types="../@types/jquery" />
 const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const valEmail = document.getElementById("email");
@@ -113,10 +113,7 @@ submit.addEventListener("click", (e) => {
 
 
 
-
-
-
-
+ 
 
 
 

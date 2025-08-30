@@ -2,6 +2,7 @@
   {
     "id": 1,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -14,6 +15,7 @@
   {
     "id": 2,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -26,6 +28,7 @@
   {
     "id": 3,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -38,6 +41,7 @@
   {
     "id": 4,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -50,6 +54,7 @@
   {
     "id": 5,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -62,6 +67,7 @@
   {
     "id": 6,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -74,6 +80,7 @@
   {
     "id": 7,
     "employeeId": 7,
+    "employeeName": "Karim Youssef",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -86,6 +93,7 @@
   {
     "id": 8,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -98,6 +106,7 @@
   {
     "id": 9,
     "employeeId": 9,
+    "employeeName": "Hany Fathy",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -110,6 +119,7 @@
   {
     "id": 10,
     "employeeId": 10,
+    "employeeName": "Nadia Mahmoud",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -122,6 +132,7 @@
   {
     "id": 11,
     "employeeId": 11,
+    "employeeName": "Tamer El-Sayed",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -134,6 +145,7 @@
   {
     "id": 12,
     "employeeId": 12,
+    "employeeName": "Dina Magdy",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -146,6 +158,7 @@
   {
     "id": 13,
     "employeeId": 13,
+    "employeeName": "Hossam Nabil",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -158,6 +171,7 @@
   {
     "id": 14,
     "employeeId": 14,
+    "employeeName": "Rania Kamal",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -170,6 +184,7 @@
   {
     "id": 15,
     "employeeId": 15,
+    "employeeName": "Walid Gamal",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -182,6 +197,7 @@
   {
     "id": 16,
     "employeeId": 16,
+    "employeeName": "Salma Hassan",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -194,6 +210,7 @@
   {
     "id": 17,
     "employeeId": 17,
+    "employeeName": "Mahmoud Eid",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -206,6 +223,7 @@
   {
     "id": 18,
     "employeeId": 18,
+    "employeeName": "Esraa Adel",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -218,6 +236,7 @@
   {
     "id": 19,
     "employeeId": 19,
+    "employeeName": "Mostafa Younes",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -230,6 +249,7 @@
   {
     "id": 20,
     "employeeId": 20,
+    "employeeName": "Heba Farouk",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
