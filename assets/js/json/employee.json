@@ -6,7 +6,11 @@
     "role": "Employee",
     "monthlySalary": 12000,
     "annualVacationDays": 25,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "YYYY-MM-DD" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "YYYY-MM-DD"
+    },
     "email": "ahmed1@gmail.com",
     "password": "12345678"
   },
@@ -17,7 +21,11 @@
     "role": "Employee",
     "monthlySalary": 10000,
     "annualVacationDays": 24,
-    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "DD/MM/YYYY" },
+    "preferences": {
+      "language": "ar",
+      "theme": "dark",
+      "dateFormat": "DD/MM/YYYY"
+    },
     "email": "noha2@gmail.com",
     "password": "12345678"
   },
@@ -28,7 +36,11 @@
     "role": "Employee",
     "monthlySalary": 9000,
     "annualVacationDays": 20,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "MM-DD-YYYY" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "MM-DD-YYYY"
+    },
     "email": "khaled3@gmail.com",
     "password": "12345678"
   },
@@ -39,7 +51,11 @@
     "role": "Employee",
     "monthlySalary": 11000,
     "annualVacationDays": 23,
-    "preferences": { "language": "en", "theme": "dark", "dateFormat": "YYYY/MM/DD" },
+    "preferences": {
+      "language": "en",
+      "theme": "dark",
+      "dateFormat": "YYYY/MM/DD"
+    },
     "email": "sara4@gmail.com",
     "password": "12345678"
   },
@@ -50,7 +66,11 @@
     "role": "HR",
     "monthlySalary": 13000,
     "annualVacationDays": 28,
-    "preferences": { "language": "ar", "theme": "light", "dateFormat": "DD-MM-YYYY" },
+    "preferences": {
+      "language": "ar",
+      "theme": "light",
+      "dateFormat": "DD-MM-YYYY"
+    },
     "email": "mona5@gmail.com",
     "password": "12345678"
   },
@@ -61,7 +81,11 @@
     "role": "Manager",
     "monthlySalary": 17000,
     "annualVacationDays": 35,
-    "preferences": { "language": "en", "theme": "dark", "dateFormat": "MM/DD/YYYY" },
+    "preferences": {
+      "language": "en",
+      "theme": "dark",
+      "dateFormat": "MM/DD/YYYY"
+    },
     "email": "fady6@gmail.com",
     "password": "12345678"
   },
@@ -72,7 +96,11 @@
     "role": "Employee",
     "monthlySalary": 14000,
     "annualVacationDays": 22,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "YYYY-MM-DD" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "YYYY-MM-DD"
+    },
     "email": "omar7@gmail.com",
     "password": "12345678"
   },
@@ -83,7 +111,11 @@
     "role": "HR",
     "monthlySalary": 12500,
     "annualVacationDays": 26,
-    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "DD/MM/YYYY" },
+    "preferences": {
+      "language": "ar",
+      "theme": "dark",
+      "dateFormat": "DD/MM/YYYY"
+    },
     "email": "heba8@gmail.com",
     "password": "12345678"
   },
@@ -94,7 +126,11 @@
     "role": "Security",
     "monthlySalary": 8000,
     "annualVacationDays": 18,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "MM-DD-YYYY" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "MM-DD-YYYY"
+    },
     "email": "youssef9@gmail.com",
     "password": "12345678"
   },
@@ -105,7 +141,11 @@
     "role": "Employee",
     "monthlySalary": 10500,
     "annualVacationDays": 21,
-    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "YYYY/MM/DD" },
+    "preferences": {
+      "language": "ar",
+      "theme": "dark",
+      "dateFormat": "YYYY/MM/DD"
+    },
     "email": "dina10@gmail.com",
     "password": "12345678"
   },
@@ -116,7 +156,11 @@
     "role": "Employee",
     "monthlySalary": 15000,
     "annualVacationDays": 27,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "YYYY-MM-DD" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "YYYY-MM-DD"
+    },
     "email": "mahmoud11@gmail.com",
     "password": "12345678"
   },
@@ -127,7 +171,11 @@
     "role": "Employee",
     "monthlySalary": 9500,
     "annualVacationDays": 20,
-    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "DD/MM/YYYY" },
+    "preferences": {
+      "language": "ar",
+      "theme": "dark",
+      "dateFormat": "DD/MM/YYYY"
+    },
     "email": "laila12@gmail.com",
     "password": "12345678"
   },
@@ -138,7 +186,11 @@
     "role": "Employee",
     "monthlySalary": 18000,
     "annualVacationDays": 30,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "MM-DD-YYYY" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "MM-DD-YYYY"
+    },
     "email": "tamer13@gmail.com",
     "password": "12345678"
   },
@@ -149,7 +201,11 @@
     "role": "Employee",
     "monthlySalary": 12000,
     "annualVacationDays": 25,
-    "preferences": { "language": "en", "theme": "dark", "dateFormat": "YYYY/MM/DD" },
+    "preferences": {
+      "language": "en",
+      "theme": "dark",
+      "dateFormat": "YYYY/MM/DD"
+    },
     "email": "rana14@gmail.com",
     "password": "12345678"
   },
@@ -160,7 +216,11 @@
     "role": "Employee",
     "monthlySalary": 8800,
     "annualVacationDays": 19,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "DD-MM-YYYY" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "DD-MM-YYYY"
+    },
     "email": "mostafa15@gmail.com",
     "password": "12345678"
   },
@@ -171,7 +231,11 @@
     "role": "Employee",
     "monthlySalary": 10800,
     "annualVacationDays": 22,
-    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "MM/DD/YYYY" },
+    "preferences": {
+      "language": "ar",
+      "theme": "dark",
+      "dateFormat": "MM/DD/YYYY"
+    },
     "email": "aya16@gmail.com",
     "password": "12345678"
   },
@@ -182,7 +246,11 @@
     "role": "Employee",
     "monthlySalary": 14500,
     "annualVacationDays": 26,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "YYYY-MM-DD" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "YYYY-MM-DD"
+    },
     "email": "karim17@gmail.com",
     "password": "12345678"
   },
@@ -193,7 +261,11 @@
     "role": "Employee",
     "monthlySalary": 10200,
     "annualVacationDays": 24,
-    "preferences": { "language": "ar", "theme": "dark", "dateFormat": "DD/MM/YYYY" },
+    "preferences": {
+      "language": "ar",
+      "theme": "dark",
+      "dateFormat": "DD/MM/YYYY"
+    },
     "email": "hanan18@gmail.com",
     "password": "12345678"
   },
@@ -204,7 +276,11 @@
     "role": "Security",
     "monthlySalary": 8200,
     "annualVacationDays": 18,
-    "preferences": { "language": "en", "theme": "light", "dateFormat": "MM-DD-YYYY" },
+    "preferences": {
+      "language": "en",
+      "theme": "light",
+      "dateFormat": "MM-DD-YYYY"
+    },
     "email": "walid19@gmail.com",
     "password": "12345678"
   },
@@ -215,7 +291,11 @@
     "role": "Employee",
     "monthlySalary": 11200,
     "annualVacationDays": 23,
-    "preferences": { "language": "en", "theme": "dark", "dateFormat": "YYYY/MM/DD" },
+    "preferences": {
+      "language": "en",
+      "theme": "dark",
+      "dateFormat": "YYYY/MM/DD"
+    },
     "email": "nourhan20@gmail.com",
     "password": "12345678"
   }
