@@ -52,15 +52,20 @@ body {
         font-size: 1.5rem;
         cursor: pointer;
         color: var(--white-color);
-        
       }
     }
   }
 }
 
+
 /* Tasks */
 .tasks {
   .container {
+    h2 {
+      background-color: var(--mint-green-color);
+      color: var(--white-color);
+      width: fit-content;
+    }
     .table-responsive {
       table {
         tbody {

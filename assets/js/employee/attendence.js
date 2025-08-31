@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+// get employee data
 function getEmp() {
   let welcomeUser = document.querySelector(".welcome-head");
   let empSpecial = document.querySelector(".emp-spetial");
