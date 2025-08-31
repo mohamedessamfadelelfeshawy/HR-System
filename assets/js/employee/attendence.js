@@ -1,38 +1,161 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const themeToggle = document.getElementById("themeToggle");
-  const themeIcon = document.getElementById("themeIcon");
-  const html = document.documentElement;
-
-  // Check saved theme
-  const savedTheme = localStorage.getItem("theme") || "light";
-  html.setAttribute("data-bs-theme", savedTheme);
-  themeIcon.classList.toggle("fa-sun", savedTheme === "dark");
-  themeIcon.classList.toggle("fa-moon", savedTheme === "light");
-
-  // Toggle theme on button click
-  themeToggle.addEventListener("click", () => {
-    const currentTheme = html.getAttribute("data-bs-theme");
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-    html.setAttribute("data-bs-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-
-    themeIcon.classList.toggle("fa-sun", newTheme === "dark");
-    themeIcon.classList.toggle("fa-moon", newTheme === "light");
-  });
-});
-
-
+import {
+  fetchEmployee,
+  getItem,
+  setItem,
+} from "../../../assets/js/exportFun.js";
 // get employee data
-function getEmp() {
-  let welcomeUser = document.querySelector(".welcome-head");
-  let empSpecial = document.querySelector(".emp-spetial");
-  let userEmail = document.querySelector(".emp-mail");
-  let getData = localStorage.getItem("employee");
-  let empData = JSON.parse(getData);
-  welcomeUser.innerHTML = `Welcome ${empData.name}`;
-  empSpecial.innerHTML = `${empData.department}`;
-  userEmail.innerHTML = `${empData.email}`;
+async function getEmp() {
+  try {
+    let welcomeUser = document.querySelector(".welcome-head");
+    welcomeUser.classList.add("fade");
+    let empSpecial = document.querySelector(".emp-spetial");
+    empSpecial.classList.add("fade");
+    let userEmail = document.querySelector(".emp-mail");
+    userEmail.classList.add("fade");
+    let devIcon = document.querySelector(".fa-briefcase");
+    devIcon.classList.add("fade");
+    let mailIcon = document.querySelector(".fa-envelope");
+    mailIcon.classList.add("fade");
+    let getData = localStorage.getItem("employee");
+    let empData = JSON.parse(getData);
+    welcomeUser.innerHTML = `Welcome ${empData.name}`;
+    empSpecial.innerHTML = `${empData.department}`;
+    userEmail.innerHTML = `${empData.email}`;
+  } catch (error) {
+    console.error("Error fetching EmpData:", error);
+    return [];
+  }
 }
+
+async function getAttendData() {
+  try {
+    let allData = await fetchEmployee(
+      "../../../assets/js/json/attendance-record.json"
+    );
+    let empData = getItem("employee");
+    if (!empData) {
+      console.error("No employee is logged in.");
+      return [];
+    }
+    let empAttendance = allData.filter(
+      (record) => record.employeeId === empData.id
+    );
+    setItem("allAttendance", empAttendance);
+    createTable(empAttendance);
+    return empAttendance;
+  } catch (error) {
+    console.error("Error fetching attendance data:", error);
+    return [];
+  }
+}
+
+function createTable(Atten) {
+  let attendanceTable = document.querySelector("#attendance-table");
+  attendanceTable.innerHTML = "";
+
+  // عمل الـ Header
+  let tableHeader = document.createElement("thead");
+  let tableHeadRow = document.createElement("tr");
+  tableHeadRow.classList.add("text-nowrap", "text-center");
+
+  let headers = [
+    "ID",
+    "Emp ID",
+    "Date",
+    "Check-in",
+    "Check-out",
+    "Status",
+    "Minute Late",
+    "Work From Home",
+    "Leave",
+    "Notes",
+  ];
+
+  headers.forEach((text) => {
+    let tableHead = document.createElement("th");
+    tableHead.textContent = text;
+    tableHeadRow.appendChild(tableHead);
+  });
+
+  tableHeader.appendChild(tableHeadRow);
+  attendanceTable.appendChild(tableHeader);
+
+  let tableBody = document.createElement("tbody");
+  tableBody.classList.add("text-center");
+  attendanceTable.appendChild(tableBody);
+
+  Atten.forEach((record, index) => {
+    let row = document.createElement("tr");
+
+    let rowData = [
+      index + 1,
+      record.employeeId || "—",
+      record.date || "—",
+      record.checkIn || "—",
+      record.checkOut || "—",
+    ];
+
+    rowData.forEach((data) => {
+      let cell = document.createElement("td");
+      cell.textContent = data;
+      row.appendChild(cell);
+    });
+
+    // Status
+    let statusCell = document.createElement("td");
+    let statusSpan = document.createElement("span");
+    let statusValue = record.status || "—";
+    statusSpan.textContent = statusValue;
+    statusSpan.classList.add("p-2", "rounded-1");
+
+    if (statusValue === "present") {
+      statusSpan.classList.add("present");
+    } else if (statusValue === "Absent") {
+      statusSpan.classList.add("Absent");
+    } else {
+      statusSpan.classList.add(statusValue.toLowerCase().replace(/\s+/g, ""));
+    }
+
+    statusCell.appendChild(statusSpan);
+    row.appendChild(statusCell);
+
+    // Minute Late
+    let lateCell = document.createElement("td");
+    lateCell.textContent = record.minutesLate || 0;
+    row.appendChild(lateCell);
+
+    // Work From Home (True/False + لون)
+    let wfhCell = document.createElement("td");
+    let wfhSpan = document.createElement("span");
+    let wfhValue = record.isWFH ? "True" : "False";
+    wfhSpan.textContent = wfhValue;
+    wfhSpan.classList.add("p-2", "rounded-1", record.isWFH ? "True" : "False");
+    wfhCell.appendChild(wfhSpan);
+    row.appendChild(wfhCell);
+
+    // Leave (True/False + لون)
+    let leaveCell = document.createElement("td");
+    let leaveSpan = document.createElement("span");
+    let leaveValue = record.isLeave ? "True" : "False";
+    leaveSpan.textContent = leaveValue;
+    leaveSpan.classList.add(
+      "p-2",
+      "rounded-1",
+      record.isLeave ? "True" : "False"
+    );
+    leaveCell.appendChild(leaveSpan);
+    row.appendChild(leaveCell);
+
+    // Notes
+    let noteCell = document.createElement("td");
+    noteCell.textContent = record.notes || "—";
+    row.appendChild(noteCell);
+
+    tableBody.appendChild(row);
+  });
+}
+
+getAttendData();
 
 getEmp();
 
@@ -41,8 +164,25 @@ getEmp();
 const monthYear = document.getElementById("monthYear");
 const calendarBody = document.getElementById("calendar-body");
 const prevBtn = document.getElementById("prev");
+prevBtn.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
+prevBtn.style.color = "#00a2ca";
+prevBtn.style.padding = "3px";
+prevBtn.style.borderRadius = "5px";
+
 const nextBtn = document.getElementById("next");
+nextBtn.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
+nextBtn.style.color = "#00a2ca";
+nextBtn.style.padding = "3px";
+nextBtn.style.borderRadius = "5px";
+
 const selectedInfo = document.getElementById("selected-info");
+selectedInfo.style.backgroundColor = "#00a2ca";
+selectedInfo.style.color = "#fff";
+selectedInfo.style.width = "300px";
+selectedInfo.style.margin = "5px auto";
+selectedInfo.style.padding = "5px";
+selectedInfo.style.borderRadius = "5px";
+selectedInfo.className = "text-center";
 
 const months = [
   "January",
@@ -72,6 +212,18 @@ function formatPretty(dateStr) {
   const [y, m, d] = dateStr.split("-");
   const mm = months[Number(m) - 1];
   return `${Number(d)} ${mm} ${y}`;
+}
+
+function getAttendanceStatus(dateStr) {
+  const attendanceData = getItem("allAttendance") || [];
+  const record = attendanceData.find((rec) => rec.date === dateStr);
+  if (!record) return "No Record";
+  if (record.isLeave) return "Leave";
+  if (record.isWFH) return "Work From Home";
+  if (record.status === "Absent") return "Absent";
+  if (record.status === "Present" && record.minutesLate > 0) return "Late";
+  if (record.status === "Present") return "Present";
+  return "Unknown";
 }
 
 function renderCalendar(month, year) {
@@ -108,7 +260,8 @@ function renderCalendar(month, year) {
         ) {
           span.classList.add("day-today");
           span.classList.add("day-selected");
-          selectedInfo.textContent = `Selected: ${formatPretty(ds)}`;
+          const status = getAttendanceStatus(ds);
+          selectedInfo.textContent = ` ${ds} - ${status}`;
         }
 
         span.addEventListener("click", function () {
@@ -116,9 +269,8 @@ function renderCalendar(month, year) {
             .querySelectorAll(".calendar-table .day")
             .forEach((d) => d.classList.remove("day-selected"));
           this.classList.add("day-selected");
-          selectedInfo.textContent = `Selected: ${formatPretty(
-            this.dataset.date
-          )}`;
+          const status = getAttendanceStatus(this.dataset.date);
+          selectedInfo.textContent = `  ${status}`;
         });
 
         cell.appendChild(span);
@@ -153,3 +305,27 @@ nextBtn.addEventListener("click", () => {
 });
 
 renderCalendar(displayedMonth, displayedYear);
+
+// dark Mode
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("themeIcon");
+  const html = document.documentElement;
+
+  // Check saved theme
+  const savedTheme = localStorage.getItem("theme") || "light";
+  html.setAttribute("data-bs-theme", savedTheme);
+  themeIcon.classList.toggle("fa-sun", savedTheme === "dark");
+  themeIcon.classList.toggle("fa-moon", savedTheme === "light");
+
+  // Toggle theme on button click
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = html.getAttribute("data-bs-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    html.setAttribute("data-bs-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+
+    themeIcon.classList.toggle("fa-sun", newTheme === "dark");
+    themeIcon.classList.toggle("fa-moon", newTheme === "light");
+  });
+});
