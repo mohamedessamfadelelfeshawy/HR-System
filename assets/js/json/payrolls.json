@@ -2,6 +2,7 @@
   {
     "id": 1,
     "employeeId": 1,
+    "name": "Ahmed Mostafa",
     "month": "2025-06",
     "baseSalary": 11000,
     "deductions": 200,
@@ -12,6 +13,7 @@
   {
     "id": 2,
     "employeeId": 2,
+    "name": "Noha Ali",
     "month": "2025-06",
     "baseSalary": 9500,
     "deductions": 150,
@@ -22,6 +24,7 @@
   {
     "id": 3,
     "employeeId": 3,
+    "name": "Omar Hassan",
     "month": "2025-06",
     "baseSalary": 12500,
     "deductions": 300,
@@ -32,6 +35,7 @@
   {
     "id": 4,
     "employeeId": 4,
+    "name": "Sara Mahmoud",
     "month": "2025-06",
     "baseSalary": 8700,
     "deductions": 220,
@@ -42,6 +46,7 @@
   {
     "id": 5,
     "employeeId": 5,
+    "name": "Youssef Adel",
     "month": "2025-06",
     "baseSalary": 10000,
     "deductions": 180,
@@ -52,6 +57,7 @@
   {
     "id": 6,
     "employeeId": 6,
+    "name": "Mona Ibrahim",
     "month": "2025-06",
     "baseSalary": 11200,
     "deductions": 250,
@@ -62,6 +68,7 @@
   {
     "id": 7,
     "employeeId": 7,
+    "name": "Karim Nabil",
     "month": "2025-06",
     "baseSalary": 9800,
     "deductions": 100,
@@ -72,6 +79,7 @@
   {
     "id": 8,
     "employeeId": 8,
+    "name": "Laila Hassan",
     "month": "2025-06",
     "baseSalary": 10700,
     "deductions": 210,
@@ -82,6 +90,7 @@
   {
     "id": 9,
     "employeeId": 9,
+    "name": "Mostafa Kamal",
     "month": "2025-06",
     "baseSalary": 9400,
     "deductions": 160,
@@ -92,6 +101,7 @@
   {
     "id": 10,
     "employeeId": 10,
+    "name": "Hana Tarek",
     "month": "2025-06",
     "baseSalary": 11800,
     "deductions": 300,
@@ -102,6 +112,7 @@
   {
     "id": 11,
     "employeeId": 11,
+    "name": "Ola Samir",
     "month": "2025-06",
     "baseSalary": 10200,
     "deductions": 190,
@@ -112,6 +123,7 @@
   {
     "id": 12,
     "employeeId": 12,
+    "name": "Hossam Fathy",
     "month": "2025-06",
     "baseSalary": 11500,
     "deductions": 270,
@@ -122,6 +134,7 @@
   {
     "id": 13,
     "employeeId": 13,
+    "name": "Nour El Sherif",
     "month": "2025-06",
     "baseSalary": 8800,
     "deductions": 120,
@@ -132,6 +145,7 @@
   {
     "id": 14,
     "employeeId": 14,
+    "name": "Fady Magdy",
     "month": "2025-06",
     "baseSalary": 9700,
     "deductions": 150,
@@ -142,61 +156,12 @@
   {
     "id": 15,
     "employeeId": 15,
+    "name": "Aya Mohamed",
     "month": "2025-06",
     "baseSalary": 11100,
     "deductions": 280,
     "bonus": 1200,
     "penalties": 90,
     "netSalary": 11930
-  },
-  {
-    "id": 16,
-    "employeeId": 16,
-    "month": "2025-06",
-    "baseSalary": 9300,
-    "deductions": 140,
-    "bonus": 650,
-    "penalties": 0,
-    "netSalary": 9810
-  },
-  {
-    "id": 17,
-    "employeeId": 17,
-    "month": "2025-06",
-    "baseSalary": 12400,
-    "deductions": 350,
-    "bonus": 1600,
-    "penalties": 0,
-    "netSalary": 13650
-  },
-  {
-    "id": 18,
-    "employeeId": 18,
-    "month": "2025-06",
-    "baseSalary": 8900,
-    "deductions": 200,
-    "bonus": 700,
-    "penalties": 40,
-    "netSalary": 9360
-  },
-  {
-    "id": 19,
-    "employeeId": 19,
-    "month": "2025-06",
-    "baseSalary": 10800,
-    "deductions": 260,
-    "bonus": 1000,
-    "penalties": 70,
-    "netSalary": 11470
-  },
-  {
-    "id": 20,
-    "employeeId": 20,
-    "month": "2025-06",
-    "baseSalary": 9500,
-    "deductions": 180,
-    "bonus": 850,
-    "penalties": 20,
-    "netSalary": 10150
   }
 ]
