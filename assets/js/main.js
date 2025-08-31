@@ -1,4 +1,4 @@
-/// <reference types="../@types/jquery" />
+// <reference types="../@types/jquery" />
 const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const valEmail = document.getElementById("email");
@@ -95,7 +95,7 @@ submit.addEventListener("click", (e) => {
         if (getEmployee(employees, "Manager")) {
           window.location = "../../manager/manager.html";
         } else if (getEmployee(employees, "Employee")) {
-          window.location = "../../employee/employee.html";
+          window.location = "../../employee/attendence.html";
         } else if (getEmployee(employees, "Security")) {
           window.location = "../../security/security.html";
         } else if (getEmployee(employees, "HR")) {
@@ -113,10 +113,7 @@ submit.addEventListener("click", (e) => {
 
 
 
-
-
-
-
+ 
 
 
 

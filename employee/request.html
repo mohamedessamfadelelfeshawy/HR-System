@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,12 +13,12 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light fade p-0">
+      <nav class="navbar navbar-expand-lg fade p-0">
         <div
-          class="container d-flex justify-content-between align-items-center rounded-2 p-3">
+          class="container d-flex justify-content-between align-items-center rounded-2">
           <div class="logo d-flex align-items-center">
             <img
-              src="../assets/images/employee/requestLogo.jpg"
+              src="../assets/images/logo.jpg"
               class="img-fluid rounded-3"
               alt="Logo" />
             <h3 class="ms-2 mb-0">Request</h3>
@@ -38,86 +38,196 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="employee.html">Profile</a>
+                <a class="nav-link" href="attendence.html">Attendance</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="task.html">Tasks</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="attendence.html">Attendance</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#request">Requests</a>
               </li>
             </ul>
             <div class="dark-log d-flex m-3 justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>
-              <i class="fa-solid fa-moon"></i>
+              <button class="btn" title="logout">
+                <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>
+              </button>
+
+              <button id="themeToggle" class="btn" title="darktheme">
+                <i id="themeIcon" class="fa-solid fa-moon"></i>
+              </button>
             </div>
           </div>
         </div>
       </nav>
     </header>
+
     <main>
-      <section class="req fade" id="request">
-        <div
-          class="form d-flex justify-content-center align-items-center shadow">
-          <div class="row">
-            <div class="col">
-              <form action="" class="rounded p-4 bg-light shadow-lg">
-                <!-- add id -->
-                <div class="mb-3">
-                  <label for="sele" class="form-label">ID</label>
-                  <span class="ms-2">1</span>
+      <section class="req-sec" id="request">
+        <div class="container">
+          <div
+            class="req d-flex justify-content-center flex-column align-items-center py-5">
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn fade req-btn mb-3"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+              Make Request
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Request Form
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="" class="rounded text-center">
+                      <!-- add id -->
+                      <div class="mb-3">
+                        <label for="sele" class="form-label">ID</label>
+                        <span class="ms-2 p-1 rounded">1</span>
+                      </div>
+                      <!-- type of requests -->
+                      <div class="mb-3">
+                        <label for="sel" class="form-label"
+                          >Type of Request</label
+                        >
+                        <select
+                          name="req-type"
+                          id="sel"
+                          class="form-select p-2 shadow-sm rounded"
+                          title="choose reason">
+                          <option value="reason" selected>choose reason</option>
+                          <option value="late">Late</option>
+                          <option value="wfh">Work From Home</option>
+                          <option value="absence">Absence</option>
+                          <option value="over">Over Time</option>
+                          <option value="deadline">Deadline</option>
+                        </select>
+                      </div>
+                      <!-- reason -->
+                      <div class="mb-3">
+                        <label for="reason" class="form-label">Reason</label>
+                        <textarea
+                          id="reason"
+                          title="reason"
+                          placeholder="Write Reason"
+                          class="form-control p-3 rounded shadow-sm"
+                          rows="4"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="intial" class="form-label">Date</label>
+                        <input
+                          type="date"
+                          name="in-date"
+                          id="intial"
+                          class="form-control p-2 shadow-sm rounded text-center" />
+                      </div>
+                      <div class="text-center">
+                        <input
+                          type="submit"
+                          value="submit"
+                          class="main-button btn p-2 rounded shadow w-100" />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="btn save-btn">
+                      Save changes
+                    </button>
+                  </div>
                 </div>
-                <!-- type of requests -->
-                <div class="mb-3">
-                  <label for="sel" class="form-label">Type of Request</label>
-                  <select
-                    name="req-type"
-                    id="sel"
-                    class="form-select p-2 shadow-sm rounded"
-                    title="choose reason">
-                    <option value="reason" selected>choose reason</option>
-                    <option value="late">Late</option>
-                    <option value="wfh">Work From Home</option>
-                    <option value="absence">Absence</option>
-                    <option value="over">Over Time</option>
-                    <option value="deadline">Deadline</option>
-                  </select>
-                </div>
-                <!-- reason -->
-                <div class="mb-3">
-                  <label for="reason" class="form-label">Reason</label>
-                  <textarea
-                    id="reason"
-                    title="reason"
-                    placeholder="Write Reason"
-                    class="form-control p-3 rounded shadow-sm"
-                    rows="4"></textarea>
-                </div>
-                <div class="mb-3">
-                  <label for="intial" class="form-label">Date</label>
-                  <input
-                    type="date"
-                    name="in-date"
-                    id="intial"
-                    class="form-control p-2 shadow-sm rounded text-center" />
-                </div>
-                <div class="text-center">
-                  <input
-                    type="submit"
-                    value="submit"
-                    class="main-button btn btn-primary p-2 rounded shadow w-100" />
-                </div>
-              </form>
+              </div>
+            </div>
+
+            <!-- Requests Table -->
+            <div class="table-responsive fade w-100">
+              <table class="table rounded">
+                <thead>
+                  <tr class="text-nowrap text-center">
+                    <th>ID</th>
+                    <th>Request</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody class="text-center">
+                  <tr class="text-nowrap">
+                    <td data-label="ID">1</td>
+                    <td data-label="Request">Work From Home</td>
+                    <td data-label="Status">
+                      <span class="accept p-2 rounded">Accepted</span>
+                    </td>
+                    <td data-label="Date">1 July 2025</td>
+                  </tr>
+                  <tr class="text-nowrap">
+                    <td data-label="ID">2</td>
+                    <td data-label="Request">Absence</td>
+                    <td data-label="Status">
+                      <span class="reject p-2 rounded">Rejected</span>
+                    </td>
+                    <td data-label="Date">10 July 2025</td>
+                  </tr>
+                  <tr class="text-nowrap">
+                    <td data-label="ID">3</td>
+                    <td data-label="Request">Leave</td>
+                    <td data-label="Status">
+                      <span class="accept p-2 rounded">Accepted</span>
+                    </td>
+                    <td data-label="Date">20 July 2025</td>
+                  </tr>
+                  <tr class="text-nowrap">
+                    <td data-label="ID">4</td>
+                    <td data-label="Request">Late</td>
+                    <td data-label="Status">
+                      <span class="accept p-2 rounded">Accepted</span>
+                    </td>
+                    <td data-label="Date">25 July 2025</td>
+                  </tr>
+                  <tr class="text-nowrap">
+                    <td data-label="ID">5</td>
+                    <td data-label="Request">Overtime</td>
+                    <td data-label="Status">
+                      <span class="accept p-2 rounded">Accepted</span>
+                    </td>
+                    <td data-label="Date">28 July 2025</td>
+                  </tr>
+                  <tr class="text-nowrap">
+                    <td data-label="ID">6</td>
+                    <td data-label="Request">Deadline</td>
+                    <td data-label="Status">
+                      <span class="reject p-2 rounded">Rejected</span>
+                    </td>
+                    <td data-label="Date">31 July 2025</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </section>
-      <section></section>
-      <section></section>
     </main>
+
     <footer></footer>
 
     <script src="../assets/js/bootstrap.bundle.js"></script>

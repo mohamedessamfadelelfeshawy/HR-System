@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,8 @@
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="../assets/css/manger/tasks.css">
 </head>
-<body >
 
+<<<<<<< HEAD
 <div >
     <nav class="navbar navbar-expand-lg navbar-light  colorBtn  sticky-top rounded shadow ">
   <div class="container">
@@ -44,9 +45,49 @@
         
       </ul>
     </div>
+=======
+<body>
+
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light  colorBtn   shadow ">
+      <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40"
+            class="rounded-circle me-2">
+          <span class="fw-bold  fs-6">Tasks Dashboard</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-center fw-bold">
+            <li class="nav-item"><a class="nav-link" href="manager.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="attendance.html">Attendance</a></li>
+            <li class="nav-item"><a class="nav-link" href="taskes.html">Tasks</a></li>
+            <li class="nav-item"><a class="nav-link" href="requestes.html">Requests</a></li>
+
+
+
+            <li>
+              <button class="border-0 bg-transparent" id="toggleTheme">
+                <i class="fa-solid fa-moon p-3 rounded-circle fs-5"></i>
+              </button>
+            </li>
+
+            <li class="nav-item  mb-2 mb-lg-0 me-lg-2 logoutIcon">
+              <a class="btn  btn-sm " href="#"><i class="fa-solid fa-arrow-right-from-bracket me-3  fs-5"></i></a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+>>>>>>> 954e187c141a45269b4d619e75170f484c996b48
   </div>
-</nav>
-</div>
 
 
 
@@ -54,14 +95,23 @@
   <div class="container mt-4">
     <!-- Add Task Form -->
     <form class=" g-3 mb-4 mt-5">
-  <div class="col-md-12 mb-3 d-flex justify-content-end">
-  <button type="button" class="btn colorBtn  ms-auto " data-bs-toggle="modal" data-bs-target="#addTaskModal">
-    Add Task
-  </button>
-</div>
-
-
+      <div class="col-md-12 mb-3 d-flex justify-content-end">
+        <button type="button" class="btn colorBtn  ms-auto " data-bs-toggle="modal" data-bs-target="#addTaskModal">
+          Add Task
+        </button>
+      </div>
     </form>
+
+    
+      <!-- btn and search -->
+      <div class="container mt-4">
+        <form class="row g-3 align-items-center">
+          <div class="col-md-6">
+            <input id="search" type="text" class="form-control" placeholder="Employee Task">
+          </div>
+
+        </form>
+      </div>
 
     <!-- Tasks Table -->
     <table class=" table table-hover align-middle  table-striped mt-5 controlFont">
@@ -75,73 +125,9 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Create Login Page</td>
-          <td>Ali</td>
-          <td>2025-09-05</td>
-          <td><span class="badge bg-warning">Pending</span></td>
-          <td>
-           <button class="btn btn-sm "><i class="fas fa-check-circle text-success"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Fix Navbar Bug</td>
-          <td>Hoda</td>
-          <td>2025-09-07</td>
-          <td><span class="badge bg-success">Done</span></td>
-          <td>
-            <button class="btn btn-sm "><i class="fas fa-check-circle text-success"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Create Login Page</td>
-          <td>Ali</td>
-          <td>2025-09-05</td>
-          <td><span class="badge bg-warning">Pending</span></td>
-          <td>
-           <button class="btn btn-sm "><i class="fas fa-check-circle text-success"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Fix Navbar Bug</td>
-          <td>Hoda</td>
-          <td>2025-09-07</td>
-          <td><span class="badge bg-success">Done</span></td>
-          <td>
-            <button class="btn btn-sm "><i class="fas fa-check-circle text-success"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Create Login Page</td>
-          <td>Ali</td>
-          <td>2025-09-05</td>
-          <td><span class="badge bg-warning">Pending</span></td>
-          <td>
-           <button class="btn btn-sm "><i class="fas fa-check-circle text-success"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Fix Navbar Bug</td>
-          <td>Hoda</td>
-          <td>2025-09-07</td>
-          <td><span class="badge bg-success">Done</span></td>
-          <td>
-            <button class="btn btn-sm "><i class="fas fa-check-circle text-success"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
+      <tbody id="tBody">
+
+
       </tbody>
     </table>
   </div>
@@ -150,52 +136,53 @@
 
 
   <!-- pop up window -->
-   <!-- Add Task  -->
-<div class="modal fade" id="addTaskModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      
-      <div class="modal-header">
-        <h5 class="modal-title">Add New Task</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+  <!-- Add Task  -->
+  <div  class="modal fade" id="addTaskModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
 
-      <div class="modal-body">
-        <form id="taskForm">
-          <div class="mb-3">
-            <label class="form-label">Task Title</label>
-            <input type="text" class="form-control" id="taskTitle" placeholder="Enter task title" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Assigned To</label>
-            <input type="text" class="form-control" id="taskAssigned" placeholder="Employee name" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Deadline</label>
-            <input type="date" class="form-control" id="taskDeadline" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Status</label>
-            <select class="form-select" id="taskStatus">
-              <option value="Pending">Pending</option>
-              <option value="In Progress">In Progress</option>
-              <option value="Done">Done</option>
-            </select>
-          </div>
-        </form>
-      </div>
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn colorBtn" id="saveTask">Save Task</button>
-      </div>
+        <div class="modal-body">
+          <form id="taskForm">
+            <div class="mb-3">
+              <label class="form-label">Task Title</label>
+              <input type="text" class="form-control" id="taskTitle" placeholder="Enter task title" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Assigned To</label>
+              <input type="text" class="form-control" id="taskAssigned" placeholder="Employee name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Deadline</label>
+              <input type="date" class="form-control" id="taskDeadline" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Status</label>
+              <select class="form-select" id="taskStatus">
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Done">Done</option>
+              </select>
+            </div>
+          </form>
+        </div>
 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn colorBtn" id="saveTask">Save Task</button>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 
 
-   <script src="../assets/js/bootstrap.bundle.js"></script>
-  <script src="../assets/js/manger/taskes.js"></script>
+  <script src="../assets/js/bootstrap.bundle.js"></script>
+  <script type="module"  src="../assets/js/manger/taskes.js"></script>
 </body>
+
 </html>

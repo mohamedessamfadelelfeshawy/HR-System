@@ -6,13 +6,16 @@
   box-sizing: border-box;
 }
 
-/* variables */
 :root {
   --mint-green-color: #00a2ca;
-  --green-color: #1abc9c;
-  --teal-gradient: linear-gradient(135deg, #1abc9c, #00a2ca);
+  --teal-gradient: linear-gradient(135deg, #00a2ca);
   --white-color: #fff;
   --th-color: #878a99;
+}
+
+body {
+  font-size: 18px;
+  background: #f9f9f9;
 }
 
 /* navbar */
@@ -36,7 +39,9 @@
             font-size: 1.2rem;
             color: var(--white-color);
             &:hover {
+              background-color: var(--white-color);
               color: var(--mint-green-color);
+              border-radius: 5px;
             }
           }
         }
@@ -46,135 +51,110 @@
       i {
         font-size: 1.5rem;
         cursor: pointer;
-        color: var(--mint-green-color);
+        color: var(--white-color);
       }
     }
   }
-}
+} 
 
-/* component */
-.main-button {
+.main-button,
+.req-btn,
+.save-btn {
   background-color: var(--mint-green-color);
   color: var(--white-color);
   border: none;
-  transition: all 0.3s ease;
   font-weight: bold;
-}
-.main-button:hover {
-  transform: scale(1.05);
-  background-color: #008bb9;
-}
-
-/* request */
-.req {
-  min-height: 100vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  .form {
-    flex-grow: 1; 
-    .row {
-      form {
-        background: rgba(255, 255, 255, 0.95);
-        width: 500px;
-        select.form-select,
-        textarea.form-control,
-        input.form-control {
-          border: 1px solid #e0e0e0;
-          border-radius: 8px;
-          padding: 10px 12px;
-          background-color: #f9f9f9;
-          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-          transition: all 0.3s ease;
-          font-size: 1rem;
-          color: #333;
-        }
-        select.form-select {
-          height: 40px;
-          &:focus {
-            border-color: var(--mint-green-color);
-            box-shadow: 0 0 5px rgba(0, 162, 202, 0.5);
-          }
-          option {
-            background-color: var(--white-color);
-            color: #000;
-            &:hover {
-              background-color: var(--green-color);
-              color: var(--white-color);
-            }
-          }
-        }
-        textarea.form-control {
-          resize: vertical;
-          min-height: 120px;
-          line-height: 1.6;
-          &:focus {
-            border-color: var(--mint-green-color);
-            box-shadow: 0 0 5px rgba(0, 162, 202, 0.5);
-          }
-        }
-        input.form-control[type="date"] {
-          height: 40px;
-          &:focus {
-            border-color: var(--mint-green-color);
-            box-shadow: 0 0 5px rgba(0, 162, 202, 0.5);
-          }
-          &::-webkit-calendar-picker-indicator {
-            filter: invert(0.5);
-            cursor: pointer;
-          }
-        }
-        input[type="submit"].main-button {
-          margin-top: 20px;
-          padding: 12px;
-          font-size: 1.1rem;
-          border-radius: 8px;
-        }
-        .form-label {
-          font-weight: 500;
-          color: #444;
-          margin-bottom: 5px;
-        }
-      }
-    }
+  &:hover {
+    background-color: var(--mint-green-color);
+    color: var(--white-color);
   }
 }
 
-/* Media Query */
-@media all and (max-width: 768px) {
-  /* navbar */
-  .navbar {
-    .container {
-      .logo {
-        img {
-          display: none;
-        }
-        h3 {
-          display: none;
-        }
-      }
-      #navbarTogglerDemo03 {
-        ul {
-          li {
-            text-align: center;
-          }
-        }
-      }
-    }
+.modal-body {
+  label {
+    font-weight: bold;
   }
-  .req .form form {
-    max-width: 90%;
-    min-height: 450px;
+  span {
+    background-color: var(--mint-green-color);
+    color: var(--white-color);
+  }
+}
+
+.table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  th,
+  td {
     padding: 15px;
   }
+
+  .accept {
+    background: #d1e7dd;
+    color: #0f5132;
+    font-weight: 500;
+  }
+
+  .reject {
+    background: #f8d7da;
+    color: #842029;
+    font-weight: 500;
+  }
 }
 
-/* animation */
+@media all and (max-width: 768px) {
+  .navbar {
+    .logo {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      h3 {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  table {
+    thead {
+      display: none;
+    }
+    tbody {
+      tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background: #fff;
+
+        td {
+          display: flex;
+          justify-content: space-between;
+          padding: 8px;
+          border: none !important;
+
+          &::before {
+            content: attr(data-label);
+            font-weight: bold;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+
+  .modal-dialog {
+    margin: 10px;
+  }
+}
+
 .fade {
-  animation: fade 3s ease-in-out 1 forwards;
+  animation: fade 1s ease-in-out 1 forwards;
 }
 
-/* Animation */
 @keyframes fade {
   0% {
     opacity: 0;
@@ -184,4 +164,63 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Dark Mode Theme */
+[data-bs-theme="dark"] {
+  --mint-green-color: #00a2ca;
+  --white-color: #e0e1dd;
+  --th-color: #b0b3b8;
+
+  background-color: #0d1b2a;
+  color: var(--white-color);
+}
+
+[data-bs-theme="dark"] body {
+  background-color: #0d1b2a;
+  color: var(--white-color);
+}
+
+[data-bs-theme="dark"] .navbar {
+  background: #1e2a3b;
+}
+
+[data-bs-theme="dark"] .nav-link:hover {
+  background-color: var(--white-color);
+  color: #1b263b;
+  border-radius: 5px;
+}
+
+[data-bs-theme="dark"] span {
+  background-color: #1b263b;
+  color: var(--white-color);
+}
+
+[data-bs-theme="dark"] .table {
+  background-color: #1b263b;
+  color: var(--white-color);
+}
+
+[data-bs-theme="dark"] .modal-content {
+  background-color: #1b263b;
+  color: var(--white-color);
+}
+
+[data-bs-theme="dark"] .req-btn,
+[data-bs-theme="dark"] .main-button {
+  background-color: #1b263b;
+  color: var(--white-color);
+}
+
+[data-bs-theme="dark"] .save-btn {
+  background-color: var(--white-color);
+  color: #1b263b;
+}
+
+[data-bs-theme="dark"] .req-btn:hover,
+[data-bs-theme="dark"] .main-button:hover,
+[data-bs-theme="dark"] .save-btn:hover {
+  background-color: #1b263b;
+  color: var(--white-color);
+  border-radius: 5px;
 }

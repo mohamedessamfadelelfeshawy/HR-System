@@ -1,27 +1,40 @@
-
-.colorBtn{
-  background-color: #00A2CA;
-}
-/* .colorBtn:hover{
-  color: #0d1b2a !important;
-} */
-.colorIcon{
-  color: #00A2CA;
+.colorBtn {
+  background-color: #00a2ca;
 }
 
-    @media (max-width: 576px) {
-    .controlFont  {
-      font-size: 12px; 
-    }
-    .controlFont th,
-    .controlFont td {
-      padding: 6px; 
-    }
-    .controlFont .badge {
-      font-size: 11px; 
-    }
+.colorIcon {
+  color: #00a2ca;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+@media (max-width: 576px) {
+  .controlFont {
+    font-size: 12px;
   }
 
+  .controlFont th,
+  .controlFont td {
+    padding: 6px;
+    white-space: nowrap;
+  }
+
+  .controlFont .badge {
+    font-size: 11px;
+  }
+
+  .btn-sm {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  /* navbar padding */
+  .navbar-brand span {
+    font-size: 13px;
+  }
+}
 
 /* dark mode start */
 [data-bs-theme="dark"] {
@@ -39,22 +52,15 @@
   --bs-navbar-bg: #1e2a3b;
 }
 
-[data-bs-theme="dark"] header {
-  background: linear-gradient(to right, #0d1b2a 50%, #183153 50%);
-}
-
-
 [data-bs-theme="dark"] .navbar {
-  background-color: #0d1b2a !important; 
+  background-color: #0d1b2a !important;
 }
 
 [data-bs-theme="dark"] .navbar .nav-link,
 [data-bs-theme="dark"] .navbar .navbar-brand {
-  color: #e0e1dd !important; 
+  color: #e0e1dd !important;
 }
 
 [data-bs-theme="dark"] .navbar .nav-link:hover {
-  color: #00a2ca !important; 
+  color: #00a2ca !important;
 }
-
-/* dark mode end */
