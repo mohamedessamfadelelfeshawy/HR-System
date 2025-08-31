@@ -178,97 +178,10 @@
         <div class="container">
           <div class="table-responsive atten-table">
             <!-- Attendence Table -->
-            <table class="table mt-5 rounded fade">
-              <thead>
-                <tr class="text-nowrap text-center">
-                  <th>ID</th>
-                  <th>Emp ID</th>
-                  <th>Date</th>
-                  <th>Check-in</th>
-                  <th>Check-out</th>
-                  <th>Status</th>
-                  <th>Minute Late</th>
-                  <th>Work From Home</th>
-                  <th>Leave</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tbody class="text-center">
-                <!-- first row -->
-                <tr class="text-nowrap">
-                  <td>1</td>
-                  <td>4</td>
-                  <td>July 01, 2025</td>
-                  <td>08:50 AM</td>
-                  <td>05:00 PM</td>
-                  <td>
-                    <span class="present p-2 rounded-1">Present</span>
-                  </td>
-                  <td>00:00 Hours</td>
-                  <td><span class="True p-2 rounded-1">True</span></td>
-                  <td><span class="False p-2 rounded-1">False</span></td>
-                  <td>Good Work</td>
-                </tr>
-                <!-- second row -->
-                <tr class="text-nowrap">
-                  <td>2</td>
-                  <td>4</td>
-                  <td>July 02, 2025</td>
-                  <td>09:00 AM</td>
-                  <td>05:00 PM</td>
-                  <td>
-                    <span class="present p-2 rounded-1">Present</span>
-                  </td>
-                  <td>00:00 Hours</td>
-                  <td><span class="False p-2 rounded-1">False</span></td>
-                  <td><span class="True p-2 rounded-1">True</span></td>
-                  <td>Good Work</td>
-                </tr>
-                <!-- third row -->
-                <tr class="text-nowrap">
-                  <td>3</td>
-                  <td>4</td>
-                  <td>July 03, 2025</td>
-                  <td>09:20 AM</td>
-                  <td>05:00 PM</td>
-                  <td><span class="late p-2 rounded-1">Late</span></td>
-                  <td>00:20 Min</td>
-                  <td><span class="False p-2 rounded-1">False</span></td>
-                  <td><span class="True p-2 rounded-1">True</span></td>
-                  <td>Good Work</td>
-                </tr>
-                <!-- fourth row -->
-                <tr class="text-nowrap">
-                  <td>4</td>
-                  <td>4</td>
-                  <td>July 04, 2025</td>
-                  <td>10:20 AM</td>
-                  <td>05:00 PM</td>
-                  <td>
-                    <span class="absence p-2 rounded-1">Absence</span>
-                  </td>
-                  <td>01:20 Hours</td>
-                  <td><span class="False p-2 rounded-1">False</span></td>
-                  <td><span class="True p-2 rounded-1">True</span></td>
-                  <td>Good Work</td>
-                </tr>
-                <!-- fifth row -->
-                <tr class="text-nowrap">
-                  <td>5</td>
-                  <td>4</td>
-                  <td>July 04, 2025</td>
-                  <td>09:00 AM</td>
-                  <td>05:00 PM</td>
-                  <td>
-                    <span class="present p-2 rounded-1">Present</span>
-                  </td>
-                  <td>00:00 Min</td>
-                  <td><span class="True p-2 rounded-1">True</span></td>
-                  <td><span class="False p-2 rounded-1">False</span></td>
-                  <td>Good Work</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- make with js -->
+            <table
+              class="table mt-5 rounded fade"
+              id="attendance-table"></table>
           </div>
         </div>
       </section>
@@ -277,6 +190,6 @@
     <footer></footer>
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/employee/attendence.js"></script>
+    <script type="module" src="../assets/js/employee/attendence.js"></script>
   </body>
 </html>
