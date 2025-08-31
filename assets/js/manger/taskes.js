@@ -14,19 +14,40 @@ setItem("allTasks", tasks);
 let localTasks = getItem("allTasks");
 
 
-
+displayData(localTasks);
 /* DISPLAY EMPLOYEE */
 function displayData(arr) {
   let emp = "";
-  arr.map(el => {
+  arr.map((el, idx) => {
     emp += `   <tr>
               <td>${el.id}</td>
+              <td>${el.description}</td>
               <td>${el.name}</td>
-              <td>${el.department}</td>
-              <td>${el.role}</td>
+              <td>${el.dueDate}</td>
+                 <td>
+        <span class="px-2 py-1 special-status rounded ${el.status === "Pending"
+        ? "bg-warning"
+        : el.status === "In Progress"
+          ? "bg-info"
+          : "bg-danger"
+      }">${el.status}</span>
+      </td>
+           <td>
+            <button class="btn btn-sm "><i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="delete-btn btn btn-sm  text-danger" data-idx="${idx}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </td>
+
             </tr>`
   })
   tBody.innerHTML = emp;
+  document.querySelectorAll(".delete-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      let idx = e.currentTarget.dataset.idx;
+      localTasks.splice(idx, 1);
+      setItem("allTasks", localTasks);
+      displayData(localTasks);
+    });
+  });
 }
 
 /* search */
@@ -35,6 +56,9 @@ search.addEventListener("input", (e) => {
   let arrFilter = tasks.filter(el => el.name.toLowerCase().includes(search.value.toLowerCase()));
   displayData(arrFilter);
 })
+
+
+/* delete task */
 
 
 
