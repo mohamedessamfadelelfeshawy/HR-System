@@ -52,3 +52,8 @@
   color: #00a2ca !important;
 }
 
+[data-bs-theme="dark"] .special-status  {
+  color:black;
+}
+
+

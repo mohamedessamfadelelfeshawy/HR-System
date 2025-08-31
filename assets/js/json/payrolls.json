@@ -6,7 +6,8 @@
     "baseSalary": 11000,
     "deductions": 200,
     "bonus": 1200,
-    "netSalary": 12000
+    "penalties": 50,
+    "netSalary": 11950
   },
   {
     "id": 2,
@@ -15,6 +16,7 @@
     "baseSalary": 9500,
     "deductions": 150,
     "bonus": 800,
+    "penalties": 0,
     "netSalary": 10150
   },
   {
@@ -24,7 +26,8 @@
     "baseSalary": 12500,
     "deductions": 300,
     "bonus": 1500,
-    "netSalary": 13700
+    "penalties": 100,
+    "netSalary": 13600
   },
   {
     "id": 4,
@@ -33,6 +36,7 @@
     "baseSalary": 8700,
     "deductions": 220,
     "bonus": 600,
+    "penalties": 0,
     "netSalary": 9080
   },
   {
@@ -42,7 +46,8 @@
     "baseSalary": 10000,
     "deductions": 180,
     "bonus": 1000,
-    "netSalary": 10820
+    "penalties": 80,
+    "netSalary": 10740
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "baseSalary": 11200,
     "deductions": 250,
     "bonus": 1100,
-    "netSalary": 12050
+    "penalties": 200,
+    "netSalary": 11850
   },
   {
     "id": 7,
@@ -60,6 +66,7 @@
     "baseSalary": 9800,
     "deductions": 100,
     "bonus": 700,
+    "penalties": 0,
     "netSalary": 10400
   },
   {
@@ -69,7 +76,8 @@
     "baseSalary": 10700,
     "deductions": 210,
     "bonus": 950,
-    "netSalary": 11440
+    "penalties": 60,
+    "netSalary": 11380
   },
   {
     "id": 9,
@@ -78,6 +86,7 @@
     "baseSalary": 9400,
     "deductions": 160,
     "bonus": 500,
+    "penalties": 0,
     "netSalary": 9740
   },
   {
@@ -87,7 +96,8 @@
     "baseSalary": 11800,
     "deductions": 300,
     "bonus": 1300,
-    "netSalary": 12800
+    "penalties": 150,
+    "netSalary": 12650
   },
   {
     "id": 11,
@@ -96,6 +106,7 @@
     "baseSalary": 10200,
     "deductions": 190,
     "bonus": 800,
+    "penalties": 0,
     "netSalary": 10810
   },
   {
@@ -105,7 +116,8 @@
     "baseSalary": 11500,
     "deductions": 270,
     "bonus": 1400,
-    "netSalary": 12630
+    "penalties": 120,
+    "netSalary": 12510
   },
   {
     "id": 13,
@@ -114,6 +126,7 @@
     "baseSalary": 8800,
     "deductions": 120,
     "bonus": 600,
+    "penalties": 0,
     "netSalary": 9280
   },
   {
@@ -123,7 +136,8 @@
     "baseSalary": 9700,
     "deductions": 150,
     "bonus": 750,
-    "netSalary": 10300
+    "penalties": 30,
+    "netSalary": 10270
   },
   {
     "id": 15,
@@ -132,7 +146,8 @@
     "baseSalary": 11100,
     "deductions": 280,
     "bonus": 1200,
-    "netSalary": 12020
+    "penalties": 90,
+    "netSalary": 11930
   },
   {
     "id": 16,
@@ -141,6 +156,7 @@
     "baseSalary": 9300,
     "deductions": 140,
     "bonus": 650,
+    "penalties": 0,
     "netSalary": 9810
   },
   {
@@ -150,6 +166,7 @@
     "baseSalary": 12400,
     "deductions": 350,
     "bonus": 1600,
+    "penalties": 0,
     "netSalary": 13650
   },
   {
@@ -159,7 +176,8 @@
     "baseSalary": 8900,
     "deductions": 200,
     "bonus": 700,
-    "netSalary": 9400
+    "penalties": 40,
+    "netSalary": 9360
   },
   {
     "id": 19,
@@ -168,7 +186,8 @@
     "baseSalary": 10800,
     "deductions": 260,
     "bonus": 1000,
-    "netSalary": 11540
+    "penalties": 70,
+    "netSalary": 11470
   },
   {
     "id": 20,
@@ -177,6 +196,7 @@
     "baseSalary": 9500,
     "deductions": 180,
     "bonus": 850,
-    "netSalary": 10170
+    "penalties": 20,
+    "netSalary": 10150
   }
 ]
