@@ -14,22 +14,22 @@
 
   <body> 
 <!-- navbar start -->
-<div class="">
-    <nav class="navbar navbar-expand-lg navbar-light  colorBtn  my-3 rounded shadow ">
+
+    <nav class="navbar navbar-expand-lg navbar-light  colorBtn   rounded shadow sticky-top mb-5">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40" class="rounded-circle me-2">
-      <span class="fw-bold  fs-6">Manager Dashboard</span>
+      <span class="fw-bold  fs-6 ">Manager Dashboard</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav align-items-center fw-bold">
-        <li class="nav-item"><a class="nav-link" href="manager.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="attendance.html">Attendance</a></li>
-        <li class="nav-item"><a class="nav-link" href="taskes.html">Tasks</a></li>
-        <li class="nav-item"><a class="nav-link" href="requestes.html">Requests</a></li>
+        <li class="nav-item"><a class="nav-link " href="manager.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link " href="attendance.html">Attendance</a></li>
+        <li class="nav-item"><a class="nav-link " href="taskes.html">Tasks</a></li>
+        <li class="nav-item"><a class="nav-link " href="requestes.html">Requests</a></li>
         <!-- <li class="nav-item  mb-2 mb-lg-0 me-lg-2 logoutIcon">
            <a class="btn  btn-sm " href="#"><i class="fa-solid fa-arrow-right-from-bracket me-3 text-primary fs-4"></i></a>
         </li> -->
@@ -38,7 +38,7 @@
        <li>
         
   <button class="border-0 bg-transparent" id="toggleTheme">
-    <i class="fa-solid fa-moon p-3 rounded-circle fs-5"></i>
+    <i class="fa-solid fa-moon p-3 rounded-circle fs-5 "></i>
   </button>
 
 
@@ -52,7 +52,7 @@
     </div>
   </div>
 </nav>
-</div>
+
 <!-- navbar end -->
 
       
@@ -60,22 +60,22 @@
     
 
      <!-- Cards -->
-  <div class="container my-4">
+  <div class="container my-4 mt-5">
     <div class="row g-3 text-center">
       <div class="col-md-4">
-        <div class="card shadow-sm p-3">
+        <div class="card shadow-sm p-3 kpi-card">
           <h5>Total Employees</h5>
           <p class="fs-4 fw-bold">25</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card shadow-sm p-3">
+        <div class="card shadow-sm p-3 kpi-card">
           <h5>Total Tasks</h5>
           <p class="fs-4 fw-bold">120</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card shadow-sm p-3">
+        <div class="card shadow-sm p-3 kpi-card">
           <h5>Requests</h5>
           <p class="fs-4 fw-bold">8</p>
         </div>
@@ -142,111 +142,7 @@
 
 <!-- add employee end -->
 
-   <!-- <div class="container mt-2">
-  <div class="table-responsive">
-    <table class="table table-hover align-middle  table-striped">
-      <thead class="table-light">
-        <tr>
-          <th scope="col">Employee Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Department</th>
-          <th scope="col">Designation</th>
-          <th scope="col">Email</th>
-          <th scope="col">Password</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>#MZ-001</td>
-          <td class="d-flex align-items-center">
-            <img src="../assets/images/user-1.jpg" class="rounded-circle me-2" width="20" height="20" alt="User">
-            <span class="text-truncate" style="max-width:120px;">Harry Potter</span>
-          </td>
-          <td class="text-truncate" style="max-width:150px;">harry@gmail.com</td>
-          <td>Technology</td>
-          <td>System Manager</td>
-          <td>0123456789</td>
-         
-          <td>
-           <button class="btn btn-sm "><i class="fas fa-edit"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
 
-        <tr>
-          <td>#MZ-001</td>
-          <td class="d-flex align-items-center">
-            <img src="../assets/images/user-1.jpg" class="rounded-circle me-2" width="40" height="40" alt="User">
-            <span class="text-truncate" style="max-width:120px;">Harry Potter</span>
-          </td>
-          <td class="text-truncate" style="max-width:150px;">harry@gmail.com</td>
-          <td>Technology</td>
-          <td>System Manager</td>
-          <td>0123456789</td>
-          
-          <td>
-             <button class="btn btn-sm "><i class="fas fa-edit"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-
-        
-         <tr>
-          <td>#MZ-001</td>
-          <td class="d-flex align-items-center">
-            <img src="../assets/images/user-1.jpg" class="rounded-circle me-2" width="40" height="40" alt="User">
-            <span class="text-truncate" style="max-width:120px;">Harry Potter</span>
-          </td>
-          <td class="text-truncate" style="max-width:150px;">harry@gmail.com</td>
-          <td>Technology</td>
-          <td>System Manager</td>
-          <td>0123456789</td>
-     
-          <td>
-            <button class="btn btn-sm "><i class="fas fa-edit"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-
-         <tr>
-          <td>#MZ-001</td>
-          <td class="d-flex align-items-center">
-            <img src="../assets/images/user-1.jpg" class="rounded-circle me-2" width="40" height="40" alt="User">
-            <span class="text-truncate" style="max-width:120px;">Harry Potter</span>
-          </td>
-          <td class="text-truncate" style="max-width:150px;">harry@gmail.com</td>
-          <td>Technology</td>
-          <td>System Manager</td>
-          <td>0123456789</td>
-         
-          <td>
-            <button class="btn btn-sm "><i class="fas fa-edit"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-
-         <tr>
-          <td>#MZ-001</td>
-          <td class="d-flex align-items-center">
-            <img src="../assets/images/user-1.jpg" class="rounded-circle me-2" width="40" height="40" alt="User">
-            <span class="text-truncate" style="max-width:120px;">Harry Potter</span>
-          </td>
-          <td class="text-truncate" style="max-width:150px;">harry@gmail.com</td>
-          <td>Technology</td>
-          <td>System Manager</td>
-          <td>0123456789</td>
-          
-          <td>
-            <button class="btn btn-sm "><i class="fas fa-edit"></i></button>
-            <button class="btn btn-sm  text-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
-  </div>
-</div> -->
 
 
 <!-- test table -->

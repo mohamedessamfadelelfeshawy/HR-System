@@ -1,39 +1,10 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 .colorBtn{
   background-color: #00A2CA;
 }
-/* .colorBtn:hover{
-  color: #0d1b2a !important;
-} */
-.colorIcon{
-  color: #00A2CA;
+
+.repots{
+    color: #00A2CA;
 }
-/* table */
-  .table-container table {
-    font-size: 16px;
-  }
-
- 
-  /* @media (max-width: 576px) {
-    .table-container table {
-      font-size: 12px; 
-    }
-    .table-container th,
-    .table-container td {
-      padding: 6px; 
-    }
-    .table-container .badge {
-      font-size: 11px; 
-    }
-  } */
-   .myBtn{
-    background-color: #00A2CA !important;
-   }
-
 .kpi-card{
     border: #00A2CA 1px solid;
     text-align: center;
@@ -45,8 +16,20 @@
   transform: scale(1.05); 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
 }
+   .btn-export {
+  color: #00A2CA !important;
+  border: 1px solid #00A2CA !important;
+  background-color: transparent !important;
+  transition: ease;
+}
+/* Hover in Light Mode */
+.btn-export:hover {
+  background-color: #00A2CA !important;
+  color: #fff !important;
+}
 
-    @media (max-width: 576px) {
+
+   @media (max-width: 576px) {
     .controlFont  {
       font-size: 12px; 
     }
@@ -58,14 +41,12 @@
       font-size: 11px; 
     }
   }
-
-
+ 
 
 /* dark mode start */
-
 [data-bs-theme="dark"] {
   --bs-body-bg: #0d1b2a;
-  --bs-body-color: #e0e1dd;
+  --bs-body-color: #9da190;
   --bs-primary: #00a2ca;
   --bs-secondary: #778da9;
   --bs-success: #4caf50;
@@ -82,24 +63,40 @@
   background: linear-gradient(to right, #0d1b2a 50%, #183153 50%);
 }
 
-/* [data-bs-theme="dark"].colorBtn:hover{
-  color: #e0e1dd !important;
-} */
-
-
 
 [data-bs-theme="dark"] .navbar {
-  background-color: #0d1b2a !important;
+  background-color: #0d1b2a !important; 
 }
 
 [data-bs-theme="dark"] .navbar .nav-link,
 [data-bs-theme="dark"] .navbar .navbar-brand {
-  color: #e0e1dd !important; 
+  color: #9da190 !important;  
 }
+
+
+/* [data-bs-theme="dark"] .hrDark  {
+  text-color: #9da190 !important;  
+} */
+/* Text in Dark Mode */
+[data-bs-theme="dark"] .hrDark {
+  color: #9da190 !important;
+}
+
+
 
 [data-bs-theme="dark"] .navbar .nav-link:hover {
-  color: #00a2ca !important; 
+  color: #00a2ca !important;
 }
 
+/* btn */
+[data-bs-theme="dark"] .btn-export {
+  background-color: #0d1b2a !important;
+  border: 1px solid #00A2CA !important;
+  color: #9da190 !important;
+}
 
-/* dark mode end */
+/* Hover in Dark Mode */
+[data-bs-theme="dark"] .btn-export:hover {
+  background-color: #00A2CA !important;
+  color: #fff !important;
+}
