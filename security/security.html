@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Attendance Board</title>
 
     <!-- Font Awesome for icons -->
@@ -18,38 +18,41 @@
 
     <!--  CSS file -->
     <link rel="stylesheet" href="css/security.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/js/json/attendance_single_day.json" />
   </head>
   <body>
-     <!-- Header -->
-      <div class=" header-bar py-3 px-3">
-        <div class="container  d-flex justify-content-between align-items-center">
-      <!--  Logo + Title -->
-        <div class="d-flex gap-2">
-          <!-- <div class="box-img-logo">
-            <img class="w-100" src="images/hrlogo.jpeg" alt="Company logo" />
-          </div> -->
-          <h3 class="fw-bold fs-3 text-white text-center">Attendance Board</h3>
+    <!-- Header -->
+    <div class="header-bar py-2 px-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!--  Logo + Title -->
+        <div class="d-flex gap-2 align-items-center">
+          <div class="box-img-logo">
+            <img class="w-100" src="images/LOGO.png" alt="Company logo" />
+          </div>
+          <h6 class="fw-bold fs-4 text-white text-center mt-2 ms-1">
+            Attendance Board
+          </h6>
         </div>
 
         <!-- Dark mode toggle + Logout icon -->
         <div class="d-flex gap-1 align-items-center">
           <button id="darkToggle" class="btn border-0 bg-transparen">
-            <i class="fa-solid fa-sun btn-spcial"></i>
+            <i class="fa-solid fa-moon btn-spcial"></i>
           </button>
-          <i class="fa-solid fa-arrow-right-from-bracket btn-spcial"></i>
+        <i class="btn-logout fa-solid fa-arrow-right-from-bracket btn-spcial"></i>
+          
         </div>
-        </div>
-  
       </div>
-    <div class="container py-4">
-     
-
+    </div>
+    <div class="container py-3">
       <div class="row g-4">
         <!-- Attendance Form -->
         <div class="col-lg-7">
           <div class="card p-4">
             <h5 class="fw-bold mb-3">
-              <i class=" clock-icon fa-solid fa-clock me-1"></i> Attendance
+              <i class="clock-icon fa-solid fa-clock me-1"></i> Attendance
             </h5>
             <form>
               <!-- Employee ID -->
@@ -60,6 +63,7 @@
                   id="employeeId"
                   placeholder="Employee ID" />
                 <label for="employeeId">Employee ID</label>
+                <div id="idError" class="text-danger smallend-0 mt-1"></div>
               </div>
 
               <!-- Employee Name -->
@@ -70,6 +74,7 @@
                   id="employeeName"
                   placeholder="Employee Name" />
                 <label for="employeeName">Employee Name</label>
+                <div id="nameError" class="text-danger smallend-0 mt-1"></div>
               </div>
 
               <!-- Date -->
@@ -91,7 +96,9 @@
               </div>
 
               <!-- Save button -->
-              <button class="btn btn-primary mt-2">Save Attendance</button>
+              <button id="btnAdd" class="btn btn-primary mt-2">
+                Save Attendance
+              </button>
             </form>
           </div>
         </div>
@@ -119,57 +126,75 @@
 
         <!-- Filter buttons -->
         <div class="mt-3 d-flex gap-2 flex-wrap">
-          <button class="btn btn-outline-success btn-sm">Present</button>
-          <button class="btn btn-outline-danger btn-sm">Absent</button>
-          <button class="btn btn-outline-warning btn-sm">Late</button>
-          <button class="btn btn-outline-secondary btn-sm">Leave</button>
+          <button
+            data-status="Present"
+            id="btnPresent"
+            class="filter-btn btn btn-outline-success btn-sm">
+            Present
+          </button>
+          <button
+            data-status="Absent"
+            class="filter-btn btn btn-outline-danger btn-sm">
+            Absent
+          </button>
+          <button
+            data-status="Late"
+            class="filter-btn btn btn-outline-warning btn-sm">
+            Late
+          </button>
+
+          <button
+            data-status="All"
+            class="filter-btn btn btn-outline-primary btn-sm">
+            All
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="errorModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-secondary">
+            <h5 class="modal-title">Missing Fields</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            Please fill in all required fields before adding an attendance.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              OK
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Attendance table -->
-  <div class="container">
-  <div class=" shadow-sm rounded">
-    <table class="table table-hover align-middle text-center mb-0">
-      <thead class="">
-        <tr>
-          <th><i class="fas fa-hashtag me-2"></i>ID</th>
-          <th><i class="fas fa-user me-2"></i>Employee Name</th>
-          <th><i class="fas fa-calendar-day me-2"></i>Date</th>
-          <th><i class="fas fa-sign-in-alt me-2"></i>Check-In</th>
-          <th><i class="fas fa-sign-out-alt me-2"></i>Check-Out</th>
-          <th><i class="fas fa-circle-info me-2"></i>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mohamed Ali</td>
-          <td>2025-08-29</td>
-          <td>09:05 AM</td>
-          <td>05:10 PM</td>
-          <td><span class="badge bg-success">Present</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Sarah Ahmed</td>
-          <td>2025-08-29</td>
-          <td>—</td>
-          <td>—</td>
-          <td><span class="badge bg-danger">Absent</span></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Omar Khaled</td>
-          <td>2025-08-29</td>
-          <td>09:45 AM</td>
-          <td>05:15 PM</td>
-          <td><span class="badge bg-warning text-dark">Late</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+    <div class="container py-3">
+      <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover align-middle text-center mb-0">
+          <thead class="">
+            <tr class="custom-header">
+              <th><i class="fas fa-hashtag me-2"></i>ID</th>
+              <th><i class="fas fa-user me-2"></i>Employee Name</th>
+              <th><i class="fas fa-calendar-day me-2"></i>Date</th>
+              <th><i class="fas fa-sign-in-alt me-2"></i>Check In</th>
+              <th><i class="fas fa-sign-out-alt me-2"></i>Check Out</th>
+              <th><i class="fas fa-circle-info me-2"></i>Status</th>
+            </tr>
+          </thead>
+          <tbody id="bodyTable"></tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- Bootstrap JS bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -182,15 +207,16 @@
       btn.addEventListener("click", () => {
         const isDark = document.body.classList.toggle("dark-mode");
         if (isDark) {
-          icon.classList.remove("fa-sun");
-          icon.classList.add("fa-moon");
-          btn.title = "Light mode";
-        } else {
           icon.classList.remove("fa-moon");
           icon.classList.add("fa-sun");
-          btn.title = "Dark mode";
+          btn.title = "Switch to Light mode";
+        } else {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+          btn.title = "Switch to Dark mode";
         }
       });
     </script>
+    <script src="js/security.js"></script>
   </body>
 </html>
