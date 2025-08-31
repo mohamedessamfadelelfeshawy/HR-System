@@ -65,71 +65,20 @@
     <main>
       <section class="tasks m-4 fade" id="task">
         <div class="container">
+          <div class="text-center">
+            <h2 class="rounded p-3 m-3">My Tasks</h2>
+          </div>
           <div class="table-responsive atten-table">
             <!-- Tasks Table -->
-            <table class="table rounded">
-              <thead>
-                <tr class="text-nowrap text-center">
-                  <!-- create with js -->
-                  <th>ID</th>
-                  <th>Task</th>
-                  <th>Status</th>
-                  <th>Done</th>
-                </tr>
-              </thead>
-              <tbody class="text-center">
-                <!-- first row -->
-                <tr class="text-nowrap">
-                  <td>1</td>
-                  <td>Task 1</td>
-                  <td><button class="btn rounded">Done</button></td>
-                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                  <td><button class="btn rounded">Waiting</button></td>
-                </tr>
-                <!-- second row -->
-                <tr class="text-nowrap">
-                  <td>2</td>
-                  <td>Task 2</td>
-                  <td><button class="btn rounded">Done</button></td>
-                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                  <td><button class="btn rounded">Waiting</button></td>
-                </tr>
-                <!-- third row -->
-                <tr class="text-nowrap">
-                  <td>3</td>
-                  <td>Task 3</td>
-                  <td><button class="btn rounded">Done</button></td>
-                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                  <td><button class="btn rounded">Waiting</button></td>
-                </tr>
-                <!-- fourth row -->
-                <tr class="text-nowrap">
-                  <td>4</td>
-                  <td>Task 4</td>
-                  <td><button class="btn rounded">Done</button></td>
-                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                  <td><button class="btn rounded">Waiting</button></td>
-                </tr>
-                <!-- fifth -->
-                <tr class="text-nowrap">
-                  <td>5</td>
-                  <td>Task 5</td>
-                  <td><button class="btn rounded">Done</button></td>
-                  <!-- when press Done change from waiting to pending and when accepted change to Done when rejected return to waiting -->
-                  <td><button class="btn rounded">Waiting</button></td>
-                </tr>
-              </tbody>
-            </table>
+            <table id="tasksTable" class="table rounded"></table>
           </div>
         </div>
       </section>
-      <section></section>
-      <section></section>
     </main>
     <footer></footer>
 
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/employee/tasks.js"></script>
+    <script type="module" src="../assets/js/employee/tasks.js"></script>
   </body>
 </html>
