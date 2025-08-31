@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HR System">
+    <meta name="keywords" content="HTML, CSS, JavaScript ,bootstrap,jquery-3">
+    <title>admin</title>
+    <link rel="stylesheet" href="../assets/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/admin/settings.css" />
+</head>
+<body>
+  
+
+
+<!-- navbar start -->
+
+    <nav class="navbar navbar-expand-lg navbar-light  colorBtn   rounded shadow sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40" class="rounded-circle me-2">
+      <span class="fw-bold  fs-6 ">HR Admin Dashboard</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center fw-bold">
+        <li class="nav-item"><a class="nav-link " href="admin.html">Reports</a></li>
+        <li class="nav-item"><a class="nav-link " href="settings.html">Setting</a></li>
+        <li class="nav-item"><a class="nav-link " href="idelEmployee.html">Ideal Employee</a></li>
+        <li class="nav-item"><a class="nav-link " href="PayRoll.html"> Payroll</a></li>
+       
+     
+       
+      
+       <li>
+        
+  <button class="border-0 bg-transparent" id="toggleTheme">
+    <i class="fa-solid fa-moon p-3 rounded-circle fs-5 "></i>
+  </button>
+
+
+       </li>
+
+        <li class="nav-item  mb-2 mb-lg-0 me-lg-2 logoutIcon">
+           <a class="btn  btn-sm  " href="#"><i class="fa-solid fa-arrow-right-from-bracket me-3  fs-5"></i></a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- navbar end -->
+
+
+<div class="container mt-5 mb-5">
+  <h4 class="card-title mb-5 text-center repots mt-5 ">System Configurations</h4>
+</div>
+
+<div class="container mt-5">
+    <div class="card border-top-0 rounded-0 rounded-bottom shadow-sm">
+                    <div class="card-body p-4">
+                        <form id="settingsForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="overtimeMultiplier" class="form-label">Overtime Multiplier</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="overtimeMultiplier" value="1.5" step="0.25">
+                                        <span class="input-group-text">x</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="deductionCap" class="form-label">Monthly Deduction Cap</label>
+                                     <div class="input-group">
+                                        <input type="number" class="form-control" id="deductionCap" value="25">
+                                        <span class="input-group-text">% of Salary</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="idealBonus" class="form-label">Ideal Employee Bonus</label>
+                                     <div class="input-group">
+                                        <input type="number" class="form-control" id="idealBonus" value="10">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <h6>Workweek Configuration</h6>
+                            <div class="d-flex flex-wrap gap-3">
+                                <div class="form-check form-switch"><input class="form-check-input repots" type="checkbox" id="sunday" checked=""><label class="form-check-label" for="sunday">Sunday</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input repots" type="checkbox" id="monday" checked=""><label class="form-check-label" for="monday">Monday</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input repots" type="checkbox" id="tuesday" checked=""><label class="form-check-label" for="tuesday">Tuesday</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input repots" type="checkbox" id="wednesday" checked=""><label class="form-check-label" for="wednesday">Wednesday</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input repots" type="checkbox" id="thursday" checked=""><label class="form-check-label" for="thursday">Thursday</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input repots" type="checkbox" id="friday"><label class="form-check-label" for="friday">Friday</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input repots" type="checkbox" id="saturday"><label class="form-check-label" for="saturday">Saturday</label></div>
+                            </div>
+                            <div class="mt-4">
+                                <button type="submit" class="btn colorBtn btn-export">
+                                    <i class="fa-solid fa-save me-1"></i> Save Settings
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+</div>
+
+
+
+
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/admin/settings.js"></script>
+</body>
+
+</html>

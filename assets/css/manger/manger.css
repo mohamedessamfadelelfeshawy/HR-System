@@ -23,9 +23,53 @@
   .controlFont {
     font-size: 12px;
   }
+<<<<<<< HEAD
+
+ 
+  /* @media (max-width: 576px) {
+    .table-container table {
+      font-size: 12px; 
+    }
+    .table-container th,
+    .table-container td {
+      padding: 6px; 
+    }
+    .table-container .badge {
+      font-size: 11px; 
+    }
+  } */
+   .myBtn{
+    background-color: #00A2CA !important;
+   }
+
+.kpi-card{
+    border: #00A2CA 1px solid;
+    text-align: center;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px; 
+  }
+
+.kpi-card:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+    @media (max-width: 576px) {
+    .controlFont  {
+      font-size: 12px; 
+    }
+    .controlFont th,
+    .controlFont td {
+      padding: 6px; 
+    }
+    .controlFont .badge {
+      font-size: 11px; 
+    }
+=======
   .controlFont th,
   .controlFont td {
     padding: 6px;
+>>>>>>> 954e187c141a45269b4d619e75170f484c996b48
   }
   .controlFont .badge {
     font-size: 11px;
@@ -60,6 +104,15 @@
   background: linear-gradient(to right, #0d1b2a 50%, #183153 50%);
 }
 
+<<<<<<< HEAD
+/* [data-bs-theme="dark"].colorBtn:hover{
+  color: #e0e1dd !important;
+} */
+
+
+
+=======
+>>>>>>> 954e187c141a45269b4d619e75170f484c996b48
 [data-bs-theme="dark"] .navbar {
   background-color: #0d1b2a !important;
 }
