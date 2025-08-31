@@ -35,15 +35,19 @@ p {
 /* Icon styling */
 i {
   cursor: pointer;
-  transition: all 1s;
-}
 
+}
+.clock-icon{
+  color:#007c99;
+}
 /* Logo box */
 .box-img-logo {
-  width: 34px;
+  width: 80px;
+ 
+  
 }
 .box-img-logo img {
-  border-radius: 50%;
+  border-radius: 11px;
 }
 
 /* Special  buttons */
@@ -133,9 +137,13 @@ i {
 }
 
 /* Table cells in dark mode */
-.dark-mode .table td {
-  background: #1e2a3b;
-  color: #fff;
+.dark-mode .table tbody td {
+  background: #1e2a3b !important;;
+  color: #fff !important;;
+}
+.dark-mode .custom-header th {
+  background-color: #fff !important;
+ color: #1e2a3b !important;
 }
 
 /* ============================= */
@@ -144,20 +152,41 @@ i {
 .table-container table {
   font-size: 16px;
 }
- table th td {
-  background-color: #1e2a3b !important;
-  color: #fff !important;;
+.custom-header th {
+  background-color: #00a2ca !important;
+  color: #fff !important;
 }
 
-@media (max-width: 576px) {
-  .table-container table {
-    font-size: 12px !important;
+.table th, 
+.table td {
+  white-space: nowrap;   
+}
+
+.modal-header {
+  background-color: #00a2ca !important;
+  color: white  !important;
+}
+.dark-mode .modal-header {
+  background-color: #1e2a3b  !important;
+  color: white  !important;;
+}
+
+.dark-mode .modal-body{
+  color: #1e2a3b !important;
+}
+
+
+@media (max-width: 670px) {
+  .table-responsive table {
+    font-size: 11px; /* يمكنك تعديل الحجم حسب الحاجة */
   }
-  .table-container th,
-  .table-container td {
-    padding: 6px !important;
+
+  .table-responsive th,
+  .table-responsive td {
+    padding: 4px 6px; /* تقليل padding ليصبح الجدول مضغوط */
   }
-  .table-container .badge {
-    font-size: 11px !important;
+
+  .table-responsive .custom-header i {
+    font-size: 8px; /* تصغير أيقونات الهيدر */
   }
 }
