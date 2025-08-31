@@ -15,7 +15,7 @@
   <!-- Navbar -->
 
   <div class="">
-    <nav class="navbar navbar-expand-lg navbar-light colorBtn   mb-5 rounded shadow ">
+    <nav class="navbar navbar-expand-lg navbar-light colorBtn   mb-5  shadow ">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
           <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40"
@@ -51,9 +51,20 @@
 
 
   <div class=" container controlFont ">
-    <table class="table table-hover align-middle text-center mb-0 ">
+        <!-- btn and search -->
+      <div class="container my-4">
+        <form class="row g-3 align-items-center">
+          <div class="col-md-6">
+            <input id="search" type="text" class="form-control" placeholder="Employee Status">
+          </div>
+
+        </form>
+      </div>
+
+    <table class="table  table-hover align-middle text-center mb-0 ">
       <thead>
         <tr>
+          <th>Employee Id</th>
           <th>Employee Name</th>
           <th>Date</th>
           <th>Check-In</th>
@@ -61,35 +72,17 @@
           <th>Status</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Mohamed Ali</td>
-          <td>2025-08-29</td>
-          <td>09:05 AM</td>
-          <td>05:10 PM</td>
-          <td><span class="badge bg-success">Present</span></td>
-        </tr>
-        <tr>
-          <td>Sarah Ahmed</td>
-          <td>2025-08-29</td>
-          <td>—</td>
-          <td>—</td>
-          <td><span class="badge bg-danger">Absent</span></td>
-        </tr>
-        <tr>
-          <td>Omar Khaled</td>
-          <td>2025-08-29</td>
-          <td>09:45 AM</td>
-          <td>05:15 PM</td>
-          <td><span class="badge bg-warning text-dark">Late</span></td>
-        </tr>
+      <tbody id="tBody">
+    
+     
+
       </tbody>
     </table>
   </div>
 
 
   <script src="../assets/js/bootstrap.bundle.js"></script>
-  <script src="../assets/js/manger/attendance.js"></script>
+  <script type="module" src="../assets/js/manger/attendance.js"></script>
 </body>
 
 </html>

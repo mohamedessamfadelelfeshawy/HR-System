@@ -1,28 +1,49 @@
-import { fetchEmployee } from "../../../assets/js/exportFun.js";
+import { fetchEmployee, setItem, getItem } from "../../../assets/js/exportFun.js";
 const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const numEmployee = document.getElementById("numEmployee");
 const numTasks = document.getElementById("numTasks");
 const numRequests = document.getElementById("numRequests");
-const employeeTable = document.getElementById('employeeTable');
-const saveEmployeeBtn = document.getElementById('saveEmployee');
+const tBody = document.getElementById("tBody");
+const search = document.getElementById("search");
 
 
-
+/* employee */
 let employees = await fetchEmployee("/assets/js/json/employee.json");
 numEmployee.innerHTML = employees.length;
+displayData(employees);
 
-let tasks = await fetchEmployee("/assets/js/json/tasks.json");
-localStorage.setItem("allTasks", JSON.stringify(tasks));
-let localTasks = JSON.parse(localStorage.getItem("allTasks"));
-numTasks.innerHTML = localTasks.length;
+/* tasks */
+let localTasks = getItem("allTasks");
+numTasks.innerHTML = localTasks?localTasks.length:15;
 
+/* requests */
 let requests = await fetchEmployee("/assets/js/json/requests.json");
 numRequests.innerHTML = requests.length;
 
+/* DISPLAY EMPLOYEE */
+function displayData(arr) {
+  let emp = "";
+  arr.map(el => {
+    emp += `   <tr>
+              <td>${el.id}</td>
+              <td>${el.name}</td>
+              <td>${el.department}</td>
+              <td>${el.role}</td>
+            </tr>`
+  })
+  tBody.innerHTML = emp;
+}
+
+/* search */
+search.addEventListener("input", (e) => {
+  e.preventDefault();
+  let arrFilter = employees.filter(el => el.name.toLowerCase().includes(search.value.toLowerCase()));
+  displayData(arrFilter);
+})
 
 
-
+/* dark mode */
 html.setAttribute("data-bs-theme", "light");
 btn.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-bs-theme");
@@ -34,28 +55,3 @@ btn.addEventListener("click", () => {
 });
 
 
-
-
-/* // saveEmployeeBtn.addEventListener('click', () => {
-
-//   const name = document.getElementById('empName').value;
-//   const email = document.getElementById('empEmail').value;
-//   const designation = document.getElementById('empDesignation').value;
-
-//   if (name && email && designation) {
-
-//     const row = `<tr><td>${name}</td><td>${email}</td><td>${designation}</td></tr>`;
-//     employeeTable.insertAdjacentHTML('beforeend', row);
-
-
-//     document.getElementById('employeeForm').reset();
-
-
-//     const modal = bootstrap.Modal.getInstance(document.getElementById('addEmployeeModal'));
-//     modal.hide();
-//   }
-// });
-
-// // pop up end
-
- */

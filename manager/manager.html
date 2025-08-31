@@ -14,7 +14,7 @@
 
 <body>
   <!-- navbar start -->
-  <nav class="navbar navbar-expand-lg navbar-light colorBtn   shadow">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light colorBtn   shadow">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40"
@@ -77,7 +77,7 @@
       <div class="container mt-4">
         <form class="row g-3 align-items-center">
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Employee Name">
+            <input id="search" type="text" class="form-control" placeholder="Employee Name">
           </div>
 
         </form>
@@ -85,7 +85,7 @@
 
       <!-- Employee Table -->
       <div class="container mt-5">
-        <table class="table table-hover align-middle text-center mb-0 controlFont">
+        <table class="special-table table table-hover align-middle text-center mb-0 controlFont">
           <thead>
             <tr>
               <th scope="col">Employee Id</th>
@@ -94,27 +94,9 @@
               <th scope="col">Designation</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mohamed Ali</td>
-              <td>Technology</td>
-              <td>System Manager</td>
-
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Sarah Ahmed</td>
-              <td>Technology</td>
-              <td>System Manager</td>
-
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Omar Khaled</td>
-              <td>Technology</td>
-              <td>System Manager</td>
-            </tr>
+          <tbody id="tBody">
+         
+      
           </tbody>
         </table>
       </div>
