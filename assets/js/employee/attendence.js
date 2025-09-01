@@ -3,34 +3,52 @@ import {
   getItem,
   setItem,
 } from "../../../assets/js/exportFun.js";
+
 // get employee data
 async function getEmp() {
   try {
+    let divContainer = document.querySelector(".text");
+    divContainer.classList.add("fade");
     let welcomeUser = document.querySelector(".welcome-head");
-    welcomeUser.classList.add("fade");
     let empSpecial = document.querySelector(".emp-spetial");
-    empSpecial.classList.add("fade");
     let userEmail = document.querySelector(".emp-mail");
-    userEmail.classList.add("fade");
-    let devIcon = document.querySelector(".fa-briefcase");
-    devIcon.classList.add("fade");
-    let mailIcon = document.querySelector(".fa-envelope");
-    mailIcon.classList.add("fade");
-    let getData = localStorage.getItem("employee");
-    let empData = JSON.parse(getData);
-    welcomeUser.innerHTML = `Welcome ${empData.name}`;
-    empSpecial.innerHTML = `${empData.department}`;
-    userEmail.innerHTML = `${empData.email}`;
+    let getData = getItem("employee");
+    welcomeUser.innerHTML = `Welcome ${getData.name}`;
+    empSpecial.innerHTML = `${getData.department}`;
+    userEmail.innerHTML = `${getData.email}`;
   } catch (error) {
     console.error("Error fetching EmpData:", error);
     return [];
   }
 }
 
-async function getAttendData() {
+// async function getAttendData() {
+//   try {
+//     let allData = await fetchEmployee(
+//       "../../../assets/js/json/attendance-record.json"
+//     );
+//     let empData = getItem("employee");
+//     if (!empData) {
+//       console.error("No employee is logged in.");
+//       return [];
+//     }
+//     let empAttendance = allData.filter(
+//       (record) => record.employeeId === empData.id
+//     );
+//     setItem("allAttendance", empAttendance);
+//     createTable(empAttendance);
+//     return empAttendance;
+//   } catch (error) {
+//     console.error("Error fetching attendance data:", error);
+//     return [];
+//   }
+// }
+
+// get Employee Attendance From Security
+async function getSingleAttendance() {
   try {
     let allData = await fetchEmployee(
-      "../../../assets/js/json/attendance-record.json"
+      "../../../assets/js/json/attendance_single_day.json"
     );
     let empData = getItem("employee");
     if (!empData) {
@@ -40,8 +58,12 @@ async function getAttendData() {
     let empAttendance = allData.filter(
       (record) => record.employeeId === empData.id
     );
-    setItem("allAttendance", empAttendance);
+    console.log();
+    setItem("employeesAttendanceInfo", empAttendance);
+
     createTable(empAttendance);
+    cardData(empAttendance);
+    renderCalendar(displayedMonth, displayedYear); // مهم: اعادة رسم الكاليندر بعد تحميل البيانات
     return empAttendance;
   } catch (error) {
     console.error("Error fetching attendance data:", error);
@@ -49,11 +71,12 @@ async function getAttendData() {
   }
 }
 
+// create table to show data
 function createTable(Atten) {
   let attendanceTable = document.querySelector("#attendance-table");
   attendanceTable.innerHTML = "";
+  attendanceTable.classList.add("fade");
 
-  // عمل الـ Header
   let tableHeader = document.createElement("thead");
   let tableHeadRow = document.createElement("tr");
   tableHeadRow.classList.add("text-nowrap", "text-center");
@@ -124,7 +147,7 @@ function createTable(Atten) {
     lateCell.textContent = record.minutesLate || 0;
     row.appendChild(lateCell);
 
-    // Work From Home (True/False + لون)
+    // Work From Home
     let wfhCell = document.createElement("td");
     let wfhSpan = document.createElement("span");
     let wfhValue = record.isWFH ? "True" : "False";
@@ -133,7 +156,7 @@ function createTable(Atten) {
     wfhCell.appendChild(wfhSpan);
     row.appendChild(wfhCell);
 
-    // Leave (True/False + لون)
+    // Leave
     let leaveCell = document.createElement("td");
     let leaveSpan = document.createElement("span");
     let leaveValue = record.isLeave ? "True" : "False";
@@ -155,12 +178,7 @@ function createTable(Atten) {
   });
 }
 
-getAttendData();
-
-getEmp();
-
 // calendar
-
 const monthYear = document.getElementById("monthYear");
 const calendarBody = document.getElementById("calendar-body");
 const prevBtn = document.getElementById("prev");
@@ -214,14 +232,15 @@ function formatPretty(dateStr) {
   return `${Number(d)} ${mm} ${y}`;
 }
 
+// ✅ التعديل: دلوقتي بياخد من employeesAttendanceInfo مش allAttendance
 function getAttendanceStatus(dateStr) {
-  const attendanceData = getItem("allAttendance") || [];
+  const attendanceData = getItem("employeesAttendanceInfo") || [];
   const record = attendanceData.find((rec) => rec.date === dateStr);
   if (!record) return "No Record";
   if (record.isLeave) return "Leave";
   if (record.isWFH) return "Work From Home";
   if (record.status === "Absent") return "Absent";
-  if (record.status === "Present" && record.minutesLate > 0) return "Late";
+  if (record.status === "Late") return "Late";
   if (record.status === "Present") return "Present";
   return "Unknown";
 }
@@ -261,7 +280,7 @@ function renderCalendar(month, year) {
           span.classList.add("day-today");
           span.classList.add("day-selected");
           const status = getAttendanceStatus(ds);
-          selectedInfo.textContent = ` ${ds} - ${status}`;
+          selectedInfo.textContent = `${ds} - ${status}`;
         }
 
         span.addEventListener("click", function () {
@@ -270,7 +289,7 @@ function renderCalendar(month, year) {
             .forEach((d) => d.classList.remove("day-selected"));
           this.classList.add("day-selected");
           const status = getAttendanceStatus(this.dataset.date);
-          selectedInfo.textContent = `  ${status}`;
+          selectedInfo.textContent = `${this.dataset.date} - ${status}`;
         });
 
         cell.appendChild(span);
@@ -303,8 +322,35 @@ nextBtn.addEventListener("click", () => {
   selectedInfo.textContent = "Selected: —";
   renderCalendar(displayedMonth, displayedYear);
 });
-
 renderCalendar(displayedMonth, displayedYear);
+
+// card data
+function cardData(records) {
+  // cards
+  let cards = document.querySelectorAll(".data-card");
+  if (!Array.isArray(records)) return;
+
+  // counters
+  let presentCount = records.filter((r) => r.status === "Present").length;
+  let lateCount = records.filter((r) => r.status === "Late").length;
+  let absentCount = records.filter((r) => r.status === "Absent").length;
+  let wfhCount = records.filter((r) => r.isWFH).length;
+
+  // array for
+  const counts = {
+    present: presentCount,
+    late: lateCount,
+    absent: absentCount,
+    wfh: wfhCount,
+  };
+  // bring data from key and put it in h5
+  cards.forEach((el) => {
+    let key = el.dataset.key;
+    if (key && counts[key] !== undefined) {
+      el.textContent = counts[key];
+    }
+  });
+}
 
 // dark Mode
 document.addEventListener("DOMContentLoaded", () => {
@@ -329,3 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
     themeIcon.classList.toggle("fa-moon", newTheme === "light");
   });
 });
+
+// getAttendData();
+getEmp();
+getSingleAttendance();

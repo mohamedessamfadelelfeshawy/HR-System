@@ -6,7 +6,7 @@ async function getTask() {
     let getData = await fetchEmployee("../../../assets/js/json/tasks.json");
     let loggedEmployee = JSON.parse(localStorage.getItem("employee"));
     let allTasks = getData.filter((t) => t.employeeId === loggedEmployee.id);
-    localStorage.setItem("", JSON.stringify(allTasks));
+    localStorage.setItem("allTasks", JSON.stringify(allTasks));
     allTasks;
     createTable(allTasks);
     return allTasks;
