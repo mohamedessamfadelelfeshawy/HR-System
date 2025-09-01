@@ -37,6 +37,8 @@ async function getEmp() {
 //     );
 //     setItem("allAttendance", empAttendance);
 //     createTable(empAttendance);
+// cardData(empAttendance);
+// renderCalendar(displayedMonth, displayedYear);
 //     return empAttendance;
 //   } catch (error) {
 //     console.error("Error fetching attendance data:", error);
@@ -63,7 +65,7 @@ async function getSingleAttendance() {
 
     createTable(empAttendance);
     cardData(empAttendance);
-    renderCalendar(displayedMonth, displayedYear); // مهم: اعادة رسم الكاليندر بعد تحميل البيانات
+    renderCalendar(displayedMonth, displayedYear);
     return empAttendance;
   } catch (error) {
     console.error("Error fetching attendance data:", error);

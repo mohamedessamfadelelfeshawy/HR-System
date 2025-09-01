@@ -7,7 +7,6 @@ async function getTask() {
     let loggedEmployee = JSON.parse(localStorage.getItem("employee"));
     let allTasks = getData.filter((t) => t.employeeId === loggedEmployee.id);
     localStorage.setItem("allTasks", JSON.stringify(allTasks));
-    allTasks;
     createTable(allTasks);
     return allTasks;
   } catch (error) {
