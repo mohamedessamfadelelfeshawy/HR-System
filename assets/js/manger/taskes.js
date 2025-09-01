@@ -9,7 +9,8 @@ const saveEmployeeBtn = document.getElementById('saveEmployee');
 
 
 /* tasks */
-let tasks = await fetchEmployee("/assets/js/json/tasks.json");
+
+let tasks =getItem("allTasks")? getItem("allTasks"): await fetchEmployee("/assets/js/json/tasks.json");
 setItem("allTasks", tasks);
 let localTasks = getItem("allTasks");
 
@@ -40,11 +41,16 @@ function displayData(arr) {
             </tr>`
   })
   tBody.innerHTML = emp;
+
   document.querySelectorAll(".delete-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       let idx = e.currentTarget.dataset.idx;
+      tasks.splice(idx, 1);
       localTasks.splice(idx, 1);
       setItem("allTasks", localTasks);
+      console.log(tasks);
+      tasks=localTasks;
+      console.log(localTasks);
       displayData(localTasks);
     });
   });
