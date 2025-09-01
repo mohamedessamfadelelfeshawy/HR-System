@@ -59,22 +59,23 @@
     <!-- Add Task Form -->
     <form class=" g-3 mb-4 mt-5">
       <div class="col-md-12 mb-3 d-flex justify-content-end">
-        <button type="button" class="btn colorBtn  ms-auto " data-bs-toggle="modal" data-bs-target="#addTaskModal">
+        <button type="button" class="btn colorBtn  ms-auto special-color " data-bs-toggle="modal"
+          data-bs-target="#addTaskModal">
           Add Task
         </button>
       </div>
     </form>
 
-    
-      <!-- btn and search -->
-      <div class="container mt-4">
-        <form class="row g-3 align-items-center">
-          <div class="col-md-6">
-            <input id="search" type="text" class="form-control" placeholder="Employee Task">
-          </div>
 
-        </form>
-      </div>
+    <!-- btn and search -->
+    <div class="container mt-4">
+      <form class="row g-3 align-items-center">
+        <div class="col-md-6">
+          <input id="search" type="text" class="form-control" placeholder="Employee Task">
+        </div>
+
+      </form>
+    </div>
 
     <!-- Tasks Table -->
     <table class=" table table-hover align-middle  table-striped mt-5 controlFont">
@@ -98,26 +99,32 @@
 
 
 
-  <!-- pop up window -->
-  <!-- Add Task  -->
-  <div  class="modal fade" id="addTaskModal" tabindex="-1" aria-hidden="true">
+  <!-- Add Task Modal -->
+  <div class="modal fade" id="addTaskModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
 
         <div class="modal-header">
-          <h5 class="modal-title">Add New Task</h5>
+          <h5 class="modal-title ">Add New Task</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <div class="modal-body">
           <form id="taskForm">
             <div class="mb-3">
+              <label class="form-label">id</label>
+              <input type="text" class="form-control" id="taskId" placeholder="Enter task id" required>
+              <p id="errorId" class="text-danger fw-semibold"></p>
+            </div>
+            <div class="mb-3">
               <label class="form-label">Task Title</label>
               <input type="text" class="form-control" id="taskTitle" placeholder="Enter task title" required>
+              <p id="titleError" class="text-danger fw-semibold"></p>
             </div>
             <div class="mb-3">
               <label class="form-label">Assigned To</label>
               <input type="text" class="form-control" id="taskAssigned" placeholder="Employee name" required>
+              <p id="nameError" class="text-danger fw-semibold"></p>
             </div>
             <div class="mb-3">
               <label class="form-label">Deadline</label>
@@ -135,8 +142,8 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn colorBtn" id="saveTask">Save Task</button>
+          <button type="button" class="btn btn-secondary special-color" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn colorBtn special-color" id="saveTask">Save Task</button>
         </div>
 
       </div>
@@ -144,8 +151,58 @@
   </div>
 
 
+  <!-- Edit Task Modal -->
+  <div class="modal fade" id="editTaskModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editTaskForm">
+                    <input type="hidden" id="editTaskIndex">
+                    <div class="mb-3">
+                        <label class="form-label">id</label>
+                        <input type="text" class="form-control" id="editTaskId" placeholder="Enter task id" required>
+                        <p id="editErrorId" class="text-danger fw-semibold"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Task Title</label>
+                        <input type="text" class="form-control" id="editTaskTitle" placeholder="Enter task title" required>
+                        <p id="editTitleError" class="text-danger fw-semibold"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Assigned To</label>
+                        <input type="text" class="form-control" id="editTaskAssigned" placeholder="Employee name" required>
+                        <p id="editNameError" class="text-danger fw-semibold"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Deadline</label>
+                        <input type="date" class="form-control" id="editTaskDeadline" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="editTaskStatus">
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Done">Done</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn colorBtn special-color" id="updateTask">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
   <script src="../assets/js/bootstrap.bundle.js"></script>
-  <script type="module"  src="../assets/js/manger/taskes.js"></script>
+  <script type="module" src="../assets/js/manger/taskes.js"></script>
 </body>
 
 </html>
