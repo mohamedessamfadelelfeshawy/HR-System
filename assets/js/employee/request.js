@@ -4,12 +4,21 @@ import {
   setItem,
 } from "../../../assets/js/exportFun.js";
 
-// fetch json data
+// fetch or load from localStorage
 async function fetchedData() {
   try {
-    let allData = await fetchEmployee("../../../assets/js/json/requests.json");
+    // لو موجودة في localStorage استخدمها
+    let allRequests = getItem("allRequests");
 
-    // Get current logged-in employee from localStorage
+    if (!allRequests) {
+      // مش موجودة -> نعمل fetch ونخزن
+      allRequests = await fetchEmployee(
+        "../../../assets/js/json/requests.json"
+      );
+      setItem("allRequests", allRequests);
+    }
+
+    // Get current logged-in employee
     let empData = getItem("employee");
     if (!empData) {
       console.error("No employee is logged in.");
@@ -17,18 +26,18 @@ async function fetchedData() {
     }
 
     // Filter requests by employeeId
-    let empRequest = allData.filter(
+    let empRequest = allRequests.filter(
       (record) => record.employeeId == empData.id
     );
 
-    // Save employee requests to localStorage
-    setItem("employeeRequest", empRequest);
+    // Save employee requests
+    // setItem("employeeRequest", empRequest);
 
     // Render table
     createTable(empRequest);
     return empRequest;
   } catch (error) {
-    console.error("Error fetching attendance data:", error);
+    console.error("Error fetching requests data:", error);
     return [];
   }
 }
@@ -45,8 +54,6 @@ function createTable(Request) {
   ["ID", "Request", "Status", "Date"].forEach((text) => {
     let tableHead = document.createElement("th");
     tableHead.textContent = text;
-    // tableHead.style.backgroundColor = "#00a2ca";
-    // tableHead.style.color = "#fff";
     tableHeadRow.appendChild(tableHead);
   });
 
@@ -73,7 +80,7 @@ function createTable(Request) {
     tdTask.innerHTML = `${request.type}<br/><small>${request.notes}</small>`;
     tableBodyRow.appendChild(tdTask);
 
-    // Status with colors
+    // Status
     let tdStatus = document.createElement("td");
     let spanStatus = document.createElement("span");
     spanStatus.textContent = request.status;
@@ -136,8 +143,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    let newId = currentRequests.length
-      ? currentRequests[currentRequests.length - 1].id + 1
+    // get allRequests from localStorage
+    let allRequests = getItem("allRequests") || [];
+
+    let newId = allRequests.length
+      ? allRequests[allRequests.length - 1].id + 1
       : 1;
 
     let newRequest = {
@@ -149,9 +159,15 @@ document.addEventListener("DOMContentLoaded", () => {
       status: "Pending",
     };
 
+    // push into allRequests and employeeRequest
+    allRequests.push(newRequest);
     currentRequests.push(newRequest);
-    setItem("employeeRequest", currentRequests);
 
+    // save both to localStorage
+    setItem("allRequests", allRequests);
+    // setItem("employeeRequest", currentRequests);
+
+    // update table
     createTable(currentRequests);
 
     let modal = bootstrap.Modal.getInstance(
