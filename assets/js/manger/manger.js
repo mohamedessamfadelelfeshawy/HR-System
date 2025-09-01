@@ -6,6 +6,8 @@ const numTasks = document.getElementById("numTasks");
 const numRequests = document.getElementById("numRequests");
 const tBody = document.getElementById("tBody");
 const search = document.getElementById("search");
+const logoutIcon = document.querySelector(".logoutIcon");
+
 
 
 /* employee */
@@ -54,4 +56,9 @@ btn.addEventListener("click", () => {
   }
 });
 
+/* logOut */
+logoutIcon.addEventListener("click",()=>{
+  localStorage.removeItem("employee");
+  window.location="../../../index.html"
+})
 

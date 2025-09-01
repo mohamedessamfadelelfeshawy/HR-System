@@ -1,6 +1,13 @@
 // dark mode staart
 const html = document.documentElement; // <html>
 const btn = document.getElementById("toggleTheme");
+const logoutIcon = document.querySelector(".logoutIcon");
+/* logOut */
+logoutIcon.addEventListener("click",()=>{
+  localStorage.removeItem("employee");
+  window.location="../../../index.html"
+})
+
 
 
 html.setAttribute("data-bs-theme", "light");

@@ -5,6 +5,14 @@
 .colorIcon{
   color: #00A2CA;
 }
+.special-color:hover{
+  background-color: #0d1b2a !important;
+  color: white !important;
+  border: 1px solid white;
+}
+form label{
+  font-weight: bolder;
+}
 
   @media (max-width: 576px) {
     .controlFont  {

@@ -7,6 +7,14 @@ const html = document.documentElement; // <html>
 const btn = document.getElementById("toggleTheme");
 const tBody = document.getElementById("tBody");
 const search = document.getElementById("search");
+const logoutIcon = document.querySelector(".logoutIcon");
+
+/* logOut */
+logoutIcon.addEventListener("click",()=>{
+  localStorage.removeItem("employee");
+  window.location="../../../index.html"
+})
+
 
 /* attendance */
 let attendants = getItem("employeesAttendanceInfo");
