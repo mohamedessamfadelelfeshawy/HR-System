@@ -74,7 +74,6 @@
               data-bs-target="#exampleModal">
               Make Request
             </button>
-
             <!-- Modal -->
             <div
               class="modal fade"
@@ -94,12 +93,12 @@
                       data-bs-dismiss="modal"
                       aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body" id="form-container">
                     <form action="" class="rounded text-center">
                       <!-- add id -->
                       <div class="mb-3">
                         <label for="sele" class="form-label">ID</label>
-                        <span class="ms-2 p-1 rounded">1</span>
+                        <span class="ms-2 p-1 rounded" id="sele">1</span>
                       </div>
                       <!-- type of requests -->
                       <div class="mb-3">
@@ -112,11 +111,11 @@
                           class="form-select p-2 shadow-sm rounded"
                           title="choose reason">
                           <option value="reason" selected>choose reason</option>
-                          <option value="late">Late</option>
-                          <option value="wfh">Work From Home</option>
-                          <option value="absence">Absence</option>
-                          <option value="over">Over Time</option>
-                          <option value="deadline">Deadline</option>
+                          <option value="Late">Late</option>
+                          <option value="Work From Home">Work From Home</option>
+                          <option value="Absence">Absence</option>
+                          <option value="Over Time">Over Time</option>
+                          <option value="Deadline">Deadline</option>
                         </select>
                       </div>
                       <!-- reason -->
@@ -145,82 +144,13 @@
                       </div>
                     </form>
                   </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal">
-                      Close
-                    </button>
-                    <button type="button" class="btn save-btn">
-                      Save changes
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
-
             <!-- Requests Table -->
             <div class="table-responsive fade w-100">
-              <table class="table rounded">
-                <thead>
-                  <tr class="text-nowrap text-center">
-                    <th>ID</th>
-                    <th>Request</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                  </tr>
-                </thead>
-                <tbody class="text-center">
-                  <tr class="text-nowrap">
-                    <td data-label="ID">1</td>
-                    <td data-label="Request">Work From Home</td>
-                    <td data-label="Status">
-                      <span class="accept p-2 rounded">Accepted</span>
-                    </td>
-                    <td data-label="Date">1 July 2025</td>
-                  </tr>
-                  <tr class="text-nowrap">
-                    <td data-label="ID">2</td>
-                    <td data-label="Request">Absence</td>
-                    <td data-label="Status">
-                      <span class="reject p-2 rounded">Rejected</span>
-                    </td>
-                    <td data-label="Date">10 July 2025</td>
-                  </tr>
-                  <tr class="text-nowrap">
-                    <td data-label="ID">3</td>
-                    <td data-label="Request">Leave</td>
-                    <td data-label="Status">
-                      <span class="accept p-2 rounded">Accepted</span>
-                    </td>
-                    <td data-label="Date">20 July 2025</td>
-                  </tr>
-                  <tr class="text-nowrap">
-                    <td data-label="ID">4</td>
-                    <td data-label="Request">Late</td>
-                    <td data-label="Status">
-                      <span class="accept p-2 rounded">Accepted</span>
-                    </td>
-                    <td data-label="Date">25 July 2025</td>
-                  </tr>
-                  <tr class="text-nowrap">
-                    <td data-label="ID">5</td>
-                    <td data-label="Request">Overtime</td>
-                    <td data-label="Status">
-                      <span class="accept p-2 rounded">Accepted</span>
-                    </td>
-                    <td data-label="Date">28 July 2025</td>
-                  </tr>
-                  <tr class="text-nowrap">
-                    <td data-label="ID">6</td>
-                    <td data-label="Request">Deadline</td>
-                    <td data-label="Status">
-                      <span class="reject p-2 rounded">Rejected</span>
-                    </td>
-                    <td data-label="Date">31 July 2025</td>
-                  </tr>
-                </tbody>
+              <table class="table rounded" id="request-table">
+                <!-- create with js -->
               </table>
             </div>
           </div>
@@ -232,6 +162,6 @@
 
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/employee/request.js"></script>
+    <script type="module" src="../assets/js/employee/request.js"></script>
   </body>
 </html>
