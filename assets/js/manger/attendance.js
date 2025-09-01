@@ -9,9 +9,7 @@ const tBody = document.getElementById("tBody");
 const search = document.getElementById("search");
 
 /* attendance */
-let attendants = await fetchEmployee(
-  "/assets/js/json/attendance_single_day.json"
-);
+let attendants = getItem("employeesAttendanceInfo");
 displayData(attendants);
 
 /* DISPLAY EMPLOYEE */
@@ -20,7 +18,7 @@ function displayData(arr) {
   arr.map((el) => {
     emp += `
       <tr>
-          <td>${el.id}</td>
+          <td>${el.employeeId}</td>
           <td>${el.employeeName}</td>
           <td>${el.date}</td>
           <td>${el.checkIn}</td>
