@@ -15,3 +15,9 @@ btn.addEventListener("click", () => {
   }
 });
 // dark mode end
+// logout sart
+let logOutButton=document.querySelector("#logBtn");
+logOutButton.addEventListener("click",(e)=>{
+  window.open("../../../index.html");
+})
+// logout end

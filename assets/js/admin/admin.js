@@ -1,3 +1,4 @@
+import { fetchEmployee, setItem, getItem } from "../../../assets/js/exportFun.js";
 // dark mode staart
 const html = document.documentElement; 
 const btn = document.getElementById("toggleTheme");
@@ -15,6 +16,12 @@ btn.addEventListener("click", () => {
   }
 });
 // dark mode end
+// logout sart
+let logOutButton=document.querySelector("#logBtn");
+logOutButton.addEventListener("click",(e)=>{
+  window.open("../../../index.html");
+})
+// logout end
 // Export btn Exel 1
   document.getElementById("exportBtn").addEventListener("click", function () {
     
@@ -67,43 +74,46 @@ btn.addEventListener("click", () => {
     }
   });
 
+  // employeesAttendanceInfo
 // cards to display total
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("/assets/js/json/attendance_single_day.json")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then(data => {
+// document.addEventListener("DOMContentLoaded", () => {
+//   fetch("/assets/js/json/attendance_single_day.json")
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error("Network response was not ok");
+//       }
+//       return response.json();
+//     })
+//     .then(data => {
+  
+  let localTasks = getItem("employeesAttendanceInfo") || [];
       let presentCount = 0;
       let absentCount = 0;
       let lateCount = 0;
       let wfhCount = 0;
-
-      data.forEach(record => {
+console.log(localTasks);
+      localTasks.forEach(record => {
         if (record.status === "Present") {
           presentCount++;
-          if (record.minutesLate > 0) {
-            lateCount++;
-          }
+          
         } else if (record.status === "Absent") {
           absentCount++;
         }
-        if (record.isWFH) {
+        else if (record.status === "Late") {
+          lateCount++;
+        }
+         else if (record.isWFH == true) {
           wfhCount++;
         }
+        
       });
 
-      
+      console.log(wfhCount);
       document.getElementById("totalPresent").textContent = presentCount;
       document.getElementById("totalLate").textContent = lateCount;
       document.getElementById("totalAbsent").textContent = absentCount;
       document.getElementById("totalWFH").textContent = wfhCount;
-    })
-    .catch(error => console.error("Error fetching JSON:", error));
-});
+
 
 
 // display tasks complete and overdue
@@ -121,13 +131,26 @@ fetch("/assets/js/json/tasks.json")
       }
     });
 
+//     async function showCards() {
+// try{
+// let allData=await fetchEmployee("../../../assets/js/json/attendance-record.json");
+// console.log(allData)
+// } catch(error){
+  
+// }
+ 
+
+//     }
+//     showCards()
+
+
     
     document.getElementById("completedCount").textContent = completed;
     document.getElementById("overdueCount").textContent = overdue;
   })
   .catch(error => console.error("Error loading tasks:", error));
 
-
+  
 // calculat payroll and display in the card
 
  
@@ -137,3 +160,153 @@ fetch("/assets/js/json/tasks.json")
 
   
 
+// set data from file attaendanceRecording in local storage and get it and display in attandance table
+
+fetch("/assets/js/json/attendance-record.json")
+  .then(response => response.json())
+  .then(records => {
+    const employeeStats = {};
+
+    records.forEach(rec => {
+      const empId = rec.employeeId;
+// console.log(empId)
+      if (!employeeStats[empId]) {
+        employeeStats[empId] = {
+          name: "Employee " + empId, 
+          department: 0, 
+          present: 0,
+          late: 0,
+          absent: 0,
+          wfh: 0,
+          penalties: 0
+        };
+      }
+
+      
+      if (rec.status === "Present") {
+        employeeStats[empId].present++;
+
+        if (rec.minutesLate > 0) {
+          employeeStats[empId].late++;
+          employeeStats[empId].penalties += rec.minutesLate * 5;
+        }
+
+        if (rec.isWFH) {
+          employeeStats[empId].wfh++;
+        }
+      }
+
+      
+      if (rec.status === "Absent") {
+        employeeStats[empId].absent++;
+        employeeStats[empId].penalties += 100; 
+      }
+    });
+
+    // let employeeData=getItem("employee");
+   
+    const tableBody = document.getElementById("reportTableBody");
+    tableBody.innerHTML = ""; 
+
+    Object.values(employeeStats).forEach(emp => {
+      const row = `
+        <tr>
+        
+          <td>${emp.name}</td>
+          <td>${emp.department}</td>
+          <td>${emp.present}</td>
+          <td>${emp.late}</td>
+          <td>${emp.absent}</td>
+          <td>${emp.wfh}</td>
+          <td>$${emp.penalties}</td>
+        </tr>
+      `;
+      tableBody.insertAdjacentHTML("beforeend", row);
+    });
+  })
+  .catch(error => console.error("Error loading attendance data:", error));
+
+
+
+
+
+Promise.all([
+  fetch("/assets/js/json/employee.json").then(res => res.json()),
+  fetch("/assets/js/json/attendance-record.json").then(res => res.json())
+])
+.then(([employees, records]) => {
+  
+  
+  const employeesMap = {};
+  employees.forEach(emp => {
+    employeesMap[emp.employeeId] = {
+      name: emp.name,
+      department: emp.department
+    };
+  });
+
+  const employeeStats = {};
+
+  
+  records.forEach(rec => {
+    const empId = rec.employeeId;
+
+    if (!employeeStats[empId]) {
+      employeeStats[empId] = {
+        name: employeesMap[empId]?.name || "Unknown",
+        department: employeesMap[empId]?.department || "N/A",
+        present: 0,
+        late: 0,
+        absent: 0,
+        wfh: 0,
+        penalties: 0
+      };
+    }
+
+    if (rec.status === "Present") {
+      employeeStats[empId].present++;
+
+      // if (rec.minutesLate > 0) {
+      //   employeeStats[empId].late++;
+      //   employeeStats[empId].penalties += rec.minutesLate * 5;
+      // }
+      // if(rec.daysLate){
+      // employeeStats[empId].late++;
+      // employeeStats[empId].penalties += rec.minutesLate * 5;}
+
+     
+    }
+     if (rec.isWFH) {
+        employeeStats[empId].wfh++;
+      }
+
+    if (rec.status === "Absent") {
+      employeeStats[empId].absent++;
+      employeeStats[empId].penalties += 100;
+    }
+     if (rec.status === "late") {
+      employeeStats[empId].late++;
+      employeeStats[empId].penalties += 50;
+    }
+  });
+
+  
+  const tableBody = document.getElementById("reportTableBody");
+  tableBody.innerHTML = "";
+
+  Object.values(employeeStats).forEach(emp => {
+    const row = `
+      <tr>
+        <td>${emp.name}</td>
+        <td>${emp.department}</td>
+        <td>${emp.present}</td>
+        <td>${emp.late}</td>
+        <td>${emp.absent}</td>
+        <td>${emp.wfh}</td>
+        <td>$${emp.penalties}</td>
+      </tr>
+    `;
+    tableBody.insertAdjacentHTML("beforeend", row);
+  });
+})
+.catch(err => console.error("Error loading data:", err));
