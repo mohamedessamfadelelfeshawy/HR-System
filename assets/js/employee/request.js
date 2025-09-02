@@ -7,11 +7,11 @@ import {
 // fetch or load from localStorage
 async function fetchedData() {
   try {
-    // لو موجودة في localStorage استخدمها
+
     let allRequests = getItem("allRequests");
 
     if (!allRequests) {
-      // مش موجودة -> نعمل fetch ونخزن
+
       allRequests = await fetchEmployee(
         "../../../assets/js/json/requests.json"
       );
@@ -29,9 +29,6 @@ async function fetchedData() {
     let empRequest = allRequests.filter(
       (record) => record.employeeId == empData.id
     );
-
-    // Save employee requests
-    // setItem("employeeRequest", empRequest);
 
     // Render table
     createTable(empRequest);
