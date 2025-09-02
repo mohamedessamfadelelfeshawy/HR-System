@@ -18,7 +18,7 @@
 
 <!-- navbar start -->
  
-    <nav class="navbar navbar-expand-lg navbar-light  colorBtn   rounded shadow sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light  colorBtn    shadow sticky-top">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40" class="rounded-circle me-2">
@@ -41,7 +41,7 @@
   </button>
        </li>
 
-        <li class="nav-item  mb-2 mb-lg-0 me-lg-2 logoutIcon">
+        <li class="nav-item  mb-2 mb-lg-0 me-lg-2 logoutIcon"id="logBtn">
            <a class="btn  btn-sm  " href="#"><i class="fa-solid fa-arrow-right-from-bracket me-3  fs-5"></i></a>
         </li>
         
@@ -66,27 +66,27 @@
             <div class="col">
                 <div class="card  shadow p-2 kpi-card ">
                     <div class="card-body"><h6 class="card-title">Total Present</h6>
-                        <p class="kpi-value" id="totalPresent">250</p></div>
+                        <p class="kpi-value" id="totalPresent"></p></div>
                     </div>
                     </div>
             <div class="col">
                 <div class="card  shadow p-2 kpi-card">
                     <div class="card-body"><h6 class="card-title">Total Late</h6>
-                        <p class="kpi-value" id="totalLate">15</p>
+                        <p class="kpi-value" id="totalLate"></p>
                     </div>
                 </div>
                 </div>
             <div class="col">
                 <div class="card  shadow p-2 kpi-card ">
                     <div class="card-body"><h6 class="card-title">Total Absent</h6>
-                        <p class="kpi-value" id="totalAbsent">5</p>
+                        <p class="kpi-value" id="totalAbsent"></p>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card  shadow p-2 kpi-card ">
                     <div class="card-body"><h6 class="card-title">Total WFH</h6>
-                        <p class="kpi-value" id="totalWFH">30</p>
+                        <p class="kpi-value" id="totalWFH"></p>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                 <div class="card  shadow p-2 kpi-card ">
                     <div class="card-body">
                         <h6 class="card-title" >Tasks Completed</h6>
-                        <p class="kpi-value" id="completedCount">1200</p>
+                        <p class="kpi-value" id="completedCount"></p>
                     </div>
                 </div>
                 </div>
@@ -102,7 +102,7 @@
                 <div class="card  shadow p-2 kpi-card ">
                     <div class="card-body">
                         <h6 class="card-title">Tasks Overdue</h6>
-                        <p class="kpi-value" id="overdueCount">50</p>
+                        <p class="kpi-value" id="overdueCount"></p>
                     </div>
                 </div>
             </div>
@@ -139,14 +139,42 @@
                 <!--  -->
                 <div class="table-responsive mt-5 mb-5 container">
                     <table class=" table table-hover align-middle text-center mb-0 controlFont shadow"id="dataTable">
-                        <thead><tr><th>Employee Name</th><th>Department</th><th>Days Present</th><th>Days Late</th><th>Days Absent</th><th>Days WFH</th><th>Total Penalties</th></tr></thead>
+                        <thead><tr><th>Employee Name</th>
+                          <th>Department</th>
+                          <th>Days Present</th><th>Days Late</th><th>Days Absent</th><th>Days WFH</th><th>Total Penalties</th></tr></thead>
                         <tbody id="reportTableBody">
-                            <tr><td>Ethan Harper</td><td>Engineering</td><td>20</td><td>2</td><td>1</td><td>3</td><td>$100</td></tr>
-                            <tr><td>Olivia Bennett</td><td>Marketing</td><td>21</td><td>1</td><td>0</td><td>2</td><td>$50</td></tr>
-                            <tr><td>Liam Carter</td><td>Sales</td><td>19</td><td>3</td><td>2</td><td>1</td><td>$150</td></tr>
-                            <tr><td>Ava Davis</td><td>HR</td><td>22</td><td>0</td><td>0</td><td>0</td><td>$0</td></tr>
-                            <tr><td>Noah Evans</td><td>Finance</td><td>20</td><td>2</td><td>1</td><td>3</td><td>$100</td></tr>
-                            <tr><td>Isabella Foster</td><td>Operations</td><td>21</td><td>1</td><td>0</td><td>2</td><td>$50</td></tr>
+                            <tr>
+                              <td>Ethan Harper</td>
+                              <td>Engineering</td>
+                              <td>20</td>
+                              <td>2</td>
+                              <td>1</td>
+                              <td>3</td>
+                              <td>$100</td>
+                            </tr>
+                            <tr>
+                              <td>Olivia Bennett</td>
+                              <td>Marketing</td>
+                              <td>21</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>2</td><td>$50</td>
+                            </tr>
+                            <tr>
+                              <td>Liam Carter</td>
+                              <td>Sales</td>
+                              <td>19</td><td>3</td><td>2</td><td>1</td><td>$150</td></tr>
+                            <tr><td>Ava Davis</td>
+                              <td>HR</td>
+                              <td>22</td>
+                              <td>0</td>
+                              <td>0</td><td>0</td><td>$0</td></tr>
+                            <tr><td>Noah Evans</td>
+                              <td>Finance</td>
+                              <td>20</td><td>2</td><td>1</td><td>3</td><td>$100</td></tr>
+                            <tr><td>Isabella Foster</td>
+                              <td>Operations</td>
+                              <td>21</td><td>1</td><td>0</td><td>2</td><td>$50</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -155,7 +183,7 @@
         
 
 <!-- pagination -->
- <div class="d-flex flex-column align-items-center justify-content-center text-center gap-3 repots">
+ <!-- <div class="d-flex flex-column align-items-center justify-content-center text-center gap-3 repots">
  <nav aria-label="Page navigation example" >
   <ul class="pagination">
     <li class="page-item">
@@ -173,7 +201,7 @@
     </li>
   </ul>
 </nav>
- </div>
+ </div> -->
 
        
        
@@ -218,7 +246,7 @@
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script src="../assets/js/admin/admin.js"></script>
+    <script type="module" src="../assets/js/admin/admin.js"></script>
 </body>
 
 </html>
