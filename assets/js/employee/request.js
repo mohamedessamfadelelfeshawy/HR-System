@@ -7,25 +7,21 @@ import {
 // fetch or load from localStorage
 async function fetchedData() {
   try {
-    // لو موجودة في localStorage استخدمها
     let allRequests = getItem("allRequests");
 
     if (!allRequests) {
-      // مش موجودة -> نعمل fetch ونخزن
       allRequests = await fetchEmployee(
         "../../../assets/js/json/requests.json"
       );
       setItem("allRequests", allRequests);
     }
 
-    // Get current logged-in employee
     let empData = getItem("employee");
     if (!empData) {
       console.error("No employee is logged in.");
       return [];
     }
 
-    // Filter requests by employeeId
     let empRequest = allRequests.filter(
       (record) => record.employeeId == empData.id
     );
@@ -177,6 +173,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.reset();
   });
+});
+
+// logout
+let logoutButton = document.querySelector("#logbtn");
+logoutButton.addEventListener("click", (e) => {
+  window.open("../../../index.html");
 });
 
 // Dark Mode Toggle

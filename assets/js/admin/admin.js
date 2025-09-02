@@ -1,139 +1,169 @@
-// dark mode staart
-const html = document.documentElement; 
-const btn = document.getElementById("toggleTheme");
+import {
+  fetchEmployee,
+  setItem,
+  getItem,
+} from "../../../assets/js/exportFun.js";
 
+const html = document.documentElement;
+const themeToggleButton = document.getElementById("toggleTheme");
+const logOutButton = document.getElementById("logBtn");
 
 html.setAttribute("data-bs-theme", "light");
 
-
-btn.addEventListener("click", () => {
+themeToggleButton.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-bs-theme");
-  if (currentTheme === "light") {
-    html.setAttribute("data-bs-theme", "dark");
-  } else {
-    html.setAttribute("data-bs-theme", "light");
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  html.setAttribute("data-bs-theme", newTheme);
+});
+
+logOutButton.addEventListener("click", () => {
+  localStorage.removeItem("employee");
+  window.open("../../../index.html", "_self");
+});
+
+function exportTable(tableId, fileName, format) {
+  const table = document.getElementById(tableId);
+  if (!table) {
+    alert("not exist table");
+    return;
   }
-});
-// dark mode end
-// Export btn Exel 1
-  document.getElementById("exportBtn").addEventListener("click", function () {
-    
-    var table = document.getElementById("dataTable");
+  const workbook = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
+  XLSX.writeFile(workbook, `${fileName}.${format}`, { bookType: format });
+}
 
-    
-    var wb = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
+document
+  .getElementById("exportBtn")
+  .addEventListener("click", () => exportTable("dataTable", "data", "xlsx"));
+document
+  .getElementById("dataBtn2")
+  .addEventListener("click", () => exportTable("takiTable", "data", "xlsx"));
+document
+  .getElementById("exportCsvBtn")
+  .addEventListener("click", () => exportTable("dataTable", "data", "csv"));
+document
+  .getElementById("exportCsvBtn2")
+  .addEventListener("click", () => exportTable("takiTable", "data", "csv"));
 
-    
-    XLSX.writeFile(wb, "data.xlsx");
-  });
-// Export btn Exel 2
-  document.getElementById("dataBtn2").addEventListener("click", function () {
-    
-    var table = document.getElementById("takiTable");
+fetch("/assets/js/json/attendance-record.json")
+  .then((response) => response.json())
+  .then((records) => {
+    let presentCount = 0;
+    let absentCount = 0;
+    let lateCount = 0;
+    let wfhCount = 0;
 
-    
-    var wb = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
-
-    
-    XLSX.writeFile(wb, "data.xlsx");
-  });
-
-  // Export btn cv 1
-    document.getElementById("exportCsvBtn").addEventListener("click", function () {
-    var table = document.getElementById("dataTable");
-
-    if (table) {
-      
-      var wb = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
-
-      
-      XLSX.writeFile(wb, "data.csv", { bookType: "csv" });
-    } else {
-      alert(" data is not exist");
-    }
-  });
-    // Export btn cv 2
-    document.getElementById("exportCsvBtn2").addEventListener("click", function () {
-    var table = document.getElementById("takiTable");
-
-    if (table) {
-      
-      var wb = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
-
-      
-      XLSX.writeFile(wb, "data.csv", { bookType: "csv" });
-    } else {
-      alert(" data is not exist");
-    }
-  });
-
-// cards to display total
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("/assets/js/json/attendance_single_day.json")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+    records.forEach((record) => {
+      if (record.status === "Present") {
+        presentCount++;
+      } else if (record.status === "Absent") {
+        absentCount++;
+      } else if (record.status === "Late") {
+        lateCount++;
       }
-      return response.json();
-    })
-    .then(data => {
-      let presentCount = 0;
-      let absentCount = 0;
-      let lateCount = 0;
-      let wfhCount = 0;
 
-      data.forEach(record => {
-        if (record.status === "Present") {
-          presentCount++;
-          if (record.minutesLate > 0) {
-            lateCount++;
-          }
-        } else if (record.status === "Absent") {
-          absentCount++;
-        }
-        if (record.isWFH) {
-          wfhCount++;
-        }
-      });
-
-      
-      document.getElementById("totalPresent").textContent = presentCount;
-      document.getElementById("totalLate").textContent = lateCount;
-      document.getElementById("totalAbsent").textContent = absentCount;
-      document.getElementById("totalWFH").textContent = wfhCount;
-    })
-    .catch(error => console.error("Error fetching JSON:", error));
-});
-
-
-// display tasks complete and overdue
-fetch("/assets/js/json/tasks.json")
-  .then(response => response.json())
-  .then(tasks => {
-    let completed = 0;
-    let overdue = 0;
-
-    tasks.forEach(task => {
-      if (task.status === "Completed") {
-        completed++;
-      } else {
-        overdue++; 
+      if (record.isWFH === true) {
+        wfhCount++;
       }
     });
 
-    
+    document.getElementById("totalPresent").textContent = presentCount;
+    document.getElementById("totalLate").textContent = lateCount;
+    document.getElementById("totalAbsent").textContent = absentCount;
+    document.getElementById("totalWFH").textContent = wfhCount;
+  })
+  .catch((error) =>
+    console.error("Error loading attendance data for cards:", error)
+  );
+
+fetch("/assets/js/json/personalTasks.json")
+  .then((response) => response.json())
+  .then((tasks) => {
+    let completed = 0;
+    let overdue = 0;
+
+    tasks.forEach((task) => {
+      if (task.status === "Completed") {
+        completed++;
+      } else {
+        overdue++;
+      }
+    });
+
     document.getElementById("completedCount").textContent = completed;
     document.getElementById("overdueCount").textContent = overdue;
   })
-  .catch(error => console.error("Error loading tasks:", error));
+  .catch((error) =>
+    console.error("Error loading tasks data for cards:", error)
+  );
 
+fetch("/assets/js/json/payrolls.json")
+  .then((response) => response.json())
+  .then((payrolls) => {
+    const totalPayroll = payrolls.reduce(
+      (sum, current) => sum + current.netSalary,
+      0
+    );
 
-// calculat payroll and display in the card
+    const payrollImpactElement = document.getElementById("payrollImpactValue");
+    if (payrollImpactElement) {
+      payrollImpactElement.textContent = `$${totalPayroll.toLocaleString()}`;
+    }
+  })
+  .catch((error) => console.error("Error loading payroll data:", error));
 
- 
+fetch("/assets/js/json/attendance-record.json")
+  .then((response) => response.json())
+  .then((records) => {
+    const employeeStats = {};
 
+    records.forEach((rec) => {
+      const empId = rec.employeeId;
 
-   
+      if (!employeeStats[empId]) {
+        employeeStats[empId] = {
+          name: rec.employeeName,
+          department: rec.department,
+          present: 0,
+          late: 0,
+          absent: 0,
+          wfh: 0,
+          penalties: 0,
+        };
+      }
 
-  
+      if (rec.status === "Present") {
+        employeeStats[empId].present++;
+      } else if (rec.status === "Late") {
+        employeeStats[empId].late++;
+        employeeStats[empId].penalties += rec.minutesLate * 2 || 50;
+      } else if (rec.status === "Absent") {
+        employeeStats[empId].absent++;
+        employeeStats[empId].penalties += 100;
+      }
 
+      if (rec.isWFH === true) {
+        employeeStats[empId].wfh++;
+      }
+    });
+
+    const tableBody = document.getElementById("reportTableBody");
+    tableBody.innerHTML = "";
+
+    Object.values(employeeStats).forEach((emp) => {
+      const row = `
+        <tr>
+          <td>${emp.name}</td>
+          <td>${emp.department}</td>
+          <td>${emp.present}</td>
+          <td>${emp.late}</td>
+          <td>${emp.absent}</td>
+          <td>${emp.wfh}</td>
+          <td>$${emp.penalties.toFixed(2)}</td>
+        </tr>
+      `;
+      tableBody.insertAdjacentHTML("beforeend", row);
+    });
+  })
+  .catch((error) =>
+    console.error("Error loading and processing attendance report:", error)
+  );
