@@ -2,6 +2,8 @@
   {
     "id": 1,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -14,6 +16,8 @@
   {
     "id": 2,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -26,6 +30,8 @@
   {
     "id": 3,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -38,10 +44,12 @@
   {
     "id": 4,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-04",
     "checkIn": "09:03",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 3,
     "isWFH": false,
     "isLeave": false,
@@ -50,6 +58,8 @@
   {
     "id": 5,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -62,6 +72,8 @@
   {
     "id": 6,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -74,10 +86,12 @@
   {
     "id": 7,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-07",
     "checkIn": "09:06",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 6,
     "isWFH": false,
     "isLeave": false,
@@ -86,6 +100,8 @@
   {
     "id": 8,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -98,6 +114,8 @@
   {
     "id": 9,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -110,6 +128,8 @@
   {
     "id": 10,
     "employeeId": 1,
+    "employeeName": "Ahmed Mostafa",
+    "department": "Software Development",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -122,6 +142,8 @@
   {
     "id": 11,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -134,6 +156,8 @@
   {
     "id": 12,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -146,6 +170,8 @@
   {
     "id": 13,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -158,10 +184,12 @@
   {
     "id": 14,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-04",
     "checkIn": "09:06",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 6,
     "isWFH": false,
     "isLeave": false,
@@ -170,6 +198,8 @@
   {
     "id": 15,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -182,6 +212,8 @@
   {
     "id": 16,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -194,10 +226,12 @@
   {
     "id": 17,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-07",
     "checkIn": "09:12",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 12,
     "isWFH": false,
     "isLeave": false,
@@ -206,6 +240,8 @@
   {
     "id": 18,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -218,6 +254,8 @@
   {
     "id": 19,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -230,6 +268,8 @@
   {
     "id": 20,
     "employeeId": 2,
+    "employeeName": "Noha Ali",
+    "department": "Accounting",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -242,6 +282,8 @@
   {
     "id": 21,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -254,6 +296,8 @@
   {
     "id": 22,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -266,6 +310,8 @@
   {
     "id": 23,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -278,10 +324,12 @@
   {
     "id": 24,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-04",
     "checkIn": "09:09",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 9,
     "isWFH": false,
     "isLeave": false,
@@ -290,6 +338,8 @@
   {
     "id": 25,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -302,6 +352,8 @@
   {
     "id": 26,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -314,10 +366,12 @@
   {
     "id": 27,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-07",
     "checkIn": "09:18",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 18,
     "isWFH": false,
     "isLeave": false,
@@ -326,6 +380,8 @@
   {
     "id": 28,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -338,6 +394,8 @@
   {
     "id": 29,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -350,6 +408,8 @@
   {
     "id": 30,
     "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -362,6 +422,8 @@
   {
     "id": 31,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -374,6 +436,8 @@
   {
     "id": 32,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -386,6 +450,8 @@
   {
     "id": 33,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -398,10 +464,12 @@
   {
     "id": 34,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-04",
     "checkIn": "09:12",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 12,
     "isWFH": false,
     "isLeave": false,
@@ -410,6 +478,8 @@
   {
     "id": 35,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -422,6 +492,8 @@
   {
     "id": 36,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -434,10 +506,12 @@
   {
     "id": 37,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-07",
     "checkIn": "09:04",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 4,
     "isWFH": false,
     "isLeave": false,
@@ -446,6 +520,8 @@
   {
     "id": 38,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -458,6 +534,8 @@
   {
     "id": 39,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -470,6 +548,8 @@
   {
     "id": 40,
     "employeeId": 4,
+    "employeeName": "Sara Mohamed",
+    "department": "Sales",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -482,6 +562,8 @@
   {
     "id": 41,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -494,6 +576,8 @@
   {
     "id": 42,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -506,6 +590,8 @@
   {
     "id": 43,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -518,10 +604,12 @@
   {
     "id": 44,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-04",
     "checkIn": "09:15",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 15,
     "isWFH": false,
     "isLeave": false,
@@ -530,6 +618,8 @@
   {
     "id": 45,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -542,6 +632,8 @@
   {
     "id": 46,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -554,10 +646,12 @@
   {
     "id": 47,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-07",
     "checkIn": "09:10",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 10,
     "isWFH": false,
     "isLeave": false,
@@ -566,6 +660,8 @@
   {
     "id": 48,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -578,6 +674,8 @@
   {
     "id": 49,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -590,6 +688,8 @@
   {
     "id": 50,
     "employeeId": 5,
+    "employeeName": "Mohamed Adel",
+    "department": "Talent Management",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -602,6 +702,8 @@
   {
     "id": 51,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -614,6 +716,8 @@
   {
     "id": 52,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -626,6 +730,8 @@
   {
     "id": 53,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -638,10 +744,12 @@
   {
     "id": 54,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-04",
     "checkIn": "09:18",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 18,
     "isWFH": false,
     "isLeave": false,
@@ -650,6 +758,8 @@
   {
     "id": 55,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -662,6 +772,8 @@
   {
     "id": 56,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -674,10 +786,12 @@
   {
     "id": 57,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-07",
     "checkIn": "09:16",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 16,
     "isWFH": false,
     "isLeave": false,
@@ -686,6 +800,8 @@
   {
     "id": 58,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -698,6 +814,8 @@
   {
     "id": 59,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -710,6 +828,8 @@
   {
     "id": 60,
     "employeeId": 6,
+    "employeeName": "Laila Samir",
+    "department": "Executive Office",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -722,6 +842,8 @@
   {
     "id": 61,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -734,6 +856,8 @@
   {
     "id": 62,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -746,6 +870,8 @@
   {
     "id": 63,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -758,10 +884,12 @@
   {
     "id": 64,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-04",
     "checkIn": "09:01",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 1,
     "isWFH": false,
     "isLeave": false,
@@ -770,6 +898,8 @@
   {
     "id": 65,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -782,6 +912,8 @@
   {
     "id": 66,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -794,10 +926,12 @@
   {
     "id": 67,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-07",
     "checkIn": "09:02",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 2,
     "isWFH": false,
     "isLeave": false,
@@ -806,6 +940,8 @@
   {
     "id": 68,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -818,6 +954,8 @@
   {
     "id": 69,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -830,6 +968,8 @@
   {
     "id": 70,
     "employeeId": 7,
+    "employeeName": "Khaled Youssef",
+    "department": "Engineering",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -842,6 +982,8 @@
   {
     "id": 71,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -854,6 +996,8 @@
   {
     "id": 72,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -866,6 +1010,8 @@
   {
     "id": 73,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -878,10 +1024,12 @@
   {
     "id": 74,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-04",
     "checkIn": "09:04",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 4,
     "isWFH": false,
     "isLeave": false,
@@ -890,6 +1038,8 @@
   {
     "id": 75,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -902,6 +1052,8 @@
   {
     "id": 76,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -914,10 +1066,12 @@
   {
     "id": 77,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-07",
     "checkIn": "09:08",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 8,
     "isWFH": false,
     "isLeave": false,
@@ -926,6 +1080,8 @@
   {
     "id": 78,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -938,6 +1094,8 @@
   {
     "id": 79,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -950,6 +1108,8 @@
   {
     "id": 80,
     "employeeId": 8,
+    "employeeName": "Mona Ibrahim",
+    "department": "Human Resources",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -962,6 +1122,8 @@
   {
     "id": 81,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -974,6 +1136,8 @@
   {
     "id": 82,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -986,6 +1150,8 @@
   {
     "id": 83,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -998,10 +1164,12 @@
   {
     "id": 84,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-04",
     "checkIn": "09:07",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 7,
     "isWFH": false,
     "isLeave": false,
@@ -1010,6 +1178,8 @@
   {
     "id": 85,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1022,6 +1192,8 @@
   {
     "id": 86,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1034,10 +1206,12 @@
   {
     "id": 87,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-07",
     "checkIn": "09:14",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 14,
     "isWFH": false,
     "isLeave": false,
@@ -1046,6 +1220,8 @@
   {
     "id": 88,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1058,6 +1234,8 @@
   {
     "id": 89,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1070,6 +1248,8 @@
   {
     "id": 90,
     "employeeId": 9,
+    "employeeName": "Hassan Fathy",
+    "department": "Security",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -1082,6 +1262,8 @@
   {
     "id": 91,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1094,6 +1276,8 @@
   {
     "id": 92,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1106,6 +1290,8 @@
   {
     "id": 93,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -1118,10 +1304,12 @@
   {
     "id": 94,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-04",
     "checkIn": "09:10",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 10,
     "isWFH": false,
     "isLeave": false,
@@ -1130,6 +1318,8 @@
   {
     "id": 95,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1142,6 +1332,8 @@
   {
     "id": 96,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1154,6 +1346,8 @@
   {
     "id": 97,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-07",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1166,6 +1360,8 @@
   {
     "id": 98,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1178,6 +1374,8 @@
   {
     "id": 99,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1190,6 +1388,8 @@
   {
     "id": 100,
     "employeeId": 10,
+    "employeeName": "Yasmin Tarek",
+    "department": "Marketing",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -1202,6 +1402,8 @@
   {
     "id": 101,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1214,6 +1416,8 @@
   {
     "id": 102,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1226,6 +1430,8 @@
   {
     "id": 103,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -1238,10 +1444,12 @@
   {
     "id": 104,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-04",
     "checkIn": "09:13",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 13,
     "isWFH": false,
     "isLeave": false,
@@ -1250,6 +1458,8 @@
   {
     "id": 105,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1262,6 +1472,8 @@
   {
     "id": 106,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1274,10 +1486,12 @@
   {
     "id": 107,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-07",
     "checkIn": "09:06",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 6,
     "isWFH": false,
     "isLeave": false,
@@ -1286,6 +1500,8 @@
   {
     "id": 108,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1298,6 +1514,8 @@
   {
     "id": 109,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1310,6 +1528,8 @@
   {
     "id": 110,
     "employeeId": 11,
+    "employeeName": "Mahmoud Nasser",
+    "department": "Engineering",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -1322,6 +1542,8 @@
   {
     "id": 111,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1334,6 +1556,8 @@
   {
     "id": 112,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1346,6 +1570,8 @@
   {
     "id": 113,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -1358,10 +1584,12 @@
   {
     "id": 114,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-04",
     "checkIn": "09:16",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 16,
     "isWFH": false,
     "isLeave": false,
@@ -1370,6 +1598,8 @@
   {
     "id": 115,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1382,6 +1612,8 @@
   {
     "id": 116,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1394,10 +1626,12 @@
   {
     "id": 117,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-07",
     "checkIn": "09:12",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 12,
     "isWFH": false,
     "isLeave": false,
@@ -1406,6 +1640,8 @@
   {
     "id": 118,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1418,6 +1654,8 @@
   {
     "id": 119,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1430,6 +1668,8 @@
   {
     "id": 120,
     "employeeId": 12,
+    "employeeName": "Aisha Magdy",
+    "department": "Accounting",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -1442,6 +1682,8 @@
   {
     "id": 121,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1454,6 +1696,8 @@
   {
     "id": 122,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1466,6 +1710,8 @@
   {
     "id": 123,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -1478,10 +1724,12 @@
   {
     "id": 124,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-04",
     "checkIn": "09:19",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 19,
     "isWFH": false,
     "isLeave": false,
@@ -1490,6 +1738,8 @@
   {
     "id": 125,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1502,6 +1752,8 @@
   {
     "id": 126,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1514,10 +1766,12 @@
   {
     "id": 127,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-07",
     "checkIn": "09:18",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 18,
     "isWFH": false,
     "isLeave": false,
@@ -1526,6 +1780,8 @@
   {
     "id": 128,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1538,6 +1794,8 @@
   {
     "id": 129,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1550,6 +1808,8 @@
   {
     "id": 130,
     "employeeId": 13,
+    "employeeName": "Karim Lotfy",
+    "department": "Sales",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -1562,6 +1822,8 @@
   {
     "id": 131,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1574,6 +1836,8 @@
   {
     "id": 132,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1586,6 +1850,8 @@
   {
     "id": 133,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -1598,10 +1864,12 @@
   {
     "id": 134,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-04",
     "checkIn": "09:02",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 2,
     "isWFH": false,
     "isLeave": false,
@@ -1610,6 +1878,8 @@
   {
     "id": 135,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1622,6 +1892,8 @@
   {
     "id": 136,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1634,10 +1906,12 @@
   {
     "id": 137,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-07",
     "checkIn": "09:04",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 4,
     "isWFH": false,
     "isLeave": false,
@@ -1646,6 +1920,8 @@
   {
     "id": 138,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1658,6 +1934,8 @@
   {
     "id": 139,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1670,6 +1948,8 @@
   {
     "id": 140,
     "employeeId": 14,
+    "employeeName": "Dina Essam",
+    "department": "Human Resources",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -1682,6 +1962,8 @@
   {
     "id": 141,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1694,6 +1976,8 @@
   {
     "id": 142,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1706,6 +1990,8 @@
   {
     "id": 143,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -1718,10 +2004,12 @@
   {
     "id": 144,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-04",
     "checkIn": "09:05",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 5,
     "isWFH": false,
     "isLeave": false,
@@ -1730,6 +2018,8 @@
   {
     "id": 145,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1742,6 +2032,8 @@
   {
     "id": 146,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1754,10 +2046,12 @@
   {
     "id": 147,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-07",
     "checkIn": "09:10",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 10,
     "isWFH": false,
     "isLeave": false,
@@ -1766,6 +2060,8 @@
   {
     "id": 148,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1778,6 +2074,8 @@
   {
     "id": 149,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1790,6 +2088,8 @@
   {
     "id": 150,
     "employeeId": 15,
+    "employeeName": "Ola Saeed",
+    "department": "Logistics",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -1802,6 +2102,8 @@
   {
     "id": 151,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1814,6 +2116,8 @@
   {
     "id": 152,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1826,6 +2130,8 @@
   {
     "id": 153,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -1838,10 +2144,12 @@
   {
     "id": 154,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-04",
     "checkIn": "09:08",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 8,
     "isWFH": false,
     "isLeave": false,
@@ -1850,6 +2158,8 @@
   {
     "id": 155,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1862,6 +2172,8 @@
   {
     "id": 156,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1874,10 +2186,12 @@
   {
     "id": 157,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-07",
     "checkIn": "09:16",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 16,
     "isWFH": false,
     "isLeave": false,
@@ -1886,6 +2200,8 @@
   {
     "id": 158,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1898,6 +2214,8 @@
   {
     "id": 159,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1910,6 +2228,8 @@
   {
     "id": 160,
     "employeeId": 16,
+    "employeeName": "Samir Ragab",
+    "department": "Marketing",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -1922,6 +2242,8 @@
   {
     "id": 161,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1934,6 +2256,8 @@
   {
     "id": 162,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1946,6 +2270,8 @@
   {
     "id": 163,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -1958,10 +2284,12 @@
   {
     "id": 164,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-04",
     "checkIn": "09:11",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 11,
     "isWFH": false,
     "isLeave": false,
@@ -1970,6 +2298,8 @@
   {
     "id": 165,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1982,6 +2312,8 @@
   {
     "id": 166,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -1994,10 +2326,12 @@
   {
     "id": 167,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-07",
     "checkIn": "09:02",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 2,
     "isWFH": false,
     "isLeave": false,
@@ -2006,6 +2340,8 @@
   {
     "id": 168,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2018,6 +2354,8 @@
   {
     "id": 169,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2030,6 +2368,8 @@
   {
     "id": 170,
     "employeeId": 17,
+    "employeeName": "Nour El-Din",
+    "department": "Engineering",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -2042,6 +2382,8 @@
   {
     "id": 171,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2054,6 +2396,8 @@
   {
     "id": 172,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2066,6 +2410,8 @@
   {
     "id": 173,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -2078,10 +2424,12 @@
   {
     "id": 174,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-04",
     "checkIn": "09:14",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 14,
     "isWFH": false,
     "isLeave": false,
@@ -2090,6 +2438,8 @@
   {
     "id": 175,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2102,6 +2452,8 @@
   {
     "id": 176,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2114,10 +2466,12 @@
   {
     "id": 177,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-07",
     "checkIn": "09:08",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 8,
     "isWFH": false,
     "isLeave": false,
@@ -2126,6 +2480,8 @@
   {
     "id": 178,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2138,6 +2494,8 @@
   {
     "id": 179,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2150,6 +2508,8 @@
   {
     "id": 180,
     "employeeId": 18,
+    "employeeName": "Huda Gamal",
+    "department": "Accounting",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -2162,6 +2522,8 @@
   {
     "id": 181,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2174,6 +2536,8 @@
   {
     "id": 182,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2186,6 +2550,8 @@
   {
     "id": 183,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -2198,10 +2564,12 @@
   {
     "id": 184,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-04",
     "checkIn": "09:17",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 17,
     "isWFH": false,
     "isLeave": false,
@@ -2210,6 +2578,8 @@
   {
     "id": 185,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2222,6 +2592,8 @@
   {
     "id": 186,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2234,10 +2606,12 @@
   {
     "id": 187,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-07",
     "checkIn": "09:14",
     "checkOut": "17:00",
-    "status": "Present",
+    "status": "Late",
     "minutesLate": 14,
     "isWFH": false,
     "isLeave": false,
@@ -2246,6 +2620,8 @@
   {
     "id": 188,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2258,6 +2634,8 @@
   {
     "id": 189,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2270,6 +2648,8 @@
   {
     "id": 190,
     "employeeId": 19,
+    "employeeName": "Walid Sabry",
+    "department": "Security",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
@@ -2282,6 +2662,8 @@
   {
     "id": 191,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-01",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2294,6 +2676,8 @@
   {
     "id": 192,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-02",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2306,6 +2690,8 @@
   {
     "id": 193,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-03",
     "checkIn": null,
     "checkOut": null,
@@ -2318,6 +2704,8 @@
   {
     "id": 194,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-04",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2330,6 +2718,8 @@
   {
     "id": 195,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-05",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2342,6 +2732,8 @@
   {
     "id": 196,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-06",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2354,6 +2746,8 @@
   {
     "id": 197,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-07",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2366,6 +2760,8 @@
   {
     "id": 198,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-08",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2378,6 +2774,8 @@
   {
     "id": 199,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-09",
     "checkIn": "09:00",
     "checkOut": "17:00",
@@ -2390,6 +2788,8 @@
   {
     "id": 200,
     "employeeId": 20,
+    "employeeName": "Fatma Adel",
+    "department": "Sales",
     "date": "2025-08-10",
     "checkIn": null,
     "checkOut": null,
