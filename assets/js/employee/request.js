@@ -26,9 +26,6 @@ async function fetchedData() {
       (record) => record.employeeId == empData.id
     );
 
-    // Save employee requests
-    // setItem("employeeRequest", empRequest);
-
     // Render table
     createTable(empRequest);
     return empRequest;
@@ -161,7 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // save both to localStorage
     setItem("allRequests", allRequests);
-    // setItem("employeeRequest", currentRequests);
 
     // update table
     createTable(currentRequests);

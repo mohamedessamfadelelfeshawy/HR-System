@@ -2,961 +2,901 @@
   {
     "id": 1,
     "employeeId": 1,
-    "title": "Task 1 for Employee 1",
-    "description": "Auto-generated task",
+    "name": "Ahmed Mostafa",
+    "department": "Software Development",
+    "description": "Develop and test the new login feature",
     "status": "Completed",
-    "dueDate": "2025-09-03"
+    "dueDate": "2025-09-10"
   },
   {
     "id": 2,
     "employeeId": 1,
-    "title": "Task 2 for Employee 1",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "name": "Ahmed Mostafa",
+    "department": "Software Development",
+    "description": "Review pull request from junior developer",
+    "status": "In Progress",
+    "dueDate": "2025-09-12"
   },
   {
     "id": 3,
     "employeeId": 1,
-    "title": "Task 3 for Employee 1",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "name": "Ahmed Mostafa",
+    "department": "Software Development",
+    "description": "Refactor the user authentication service",
+    "status": "Pending",
+    "dueDate": "2025-09-15"
   },
   {
     "id": 4,
     "employeeId": 1,
-    "title": "Task 4 for Employee 1",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "name": "Ahmed Mostafa",
+    "department": "Software Development",
+    "description": "Update technical documentation for the API",
+    "status": "Pending",
+    "dueDate": "2025-09-18"
   },
   {
     "id": 5,
     "employeeId": 1,
-    "title": "Task 5 for Employee 1",
-    "description": "Auto-generated task",
-    "status": "Pending",
+    "name": "Ahmed Mostafa",
+    "department": "Software Development",
+    "description": "Fix bug reported in ticket #5821",
+    "status": "In Progress",
     "dueDate": "2025-09-11"
   },
   {
     "id": 6,
-    "employeeId": 1,
-    "title": "Task 6 for Employee 1",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 2,
+    "name": "Noha Ali",
+    "department": "Accounting",
+    "description": "Prepare and finalize the Q3 financial statements",
+    "status": "Completed",
+    "dueDate": "2025-09-08"
   },
   {
     "id": 7,
     "employeeId": 2,
-    "title": "Task 1 for Employee 2",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "name": "Noha Ali",
+    "department": "Accounting",
+    "description": "Process and verify employee expense reports",
+    "status": "In Progress",
+    "dueDate": "2025-09-12"
   },
   {
     "id": 8,
     "employeeId": 2,
-    "title": "Task 2 for Employee 2",
-    "description": "Auto-generated task",
-    "status": "Pending",
+    "name": "Noha Ali",
+    "department": "Accounting",
+    "description": "Reconcile company bank statements for August",
+    "status": "Completed",
     "dueDate": "2025-09-05"
   },
   {
     "id": 9,
     "employeeId": 2,
-    "title": "Task 3 for Employee 2",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "name": "Noha Ali",
+    "department": "Accounting",
+    "description": "Assist with the annual budget planning",
+    "status": "Pending",
+    "dueDate": "2025-09-20"
   },
   {
     "id": 10,
     "employeeId": 2,
-    "title": "Task 4 for Employee 2",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
-  },
-  {
-    "id": 11,
-    "employeeId": 2,
-    "title": "Task 5 for Employee 2",
-    "description": "Auto-generated task",
-    "status": "Pending",
+    "name": "Noha Ali",
+    "department": "Accounting",
+    "description": "Review and approve vendor invoices",
+    "status": "In Progress",
     "dueDate": "2025-09-11"
   },
   {
-    "id": 12,
-    "employeeId": 2,
-    "title": "Task 6 for Employee 2",
-    "description": "Auto-generated task",
+    "id": 11,
+    "employeeId": 3,
+    "name": "Khaled Gamal",
+    "department": "Logistics",
+    "description": "Coordinate shipment tracking for international orders",
     "status": "In Progress",
     "dueDate": "2025-09-13"
+  },
+  {
+    "id": 12,
+    "employeeId": 3,
+    "name": "Khaled Gamal",
+    "department": "Logistics",
+    "description": "Update inventory records in the WMS",
+    "status": "Completed",
+    "dueDate": "2025-09-09"
   },
   {
     "id": 13,
     "employeeId": 3,
-    "title": "Task 1 for Employee 3",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "name": "Khaled Gamal",
+    "department": "Logistics",
+    "description": "Schedule and manage warehouse staff shifts",
+    "status": "Pending",
+    "dueDate": "2025-09-14"
   },
   {
     "id": 14,
     "employeeId": 3,
-    "title": "Task 2 for Employee 3",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "name": "Khaled Gamal",
+    "department": "Logistics",
+    "description": "Liaise with customs brokers for clearance",
+    "status": "In Progress",
+    "dueDate": "2025-09-11"
   },
   {
     "id": 15,
     "employeeId": 3,
-    "title": "Task 3 for Employee 3",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "name": "Khaled Gamal",
+    "department": "Logistics",
+    "description": "Perform weekly stock count and report discrepancies",
+    "status": "Pending",
+    "dueDate": "2025-09-16"
   },
   {
     "id": 16,
-    "employeeId": 3,
-    "title": "Task 4 for Employee 3",
-    "description": "Auto-generated task",
+    "employeeId": 4,
+    "name": "Sara Hassan",
+    "department": "Sales",
+    "description": "Follow up with new leads from the marketing campaign",
     "status": "Completed",
-    "dueDate": "2025-09-09"
+    "dueDate": "2025-09-10"
   },
   {
     "id": 17,
-    "employeeId": 3,
-    "title": "Task 5 for Employee 3",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 4,
+    "name": "Sara Hassan",
+    "department": "Sales",
+    "description": "Prepare and deliver a sales presentation to a key client",
+    "status": "In Progress",
+    "dueDate": "2025-09-15"
   },
   {
     "id": 18,
-    "employeeId": 3,
-    "title": "Task 6 for Employee 3",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 4,
+    "name": "Sara Hassan",
+    "department": "Sales",
+    "description": "Update the CRM with recent client interactions",
+    "status": "Completed",
+    "dueDate": "2025-09-08"
   },
   {
     "id": 19,
     "employeeId": 4,
-    "title": "Task 1 for Employee 4",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "name": "Sara Hassan",
+    "department": "Sales",
+    "description": "Achieve monthly sales quota",
+    "status": "In Progress",
+    "dueDate": "2025-09-30"
   },
   {
     "id": 20,
     "employeeId": 4,
-    "title": "Task 2 for Employee 4",
-    "description": "Auto-generated task",
+    "name": "Sara Hassan",
+    "department": "Sales",
+    "description": "Negotiate contract terms with a new partner",
     "status": "Pending",
-    "dueDate": "2025-09-05"
+    "dueDate": "2025-09-22"
   },
   {
     "id": 21,
-    "employeeId": 4,
-    "title": "Task 3 for Employee 4",
-    "description": "Auto-generated task",
+    "employeeId": 5,
+    "name": "Mona Reda",
+    "department": "Talent Management",
+    "description": "Screen resumes for the new Senior Developer position",
     "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "dueDate": "2025-09-12"
   },
   {
     "id": 22,
-    "employeeId": 4,
-    "title": "Task 4 for Employee 4",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "employeeId": 5,
+    "name": "Mona Reda",
+    "department": "Talent Management",
+    "description": "Schedule and conduct first-round interviews",
+    "status": "Pending",
+    "dueDate": "2025-09-18"
   },
   {
     "id": 23,
-    "employeeId": 4,
-    "title": "Task 5 for Employee 4",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 5,
+    "name": "Mona Reda",
+    "department": "Talent Management",
+    "description": "Organize the new employee onboarding session",
+    "status": "Completed",
+    "dueDate": "2025-09-05"
   },
   {
     "id": 24,
-    "employeeId": 4,
-    "title": "Task 6 for Employee 4",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 5,
+    "name": "Mona Reda",
+    "department": "Talent Management",
+    "description": "Update job descriptions on the company careers page",
+    "status": "Completed",
+    "dueDate": "2025-09-09"
   },
   {
     "id": 25,
     "employeeId": 5,
-    "title": "Task 1 for Employee 5",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "name": "Mona Reda",
+    "department": "Talent Management",
+    "description": "Develop a new employee referral program",
+    "status": "Pending",
+    "dueDate": "2025-09-25"
   },
   {
     "id": 26,
-    "employeeId": 5,
-    "title": "Task 2 for Employee 5",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 6,
+    "name": "Fady Sameh",
+    "department": "Executive Office",
+    "description": "Prepare agenda for the weekly leadership meeting",
+    "status": "Completed",
+    "dueDate": "2025-09-08"
   },
   {
     "id": 27,
-    "employeeId": 5,
-    "title": "Task 3 for Employee 5",
-    "description": "Auto-generated task",
+    "employeeId": 6,
+    "name": "Fady Sameh",
+    "department": "Executive Office",
+    "description": "Review and summarize departmental reports for the CEO",
     "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "dueDate": "2025-09-11"
   },
   {
     "id": 28,
-    "employeeId": 5,
-    "title": "Task 4 for Employee 5",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "employeeId": 6,
+    "name": "Fady Sameh",
+    "department": "Executive Office",
+    "description": "Draft internal communication regarding company-wide updates",
+    "status": "Pending",
+    "dueDate": "2025-09-12"
   },
   {
     "id": 29,
-    "employeeId": 5,
-    "title": "Task 5 for Employee 5",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 6,
+    "name": "Fady Sameh",
+    "department": "Executive Office",
+    "description": "Coordinate travel arrangements for executive team",
+    "status": "Completed",
+    "dueDate": "2025-09-06"
   },
   {
     "id": 30,
-    "employeeId": 5,
-    "title": "Task 6 for Employee 5",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 6,
+    "name": "Fady Sameh",
+    "department": "Executive Office",
+    "description": "Compile minutes from the last board meeting",
+    "status": "Pending",
+    "dueDate": "2025-09-15"
   },
   {
     "id": 31,
-    "employeeId": 6,
-    "title": "Task 1 for Employee 6",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 7,
+    "name": "Omar Yasser",
+    "department": "Engineering",
+    "description": "Design the architecture for the new microservice",
+    "status": "In Progress",
+    "dueDate": "2025-09-18"
   },
   {
     "id": 32,
-    "employeeId": 6,
-    "title": "Task 2 for Employee 6",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 7,
+    "name": "Omar Yasser",
+    "department": "Engineering",
+    "description": "Perform code review for the new API endpoints",
+    "status": "Completed",
+    "dueDate": "2025-09-09"
   },
   {
     "id": 33,
-    "employeeId": 6,
-    "title": "Task 3 for Employee 6",
-    "description": "Auto-generated task",
+    "employeeId": 7,
+    "name": "Omar Yasser",
+    "department": "Engineering",
+    "description": "Investigate and resolve performance bottlenecks",
     "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "dueDate": "2025-09-14"
   },
   {
     "id": 34,
-    "employeeId": 6,
-    "title": "Task 4 for Employee 6",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "employeeId": 7,
+    "name": "Omar Yasser",
+    "department": "Engineering",
+    "description": "Mentor junior engineers on best practices",
+    "status": "Pending",
+    "dueDate": "2025-09-20"
   },
   {
     "id": 35,
-    "employeeId": 6,
-    "title": "Task 5 for Employee 6",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
-  },
-  {
-    "id": 36,
-    "employeeId": 6,
-    "title": "Task 6 for Employee 6",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
-  },
-  {
-    "id": 37,
     "employeeId": 7,
-    "title": "Task 1 for Employee 7",
-    "description": "Auto-generated task",
+    "name": "Omar Yasser",
+    "department": "Engineering",
+    "description": "Deploy the latest build to the staging environment",
     "status": "Completed",
-    "dueDate": "2025-09-03"
-  },
-  {
-    "id": 38,
-    "employeeId": 7,
-    "title": "Task 2 for Employee 7",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
-  },
-  {
-    "id": 39,
-    "employeeId": 7,
-    "title": "Task 3 for Employee 7",
-    "description": "Auto-generated task",
-    "status": "In Progress",
     "dueDate": "2025-09-07"
   },
   {
-    "id": 40,
-    "employeeId": 7,
-    "title": "Task 4 for Employee 7",
-    "description": "Auto-generated task",
+    "id": 36,
+    "employeeId": 8,
+    "name": "Heba Mohamed",
+    "department": "Human Resources",
+    "description": "Process payroll for the month of August",
     "status": "Completed",
-    "dueDate": "2025-09-09"
+    "dueDate": "2025-09-05"
+  },
+  {
+    "id": 37,
+    "employeeId": 8,
+    "name": "Heba Mohamed",
+    "department": "Human Resources",
+    "description": "Administer employee benefits and enrollment",
+    "status": "In Progress",
+    "dueDate": "2025-09-15"
+  },
+  {
+    "id": 38,
+    "employeeId": 8,
+    "name": "Heba Mohamed",
+    "department": "Human Resources",
+    "description": "Address employee relations issues and inquiries",
+    "status": "Pending",
+    "dueDate": "2025-09-12"
+  },
+  {
+    "id": 39,
+    "employeeId": 8,
+    "name": "Heba Mohamed",
+    "department": "Human Resources",
+    "description": "Update the company policy handbook",
+    "status": "Pending",
+    "dueDate": "2025-09-25"
+  },
+  {
+    "id": 40,
+    "employeeId": 8,
+    "name": "Heba Mohamed",
+    "department": "Human Resources",
+    "description": "Coordinate the annual performance review cycle",
+    "status": "In Progress",
+    "dueDate": "2025-09-30"
   },
   {
     "id": 41,
-    "employeeId": 7,
-    "title": "Task 5 for Employee 7",
-    "description": "Auto-generated task",
-    "status": "Pending",
+    "employeeId": 9,
+    "name": "Youssef Adel",
+    "department": "Security",
+    "description": "Monitor security cameras and access logs",
+    "status": "In Progress",
     "dueDate": "2025-09-11"
   },
   {
     "id": 42,
-    "employeeId": 7,
-    "title": "Task 6 for Employee 7",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 9,
+    "name": "Youssef Adel",
+    "department": "Security",
+    "description": "Conduct a routine patrol of the facility",
+    "status": "Completed",
+    "dueDate": "2025-09-09"
   },
   {
     "id": 43,
-    "employeeId": 8,
-    "title": "Task 1 for Employee 8",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 9,
+    "name": "Youssef Adel",
+    "department": "Security",
+    "description": "Respond to and report any security incidents",
+    "status": "Pending",
+    "dueDate": "2025-09-12"
   },
   {
     "id": 44,
-    "employeeId": 8,
-    "title": "Task 2 for Employee 8",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 9,
+    "name": "Youssef Adel",
+    "department": "Security",
+    "description": "Test and inspect security alarm systems",
+    "status": "Completed",
+    "dueDate": "2025-09-08"
   },
   {
     "id": 45,
-    "employeeId": 8,
-    "title": "Task 3 for Employee 8",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "employeeId": 9,
+    "name": "Youssef Adel",
+    "department": "Security",
+    "description": "Provide security assistance for a special event",
+    "status": "Pending",
+    "dueDate": "2025-09-19"
   },
   {
     "id": 46,
-    "employeeId": 8,
-    "title": "Task 4 for Employee 8",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "employeeId": 10,
+    "name": "Dina Samir",
+    "department": "Marketing",
+    "description": "Launch and manage the new social media campaign",
+    "status": "In Progress",
+    "dueDate": "2025-09-15"
   },
   {
     "id": 47,
-    "employeeId": 8,
-    "title": "Task 5 for Employee 8",
-    "description": "Auto-generated task",
+    "employeeId": 10,
+    "name": "Dina Samir",
+    "department": "Marketing",
+    "description": "Analyze campaign performance and create a report",
     "status": "Pending",
-    "dueDate": "2025-09-11"
+    "dueDate": "2025-09-22"
   },
   {
     "id": 48,
-    "employeeId": 8,
-    "title": "Task 6 for Employee 8",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 10,
+    "name": "Dina Samir",
+    "department": "Marketing",
+    "description": "Write and schedule blog posts for the company website",
+    "status": "Completed",
+    "dueDate": "2025-09-10"
   },
   {
     "id": 49,
-    "employeeId": 9,
-    "title": "Task 1 for Employee 9",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 10,
+    "name": "Dina Samir",
+    "department": "Marketing",
+    "description": "Collaborate with the design team on new ad creatives",
+    "status": "In Progress",
+    "dueDate": "2025-09-12"
   },
   {
     "id": 50,
-    "employeeId": 9,
-    "title": "Task 2 for Employee 9",
-    "description": "Auto-generated task",
+    "employeeId": 10,
+    "name": "Dina Samir",
+    "department": "Marketing",
+    "description": "Organize a promotional webinar for potential customers",
     "status": "Pending",
-    "dueDate": "2025-09-05"
+    "dueDate": "2025-09-28"
   },
   {
     "id": 51,
-    "employeeId": 9,
-    "title": "Task 3 for Employee 9",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "employeeId": 11,
+    "name": "Mahmoud Fathi",
+    "department": "Engineering",
+    "description": "Develop a proof-of-concept for the new mobile app",
+    "status": "Completed",
+    "dueDate": "2025-09-09"
   },
   {
     "id": 52,
-    "employeeId": 9,
-    "title": "Task 4 for Employee 9",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "employeeId": 11,
+    "name": "Mahmoud Fathi",
+    "department": "Engineering",
+    "description": "Integrate a third-party payment gateway",
+    "status": "In Progress",
+    "dueDate": "2025-09-16"
   },
   {
     "id": 53,
-    "employeeId": 9,
-    "title": "Task 5 for Employee 9",
-    "description": "Auto-generated task",
+    "employeeId": 11,
+    "name": "Mahmoud Fathi",
+    "department": "Engineering",
+    "description": "Write unit tests for the data processing module",
     "status": "Pending",
-    "dueDate": "2025-09-11"
+    "dueDate": "2025-09-14"
   },
   {
     "id": 54,
-    "employeeId": 9,
-    "title": "Task 6 for Employee 9",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 11,
+    "name": "Mahmoud Fathi",
+    "department": "Engineering",
+    "description": "Troubleshoot and resolve a critical production issue",
+    "status": "Completed",
+    "dueDate": "2025-09-06"
   },
   {
     "id": 55,
-    "employeeId": 10,
-    "title": "Task 1 for Employee 10",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 11,
+    "name": "Mahmoud Fathi",
+    "department": "Engineering",
+    "description": "Research new technologies for future implementation",
+    "status": "Pending",
+    "dueDate": "2025-09-24"
   },
   {
     "id": 56,
-    "employeeId": 10,
-    "title": "Task 2 for Employee 10",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 12,
+    "name": "Laila Omar",
+    "department": "Accounting",
+    "description": "Manage accounts payable and receivable",
+    "status": "In Progress",
+    "dueDate": "2025-09-13"
   },
   {
     "id": 57,
-    "employeeId": 10,
-    "title": "Task 3 for Employee 10",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "employeeId": 12,
+    "name": "Laila Omar",
+    "department": "Accounting",
+    "description": "Prepare tax documents for the upcoming deadline",
+    "status": "Pending",
+    "dueDate": "2025-09-25"
   },
   {
     "id": 58,
-    "employeeId": 10,
-    "title": "Task 4 for Employee 10",
-    "description": "Auto-generated task",
+    "employeeId": 12,
+    "name": "Laila Omar",
+    "department": "Accounting",
+    "description": "Generate and send out client invoices",
     "status": "Completed",
-    "dueDate": "2025-09-09"
+    "dueDate": "2025-09-08"
   },
   {
     "id": 59,
-    "employeeId": 10,
-    "title": "Task 5 for Employee 10",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 12,
+    "name": "Laila Omar",
+    "department": "Accounting",
+    "description": "Conduct a monthly audit of financial transactions",
+    "status": "In Progress",
+    "dueDate": "2025-09-18"
   },
   {
     "id": 60,
-    "employeeId": 10,
-    "title": "Task 6 for Employee 10",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 12,
+    "name": "Laila Omar",
+    "department": "Accounting",
+    "description": "Analyze financial data to identify cost-saving opportunities",
+    "status": "Pending",
+    "dueDate": "2025-09-28"
   },
   {
     "id": 61,
-    "employeeId": 11,
-    "title": "Task 1 for Employee 11",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 13,
+    "name": "Tamer Hany",
+    "department": "Sales",
+    "description": "Develop a sales strategy for a new market segment",
+    "status": "In Progress",
+    "dueDate": "2025-09-17"
   },
   {
     "id": 62,
-    "employeeId": 11,
-    "title": "Task 2 for Employee 11",
-    "description": "Auto-generated task",
+    "employeeId": 13,
+    "name": "Tamer Hany",
+    "department": "Sales",
+    "description": "Build and maintain relationships with key accounts",
     "status": "Pending",
-    "dueDate": "2025-09-05"
+    "dueDate": "2025-09-23"
   },
   {
     "id": 63,
-    "employeeId": 11,
-    "title": "Task 3 for Employee 11",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "employeeId": 13,
+    "name": "Tamer Hany",
+    "department": "Sales",
+    "description": "Close a high-value deal with a major client",
+    "status": "Completed",
+    "dueDate": "2025-09-10"
   },
   {
     "id": 64,
-    "employeeId": 11,
-    "title": "Task 4 for Employee 11",
-    "description": "Auto-generated task",
+    "employeeId": 13,
+    "name": "Tamer Hany",
+    "department": "Sales",
+    "description": "Train new sales team members",
+    "status": "Pending",
+    "dueDate": "2025-09-20"
+  },
+  {
+    "id": 65,
+    "employeeId": 13,
+    "name": "Tamer Hany",
+    "department": "Sales",
+    "description": "Prepare and present weekly sales forecasts",
+    "status": "In Progress",
+    "dueDate": "2025-09-12"
+  },
+  {
+    "id": 66,
+    "employeeId": 14,
+    "name": "Rana Essam",
+    "department": "Human Resources",
+    "description": "Conduct exit interviews for departing employees",
     "status": "Completed",
     "dueDate": "2025-09-09"
   },
   {
-    "id": 65,
-    "employeeId": 11,
-    "title": "Task 5 for Employee 11",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
-  },
-  {
-    "id": 66,
-    "employeeId": 11,
-    "title": "Task 6 for Employee 11",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
-  },
-  {
     "id": 67,
-    "employeeId": 12,
-    "title": "Task 1 for Employee 12",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 14,
+    "name": "Rana Essam",
+    "department": "Human Resources",
+    "description": "Organize a team-building event for the department",
+    "status": "Pending",
+    "dueDate": "2025-09-26"
   },
   {
     "id": 68,
-    "employeeId": 12,
-    "title": "Task 2 for Employee 12",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 14,
+    "name": "Rana Essam",
+    "department": "Human Resources",
+    "description": "Manage employee leave requests and records",
+    "status": "In Progress",
+    "dueDate": "2025-09-14"
   },
   {
     "id": 69,
-    "employeeId": 12,
-    "title": "Task 3 for Employee 12",
-    "description": "Auto-generated task",
-    "status": "In Progress",
+    "employeeId": 14,
+    "name": "Rana Essam",
+    "department": "Human Resources",
+    "description": "Ensure compliance with labor laws and regulations",
+    "status": "Completed",
     "dueDate": "2025-09-07"
   },
   {
     "id": 70,
-    "employeeId": 12,
-    "title": "Task 4 for Employee 12",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "employeeId": 14,
+    "name": "Rana Essam",
+    "department": "Human Resources",
+    "description": "Develop a new employee wellness program",
+    "status": "Pending",
+    "dueDate": "2025-09-29"
   },
   {
     "id": 71,
-    "employeeId": 12,
-    "title": "Task 5 for Employee 12",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 15,
+    "name": "Mostafa Nabil",
+    "department": "Logistics",
+    "description": "Optimize delivery routes for cost and time efficiency",
+    "status": "In Progress",
+    "dueDate": "2025-09-19"
   },
   {
     "id": 72,
-    "employeeId": 12,
-    "title": "Task 6 for Employee 12",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 15,
+    "name": "Mostafa Nabil",
+    "department": "Logistics",
+    "description": "Negotiate contracts with shipping carriers",
+    "status": "Pending",
+    "dueDate": "2025-09-24"
   },
   {
     "id": 73,
-    "employeeId": 13,
-    "title": "Task 1 for Employee 13",
-    "description": "Auto-generated task",
+    "employeeId": 15,
+    "name": "Mostafa Nabil",
+    "department": "Logistics",
+    "description": "Resolve any shipping or delivery issues for customers",
     "status": "Completed",
-    "dueDate": "2025-09-03"
+    "dueDate": "2025-09-10"
   },
   {
     "id": 74,
-    "employeeId": 13,
-    "title": "Task 2 for Employee 13",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 15,
+    "name": "Mostafa Nabil",
+    "department": "Logistics",
+    "description": "Ensure compliance with transportation regulations",
+    "status": "In Progress",
+    "dueDate": "2025-09-16"
   },
   {
     "id": 75,
-    "employeeId": 13,
-    "title": "Task 3 for Employee 13",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "employeeId": 15,
+    "name": "Mostafa Nabil",
+    "department": "Logistics",
+    "description": "Prepare and process all shipping documentation",
+    "status": "Completed",
+    "dueDate": "2025-09-08"
   },
   {
     "id": 76,
-    "employeeId": 13,
-    "title": "Task 4 for Employee 13",
-    "description": "Auto-generated task",
+    "employeeId": 16,
+    "name": "Aya Magdy",
+    "department": "Marketing",
+    "description": "Create content for the weekly email newsletter",
     "status": "Completed",
     "dueDate": "2025-09-09"
   },
   {
     "id": 77,
-    "employeeId": 13,
-    "title": "Task 5 for Employee 13",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 16,
+    "name": "Aya Magdy",
+    "department": "Marketing",
+    "description": "Monitor and engage with followers on social media platforms",
+    "status": "In Progress",
+    "dueDate": "2025-09-12"
   },
   {
     "id": 78,
-    "employeeId": 13,
-    "title": "Task 6 for Employee 13",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 16,
+    "name": "Aya Magdy",
+    "department": "Marketing",
+    "description": "Conduct keyword research for SEO optimization",
+    "status": "Pending",
+    "dueDate": "2025-09-18"
   },
   {
     "id": 79,
-    "employeeId": 14,
-    "title": "Task 1 for Employee 14",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 16,
+    "name": "Aya Magdy",
+    "department": "Marketing",
+    "description": "Assist in organizing a major marketing event",
+    "status": "In Progress",
+    "dueDate": "2025-09-21"
   },
   {
     "id": 80,
-    "employeeId": 14,
-    "title": "Task 2 for Employee 14",
-    "description": "Auto-generated task",
+    "employeeId": 16,
+    "name": "Aya Magdy",
+    "department": "Marketing",
+    "description": "Report on website traffic and user engagement",
     "status": "Pending",
-    "dueDate": "2025-09-05"
+    "dueDate": "2025-09-16"
   },
   {
     "id": 81,
-    "employeeId": 14,
-    "title": "Task 3 for Employee 14",
-    "description": "Auto-generated task",
+    "employeeId": 17,
+    "name": "Karim Saeed",
+    "department": "Engineering",
+    "description": "Set up a new continuous integration/continuous deployment (CI/CD) pipeline",
     "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "dueDate": "2025-09-20"
   },
   {
     "id": 82,
-    "employeeId": 14,
-    "title": "Task 4 for Employee 14",
-    "description": "Auto-generated task",
+    "employeeId": 17,
+    "name": "Karim Saeed",
+    "department": "Engineering",
+    "description": "Automate the server provisioning process",
     "status": "Completed",
-    "dueDate": "2025-09-09"
+    "dueDate": "2025-09-10"
   },
   {
     "id": 83,
-    "employeeId": 14,
-    "title": "Task 5 for Employee 14",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 17,
+    "name": "Karim Saeed",
+    "department": "Engineering",
+    "description": "Monitor system health and performance",
+    "status": "In Progress",
+    "dueDate": "2025-09-13"
   },
   {
     "id": 84,
-    "employeeId": 14,
-    "title": "Task 6 for Employee 14",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "employeeId": 17,
+    "name": "Karim Saeed",
+    "department": "Engineering",
+    "description": "Manage cloud infrastructure and control costs",
+    "status": "Pending",
+    "dueDate": "2025-09-17"
   },
   {
     "id": 85,
-    "employeeId": 15,
-    "title": "Task 1 for Employee 15",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 17,
+    "name": "Karim Saeed",
+    "department": "Engineering",
+    "description": "Implement a new backup and disaster recovery plan",
+    "status": "Pending",
+    "dueDate": "2025-09-25"
   },
   {
     "id": 86,
-    "employeeId": 15,
-    "title": "Task 2 for Employee 15",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 18,
+    "name": "Hanan Adel",
+    "department": "Accounting",
+    "description": "Perform monthly closing of accounts",
+    "status": "Completed",
+    "dueDate": "2025-09-08"
   },
   {
     "id": 87,
-    "employeeId": 15,
-    "title": "Task 3 for Employee 15",
-    "description": "Auto-generated task",
+    "employeeId": 18,
+    "name": "Hanan Adel",
+    "department": "Accounting",
+    "description": "Verify and post journal entries",
     "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "dueDate": "2025-09-11"
   },
   {
     "id": 88,
-    "employeeId": 15,
-    "title": "Task 4 for Employee 15",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "employeeId": 18,
+    "name": "Hanan Adel",
+    "department": "Accounting",
+    "description": "Assist senior accountants with financial analysis",
+    "status": "Pending",
+    "dueDate": "2025-09-19"
   },
   {
     "id": 89,
-    "employeeId": 15,
-    "title": "Task 5 for Employee 15",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 18,
+    "name": "Hanan Adel",
+    "department": "Accounting",
+    "description": "Prepare balance sheet reconciliations",
+    "status": "Completed",
+    "dueDate": "2025-09-10"
   },
   {
     "id": 90,
-    "employeeId": 15,
-    "title": "Task 6 for Employee 15",
-    "description": "Auto-generated task",
+    "employeeId": 18,
+    "name": "Hanan Adel",
+    "department": "Accounting",
+    "description": "Maintain the general ledger",
     "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "dueDate": "2025-09-15"
   },
   {
     "id": 91,
-    "employeeId": 16,
-    "title": "Task 1 for Employee 16",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 19,
+    "name": "Walid Ahmed",
+    "department": "Security",
+    "description": "Review and update security protocols",
+    "status": "Pending",
+    "dueDate": "2025-09-23"
   },
   {
     "id": 92,
-    "employeeId": 16,
-    "title": "Task 2 for Employee 16",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 19,
+    "name": "Walid Ahmed",
+    "department": "Security",
+    "description": "Manage visitor access and issue security badges",
+    "status": "In Progress",
+    "dueDate": "2025-09-12"
   },
   {
     "id": 93,
-    "employeeId": 16,
-    "title": "Task 3 for Employee 16",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "employeeId": 19,
+    "name": "Walid Ahmed",
+    "department": "Security",
+    "description": "Conduct a security risk assessment",
+    "status": "Completed",
+    "dueDate": "2025-09-09"
   },
   {
     "id": 94,
-    "employeeId": 16,
-    "title": "Task 4 for Employee 16",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
+    "employeeId": 19,
+    "name": "Walid Ahmed",
+    "department": "Security",
+    "description": "Train employees on security awareness",
+    "status": "Pending",
+    "dueDate": "2025-09-27"
   },
   {
     "id": 95,
-    "employeeId": 16,
-    "title": "Task 5 for Employee 16",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
+    "employeeId": 19,
+    "name": "Walid Ahmed",
+    "department": "Security",
+    "description": "Investigate an unauthorized access attempt",
+    "status": "Completed",
+    "dueDate": "2025-09-07"
   },
   {
     "id": 96,
-    "employeeId": 16,
-    "title": "Task 6 for Employee 16",
-    "description": "Auto-generated task",
+    "employeeId": 20,
+    "name": "Nourhan Tarek",
+    "department": "Sales",
+    "description": "Generate new sales leads through cold calling and networking",
     "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "dueDate": "2025-09-18"
   },
   {
     "id": 97,
-    "employeeId": 17,
-    "title": "Task 1 for Employee 17",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
+    "employeeId": 20,
+    "name": "Nourhan Tarek",
+    "department": "Sales",
+    "description": "Provide product demonstrations to potential clients",
+    "status": "Pending",
+    "dueDate": "2025-09-22"
   },
   {
     "id": 98,
-    "employeeId": 17,
-    "title": "Task 2 for Employee 17",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
+    "employeeId": 20,
+    "name": "Nourhan Tarek",
+    "department": "Sales",
+    "description": "Prepare sales proposals and quotes",
+    "status": "Completed",
+    "dueDate": "2025-09-10"
   },
   {
     "id": 99,
-    "employeeId": 17,
-    "title": "Task 3 for Employee 17",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
+    "employeeId": 20,
+    "name": "Nourhan Tarek",
+    "department": "Sales",
+    "description": "Attend industry conferences to generate leads",
+    "status": "Pending",
+    "dueDate": "2025-09-29"
   },
   {
     "id": 100,
-    "employeeId": 17,
-    "title": "Task 4 for Employee 17",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
-  },
-  {
-    "id": 101,
-    "employeeId": 17,
-    "title": "Task 5 for Employee 17",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
-  },
-  {
-    "id": 102,
-    "employeeId": 17,
-    "title": "Task 6 for Employee 17",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
-  },
-  {
-    "id": 103,
-    "employeeId": 18,
-    "title": "Task 1 for Employee 18",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
-  },
-  {
-    "id": 104,
-    "employeeId": 18,
-    "title": "Task 2 for Employee 18",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
-  },
-  {
-    "id": 105,
-    "employeeId": 18,
-    "title": "Task 3 for Employee 18",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
-  },
-  {
-    "id": 106,
-    "employeeId": 18,
-    "title": "Task 4 for Employee 18",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
-  },
-  {
-    "id": 107,
-    "employeeId": 18,
-    "title": "Task 5 for Employee 18",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
-  },
-  {
-    "id": 108,
-    "employeeId": 18,
-    "title": "Task 6 for Employee 18",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
-  },
-  {
-    "id": 109,
-    "employeeId": 19,
-    "title": "Task 1 for Employee 19",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
-  },
-  {
-    "id": 110,
-    "employeeId": 19,
-    "title": "Task 2 for Employee 19",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
-  },
-  {
-    "id": 111,
-    "employeeId": 19,
-    "title": "Task 3 for Employee 19",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-07"
-  },
-  {
-    "id": 112,
-    "employeeId": 19,
-    "title": "Task 4 for Employee 19",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
-  },
-  {
-    "id": 113,
-    "employeeId": 19,
-    "title": "Task 5 for Employee 19",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
-  },
-  {
-    "id": 114,
-    "employeeId": 19,
-    "title": "Task 6 for Employee 19",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
-  },
-  {
-    "id": 115,
     "employeeId": 20,
-    "title": "Task 1 for Employee 20",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-03"
-  },
-  {
-    "id": 116,
-    "employeeId": 20,
-    "title": "Task 2 for Employee 20",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-05"
-  },
-  {
-    "id": 117,
-    "employeeId": 20,
-    "title": "Task 3 for Employee 20",
-    "description": "Auto-generated task",
+    "name": "Nourhan Tarek",
+    "department": "Sales",
+    "description": "Follow up with existing clients to ensure satisfaction",
     "status": "In Progress",
-    "dueDate": "2025-09-07"
-  },
-  {
-    "id": 118,
-    "employeeId": 20,
-    "title": "Task 4 for Employee 20",
-    "description": "Auto-generated task",
-    "status": "Completed",
-    "dueDate": "2025-09-09"
-  },
-  {
-    "id": 119,
-    "employeeId": 20,
-    "title": "Task 5 for Employee 20",
-    "description": "Auto-generated task",
-    "status": "Pending",
-    "dueDate": "2025-09-11"
-  },
-  {
-    "id": 120,
-    "employeeId": 20,
-    "title": "Task 6 for Employee 20",
-    "description": "Auto-generated task",
-    "status": "In Progress",
-    "dueDate": "2025-09-13"
+    "dueDate": "2025-09-15"
   }
 ]
