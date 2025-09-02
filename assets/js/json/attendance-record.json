@@ -19,10 +19,10 @@
     "employeeName": "Ahmed Mostafa",
     "department": "Software Development",
     "date": "2025-08-02",
-    "checkIn": "09:00",
+    "checkIn": "09:05",
     "checkOut": "17:00",
-    "status": "Present",
-    "minutesLate": 0,
+    "status": "Late",
+    "minutesLate": 5,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -47,10 +47,10 @@
     "employeeName": "Ahmed Mostafa",
     "department": "Software Development",
     "date": "2025-08-04",
-    "checkIn": "09:03",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 3,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -89,10 +89,10 @@
     "employeeName": "Ahmed Mostafa",
     "department": "Software Development",
     "date": "2025-08-07",
-    "checkIn": "09:06",
+    "checkIn": "09:10",
     "checkOut": "17:00",
     "status": "Late",
-    "minutesLate": 6,
+    "minutesLate": 10,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -121,9 +121,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
+    "isWFH": true,
     "isLeave": false,
-    "notes": ""
+    "notes": "WFH"
   },
   {
     "id": 10,
@@ -137,7 +137,7 @@
     "minutesLate": 0,
     "isWFH": false,
     "isLeave": true,
-    "notes": "Sick leave"
+    "notes": "Personal day"
   },
   {
     "id": 11,
@@ -149,9 +149,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
+    "isWFH": true,
     "isLeave": false,
-    "notes": ""
+    "notes": "WFH"
   },
   {
     "id": 12,
@@ -163,9 +163,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
+    "isWFH": true,
     "isLeave": false,
-    "notes": ""
+    "notes": "WFH"
   },
   {
     "id": 13,
@@ -173,13 +173,13 @@
     "employeeName": "Noha Ali",
     "department": "Accounting",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isWFH": true,
+    "isLeave": false,
+    "notes": "WFH"
   },
   {
     "id": 14,
@@ -187,10 +187,10 @@
     "employeeName": "Noha Ali",
     "department": "Accounting",
     "date": "2025-08-04",
-    "checkIn": "09:06",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 6,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -205,9 +205,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": true,
+    "isWFH": false,
     "isLeave": false,
-    "notes": "WFH"
+    "notes": ""
   },
   {
     "id": 16,
@@ -229,10 +229,10 @@
     "employeeName": "Noha Ali",
     "department": "Accounting",
     "date": "2025-08-07",
-    "checkIn": "09:12",
+    "checkIn": "09:20",
     "checkOut": "17:00",
     "status": "Late",
-    "minutesLate": 12,
+    "minutesLate": 20,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -257,13 +257,13 @@
     "employeeName": "Noha Ali",
     "department": "Accounting",
     "date": "2025-08-09",
-    "checkIn": "09:00",
-    "checkOut": "17:00",
-    "status": "Present",
+    "checkIn": null,
+    "checkOut": null,
+    "status": "Absent",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": false,
-    "notes": ""
+    "isLeave": true,
+    "notes": "Sick Leave"
   },
   {
     "id": 20,
@@ -271,13 +271,13 @@
     "employeeName": "Noha Ali",
     "department": "Accounting",
     "date": "2025-08-10",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 21,
@@ -285,13 +285,13 @@
     "employeeName": "Omar Hassan",
     "department": "Logistics",
     "date": "2025-08-01",
-    "checkIn": "09:00",
-    "checkOut": "17:00",
-    "status": "Present",
+    "checkIn": null,
+    "checkOut": null,
+    "status": "Absent",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": false,
-    "notes": ""
+    "isLeave": true,
+    "notes": "No show"
   },
   {
     "id": 22,
@@ -299,6 +299,20 @@
     "employeeName": "Omar Hassan",
     "department": "Logistics",
     "date": "2025-08-02",
+    "checkIn": null,
+    "checkOut": null,
+    "status": "Absent",
+    "minutesLate": 0,
+    "isWFH": false,
+    "isLeave": true,
+    "notes": "No show"
+  },
+  {
+    "id": 23,
+    "employeeId": 3,
+    "employeeName": "Omar Hassan",
+    "department": "Logistics",
+    "date": "2025-08-03",
     "checkIn": "09:00",
     "checkOut": "17:00",
     "status": "Present",
@@ -308,29 +322,15 @@
     "notes": ""
   },
   {
-    "id": 23,
-    "employeeId": 3,
-    "employeeName": "Omar Hassan",
-    "department": "Logistics",
-    "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
-    "minutesLate": 0,
-    "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
-  },
-  {
     "id": 24,
     "employeeId": 3,
     "employeeName": "Omar Hassan",
     "department": "Logistics",
     "date": "2025-08-04",
-    "checkIn": "09:09",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 9,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -345,9 +345,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": true,
+    "isWFH": false,
     "isLeave": false,
-    "notes": "WFH"
+    "notes": ""
   },
   {
     "id": 26,
@@ -369,10 +369,10 @@
     "employeeName": "Omar Hassan",
     "department": "Logistics",
     "date": "2025-08-07",
-    "checkIn": "09:18",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 18,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -411,13 +411,13 @@
     "employeeName": "Omar Hassan",
     "department": "Logistics",
     "date": "2025-08-10",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isWFH": true,
+    "isLeave": false,
+    "notes": "WFH"
   },
   {
     "id": 31,
@@ -425,10 +425,10 @@
     "employeeName": "Sara Mohamed",
     "department": "Sales",
     "date": "2025-08-01",
-    "checkIn": "09:00",
+    "checkIn": "09:15",
     "checkOut": "17:00",
-    "status": "Present",
-    "minutesLate": 0,
+    "status": "Late",
+    "minutesLate": 15,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -439,13 +439,13 @@
     "employeeName": "Sara Mohamed",
     "department": "Sales",
     "date": "2025-08-02",
-    "checkIn": "09:00",
+    "checkIn": "09:25",
     "checkOut": "17:00",
-    "status": "Present",
-    "minutesLate": 0,
+    "status": "Late",
+    "minutesLate": 25,
     "isWFH": false,
     "isLeave": false,
-    "notes": ""
+    "notes": "Traffic"
   },
   {
     "id": 33,
@@ -453,13 +453,13 @@
     "employeeName": "Sara Mohamed",
     "department": "Sales",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
-    "minutesLate": 0,
+    "checkIn": "09:30",
+    "checkOut": "17:00",
+    "status": "Late",
+    "minutesLate": 30,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 34,
@@ -467,10 +467,10 @@
     "employeeName": "Sara Mohamed",
     "department": "Sales",
     "date": "2025-08-04",
-    "checkIn": "09:12",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 12,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -485,9 +485,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": true,
+    "isWFH": false,
     "isLeave": false,
-    "notes": "WFH"
+    "notes": ""
   },
   {
     "id": 36,
@@ -509,10 +509,10 @@
     "employeeName": "Sara Mohamed",
     "department": "Sales",
     "date": "2025-08-07",
-    "checkIn": "09:04",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 4,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -537,13 +537,13 @@
     "employeeName": "Sara Mohamed",
     "department": "Sales",
     "date": "2025-08-09",
-    "checkIn": "09:00",
-    "checkOut": "17:00",
-    "status": "Present",
+    "checkIn": null,
+    "checkOut": null,
+    "status": "Absent",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": false,
-    "notes": ""
+    "isLeave": true,
+    "notes": "Annual Leave"
   },
   {
     "id": 40,
@@ -557,7 +557,7 @@
     "minutesLate": 0,
     "isWFH": false,
     "isLeave": true,
-    "notes": "Sick leave"
+    "notes": "Annual Leave"
   },
   {
     "id": 41,
@@ -593,13 +593,13 @@
     "employeeName": "Mohamed Adel",
     "department": "Talent Management",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 44,
@@ -607,10 +607,10 @@
     "employeeName": "Mohamed Adel",
     "department": "Talent Management",
     "date": "2025-08-04",
-    "checkIn": "09:15",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 15,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -625,9 +625,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": true,
+    "isWFH": false,
     "isLeave": false,
-    "notes": "WFH"
+    "notes": ""
   },
   {
     "id": 46,
@@ -649,10 +649,10 @@
     "employeeName": "Mohamed Adel",
     "department": "Talent Management",
     "date": "2025-08-07",
-    "checkIn": "09:10",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 10,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -691,13 +691,13 @@
     "employeeName": "Mohamed Adel",
     "department": "Talent Management",
     "date": "2025-08-10",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 51,
@@ -733,13 +733,13 @@
     "employeeName": "Laila Samir",
     "department": "Executive Office",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isWFH": true,
+    "isLeave": false,
+    "notes": "WFH"
   },
   {
     "id": 54,
@@ -747,10 +747,10 @@
     "employeeName": "Laila Samir",
     "department": "Executive Office",
     "date": "2025-08-04",
-    "checkIn": "09:18",
+    "checkIn": "09:11",
     "checkOut": "17:00",
     "status": "Late",
-    "minutesLate": 18,
+    "minutesLate": 11,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -789,10 +789,10 @@
     "employeeName": "Laila Samir",
     "department": "Executive Office",
     "date": "2025-08-07",
-    "checkIn": "09:16",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 16,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -817,13 +817,13 @@
     "employeeName": "Laila Samir",
     "department": "Executive Office",
     "date": "2025-08-09",
-    "checkIn": "09:00",
-    "checkOut": "17:00",
-    "status": "Present",
+    "checkIn": null,
+    "checkOut": null,
+    "status": "Absent",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": false,
-    "notes": ""
+    "isLeave": true,
+    "notes": "Sick Leave"
   },
   {
     "id": 60,
@@ -837,7 +837,7 @@
     "minutesLate": 0,
     "isWFH": false,
     "isLeave": true,
-    "notes": "Sick leave"
+    "notes": "Sick Leave"
   },
   {
     "id": 61,
@@ -845,10 +845,10 @@
     "employeeName": "Khaled Youssef",
     "department": "Engineering",
     "date": "2025-08-01",
-    "checkIn": "09:00",
+    "checkIn": "09:08",
     "checkOut": "17:00",
-    "status": "Present",
-    "minutesLate": 0,
+    "status": "Late",
+    "minutesLate": 8,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -873,13 +873,13 @@
     "employeeName": "Khaled Youssef",
     "department": "Engineering",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 64,
@@ -887,13 +887,13 @@
     "employeeName": "Khaled Youssef",
     "department": "Engineering",
     "date": "2025-08-04",
-    "checkIn": "09:01",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 1,
-    "isWFH": false,
+    "status": "Present",
+    "minutesLate": 0,
+    "isWFH": true,
     "isLeave": false,
-    "notes": ""
+    "notes": "WFH"
   },
   {
     "id": 65,
@@ -929,10 +929,10 @@
     "employeeName": "Khaled Youssef",
     "department": "Engineering",
     "date": "2025-08-07",
-    "checkIn": "09:02",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 2,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -1013,13 +1013,13 @@
     "employeeName": "Mona Ibrahim",
     "department": "Human Resources",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 74,
@@ -1027,10 +1027,10 @@
     "employeeName": "Mona Ibrahim",
     "department": "Human Resources",
     "date": "2025-08-04",
-    "checkIn": "09:04",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 4,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -1045,9 +1045,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": true,
+    "isWFH": false,
     "isLeave": false,
-    "notes": "WFH"
+    "notes": ""
   },
   {
     "id": 76,
@@ -1069,10 +1069,10 @@
     "employeeName": "Mona Ibrahim",
     "department": "Human Resources",
     "date": "2025-08-07",
-    "checkIn": "09:08",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 8,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -1097,13 +1097,13 @@
     "employeeName": "Mona Ibrahim",
     "department": "Human Resources",
     "date": "2025-08-09",
-    "checkIn": "09:00",
-    "checkOut": "17:00",
-    "status": "Present",
+    "checkIn": null,
+    "checkOut": null,
+    "status": "Absent",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": false,
-    "notes": ""
+    "isLeave": true,
+    "notes": "Annual Leave"
   },
   {
     "id": 80,
@@ -1117,7 +1117,7 @@
     "minutesLate": 0,
     "isWFH": false,
     "isLeave": true,
-    "notes": "Sick leave"
+    "notes": "Annual Leave"
   },
   {
     "id": 81,
@@ -1153,13 +1153,13 @@
     "employeeName": "Hassan Fathy",
     "department": "Security",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 84,
@@ -1167,10 +1167,10 @@
     "employeeName": "Hassan Fathy",
     "department": "Security",
     "date": "2025-08-04",
-    "checkIn": "09:07",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 7,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -1185,9 +1185,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": true,
+    "isWFH": false,
     "isLeave": false,
-    "notes": "WFH"
+    "notes": ""
   },
   {
     "id": 86,
@@ -1209,10 +1209,10 @@
     "employeeName": "Hassan Fathy",
     "department": "Security",
     "date": "2025-08-07",
-    "checkIn": "09:14",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 14,
+    "status": "Present",
+    "minutesLate": 0,
     "isWFH": false,
     "isLeave": false,
     "notes": ""
@@ -1269,9 +1269,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
+    "isWFH": true,
     "isLeave": false,
-    "notes": ""
+    "notes": "WFH"
   },
   {
     "id": 92,
@@ -1283,9 +1283,9 @@
     "checkOut": "17:00",
     "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
+    "isWFH": true,
     "isLeave": false,
-    "notes": ""
+    "notes": "WFH"
   },
   {
     "id": 93,
@@ -1293,13 +1293,13 @@
     "employeeName": "Yasmin Tarek",
     "department": "Marketing",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
-    "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isWFH": true,
+    "isLeave": false,
+    "notes": "WFH"
   },
   {
     "id": 94,
@@ -1307,13 +1307,13 @@
     "employeeName": "Yasmin Tarek",
     "department": "Marketing",
     "date": "2025-08-04",
-    "checkIn": "09:10",
+    "checkIn": "09:00",
     "checkOut": "17:00",
-    "status": "Late",
-    "minutesLate": 10,
-    "isWFH": false,
+    "status": "Present",
+    "minutesLate": 0,
+    "isWFH": true,
     "isLeave": false,
-    "notes": ""
+    "notes": "WFH"
   },
   {
     "id": 95,
@@ -1391,13 +1391,13 @@
     "employeeName": "Yasmin Tarek",
     "department": "Marketing",
     "date": "2025-08-10",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 101,
@@ -1433,13 +1433,13 @@
     "employeeName": "Mahmoud Nasser",
     "department": "Engineering",
     "date": "2025-08-03",
-    "checkIn": null,
-    "checkOut": null,
-    "status": "Absent",
+    "checkIn": "09:00",
+    "checkOut": "17:00",
+    "status": "Present",
     "minutesLate": 0,
     "isWFH": false,
-    "isLeave": true,
-    "notes": "Sick leave"
+    "isLeave": false,
+    "notes": ""
   },
   {
     "id": 104,
