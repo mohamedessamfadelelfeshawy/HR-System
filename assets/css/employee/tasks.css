@@ -57,7 +57,6 @@ body {
   }
 }
 
-
 /* Tasks */
 .tasks {
   .container {
@@ -65,6 +64,7 @@ body {
       background-color: var(--mint-green-color);
       color: var(--white-color);
       width: fit-content;
+      margin:  auto;
     }
     .table-responsive {
       table {
@@ -124,7 +124,6 @@ body {
   }
 }
 
-/* ================= Dark Mode ================= */
 [data-bs-theme="dark"] {
   --bs-body-bg: #0d1b2a;
   --bs-body-color: #e0e1dd;
@@ -134,6 +133,7 @@ body {
   --bs-danger: #ff4d4d;
   --bs-warning: #ffc107;
   --bs-info: #17a2b8;
+
   --bs-border-color: #415a77;
   --bs-card-bg: #1b263b;
   --bs-navbar-bg: #1e2a3b;
@@ -150,28 +150,35 @@ body {
   background: var(--bs-navbar-bg) !important;
 }
 [data-bs-theme="dark"] .navbar .nav-link {
-  color: var(--white-color) !important;
+  color: var(--bs-body-color) !important;
 }
 [data-bs-theme="dark"] .navbar .nav-link:hover {
   background-color: var(--white-color) !important;
   color: var(--bs-navbar-bg) !important;
+  border-radius: 5px;
 }
 
 /* tasks table dark */
 [data-bs-theme="dark"] .table {
   background-color: var(--bs-card-bg);
   color: var(--bs-body-color);
-  border: 1px solid var(--bs-border-color);
+  border: none !important;
 }
 [data-bs-theme="dark"] .table th {
-  color: var(--bs-secondary);
+  color: var(--bs-body-color);
 }
 [data-bs-theme="dark"] .table td {
   color: var(--bs-body-color);
 }
 
-/* buttons dark */
+/* buttons dark
 [data-bs-theme="dark"] .table button {
   background-color: var(--bs-border-color) !important;
   color: var(--white-color) !important;
+  border: 1px solid var(--bs-border-color) !important;
+} */
+
+[data-bs-theme="dark"] h2 {
+  background-color: var(--bs-card-bg) !important;
+  color: var(--bs-body-color) !important;
 }

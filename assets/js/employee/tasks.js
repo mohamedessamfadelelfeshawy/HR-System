@@ -92,16 +92,20 @@ function applyStyles(statusBtn) {
     statusBtn.className = "btn rounded status-btn btn-success";
     statusBtn.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
     statusBtn.style.color = "#3fc28a";
+    statusBtn.style.border = "none";
+
     statusBtn.disabled = true;
   } else if (statusBtn.textContent === "In Progress") {
     statusBtn.className = "btn rounded status-btn btn-warning";
     statusBtn.style.backgroundColor = "rgba(159, 131, 30, 0.1)";
     statusBtn.style.color = "#79641b";
+    statusBtn.style.border = "none";
     statusBtn.disabled = false;
   } else if (statusBtn.textContent === "Pending") {
     statusBtn.className = "btn rounded status-btn btn-info";
     statusBtn.style.backgroundColor = "rgba(239, 190, 18, 0.1)";
     statusBtn.style.color = "#efbe12";
+    statusBtn.style.border = "none";
     statusBtn.disabled = false;
   }
 }
@@ -114,8 +118,13 @@ function saveStatus(taskId, status) {
   }
   localStorage.setItem("allTasks", JSON.stringify(savedTasks));
 }
-
 getTask();
+
+// logout
+let logoutButton = document.querySelector("#logbtn");
+logoutButton.addEventListener("click", (e) => {
+  window.open("../../../index.html");
+});
 
 // Dark Mode Toggle
 const themeToggle = document.getElementById("themeToggle");

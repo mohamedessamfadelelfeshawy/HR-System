@@ -22,35 +22,10 @@ async function getEmp() {
   }
 }
 
-// async function getAttendData() {
-//   try {
-//     let allData = await fetchEmployee(
-//       "../../../assets/js/json/attendance-record.json"
-//     );
-//     let empData = getItem("employee");
-//     if (!empData) {
-//       console.error("No employee is logged in.");
-//       return [];
-//     }
-//     let empAttendance = allData.filter(
-//       (record) => record.employeeId === empData.id
-//     );
-//     setItem("allAttendance", empAttendance);
-//     createTable(empAttendance);
-// cardData(empAttendance);
-// renderCalendar(displayedMonth, displayedYear);
-//     return empAttendance;
-//   } catch (error) {
-//     console.error("Error fetching attendance data:", error);
-//     return [];
-//   }
-// }
-
-// get Employee Attendance From Security
-async function getSingleAttendance() {
+async function getAttendData() {
   try {
     let allData = await fetchEmployee(
-      "../../../assets/js/json/attendance_single_day.json"
+      "../../../assets/js/json/attendance-record.json"
     );
     let empData = getItem("employee");
     if (!empData) {
@@ -60,9 +35,8 @@ async function getSingleAttendance() {
     let empAttendance = allData.filter(
       (record) => record.employeeId === empData.id
     );
-    console.log();
+    console.log(empAttendance);
     setItem("employeesAttendanceInfo", empAttendance);
-
     createTable(empAttendance);
     cardData(empAttendance);
     renderCalendar(displayedMonth, displayedYear);
@@ -73,6 +47,33 @@ async function getSingleAttendance() {
   }
 }
 
+// get Employee Attendance From Security
+// async function getSingleAttendance() {
+//   try {
+//     let allData = await fetchEmployee(
+//       "../../../assets/js/json/attendance_single_day.json"
+//     );
+//     let empData = getItem("employee");
+//     if (!empData) {
+//       console.error("No employee is logged in.");
+//       return [];
+//     }
+//     let empAttendance = allData.filter(
+//       (record) => record.employeeId === empData.id
+//     );
+//     console.log();
+//     setItem("employeesAttendanceInfo", empAttendance);
+
+//     createTable(empAttendance);
+//     cardData(empAttendance);
+//     renderCalendar(displayedMonth, displayedYear);
+//     return empAttendance;
+//   } catch (error) {
+//     console.error("Error fetching attendance data:", error);
+//     return [];
+//   }
+// }
+
 // create table to show data
 function createTable(Atten) {
   let attendanceTable = document.querySelector("#attendance-table");
@@ -82,7 +83,6 @@ function createTable(Atten) {
   let tableHeader = document.createElement("thead");
   let tableHeadRow = document.createElement("tr");
   tableHeadRow.classList.add("text-nowrap", "text-center");
-
   let headers = [
     "ID",
     "Emp ID",
@@ -354,6 +354,12 @@ function cardData(records) {
   });
 }
 
+// logout
+let logoutButton = document.querySelector("#logbtn");
+logoutButton.addEventListener("click", (e) => {
+  window.open("../../../index.html");
+});
+
 // dark Mode
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("themeToggle");
@@ -378,6 +384,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// getAttendData();
+getAttendData();
 getEmp();
-getSingleAttendance();
+// getSingleAttendance();

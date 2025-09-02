@@ -171,64 +171,73 @@ body {
 
 /* Dark Mode Theme */
 [data-bs-theme="dark"] {
-  --mint-green-color: #00a2ca;
-  --white-color: #e0e1dd;
-  --th-color: #b0b3b8;
+  --bs-body-bg: #0d1b2a;
+  --bs-body-color: #e0e1dd;
+  --bs-primary: #00a2ca;
+  --bs-secondary: #778da9;
+  --bs-success: #4caf50;
+  --bs-danger: #ff4d4d;
+  --bs-warning: #ffc107;
+  --bs-info: #17a2b8;
 
-  background-color: #0d1b2a;
-  color: var(--white-color);
+  --bs-border-color: #415a77;
+  --bs-card-bg: #1b263b;
+  --bs-navbar-bg: #1e2a3b;
+
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
 }
 
 [data-bs-theme="dark"] body {
-  background-color: #0d1b2a;
-  color: var(--white-color);
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
 }
 
 [data-bs-theme="dark"] .navbar {
-  background: #1e2a3b;
+  background: var(--bs-navbar-bg);
 }
 
 [data-bs-theme="dark"] .nav-link:hover {
-  background-color: var(--white-color);
-  color: #1b263b;
+  background-color: var(--bs-body-color);
+  color: var(--bs-body-bg);
   border-radius: 5px;
 }
 
 [data-bs-theme="dark"] span {
-  background-color: #1b263b;
-  color: var(--white-color);
+  background-color: var(--bs-card-bg);
+  color: var(--bs-body-color);
 }
 
 [data-bs-theme="dark"] #request-table {
-  background-color: #1b263b;
-  color: var(--white-color);
+  background-color: var(--bs-card-bg);
+  color: var(--bs-body-color);
 }
 
 [data-bs-theme="dark"] #request-table thead tr th {
-  background-color: #1b263b;
-  color: var(--white-color);
+  background-color: var(--bs-card-bg);
+  color: var(--bs-body-color);
 }
 
 [data-bs-theme="dark"] .modal-content {
-  background-color: #1b263b;
-  color: var(--white-color);
+  background-color: var(--bs-card-bg);
+  color: var(--bs-body-color);
 }
 
 [data-bs-theme="dark"] .req-btn,
 [data-bs-theme="dark"] .main-button {
-  background-color: #1b263b;
-  color: var(--white-color);
+  background-color: var(--bs-card-bg);
+  color: var(--bs-body-color);
 }
 
 [data-bs-theme="dark"] .save-btn {
-  background-color: var(--white-color);
-  color: #1b263b;
+  background-color: var(--bs-body-color);
+  color: var(--bs-body-bg);
 }
 
 [data-bs-theme="dark"] .req-btn:hover,
 [data-bs-theme="dark"] .main-button:hover,
 [data-bs-theme="dark"] .save-btn:hover {
-  background-color: #1b263b;
-  color: var(--white-color);
+  background-color: var(--bs-card-bg);
+  color: var(--bs-body-color);
   border-radius: 5px;
 }
