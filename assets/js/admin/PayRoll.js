@@ -52,32 +52,36 @@ logOutButton.addEventListener("click",(e)=>{
 
 
 // display employee payroll in table
-fetch("/assets/js/json/payrolls.json")
-  .then(response => response.json())
-  .then(data => {
+// fetch("/assets/js/json/payrolls.json")
+//   .then(response => response.json())
+//   .then(data => {
+  let data=getItem("allEmployees");
     const tbody = document.getElementById("payrollBody");
     tbody.innerHTML = ""; 
 
     data.forEach(item => {
       
-      const monthFormatted = item.month.split("-").reverse().join("-");
+
 
       const row = `
         <tr>
-          <td>${item.employeeId}</td>
+          <td>${item.id}</td>
           <td>${item.name}</td> 
-          <td>${monthFormatted}</td>
-          <td>${item.baseSalary}</td>
-          <td>${item.deductions}</td>
-          <td>${item.bonus}</td>
-          <td>${item.penalties}</td> 
+          <td>${item.email}</td> 
+          <td>${item.role}</td>
+          <td>${item.monthlySalary}</td> 
+        
+          
+          
+         <td>${item.Penalties}</td>
+
           <td>${item.netSalary}</td>
         </tr>
       `;
       tbody.innerHTML += row;
     });
-  })
-  .catch(err => console.error("Error loading payroll:", err));
+  // })
+  // .catch(err => console.error("Error loading payroll:", err));
 
 
 
