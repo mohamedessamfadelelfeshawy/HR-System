@@ -3,26 +3,70 @@ import {
   setItem,
   getItem,
 } from "../../../assets/js/exportFun.js";
-const html = document.documentElement; // <html>
+
+const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const tBody = document.getElementById("tBody");
 const search = document.getElementById("search");
 const logoutIcon = document.querySelector(".logoutIcon");
 
-/* logOut */
-logoutIcon.addEventListener("click",()=>{
+async function calculateSalaries() {
+  const allEmployees = getItem("allEmployees");
+  const settings = getItem("setting system");
+  const attendanceRecords = await fetchEmployee("/assets/js/json/attendance-record.json");
+
+  if (!allEmployees || !settings || !attendanceRecords) {
+    console.error("خطأ: البيانات الأساسية (allEmployees, setting system, attendanceRecords) غير موجودة.");
+    return;
+  }
+  
+  const updatedEmployees = allEmployees.map(employee => {
+    const employeeRecords = attendanceRecords.filter(record => record.employeeId == employee.id);
+
+    let lateCount = 0;
+    let absentCount = 0;
+    
+    employeeRecords.forEach(record => {
+      if (record.status === "Late") {
+        lateCount++;
+      } else if (record.status === "Absent") {
+        absentCount++;
+      }
+    });
+    
+    const dailyRate = (employee.monthlySalary || 0) / 30;
+    
+    const lateDeductionAmount = (dailyRate * ((settings.late || 0) / 100)) * lateCount;
+    const absentDeductionAmount = (dailyRate * ((settings.absent || 0) / 100)) * absentCount;
+    const totalPenalties = lateDeductionAmount + absentDeductionAmount;
+    
+    let bonusAmount = 0;
+    if (lateCount === 0 && absentCount === 0 && (settings.bonus || 0) > 0) {
+      bonusAmount = (employee.monthlySalary || 0) * ((settings.bonus || 0) / 100);
+    }
+    
+    const newNetSalary = (employee.monthlySalary || 0) - totalPenalties + bonusAmount;
+
+    return {
+      ...employee,
+      Penalties: totalPenalties.toFixed(2),
+      "Net Salary": newNetSalary.toFixed(2),
+    };
+  });
+
+  setItem("allEmployees", updatedEmployees);
+  
+  console.log("تم حساب الخصومات والمكافآت وتحديث الرواتب بنجاح.");
+}
+
+logoutIcon.addEventListener("click", () => {
   localStorage.removeItem("employee");
-  window.location="../../../index.html"
-})
+  window.location.replace("../../../index.html");
+});
 
-
-/* attendance */
-let attendants = getItem("employeesAttendanceInfo");
-displayData(attendants);
-
-/* DISPLAY EMPLOYEE */
 function displayData(arr) {
   let emp = "";
+  if (!arr) return;
   arr.map((el) => {
     emp += `
       <tr>
@@ -31,38 +75,39 @@ function displayData(arr) {
           <td>${el.date}</td>
           <td>${el.checkIn}</td>
           <td>${el.checkOut}</td>
-        <td>
-        <span class="px-2 py-1 special-status rounded ${
-          el.status === "Present"
-            ? "bg-success"
-            : el.status === "Absent"
-            ? "bg-danger"
-            : "bg-warning"
-        }">${el.status}</span>
-      </td>
-
-
-            </tr>`;
+          <td>
+            <span class="px-2 py-1 special-status rounded ${
+              el.status === "Present" ? "bg-success" : el.status === "Absent" ? "bg-danger" : "bg-warning"
+            }">${el.status}</span>
+          </td>
+      </tr>`;
   });
   tBody.innerHTML = emp;
 }
 
-/* search */
 search.addEventListener("input", (e) => {
   e.preventDefault();
-  let arrFilter = attendants.filter((el) =>
-    el.status.toLowerCase().includes(search.value.toLowerCase())
-  );
-  displayData(arrFilter);
-});
-
-// dark mode end
-html.setAttribute("data-bs-theme", "light");
-btn.addEventListener("click", () => {
-  const currentTheme = html.getAttribute("data-bs-theme");
-  if (currentTheme === "light") {
-    html.setAttribute("data-bs-theme", "dark");
-  } else {
-    html.setAttribute("data-bs-theme", "light");
+  if (window.attendants) {
+    let arrFilter = window.attendants.filter((el) =>
+      el.status.toLowerCase().includes(search.value.toLowerCase())
+    );
+    displayData(arrFilter);
   }
 });
+
+const savedTheme = localStorage.getItem("theme") || "light";
+html.setAttribute("data-bs-theme", savedTheme);
+ 
+btn.addEventListener("click", () => {
+  const currentTheme = html.getAttribute("data-bs-theme");
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  html.setAttribute("data-bs-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+});
+
+(async () => {
+  window.attendants = await fetchEmployee("/assets/js/json/attendance-record.json");
+  displayData(window.attendants);
+  
+  await calculateSalaries();
+})();

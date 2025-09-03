@@ -1,4 +1,3 @@
-
 import {
   fetchEmployee,
   getItem,
@@ -7,7 +6,6 @@ import {
 
 async function fetchedData() {
   try {
-    // get all requests
     let allRequests = getItem("allRequests");
     if (!allRequests) {
       allRequests = await fetchEmployee(
@@ -16,7 +14,6 @@ async function fetchedData() {
       setItem("allRequests", allRequests);
     }
 
-    // get all employees
     let allEmployees = getItem("allEmployees");
     if (!allEmployees) {
       allEmployees = await fetchEmployee(
@@ -35,7 +32,6 @@ function createTable(requests, employees) {
   let table = document.querySelector("#request-table");
   table.innerHTML = "";
 
-  // Table Header
   let tableHeader = document.createElement("thead");
   let tableHeadRow = document.createElement("tr");
   tableHeadRow.classList.add("text-nowrap", "text-center");
@@ -57,7 +53,6 @@ function createTable(requests, employees) {
   tableHeader.appendChild(tableHeadRow);
   table.appendChild(tableHeader);
 
-  // Table Body
   let tableBody = document.createElement("tbody");
   tableBody.classList.add("text-center");
   table.appendChild(tableBody);
@@ -67,39 +62,36 @@ function createTable(requests, employees) {
     row.classList.add("text-nowrap");
     row.dataset.id = request.id;
 
-    // ID
     let tdId = document.createElement("td");
     tdId.textContent = request.employeeId;
     row.appendChild(tdId);
 
-    // Employee Name (match employeeId with employees)
     let employee = employees.find((emp) => emp.id === request.employeeId);
     let tdName = document.createElement("td");
     tdName.textContent = employee ? employee.name : "Unknown";
     row.appendChild(tdName);
 
-    // Request Type + Notes
     let tdType = document.createElement("td");
-    tdType.innerHTML = `${request.type}<br/><small style='color:grey'>${request.notes}</small>`;
+    tdType.innerHTML = `${request.type}<br/><small style='color:grey'>${
+      request.notes || ""
+    }</small>`;
     row.appendChild(tdType);
 
-    // Date
     let tdDate = document.createElement("td");
     tdDate.textContent = request.date;
     row.appendChild(tdDate);
 
-    // Status
     let tdStatus = document.createElement("td");
     let spanStatus = document.createElement("span");
     spanStatus.textContent = request.status;
 
     if (request.status === "Approved") {
       spanStatus.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
-      spanStatus.style.color = "##198754";
+      spanStatus.style.color = "#198754";
     } else if (request.status === "Rejected") {
       spanStatus.style.backgroundColor = "rgba(244, 91, 105, 0.1)";
       spanStatus.style.color = "#f45b69";
-    } else if (request.status === "Pending") {
+    } else {
       spanStatus.style.backgroundColor = "rgba(239, 190, 18, 0.1)";
       spanStatus.style.color = "#efbe12";
     }
@@ -110,78 +102,83 @@ function createTable(requests, employees) {
     tdStatus.appendChild(spanStatus);
     row.appendChild(tdStatus);
 
-    // Action buttons
+    let tdAction = document.createElement("td");
 
-    // Approve Button
     let approveButton = document.createElement("button");
     approveButton.textContent = "Approve";
     approveButton.classList.add("approve");
     approveButton.style.border = "none";
-    approveButton.style.backgroundColor = "#3fc28a";
-    approveButton.style.color = "#fff";
-    approveButton.style.marginTop = "5px";
+    approveButton.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
+    approveButton.style.color = "#198754";
+    approveButton.style.margin = "5px";
     approveButton.style.borderRadius = "5px";
-    row.appendChild(approveButton);
 
-    // Approve Button
-    let rejectedButton = document.createElement("button");
-    rejectedButton.textContent = "Reject";
-    rejectedButton.classList.add("reject");
-    rejectedButton.style.border = "none";
-    rejectedButton.style.backgroundColor = "#f45b69";
-    rejectedButton.style.color = "#fff";
-    rejectedButton.style.marginTop = "5px";
-    rejectedButton.style.marginLeft = "5px";
-    rejectedButton.style.borderRadius = "5px";
-    row.appendChild(rejectedButton);
+    let rejectButton = document.createElement("button");
+    rejectButton.textContent = "Reject";
+    rejectButton.classList.add("reject");
+    rejectButton.style.border = "none";
+    rejectButton.style.backgroundColor = "rgba(244, 91, 105, 0.1)";
+    rejectButton.style.color = "#f45b69";
+    rejectButton.style.margin = "5px";
+    rejectButton.style.borderRadius = "5px";
+
+    if (request.status !== "Pending") {
+      approveButton.disabled = true;
+      rejectButton.disabled = true;
+      approveButton.style.opacity = "0.6";
+      rejectButton.style.opacity = "0.6";
+      approveButton.style.cursor = "not-allowed";
+      rejectButton.style.cursor = "not-allowed";
+    }
+
+    tdAction.appendChild(approveButton);
+    tdAction.appendChild(rejectButton);
+    row.appendChild(tdAction);
 
     tableBody.appendChild(row);
   });
+
   addEvents();
 }
-
-// add buttons event
 
 function addEvents() {
   let approveButtons = document.querySelectorAll(".approve");
   let rejectButtons = document.querySelectorAll(".reject");
 
-  // Approve
   approveButtons.forEach((btn) => {
     btn.addEventListener("click", function () {
       let row = btn.closest("tr");
       let requestId = parseInt(row.dataset.id);
 
-      updateRequestStatus(requestId, "Approved");
+      let updatedRequest = updateRequestStatus(requestId, "Approved");
+      if (updatedRequest) {
+        updateAttendanceFiles(updatedRequest); // تحديث الـ employeesAttendanceInfo + AttendanceRecord
+      }
+
       disableRowButtons(row);
     });
   });
 
-  // Reject
   rejectButtons.forEach((btn) => {
     btn.addEventListener("click", function () {
       let row = btn.closest("tr");
       let requestId = parseInt(row.dataset.id);
 
       updateRequestStatus(requestId, "Rejected");
+
       disableRowButtons(row);
     });
   });
 }
 
 function updateRequestStatus(requestId, newStatus) {
-  // get requests from localStorage
   let requests = getItem("allRequests") || [];
 
-  // find the request
   let request = requests.find((r) => r.id === requestId);
   if (request) {
     request.status = newStatus;
-
-    // save back to localStorage
     setItem("allRequests", requests);
 
-    // update UI directly
     let row = document.querySelector(`tr[data-id="${requestId}"]`);
     let tdStatus = row.querySelector("td:nth-child(5) span");
 
@@ -189,7 +186,7 @@ function updateRequestStatus(requestId, newStatus) {
 
     if (newStatus === "Approved") {
       tdStatus.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
-      tdStatus.style.color = "#3fc28a";
+      tdStatus.style.color = "#198754";
     } else if (newStatus === "Rejected") {
       tdStatus.style.backgroundColor = "rgba(244, 91, 105, 0.1)";
       tdStatus.style.color = "#f45b69";
@@ -198,6 +195,73 @@ function updateRequestStatus(requestId, newStatus) {
       tdStatus.style.color = "#efbe12";
     }
   }
+
+  return request;
+}
+
+function updateAttendanceFiles(request) {
+  let empId = request.employeeId;
+  let date = request.date;
+
+  let singleAttendance = getItem("employeesAttendanceInfo") || [];
+  let record = singleAttendance.find(
+    (a) => a.employeeId === empId && a.date === date
+  );
+
+  if (!record) {
+    record = {
+      id: singleAttendance.length + 1,
+      employeeId: empId,
+      employeeName: request.employeeName || "Unknown",
+      department: request.department || "N/A",
+      date: date,
+      checkIn: "--",
+      checkOut: "--",
+      status: request.type === "WFH" ? "WFH" : "Leave",
+      minutesLate: 0,
+      isWFH: request.type === "WFH",
+      isLeave: request.type !== "WFH",
+      notes: request.notes || request.type,
+    };
+    singleAttendance.push(record);
+  } else {
+    record.status = request.type === "WFH" ? "WFH" : "Leave";
+    record.isWFH = request.type === "WFH";
+    record.isLeave = request.type !== "WFH";
+    record.notes = request.notes || request.type;
+  }
+
+  setItem("employeesAttendanceInfo", singleAttendance);
+
+  let attendanceRecord = getItem("AttendanceRecord") || [];
+  let month = date.slice(0, 7);
+
+  let monthly = attendanceRecord.find(
+    (a) => a.employeeId === empId && a.month === month
+  );
+
+  if (!monthly) {
+    monthly = {
+      id: attendanceRecord.length + 1,
+      employeeId: empId,
+      employeeName: request.employeeName || "Unknown",
+      department: request.department || "N/A",
+      month: month,
+      present: 0,
+      absent: 0,
+      leave: 0,
+      wfh: 0,
+    };
+    attendanceRecord.push(monthly);
+  }
+
+  if (request.type === "WFH") {
+    monthly.wfh += 1;
+  } else {
+    monthly.leave += 1;
+  }
+
+  setItem("AttendanceRecord", attendanceRecord);
 }
 
 function disableRowButtons(row) {
@@ -212,6 +276,8 @@ function disableRowButtons(row) {
   approveBtn.style.cursor = "not-allowed";
   rejectBtn.style.cursor = "not-allowed";
 }
+
+fetchedData();
 
 // dark mode and logOut
 const html = document.documentElement; // <html>
@@ -231,6 +297,3 @@ btn.addEventListener("click", () => {
   }
 });
 // dark mode end
-
-fetchedData();
-
