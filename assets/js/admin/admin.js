@@ -68,9 +68,10 @@ document.getElementById("exportpdf2Btn").addEventListener("click", () => {
 //   .getElementById("exportCsvBtn2")
 //   .addEventListener("click", () => exportTable("takiTable", "data", "csv"));
 
-fetch("/assets/js/json/attendance-record.json")
-  .then((response) => response.json())
-  .then((records) => {
+// fetch("/assets/js/json/attendance-record.json")
+//   .then((response) => response.json())
+//   .then((records) => {
+  let records= getItem("AttendanceRecord");
     let presentCount = 0;
     let absentCount = 0;
     let lateCount = 0;
@@ -94,14 +95,15 @@ fetch("/assets/js/json/attendance-record.json")
     document.getElementById("totalLate").textContent = lateCount;
     document.getElementById("totalAbsent").textContent = absentCount;
     document.getElementById("totalWFH").textContent = wfhCount;
-  })
-  .catch((error) =>
-    console.error("Error loading attendance data for cards:", error)
-  );
+  // })
+  // .catch((error) =>
+  //   console.error("Error loading attendance data for cards:", error)
+  // );
 
-fetch("/assets/js/json/personalTasks.json")
-  .then((response) => response.json())
-  .then((tasks) => {
+// fetch("/assets/js/json/personalTasks.json")
+//   .then((response) => response.json())
+//   .then((tasks) => {
+  let tasks= getItem("allTasks");
     let completed = 0;
     let overdue = 0;
 
@@ -115,16 +117,17 @@ fetch("/assets/js/json/personalTasks.json")
 
     document.getElementById("completedCount").textContent = completed;
     document.getElementById("overdueCount").textContent = overdue;
-  })
-  .catch((error) =>
-    console.error("Error loading tasks data for cards:", error)
-  );
+  // })
+  // .catch((error) =>
+  //   console.error("Error loading tasks data for cards:", error)
+  // );
 
-fetch("/assets/js/json/payrolls.json")
-  .then((response) => response.json())
-  .then((payrolls) => {
+// fetch("/assets/js/json/payrolls.json")
+//   .then((response) => response.json())
+//   .then((payrolls) => {
+  let payrolls= getItem("allEmployees");
     const totalPayroll = payrolls.reduce(
-      (sum, current) => sum + current.netSalary,
+      (sum, current) => sum + current.Net_Salary,
       0
     );
 
@@ -132,8 +135,8 @@ fetch("/assets/js/json/payrolls.json")
     if (payrollImpactElement) {
       payrollImpactElement.textContent = `$${totalPayroll.toLocaleString()}`;
     }
-  })
-  .catch((error) => console.error("Error loading payroll data:", error));
+  // })
+  // .catch((error) => console.error("Error loading payroll data:", error));
 
 fetch("/assets/js/json/attendance-record.json")
   .then((response) => response.json())
@@ -281,7 +284,7 @@ fetch("/assets/js/json/attendance-record.json")
       }
     });
 
-    // عرض الداتا في الجدول
+  
     const tbody = document.getElementById("tasksTableBody");
     tbody.innerHTML = "";
 
