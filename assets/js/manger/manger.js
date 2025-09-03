@@ -20,8 +20,8 @@ let localTasks = getItem("allTasks");
 numTasks.innerHTML = localTasks?localTasks.length:15;
 
 /* requests */
-let requests = await fetchEmployee("/assets/js/json/requests.json");
-numRequests.innerHTML = requests.length;
+let localRequest = getItem("allRequests");
+numRequests.innerHTML = localRequest.length;
 
 /* DISPLAY EMPLOYEE */
 function displayData(arr) {
