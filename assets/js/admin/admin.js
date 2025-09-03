@@ -138,9 +138,10 @@ document.getElementById("exportpdf2Btn").addEventListener("click", () => {
   // })
   // .catch((error) => console.error("Error loading payroll data:", error));
 
-fetch("/assets/js/json/attendance-record.json")
-  .then((response) => response.json())
-  .then((records) => {
+// fetch("/assets/js/json/attendance-record.json")
+//   .then((response) => response.json())
+//   .then((records) => {
+  
     const employeeStats = {};
 
     records.forEach((rec) => {
@@ -190,10 +191,10 @@ fetch("/assets/js/json/attendance-record.json")
       `;
       tableBody.insertAdjacentHTML("beforeend", row);
     });
-  })
-  .catch((error) =>
-    console.error("Error loading and processing attendance report:", error)
-  );
+  // })
+  // .catch((error) =>
+  //   console.error("Error loading and processing attendance report:", error)
+  // );
 
 
 
