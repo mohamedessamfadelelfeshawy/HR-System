@@ -37,12 +37,36 @@ document
 document
   .getElementById("dataBtn2")
   .addEventListener("click", () => exportTable("takiTable", "data", "xlsx"));
-document
-  .getElementById("exportCsvBtn")
-  .addEventListener("click", () => exportTable("dataTable", "data", "csv"));
-document
-  .getElementById("exportCsvBtn2")
-  .addEventListener("click", () => exportTable("takiTable", "data", "csv"));
+// document
+//   .getElementById("exportCsvBtn")
+//   .addEventListener("click", () => exportTable("dataTable", "data", "csv"));
+
+
+document.getElementById("exportpdf1Btn").addEventListener("click", () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  
+  doc.autoTable({ html: "#dataTable" });
+
+  
+  doc.save("data.pdf");
+});
+
+document.getElementById("exportpdf2Btn").addEventListener("click", () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  
+  doc.autoTable({ html: "#dataTable" });
+
+  
+  doc.save("data.pdf");
+});
+
+// document
+//   .getElementById("exportCsvBtn2")
+//   .addEventListener("click", () => exportTable("takiTable", "data", "csv"));
 
 fetch("/assets/js/json/attendance-record.json")
   .then((response) => response.json())
@@ -167,3 +191,116 @@ fetch("/assets/js/json/attendance-record.json")
   .catch((error) =>
     console.error("Error loading and processing attendance report:", error)
   );
+
+
+
+
+
+  // employees tasks table
+  // fetch("/assets/js/json/personalTasks.json")
+  // .then(response => response.json())
+  // .then(tasks => {
+  //   const employeesStats = {};
+  //   const today = new Date();
+
+    
+  //   tasks.forEach(task => {
+  //     const empName = task.name;
+
+  //     if (!employeesStats[empName]) {
+  //       employeesStats[empName] = {
+  //         total: 0,
+  //         completed: 0,
+  //         overdue: 0
+  //       };
+  //     }
+
+  //     employeesStats[empName].total++;
+
+  //     if (task.status === "Completed") {
+  //       employeesStats[empName].completed++;
+  //     } else {
+        
+  //       const dueDate = new Date(task.dueDate);
+  //       if (dueDate < today) {
+  //         employeesStats[empName].overdue++;
+  //       }
+  //     }
+  //   });
+
+    
+  //   const tbody = document.getElementById("tasksTableBody");
+  //   tbody.innerHTML = "";
+
+  //   Object.keys(employeesStats).forEach(empName => {
+  //     const stats = employeesStats[empName];
+  //     const completionRate = stats.total > 0 
+  //       ? ((stats.completed / stats.total) * 100).toFixed(2) 
+  //       : 0;
+
+  //     const row = `
+  //       <tr>
+  //         <td>${empName}</td>
+  //         <td>${stats.total}</td>
+  //         <td>${stats.completed}</td>
+  //         <td>${stats.overdue}</td>
+  //         <td>${completionRate}%</td>
+  //       </tr>
+  //     `;
+  //     tbody.insertAdjacentHTML("beforeend", row);
+  //   });
+  // })
+  // .catch(error => console.error("Error loading tasks:", error));
+
+
+
+  fetch("/assets/js/json/personalTasks.json")
+  .then(response => response.json())
+  .then(tasks => {
+    const employeesStats = {};
+
+    
+    tasks.forEach(task => {
+      const empName = task.name;
+
+      if (!employeesStats[empName]) {
+        employeesStats[empName] = {
+          total: 0,
+          completed: 0,
+          pendingInProgress: 0
+        };
+      }
+
+      employeesStats[empName].total++;
+
+      if (task.status === "Completed") {
+        employeesStats[empName].completed++;
+      } 
+      else if (task.status === "Pending" || task.status === "In Progress") {
+        employeesStats[empName].pendingInProgress++;
+      }
+    });
+
+    // عرض الداتا في الجدول
+    const tbody = document.getElementById("tasksTableBody");
+    tbody.innerHTML = "";
+
+    Object.keys(employeesStats).forEach(empName => {
+      const stats = employeesStats[empName];
+      const completionRate = stats.total > 0 
+        ? ((stats.completed / stats.total) * 100).toFixed(2) 
+        : 0;
+
+      const row = `
+        <tr>
+          <td>${empName}</td>
+          <td>${stats.total}</td>
+          <td>${stats.completed}</td>
+          <td>${stats.pendingInProgress}</td>
+          <td>${completionRate}%</td>
+        </tr>
+      `;
+      tbody.insertAdjacentHTML("beforeend", row);
+    });
+  })
+  .catch(error => console.error("Error loading tasks:", error));
