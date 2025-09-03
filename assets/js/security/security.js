@@ -50,11 +50,9 @@ function displayArray(arr) {
 
 // STATUS
 function statusEmployee(object) {
-  // if (leaveRequest && approved ){
-  //   object.status = "Leave";
-  // }
-  // else 
-    if(object.isWFH) {
+  if (object.isLeave) {
+    object.status = "Leave";
+  } else if (object.isWFH) {
     object.status = "WFH";
   } else if (!object.checkIn) {
     object.status = "Absent";
@@ -66,7 +64,7 @@ function statusEmployee(object) {
 
     if (totalMinutes <= 9 * 60) {
       object.status = "Present";
-    } else if (totalMinutes > 9 * 60 && totalMinutes <= 11 * 60) {
+    } else if (totalMinutes <= 11 * 60) {
       object.status = "Late";
     } else {
       object.status = "Absent";
@@ -78,7 +76,7 @@ function statusEmployee(object) {
       return `<button class="btn btn-success btn-sm">Present</button>`;
 
     case "Late":
-      return `<button class="btn btn-warning btn-sm">Late </button>`;
+      return `<button class="btn btn-warning btn-sm">Late</button>`;
 
     case "Absent":
       return `<button class="btn btn-danger btn-sm">Absent</button>`;
@@ -86,10 +84,14 @@ function statusEmployee(object) {
     case "WFH":
       return `<button class="btn btn-info btn-sm">WFH</button>`;
 
+    case "Leave":
+      return `<button class="btn btn-secondary btn-sm">Leave</button>`;
+
     default:
       return `<button class="btn btn-dark btn-sm">Unknown</button>`;
   }
 }
+
 
 // LOCAL STORAGE
 function updateLocalStorage() {
@@ -121,9 +123,8 @@ async function getUser() {
 }
 async function getAttendanceRecord() {
   try {
-    const res = await fetch(`../assets/js/json/attendance_single_day.json`);
+    const res = await fetch(`../assets/js/json/attendance-record.json`);
     const data = await res.json();
-
     AttendanceRecord = [...data];
     console.log(AttendanceRecord);
     
