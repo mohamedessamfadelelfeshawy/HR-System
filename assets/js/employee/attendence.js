@@ -357,7 +357,8 @@ function cardData(records) {
 // logout
 let logoutButton = document.querySelector("#logbtn");
 logoutButton.addEventListener("click", (e) => {
-  window.open("../../../index.html");
+  localStorage.removeItem("employee");
+  window.location = "../../../index.html";
 });
 
 // dark Mode
