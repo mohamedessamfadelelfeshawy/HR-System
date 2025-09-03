@@ -47,10 +47,11 @@ async function calculateSalaries() {
 
     const newNetSalary = (employee.monthlySalary || 0) - totalPenalties + bonusAmount;
 
+    // تم تعديل السطر التالي ليتوافق مع ملف JSON
     return {
       ...employee,
       Penalties: totalPenalties.toFixed(2),
-      "Net Salary": newNetSalary.toFixed(2),
+      NetSalary: newNetSalary.toFixed(2), 
     };
   });
   setItem("allEmployees", updatedEmployees);
@@ -58,7 +59,7 @@ async function calculateSalaries() {
 
 logoutIcon.addEventListener("click", () => {
   localStorage.removeItem("employee");
-  window.location = "../../../index.html";
+  window.location.replace("../../../index.html"); // تم استخدام .replace لمنع الرجوع للخلف
 });
 
 function displayData(arr) {
