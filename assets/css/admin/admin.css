@@ -74,9 +74,7 @@
 }
 
 
-/* [data-bs-theme="dark"] .hrDark  {
-  text-color: #9da190 !important;  
-} */
+
 /* Text in Dark Mode */
 [data-bs-theme="dark"] .hrDark {
   color: #9da190 !important;

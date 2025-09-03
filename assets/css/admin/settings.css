@@ -1,21 +1,19 @@
-.colorBtn{
+.colorBtn {
   background-color: #00A2CA;
 }
-.repots{
+.repots {
   color: #00A2CA;
 }
 
-   .btn-export {  
+.btn-export {  
   color: #fff !important;
   border: 1px solid #00A2CA !important;
-  /* background-color: transparent !important; */
   transition: ease;
   background-color: #00A2CA;
 }
-/* Hover in Light Mode */
+
 .btn-export:hover {
   color: #00A2CA !important;
-  background-color: #00A2CA !important;
   background-color: transparent !important;
 }
 
@@ -29,7 +27,6 @@
   --bs-danger: #ff4d4d;
   --bs-warning: #ffc107;
   --bs-info: #17a2b8;
-
   --bs-border-color: #415a77;
   --bs-card-bg: #1b263b;
   --bs-navbar-bg: #1e2a3b;
@@ -39,16 +36,9 @@
   background: linear-gradient(to right, #0d1b2a 50%, #183153 50%);
 }
 
-
 [data-bs-theme="dark"] .navbar {
   background-color: #0d1b2a !important; 
 }
-
-/* [data-bs-theme="dark"] .colorBtn {
-  background-color: #0d1b2a !important;
-  border:#00A2CA 2px solid;
-  color: white; 
-} */
 
 [data-bs-theme="dark"] .navbar .nav-link,
 [data-bs-theme="dark"] .navbar .navbar-brand {
@@ -59,14 +49,12 @@
   color: #00a2ca !important;
 }
 
-/* btn */
 [data-bs-theme="dark"] .btn-export {
   background-color: #0d1b2a !important;
   border: 1px solid #00A2CA !important;
   color: #9da190 !important;
 }
 
-/* Hover in Dark Mode */
 [data-bs-theme="dark"] .btn-export:hover {
   background-color: #00A2CA !important;
   color: #fff !important;

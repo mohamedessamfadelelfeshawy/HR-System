@@ -128,7 +128,7 @@ fetch("/assets/js/json/payrolls.json")
       0
     );
 
-    const payrollImpactElement = document.getElementById("payrollImpactValue");
+    const payrollImpactElement = document.getElementById("totalPayrollImpact");
     if (payrollImpactElement) {
       payrollImpactElement.textContent = `$${totalPayroll.toLocaleString()}`;
     }
