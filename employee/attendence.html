@@ -17,7 +17,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg fade p-0">
+      <nav class="navbar navbar-expand-lg fade p-0 sticky-top">
         <div
           class="container d-flex justify-content-between align-items-center rounded-2">
           <div class="logo d-flex align-items-center">
@@ -39,7 +39,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <div
+            class="collapse navbar-collapse text-center"
+            id="navbarTogglerDemo03">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link" href="#attendence">Attendance</a>
@@ -73,11 +75,7 @@
           <!-- make with js -->
           <div class="text text-center fade">
             <h3 class="mb-0 welcome-head"></h3>
-            <div class="job-title mt-3">
-              <i class="fa-solid fa-briefcase"></i>
-              <!-- make with js -->
-              <span class="ms-2 mb-0 emp-spetial"></span>
-            </div>
+
             <div class="email-title mt-1">
               <i class="fa-regular fa-envelope"></i>
               <!-- make with js -->
@@ -85,6 +83,11 @@
                 href="mailto:nehalhamada3@gmail.com"
                 class="ms-2 text-decoration-none emp-mail"
                 title="mail"></a>
+            </div>
+            <div class="job-title mt-1">
+              <i class="fa-solid fa-briefcase"></i>
+              <!-- make with js -->
+              <span class="ms-2 mb-0 emp-spetial"></span>
             </div>
           </div>
 
@@ -193,9 +196,11 @@
           </div>
         </div>
       </section>
-      <section></section>
     </main>
-    <footer></footer>
+    <footer
+      class="d-flex justify-content-center align-items-center text-white py-2 text-center">
+      <p class="mb-0 flex-grow-1">created by HMMN &copy; ITI 2025</p>
+    </footer>
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script type="module" src="../assets/js/employee/attendence.js"></script>

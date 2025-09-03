@@ -237,6 +237,10 @@ body {
   }
 }
 
+footer {
+  background-color: var(--mint-green-color);
+}
+
 /* Fade animation */
 .fade {
   animation: fade 3s ease-in-out 1 forwards;

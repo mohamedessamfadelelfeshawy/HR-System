@@ -3,7 +3,9 @@ import { fetchEmployee } from "../../../assets/js/exportFun.js";
 
 async function getTask() {
   try {
-    let getData = await fetchEmployee("../../../assets/js/json/tasks.json");
+    let getData = await fetchEmployee(
+      "../../../assets/js/json/personalTasks.json"
+    );
     let loggedEmployee = JSON.parse(localStorage.getItem("employee"));
     let allTasks = getData.filter((t) => t.employeeId === loggedEmployee.id);
     localStorage.setItem("allTasks", JSON.stringify(allTasks));
@@ -123,7 +125,8 @@ getTask();
 // logout
 let logoutButton = document.querySelector("#logbtn");
 logoutButton.addEventListener("click", (e) => {
-  window.open("../../../index.html");
+  localStorage.removeItem("employee");
+  window.location = "../../../index.html";
 });
 
 // Dark Mode Toggle

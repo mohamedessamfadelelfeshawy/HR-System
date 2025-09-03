@@ -13,7 +13,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg fade p-0">
+      <nav class="navbar navbar-expand-lg fade p-0 sticky-top">
         <div
           class="container d-flex justify-content-between align-items-center rounded-2">
           <div class="logo d-flex align-items-center">
@@ -35,7 +35,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <div
+            class="collapse navbar-collapse text-center"
+            id="navbarTogglerDemo03">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link" href="attendence.html">Attendance</a>
@@ -98,7 +100,12 @@
                       <!-- add id -->
                       <div class="mb-3">
                         <label for="sele" class="form-label">ID</label>
-                        <span class="ms-2 p-1 rounded" id="sele">1</span>
+                        <input
+                          type="text"
+                          class="ms-2 p-1 rounded"
+                          id="sele"
+                          title="show"
+                          readonly />
                       </div>
                       <!-- type of requests -->
                       <div class="mb-3">
@@ -111,6 +118,7 @@
                           class="form-select p-2 shadow-sm rounded"
                           title="choose reason">
                           <option value="reason" selected>choose reason</option>
+                          <option value="Vacation">Vacation</option>
                           <option value="Late">Late</option>
                           <option value="Work From Home">Work From Home</option>
                           <option value="Absence">Absence</option>
@@ -157,9 +165,10 @@
         </div>
       </section>
     </main>
-
-    <footer></footer>
-
+    <footer
+      class="d-flex justify-content-center align-items-center text-white py-2 fixed-bottom text-center">
+      <p class="mb-0 flex-grow-1">created by HMMN &copy; ITI 2025</p>
+    </footer>
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script type="module" src="../assets/js/employee/request.js"></script>

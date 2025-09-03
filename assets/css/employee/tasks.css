@@ -64,7 +64,7 @@ body {
       background-color: var(--mint-green-color);
       color: var(--white-color);
       width: fit-content;
-      margin:  auto;
+      margin: auto;
     }
     .table-responsive {
       table {
@@ -81,6 +81,10 @@ body {
       }
     }
   }
+}
+
+footer {
+  background-color: var(--mint-green-color);
 }
 
 /* Media Query */
