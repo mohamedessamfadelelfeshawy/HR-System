@@ -66,25 +66,34 @@
                     <div class="card-body p-4">
                         <form id="settingsForm">
                             <div class="row g-3">
+                                <!-- Changed Fields as requested -->
                                 <div class="col-md-6">
-                                    <label for="overtimeMultiplier" class="form-label">Overtime Multiplier</label>
+                                    <label for="late" class="form-label">Late Deduction</label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" id="overtimeMultiplier" value="1.5" step="0.25">
-                                        <span class="input-group-text">x</span>
+                                        <input type="number" class="form-control" id="late" value="10" step="1">
+                                        <span class="input-group-text">% of Daily Rate</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="deductionCap" class="form-label">Monthly Deduction Cap</label>
+                                    <label for="absent" class="form-label">Absent Deduction</label>
                                      <div class="input-group">
-                                        <input type="number" class="form-control" id="deductionCap" value="25">
+                                        <input type="number" class="form-control" id="absent" value="100">
+                                        <span class="input-group-text">% of Daily Rate</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="bonus" class="form-label">Performance Bonus</label>
+                                     <div class="input-group">
+                                        <input type="number" class="form-control" id="bonus" value="5">
                                         <span class="input-group-text">% of Salary</span>
                                     </div>
                                 </div>
+                                <!-- Added Leave field -->
                                 <div class="col-md-6">
-                                    <label for="idealBonus" class="form-label">Ideal Employee Bonus</label>
-                                     <div class="input-group">
-                                        <input type="number" class="form-control" id="idealBonus" value="10">
-                                        <span class="input-group-text">%</span>
+                                    <label for="leave" class="form-label">Leave Deduction</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="leave" value="50" step="1">
+                                        <span class="input-group-text">% of Daily Rate</span>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +123,6 @@
 
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="../assets/js/admin/settings.js"></script>
 </body>
 

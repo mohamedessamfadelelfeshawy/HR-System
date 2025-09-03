@@ -1,72 +1,80 @@
-// dark mode staart
+// dark mode start
 const html = document.documentElement; 
 const btn = document.getElementById("toggleTheme");
 
+// Set a default theme if none is saved
+if (!localStorage.getItem("theme")) {
+  localStorage.setItem("theme", "light");
+}
 
-html.setAttribute("data-bs-theme", "light");
-
+html.setAttribute("data-bs-theme", localStorage.getItem("theme"));
 
 btn.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-bs-theme");
   if (currentTheme === "light") {
     html.setAttribute("data-bs-theme", "dark");
+    localStorage.setItem("theme", "dark");
   } else {
     html.setAttribute("data-bs-theme", "light");
+    localStorage.setItem("theme", "light");
   }
 });
 // dark mode end
-// logout sart
-let logOutButton=document.querySelector("#logBtn");
-logOutButton.addEventListener("click",(e)=>{
-  localStorage.removeItem("employee");
-  window.open("../../../index.html");
-})
+
+// logout start
+let logOutButton = document.querySelector("#logBtn");
+logOutButton.addEventListener("click", (e) => {
+  // Assuming you want to go to the login page which is in the root directory
+  window.location.href = "../../../index.html"; 
+});
 // logout end
 
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("settingsForm");
+  const weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
+  // Load saved settings from localStorage with the key "setting system"
+  const savedSettings = JSON.parse(localStorage.getItem("setting system")) || {};
   
-  const savedSettings = JSON.parse(localStorage.getItem("systemSettings")) || {};
-  if (savedSettings.overtimeMultiplier) {
-    document.getElementById("overtimeMultiplier").value = savedSettings.overtimeMultiplier;
-    document.getElementById("deductionCap").value = savedSettings.deductionCap;
-    document.getElementById("idealBonus").value = savedSettings.idealBonus;
+  // Populate the form with saved data if it exists
+  if (Object.keys(savedSettings).length > 0) {
+    document.getElementById("late").value = savedSettings.late || 10;
+    document.getElementById("absent").value = savedSettings.absent || 100;
+    document.getElementById("bonus").value = savedSettings.bonus || 5;
+    // Load leave value
+    document.getElementById("leave").value = savedSettings.leave || 50;
 
-    
-    ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
-      .forEach(day => {
-        if (savedSettings.workweek?.includes(day)) {
-          document.getElementById(day).checked = true;
-        } else {
-          document.getElementById(day).checked = false;
-        }
-      });
+    weekdays.forEach(day => {
+        // If savedSettings.workweek exists and includes the day, check the box. Otherwise, uncheck it.
+        document.getElementById(day).checked = savedSettings.workweek?.includes(day) ?? false;
+    });
   }
 
-  
+  // Handle form submission
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    // Create a settings object with data from the form
     const settings = {
-      overtimeMultiplier: parseFloat(document.getElementById("overtimeMultiplier").value),
-      deductionCap: parseFloat(document.getElementById("deductionCap").value),
-      idealBonus: parseFloat(document.getElementById("idealBonus").value),
+      late: parseFloat(document.getElementById("late").value),
+      absent: parseFloat(document.getElementById("absent").value),
+      bonus: parseFloat(document.getElementById("bonus").value),
+      // Add leave value to settings object
+      leave: parseFloat(document.getElementById("leave").value),
       workweek: []
     };
 
-    
-    ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
-      .forEach(day => {
+    // Check which weekdays are selected and add them to the workweek array
+    weekdays.forEach(day => {
         if (document.getElementById(day).checked) {
           settings.workweek.push(day);
         }
-      });
+    });
 
-    
-    localStorage.setItem("systemSettings", JSON.stringify(settings));
+    // Save the settings object to localStorage with the key "setting system"
+    localStorage.setItem("setting system", JSON.stringify(settings));
 
-    alert(" Settings saved successfully!");
+    alert("Settings saved successfully!");
   });
 });
