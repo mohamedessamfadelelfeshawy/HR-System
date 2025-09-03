@@ -17,7 +17,7 @@
       rel="stylesheet" />
 
     <!--  CSS file -->
-    <link rel="stylesheet" href="css/security.css" />
+    <link rel="stylesheet" href="../assets/css/security/security.css" />
     <link
       rel="stylesheet"
       href="../assets/js/json/attendance_single_day.json" />
@@ -29,7 +29,7 @@
         <!--  Logo + Title -->
         <div class="d-flex gap-2 align-items-center">
           <div class="box-img-logo">
-            <img class="w-100" src="images/LOGO.png" alt="Company logo" />
+            <img class="w-100" src="../assets/images/security/logo.jpg" alt="Company logo" />
           </div>
           <h6 class="fw-bold fs-4 text-white text-center mt-2 ms-1">
             Attendance Board
@@ -106,9 +106,9 @@
         <!-- Image -->
         <div class="col-lg-5 d-flex justify-content-center align-items-center">
           <img
-            src="images/imageclock.png"
+            src="../assets/images/security/imageclock.png"
             alt="Clock illustration"
-            class="img-fluid rounded-4 shadow-sm w-100" />
+            class="img-fluid rounded-4 shadow-sm w-100 " />
         </div>
       </div>
 
@@ -128,15 +128,20 @@
         <div class="mt-3 d-flex gap-2 flex-wrap">
           <button
             data-status="Present"
-            id="btnPresent"
             class="filter-btn btn btn-outline-success btn-sm">
             Present
+          </button>
+          <button
+            data-status="WFH"
+            class="filter-btn btn btn-outline-info btn-sm">
+            Present(WFH)
           </button>
           <button
             data-status="Absent"
             class="filter-btn btn btn-outline-danger btn-sm">
             Absent
           </button>
+
           <button
             data-status="Late"
             class="filter-btn btn btn-outline-warning btn-sm">
@@ -144,8 +149,14 @@
           </button>
 
           <button
+            data-status="Leave"
+            class="filter-btn btn btn-outline-secondary btn-sm">
+            Leave
+          </button>
+
+          <button
             data-status="All"
-            class="filter-btn btn btn-outline-primary btn-sm">
+            class="filter-btn btn btn-outline-info btn-sm">
             All
           </button>
         </div>
@@ -217,6 +228,6 @@
         }
       });
     </script>
-    <script src="js/security.js"></script>
+    <script src="../assets/js/security/security.js"></script>
   </body>
 </html>
