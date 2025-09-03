@@ -11,7 +11,6 @@ async function fetchedData() {
       allRequests = await fetchEmployee(
         "../../../assets/js/json/requests.json"
       );
-      setItem("allRequests", allRequests);
     }
 
     let allEmployees = getItem("allEmployees");
@@ -21,6 +20,19 @@ async function fetchedData() {
       );
       setItem("allEmployees", allEmployees);
     }
+
+    // هنا بعمل ربط بين ال requests و employees واضافة الاسم + القسم
+    allRequests = allRequests.map((req) => {
+      let emp = allEmployees.find((e) => e.id === req.employeeId);
+      return {
+        ...req,
+        employeeName: emp ? emp.name : "Unknown",
+        department: emp ? emp.department : "N/A",
+      };
+    });
+
+    // حفظ النسخة الجديدة في localStorage
+    setItem("allRequests", allRequests);
 
     createTable(allRequests, allEmployees);
   } catch (error) {
@@ -39,6 +51,7 @@ function createTable(requests, employees) {
   let headers = [
     "ID",
     "Employee Name",
+    "Department",
     "Request Type",
     "Date",
     "Status",
@@ -66,10 +79,13 @@ function createTable(requests, employees) {
     tdId.textContent = request.employeeId;
     row.appendChild(tdId);
 
-    let employee = employees.find((emp) => emp.id === request.employeeId);
     let tdName = document.createElement("td");
-    tdName.textContent = employee ? employee.name : "Unknown";
+    tdName.textContent = request.employeeName || "Unknown";
     row.appendChild(tdName);
+
+    let tdDept = document.createElement("td");
+    tdDept.textContent = request.department || "N/A";
+    row.appendChild(tdDept);
 
     let tdType = document.createElement("td");
     tdType.innerHTML = `${request.type}<br/><small style='color:grey'>${
@@ -152,7 +168,7 @@ function addEvents() {
 
       let updatedRequest = updateRequestStatus(requestId, "Approved");
       if (updatedRequest) {
-        updateAttendanceFiles(updatedRequest); // تحديث الـ employeesAttendanceInfo + AttendanceRecord
+        updateAttendanceFiles(updatedRequest);
       }
 
       disableRowButtons(row);
@@ -177,10 +193,11 @@ function updateRequestStatus(requestId, newStatus) {
   let request = requests.find((r) => r.id === requestId);
   if (request) {
     request.status = newStatus;
+    requests.push(request);
     setItem("allRequests", requests);
 
     let row = document.querySelector(`tr[data-id="${requestId}"]`);
-    let tdStatus = row.querySelector("td:nth-child(5) span");
+    let tdStatus = row.querySelector("td:nth-child(6) span");
 
     tdStatus.textContent = newStatus;
 
