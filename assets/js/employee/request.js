@@ -114,12 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   let makeReqBtn = document.querySelector(".req-btn");
-  let idSpan = document.querySelector("#sele");
+  let idinput = document.querySelector("#sele");
   let empData = getItem("employee");
 
   makeReqBtn.addEventListener("click", () => {
     if (empData) {
-      idSpan.textContent = empData.id;
+      idinput.textContent = empData.id;
     }
   });
 
