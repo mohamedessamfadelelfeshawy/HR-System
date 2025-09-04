@@ -36,7 +36,7 @@ async function getAttendData() {
       (record) => record.employeeId === empData.id
     );
     console.log(empAttendance);
-    setItem("employeesAttendanceInfo", empAttendance);
+    setItem("AttendanceRecord", empAttendance);
     createTable(empAttendance);
     cardData(empAttendance);
     renderCalendar(displayedMonth, displayedYear);
@@ -46,33 +46,6 @@ async function getAttendData() {
     return [];
   }
 }
-
-// get Employee Attendance From Security
-// async function getSingleAttendance() {
-//   try {
-//     let allData = await fetchEmployee(
-//       "../../../assets/js/json/attendance_single_day.json"
-//     );
-//     let empData = getItem("employee");
-//     if (!empData) {
-//       console.error("No employee is logged in.");
-//       return [];
-//     }
-//     let empAttendance = allData.filter(
-//       (record) => record.employeeId === empData.id
-//     );
-//     console.log();
-//     setItem("employeesAttendanceInfo", empAttendance);
-
-//     createTable(empAttendance);
-//     cardData(empAttendance);
-//     renderCalendar(displayedMonth, displayedYear);
-//     return empAttendance;
-//   } catch (error) {
-//     console.error("Error fetching attendance data:", error);
-//     return [];
-//   }
-// }
 
 // create table to show data
 function createTable(Atten) {
@@ -234,7 +207,6 @@ function formatPretty(dateStr) {
   return `${Number(d)} ${mm} ${y}`;
 }
 
-// ✅ التعديل: دلوقتي بياخد من employeesAttendanceInfo مش allAttendance
 function getAttendanceStatus(dateStr) {
   const attendanceData = getItem("employeesAttendanceInfo") || [];
   const record = attendanceData.find((rec) => rec.date === dateStr);
@@ -387,4 +359,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 getAttendData();
 getEmp();
-// getSingleAttendance();
+
