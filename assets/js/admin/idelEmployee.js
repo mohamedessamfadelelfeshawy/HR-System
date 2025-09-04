@@ -1,3 +1,5 @@
+import { getItem } from "../exportFun";
+
 // dark mode staart
 const html = document.documentElement; 
 const btn = document.getElementById("toggleTheme");
@@ -25,17 +27,18 @@ logOutButton.addEventListener("click",(e)=>{
 
 
 // display ideal employees
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const [employees, attendance, tasks] = await Promise.all([
-      fetch("/assets/js/json/employee.json").then(res => res.json()),
-      fetch("/assets/js/json/attendance-record.json").then(res => res.json()),
-      fetch("/assets/js/json/tasks.json").then(res => res.json())
-    ]);
+// document.addEventListener("DOMContentLoaded", async () => {
+//   try {
+//     const [employees, attendance, tasks] = await Promise.all([
+//       fetch("/assets/js/json/employee.json").then(res => res.json()),
+//       fetch("/assets/js/json/attendance-record.json").then(res => res.json()),
+//       fetch("/assets/js/json/tasks.json").then(res => res.json())
+//     ]);
 
-    const today = new Date();
-    const eligibleEmployees = [];
+//     const today = new Date();
+//     const eligibleEmployees = [];
 
+let employees = getItem("allEmployees");
     employees.forEach(emp => {
       const empAttendance = attendance.filter(a => a.employeeId === emp.id);
       const empTasks = tasks.filter(t => t.employeeId === emp.id);
@@ -114,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       list.innerHTML = `<li class="list-group-item text-center text-muted">No eligible employees this month</li>`;
     }
 
-  } catch (error) {
-    console.error("Error loading data:", error);
-  }
-});
+//   } catch (error) {
+//     console.error("Error loading data:", error);
+//   }
+// });

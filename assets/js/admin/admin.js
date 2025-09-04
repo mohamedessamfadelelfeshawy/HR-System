@@ -127,7 +127,7 @@ document.getElementById("exportpdf2Btn").addEventListener("click", () => {
 //   .then((payrolls) => {
   let payrolls= getItem("allEmployees");
     const totalPayroll = payrolls.reduce(
-      (sum, current) => sum + current.Net_Salary,
+      (sum, current) => sum + Math.floor(current.NetSalary),
       0
     );
 
@@ -141,7 +141,7 @@ document.getElementById("exportpdf2Btn").addEventListener("click", () => {
 // fetch("/assets/js/json/attendance-record.json")
 //   .then((response) => response.json())
 //   .then((records) => {
-  
+
     const employeeStats = {};
 
     records.forEach((rec) => {
