@@ -75,7 +75,7 @@ logOutButton.addEventListener("click",(e)=>{
           
          <td>${item.Penalties}</td>
 
-          <td>${item.netSalary}</td>
+          <td>${item.NetSalary}</td>
         </tr>
       `;
       tbody.innerHTML += row;
