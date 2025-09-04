@@ -35,7 +35,7 @@ const editErrorId = document.getElementById("editErrorId");
 logoutIcon.addEventListener("click", () => {
     localStorage.removeItem("employee");
     window.location = "../../../index.html"
-})   
+})
 /* validate name */
 function validateName(input, errorEl) {
     const value = input.value.trim();
@@ -47,7 +47,6 @@ function validateName(input, errorEl) {
         return true;
     }
 }
-
 /* validate title */
 function validateTitle(input, errorEl) {
     const value = input.value.trim();
@@ -72,8 +71,8 @@ function validateId(input, errorEl) {
 }
 
 /* tasks */
-let tasks = getItem("allTasks") ? getItem("allTasks") : await fetchEmployee("/assets/js/json/personalTasks.json");
-setItem("allTasks", tasks);
+let dataTasks=await fetchEmployee("/assets/js/json/tasks.json");
+setItem("allTasks", dataTasks);
 let localTasks = getItem("allTasks");
 displayData(localTasks);
 
@@ -88,11 +87,11 @@ function displayData(arr) {
               <td>${el.dueDate}</td>
                  <td>
                     <span class="px-2 py-1 special-status rounded ${el.status === "Pending"
-                        ? "bg-warning"
-                        : el.status === "In Progress"
-                            ? "bg-info"
-                            : "bg-success" // Changed danger to success for "Done"
-                    }">${el.status}</span>
+                ? "bg-warning"
+                : el.status === "In Progress"
+                    ? "bg-info"
+                    : "bg-success" // Changed danger to success for "Done"
+            }">${el.status}</span>
                 </td>
                 <td>
                     <button class="edit-btn btn btn-sm" data-idx="${idx}"><i class="fa-solid fa-pen-to-square"></i></button>

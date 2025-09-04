@@ -148,7 +148,7 @@ function AddEmployee() {
 
     statusEmployee(attendance); 
 
-    employeesAttendanceInfo.push(attendance);
+    employeesAttendanceInfo.unshift(attendance);
 
      updateLocalStorage(employeesAttendanceInfo);
 

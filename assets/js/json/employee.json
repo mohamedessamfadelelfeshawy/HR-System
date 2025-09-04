@@ -62,7 +62,7 @@
     "NetSalary": 11000,
     "annualVacationDays": 23,
     "Penalties": "",
-    "bonus": "",
+    "bonus": "9999999",
     "preferences": {
       "language": "en",
       "theme": "dark",
@@ -242,7 +242,7 @@
     "NetSalary": 12000,
     "annualVacationDays": 25,
     "Penalties": "",
-    "bonus": "",
+    "bonus": "7777777777",
     "preferences": {
       "language": "en",
       "theme": "dark",
@@ -260,7 +260,7 @@
     "NetSalary": 8800,
     "annualVacationDays": 19,
     "Penalties": "",
-    "bonus": "",
+    "bonus": "212121",
     "preferences": {
       "language": "en",
       "theme": "light",
@@ -296,7 +296,7 @@
     "NetSalary": 14500,
     "annualVacationDays": 26,
     "Penalties": "",
-    "bonus": "",
+    "bonus": "222222222",
     "preferences": {
       "language": "en",
       "theme": "light",
