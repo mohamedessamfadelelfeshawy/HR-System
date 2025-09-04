@@ -4,6 +4,28 @@ import {
   setItem,
 } from "../../../assets/js/exportFun.js";
 
+// --- متغيرات خاصة بالـ Pagination ---
+let allRequestsData = []; // سيحتوي هذا المتغير على جميع الطلبات بعد جلبها ومعالجتها
+let currentPage = 1;
+const rowsPerPage = 10; // يمكنك تغيير هذا الرقم لعرض عدد مختلف من الصفوف في الصفحة
+
+// --- عناصر HTML ---
+const paginationWrapper = document.getElementById("pagination-wrapper");
+const tableBody = document.querySelector("#request-table tbody") || createTbody(); // التأكد من وجود tbody
+
+// دالة مساعدة لإنشاء tbody إذا لم يكن موجودًا
+function createTbody() {
+  const table = document.querySelector("#request-table");
+  let tbody = table.querySelector("tbody");
+  if (!tbody) {
+    tbody = document.createElement("tbody");
+    tbody.classList.add("text-center");
+    table.appendChild(tbody);
+  }
+  return tbody;
+}
+
+
 async function fetchedData() {
   try {
     let allRequests = getItem("allRequests");
@@ -21,7 +43,6 @@ async function fetchedData() {
       setItem("allEmployees", allEmployees);
     }
 
-    // هنا بعمل ربط بين ال requests و employees واضافة الاسم + القسم
     allRequests = allRequests.map((req) => {
       let emp = allEmployees.find((e) => e.id === req.employeeId);
       return {
@@ -31,114 +52,70 @@ async function fetchedData() {
       };
     });
 
-    // حفظ النسخة الجديدة في localStorage
     setItem("allRequests", allRequests);
+    
+    // تخزين البيانات في المتغير العام للوصول إليها لاحقًا
+    allRequestsData = allRequests;
+    
+    // إعداد الـ Pagination وعرض الصفحة الأولى
+    setupPagination();
+    displayPage(currentPage);
 
-    createTable(allRequests, allEmployees);
   } catch (error) {
     console.error("error", error);
   }
 }
 
-function createTable(requests, employees) {
-  let table = document.querySelector("#request-table");
-  table.innerHTML = "";
+// تم تعديل createTable ليعرض فقط "جزء" من البيانات
+function createTable(requests) {
+  const table = document.querySelector("#request-table");
+  let tbody = table.querySelector("tbody");
+  if (!tbody) tbody = createTbody();
+  tbody.innerHTML = ""; // نفرغ فقط الـ tbody وليس الجدول بأكمله
 
-  let tableHeader = document.createElement("thead");
-  let tableHeadRow = document.createElement("tr");
-  tableHeadRow.classList.add("text-nowrap", "text-center");
-
-  let headers = [
-    "ID",
-    "Employee Name",
-    "Department",
-    "Request Type",
-    "Date",
-    "Status",
-    "Action",
-  ];
-  headers.forEach((text) => {
-    let th = document.createElement("th");
-    th.textContent = text;
-    tableHeadRow.appendChild(th);
-  });
-
-  tableHeader.appendChild(tableHeadRow);
-  table.appendChild(tableHeader);
-
-  let tableBody = document.createElement("tbody");
-  tableBody.classList.add("text-center");
-  table.appendChild(tableBody);
+  // إذا لم يكن هناك header، قم بإنشائه
+  if (!table.querySelector("thead")) {
+    let tableHeader = document.createElement("thead");
+    let tableHeadRow = document.createElement("tr");
+    tableHeadRow.classList.add("text-nowrap", "text-center");
+    let headers = ["ID", "Employee Name", "Department", "Request Type", "Date", "Status", "Action"];
+    headers.forEach((text) => {
+      let th = document.createElement("th");
+      th.textContent = text;
+      tableHeadRow.appendChild(th);
+    });
+    tableHeader.appendChild(tableHeadRow);
+    table.insertBefore(tableHeader, tbody);
+  }
 
   requests.forEach((request) => {
     let row = document.createElement("tr");
     row.classList.add("text-nowrap");
     row.dataset.id = request.id;
 
-    let tdId = document.createElement("td");
-    tdId.textContent = request.employeeId;
-    row.appendChild(tdId);
-
-    let tdName = document.createElement("td");
-    tdName.textContent = request.employeeName || "Unknown";
-    row.appendChild(tdName);
-
-    let tdDept = document.createElement("td");
-    tdDept.textContent = request.department || "N/A";
-    row.appendChild(tdDept);
-
-    let tdType = document.createElement("td");
-    tdType.innerHTML = `${request.type}<br/><small style='color:grey'>${
-      request.notes || ""
-    }</small>`;
-    row.appendChild(tdType);
-
-    let tdDate = document.createElement("td");
-    tdDate.textContent = request.date;
-    row.appendChild(tdDate);
-
-    let tdStatus = document.createElement("td");
-    let spanStatus = document.createElement("span");
-    spanStatus.textContent = request.status;
-
-    if (request.status === "Approved") {
-      spanStatus.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
-      spanStatus.style.color = "#198754";
-    } else if (request.status === "Rejected") {
-      spanStatus.style.backgroundColor = "rgba(244, 91, 105, 0.1)";
-      spanStatus.style.color = "#f45b69";
-    } else {
-      spanStatus.style.backgroundColor = "rgba(239, 190, 18, 0.1)";
-      spanStatus.style.color = "#efbe12";
-    }
-
-    spanStatus.style.fontWeight = "bold";
-    spanStatus.style.padding = "5px";
-    spanStatus.style.borderRadius = "5px";
-    tdStatus.appendChild(spanStatus);
-    row.appendChild(tdStatus);
-
-    let tdAction = document.createElement("td");
-
-    let approveButton = document.createElement("button");
-    approveButton.textContent = "Approve";
-    approveButton.classList.add("approve");
-    approveButton.style.border = "none";
-    approveButton.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
-    approveButton.style.color = "#198754";
-    approveButton.style.margin = "5px";
-    approveButton.style.borderRadius = "5px";
-
-    let rejectButton = document.createElement("button");
-    rejectButton.textContent = "Reject";
-    rejectButton.classList.add("reject");
-    rejectButton.style.border = "none";
-    rejectButton.style.backgroundColor = "rgba(244, 91, 105, 0.1)";
-    rejectButton.style.color = "#f45b69";
-    rejectButton.style.margin = "5px";
-    rejectButton.style.borderRadius = "5px";
+    // (نفس كود بناء الصفوف من الكود الأصلي)
+    row.innerHTML = `
+      <td>${request.employeeId}</td>
+      <td>${request.employeeName || "Unknown"}</td>
+      <td>${request.department || "N/A"}</td>
+      <td>${request.type}<br/><small style='color:grey'>${request.notes || ""}</small></td>
+      <td>${request.date}</td>
+      <td>
+        <span style="font-weight: bold; padding: 5px; border-radius: 5px; background-color: ${
+          request.status === "Approved" ? "#198754" : request.status === "Rejected" ? "#dc3545" : "#ffc107"
+        };">${request.status}</span>
+      </td>
+      <td>
+        <button class="approve" style="border: none; background-color: #198754; margin: 5px; border-radius: 5px;">Approve</button>
+        <button class="reject" style="border: none; background-color: #dc3545; margin: 5px; border-radius: 5px;">Reject</button>
+      </td>
+    `;
+    
+    tbody.appendChild(row);
 
     if (request.status !== "Pending") {
+      const approveButton = row.querySelector(".approve");
+      const rejectButton = row.querySelector(".reject");
       approveButton.disabled = true;
       rejectButton.disabled = true;
       approveButton.style.opacity = "0.6";
@@ -146,20 +123,82 @@ function createTable(requests, employees) {
       approveButton.style.cursor = "not-allowed";
       rejectButton.style.cursor = "not-allowed";
     }
-
-    tdAction.appendChild(approveButton);
-    tdAction.appendChild(rejectButton);
-    row.appendChild(tdAction);
-
-    tableBody.appendChild(row);
   });
 
+  // إضافة الأحداث للأزرار الجديدة التي تم عرضها
   addEvents();
 }
 
+// --- دوال جديدة خاصة بالـ Pagination ---
+
+/**
+ * دالة لعرض صفحة محددة من البيانات
+ * @param {number} page - رقم الصفحة المراد عرضها
+ */
+function displayPage(page) {
+    currentPage = page;
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const paginatedItems = allRequestsData.slice(start, end);
+
+    createTable(paginatedItems);
+    updatePaginationButtons();
+}
+
+/**
+ * دالة لإنشاء أزرار التنقل
+ */
+function setupPagination() {
+    paginationWrapper.innerHTML = "";
+    const pageCount = Math.ceil(allRequestsData.length / rowsPerPage);
+
+    for (let i = 1; i <= pageCount; i++) {
+        const btn = createPaginationButton(i);
+        paginationWrapper.appendChild(btn);
+    }
+}
+
+/**
+ * دالة مساعدة لإنشاء زر واحد
+ * @param {number} page - رقم الصفحة
+ */
+function createPaginationButton(page) {
+    const li = document.createElement("li");
+    li.classList.add("page-item");
+    const a = document.createElement("a");
+    a.classList.add("page-link");
+    a.href = "#";
+    a.innerText = page;
+    li.appendChild(a);
+
+    a.addEventListener("click", (e) => {
+        e.preventDefault();
+        displayPage(page);
+    });
+
+    return li;
+}
+
+/**
+ * دالة لتحديث حالة الزر النشط
+ */
+function updatePaginationButtons() {
+    const pageItems = paginationWrapper.querySelectorAll(".page-item");
+    pageItems.forEach((item, index) => {
+        if (index + 1 === currentPage) {
+            item.classList.add("active");
+        } else {
+            item.classList.remove("active");
+        }
+    });
+}
+
+
+// --- تعديل دوال الأحداث والمعالجة ---
+
 function addEvents() {
-  let approveButtons = document.querySelectorAll(".approve");
-  let rejectButtons = document.querySelectorAll(".reject");
+  let approveButtons = document.querySelectorAll(".approve:not([disabled])");
+  let rejectButtons = document.querySelectorAll(".reject:not([disabled])");
 
   approveButtons.forEach((btn) => {
     btn.addEventListener("click", function () {
@@ -170,8 +209,9 @@ function addEvents() {
       if (updatedRequest) {
         updateAttendanceFiles(updatedRequest);
       }
-
-      disableRowButtons(row);
+      // إعادة عرض الصفحة الحالية لتحديث البيانات والأزرار
+      allRequestsData = getItem("allRequests"); // تحديث البيانات من المصدر
+      displayPage(currentPage);
     });
   });
 
@@ -179,43 +219,37 @@ function addEvents() {
     btn.addEventListener("click", function () {
       let row = btn.closest("tr");
       let requestId = parseInt(row.dataset.id);
-
       updateRequestStatus(requestId, "Rejected");
 
-      disableRowButtons(row);
+      // إعادة عرض الصفحة الحالية لتحديث البيانات والأزرار
+      allRequestsData = getItem("allRequests"); // تحديث البيانات من المصدر
+      displayPage(currentPage);
     });
   });
 }
 
 function updateRequestStatus(requestId, newStatus) {
   let requests = getItem("allRequests") || [];
+  let requestUpdated = null;
 
-  let request = requests.find((r) => r.id === requestId);
-  if (request) {
-    request.status = newStatus;
-    requests.push(request);
-    setItem("allRequests", requests);
-
-    let row = document.querySelector(`tr[data-id="${requestId}"]`);
-    let tdStatus = row.querySelector("td:nth-child(6) span");
-
-    tdStatus.textContent = newStatus;
-
-    if (newStatus === "Approved") {
-      tdStatus.style.backgroundColor = "rgba(63, 194, 138, 0.1)";
-      tdStatus.style.color = "#198754";
-    } else if (newStatus === "Rejected") {
-      tdStatus.style.backgroundColor = "rgba(244, 91, 105, 0.1)";
-      tdStatus.style.color = "#f45b69";
-    } else {
-      tdStatus.style.backgroundColor = "rgba(239, 190, 18, 0.1)";
-      tdStatus.style.color = "#efbe12";
+  // استخدام map لإنشاء مصفوفة جديدة بالتحديث المطلوب
+  const updatedRequests = requests.map(r => {
+    if (r.id === requestId) {
+      requestUpdated = { ...r, status: newStatus };
+      return requestUpdated;
     }
-  }
+    return r;
+  });
 
-  return request;
+  if (requestUpdated) {
+    setItem("allRequests", updatedRequests);
+  }
+  
+  return requestUpdated;
 }
 
+
+// (دالة updateAttendanceFiles تبقى كما هي)
 function updateAttendanceFiles(request) {
   let empId = request.employeeId;
   let date = request.date;
@@ -281,36 +315,26 @@ function updateAttendanceFiles(request) {
   setItem("AttendanceRecord", attendanceRecord);
 }
 
-function disableRowButtons(row) {
-  let approveBtn = row.querySelector(".approve");
-  let rejectBtn = row.querySelector(".reject");
-
-  approveBtn.disabled = true;
-  rejectBtn.disabled = true;
-
-  approveBtn.style.opacity = "0.6";
-  rejectBtn.style.opacity = "0.6";
-  approveBtn.style.cursor = "not-allowed";
-  rejectBtn.style.cursor = "not-allowed";
-}
-
+// --- تشغيل الكود ---
 fetchedData();
 
-// dark mode and logOut
-const html = document.documentElement; // <html>
+
+// --- dark mode and logOut (يبقى كما هو) ---
+const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const logoutIcon = document.querySelector(".logoutIcon");
 logoutIcon.addEventListener("click", () => {
   localStorage.removeItem("employee");
   window.location = "../../../index.html";
 });
-html.setAttribute("data-bs-theme", "light");
+
+// حفظ الثيم المختار
+const savedTheme = localStorage.getItem("theme") || "light";
+html.setAttribute("data-bs-theme", savedTheme);
+
 btn.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-bs-theme");
-  if (currentTheme === "light") {
-    html.setAttribute("data-bs-theme", "dark");
-  } else {
-    html.setAttribute("data-bs-theme", "light");
-  }
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  html.setAttribute("data-bs-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
 });
-// dark mode end

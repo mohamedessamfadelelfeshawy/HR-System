@@ -1,123 +1,75 @@
-import { getItem } from "../exportFun";
+import { getItem } from "../../../assets/js/exportFun.js";
 
-// dark mode staart
-const html = document.documentElement; 
+const logoutIcon = document.querySelector(".logoutIcon");
+const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
+const idealEmployeeList = document.getElementById("idealEmployeeList");
 
+// Logout
+logoutIcon.addEventListener("click", () => {
+  localStorage.removeItem("employee");
+  window.location.replace("../../../index.html");
+});
 
-html.setAttribute("data-bs-theme", "light");
+// Get ideal employees (no penalties + has bonus)
+function getIdealEmployees() {
+  const allEmployees = getItem("allEmployees") || [];
+  return allEmployees.filter(emp => Number(emp.Penalties) === 0 && Number(emp.Bonus) > 0);
+}
 
+// Display ideal employees in list
+// -- تم تعديل هذه الدالة --
+function displayIdealEmployees() {
+  const employees = getIdealEmployees();
+
+  // إذا لم يتم العثور على موظفين، اعرض البطاقة الافتراضية
+  if (employees.length === 0) {
+    idealEmployeeList.innerHTML = `
+      <li class="list-group-item shadow-sm border-0 rounded-3 mb-3 p-3 d-flex flex-column align-items-center text-center">
+        <div class="mb-2">
+          <i class="fa-solid fa-star text-muted fs-5 me-2"></i>
+          <span class="fw-bold fs-6 text-muted"> Dina Samir</span>
+        </div>
+        <span class="badge bg-info mb-2">
+Marketing
+        </span>
+        <div class="d-flex gap-2 mt-2">
+          <span class="badge bg-success"></span>
+          <span class="badge bg-danger">dina10@gmail.com /span>
+        </div>
+      </li>
+    `;
+    return; // توقف هنا
+  }
+
+  // إذا تم العثور على موظفين، اعرضهم كالمعتاد
+  idealEmployeeList.innerHTML = employees.map(emp => `
+    <li class="list-group-item shadow-sm border-0 rounded-3 mb-3 p-3 d-flex flex-column align-items-center text-center highlighted-employee">
+      <div class="mb-2">
+        <i class="fa-solid fa-star text-warning fs-5 me-2"></i>
+        <span class="fw-bold fs-6">${emp.name}</span>
+      </div>
+      <span class="badge bg-primary mb-1">${emp.department}</span>
+      <span class="badge bg-secondary mb-1">${emp.email}</span>
+      <div class="d-flex gap-2 mt-2">
+        <span class="badge bg-success">Bonus: ${emp.Bonus}</span>
+        <span class="badge bg-danger">Penalties: ${emp.Penalties}</span>
+        <span class="badge bg-dark">Net: ${emp.NetSalary}</span>
+      </div>
+    </li>
+  `).join("");
+}
+
+// Theme toggle
+const savedTheme = localStorage.getItem("theme") || "light";
+html.setAttribute("data-bs-theme", savedTheme);
 
 btn.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-bs-theme");
-  if (currentTheme === "light") {
-    html.setAttribute("data-bs-theme", "dark");
-  } else {
-    html.setAttribute("data-bs-theme", "light");
-  }
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  html.setAttribute("data-bs-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
 });
-// dark mode end
-// logout sart
-let logOutButton=document.querySelector("#logBtn");
-logOutButton.addEventListener("click",(e)=>{
-  localStorage.removeItem("employee");
-  window.open("../../../index.html");
-})
 
-
-
-// display ideal employees
-// document.addEventListener("DOMContentLoaded", async () => {
-//   try {
-//     const [employees, attendance, tasks] = await Promise.all([
-//       fetch("/assets/js/json/employee.json").then(res => res.json()),
-//       fetch("/assets/js/json/attendance-record.json").then(res => res.json()),
-//       fetch("/assets/js/json/tasks.json").then(res => res.json())
-//     ]);
-
-//     const today = new Date();
-//     const eligibleEmployees = [];
-
-let employees = getItem("allEmployees");
-    employees.forEach(emp => {
-      const empAttendance = attendance.filter(a => a.employeeId === emp.id);
-      const empTasks = tasks.filter(t => t.employeeId === emp.id);
-
-      
-      const hasLate = empAttendance.some(a => a.status === "Present" && a.minutesLate > 0);
-      const hasMissedDeadline = empTasks.some(
-        t => (t.status !== "Completed") && new Date(t.dueDate) < today
-      );
-      const hasPermission = empAttendance.some(a => a.isPermission === true);
-
-      if (!hasLate && !hasMissedDeadline && !hasPermission) {
-        const totalTasks = empTasks.length;
-        const completedOnTime = empTasks.filter(
-          t => t.status === "Completed" && new Date(t.dueDate) >= new Date(t.completedAt || t.dueDate)
-        ).length;
-
-        const onTimeRate = totalTasks > 0 ? (completedOnTime / totalTasks) : 0;
-
-        eligibleEmployees.push({
-          id: emp.id,
-          name: emp.name,
-          department: emp.department,
-          monthlySalary: emp.monthlySalary,
-          bonus: emp.monthlySalary * 0.1,
-          onTimeRate,
-          permissionsCount: empAttendance.filter(a => a.isPermission).length
-        });
-      }
-    });
-
-    
-    eligibleEmployees.sort((a, b) => {
-      if (b.onTimeRate !== a.onTimeRate) return b.onTimeRate - a.onTimeRate;
-      if (a.permissionsCount !== b.permissionsCount) return a.permissionsCount - b.permissionsCount;
-      return 0;
-    });
-
-    
-    const topThree = eligibleEmployees.slice(0, 3);
-
-    const list = document.getElementById("idealEmployeeList");
-    list.innerHTML = "";
-
-    if (topThree.length > 0) {
-      
-      const awarded = topThree[0];
-      list.innerHTML += `
-        <li class="list-group-item d-flex justify-content-between align-items-center highlighted-employee">
-          <div>
-            <i class="fa-solid fa-star text-warning me-2"></i>
-            <span class="fw-bold">${awarded.name}</span>
-            <small class="d-block text-muted">Dept: ${awarded.department}</small>
-            <small class="d-block text-muted">Bonus: $${awarded.bonus}</small>
-            <small class="d-block text-success">🌟 Ideal Employee</small>
-          </div>
-          <span class="badge bg-success">Awarded</span>
-        </li>
-      `;
-
-      
-      topThree.slice(1).forEach(emp => {
-        list.innerHTML += `
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <div>
-              <span class="fw-bold">${emp.name}</span>
-              <small class="d-block text-muted">Eligible for this month</small>
-            </div>
-            <button class="btn btn-sm btn-outline-warning">
-              <i class="fa-solid fa-star me-1"></i> Highlight as Ideal
-            </button>
-          </li>
-        `;
-      });
-    } else {
-      list.innerHTML = `<li class="list-group-item text-center text-muted">No eligible employees this month</li>`;
-    }
-
-//   } catch (error) {
-//     console.error("Error loading data:", error);
-//   }
-// });
+// Run
+displayIdealEmployees();
