@@ -1,105 +1,197 @@
-//SELECT DOM ELEMENT
-let bodyTable = document.getElementById("bodyTable");
-let employeeIdInput = document.getElementById("employeeId");
-let employeeNameInput = document.getElementById("employeeName");
-let DateInput = document.getElementById("todayDate");
-let checkInInput = document.getElementById("checkIn");
-let checkOutInput = document.getElementById("checkOut");
-let btnAddAttendance = document.getElementById("btnAdd");
+// --- عناصر DOM ---
+const bodyTable = document.getElementById("bodyTable");
+const employeeIdInput = document.getElementById("employeeId");
+const employeeNameInput = document.getElementById("employeeName");
+const DateInput = document.getElementById("todayDate");
+const checkInInput = document.getElementById("checkIn");
+const checkOutInput = document.getElementById("checkOut");
+const btnAddAttendance = document.getElementById("btnAdd");
 const idError = document.getElementById("idError");
 const nameError = document.getElementById("nameError");
-let searchEmployeeInput = document.getElementById("searchEmployee");
-let btnsFilter = document.querySelectorAll('.filter-btn');
+const searchEmployeeInput = document.getElementById("searchEmployee");
+const btnsFilter = document.querySelectorAll('.filter-btn');
+const paginationWrapper = document.getElementById("pagination-wrapper");
 
-let AttendanceRecord = JSON.parse(localStorage.getItem("AttendanceRecord")) || [];
+// --- بيانات ومتغيرات الحالة ---
+let allAttendanceData = [];
+let AttendanceRecord = [];
+let currentFilteredData = [];
+let currentPage = 1;
+const rowsPerPage = 10;
+let activeFilterStatus = 'All';
 
 
-let employeesAttendanceInfo = JSON.parse(
-  localStorage.getItem("employeesAttendanceInfo")
-) || [];
-displayArray(employeesAttendanceInfo);
-if (employeesAttendanceInfo.length > 0) {
-  displayArray(employeesAttendanceInfo);
-} else {
-  getUser();
-}
+// --- دوال العرض والتنقل (Pagination) ---
 
-// DISPLAY
-function displayArray(arr) {
-  if (!arr || arr.length === 0) {
-    bodyTable.innerHTML = `<tr><td colspan="6">No data available</td></tr>`;
+function displayPageOfData(items) {
+  if (!items || items.length === 0) {
+    bodyTable.innerHTML = `<tr><td colspan="6" class="text-center">No matching records found</td></tr>`;
     return;
   }
 
-  let containerInfoAttendance = arr.map((employee) => {
+  const tableRows = items.map((employee) => {
+    // We need to call statusEmployee to ensure the .status property is up-to-date before rendering
+    statusEmployee(employee);
     return `
       <tr>
         <td>${employee.employeeId}</td>
         <td>${employee.employeeName}</td>
         <td>${employee.date}</td>
-        <td>${employee.checkIn}</td>
-        <td>${employee.checkOut}</td>
-        <td>${statusEmployee(employee)}</td>
+        <td>${employee.checkIn || '--'}</td>
+        <td>${employee.checkOut || '--'}</td>
+        <td>${getStatusButton(employee.status)}</td>
       </tr>
     `;
-  });
+  }).join("");
 
-  bodyTable.innerHTML = containerInfoAttendance.join("");
+  bodyTable.innerHTML = tableRows;
+}
+
+function setupPaginationControls() {
+  paginationWrapper.innerHTML = "";
+  const pageCount = Math.ceil(currentFilteredData.length / rowsPerPage);
+
+  for (let i = 1; i <= pageCount; i++) {
+    const li = document.createElement("li");
+    li.classList.add("page-item");
+    if (i === currentPage) li.classList.add("active");
+
+    const a = document.createElement("a");
+    a.classList.add("page-link");
+    a.href = "#";
+    a.innerText = i;
+    li.appendChild(a);
+
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      renderPage(i);
+    });
+    
+    paginationWrapper.appendChild(li);
+  }
+}
+
+function renderPage(pageNumber) {
+  currentPage = pageNumber;
+  const start = (currentPage - 1) * rowsPerPage;
+  const end = start + rowsPerPage;
+  const paginatedItems = currentFilteredData.slice(start, end);
+  
+  displayPageOfData(paginatedItems);
+  
+  document.querySelectorAll(".page-item").forEach(item => {
+    item.classList.remove("active");
+    if (parseInt(item.querySelector('.page-link').innerText) === currentPage) {
+      item.classList.add("active");
+    }
+  });
+}
+
+function refreshView() {
+    // 1. Apply status filter
+    if (activeFilterStatus === 'All') {
+        currentFilteredData = [...allAttendanceData];
+    } else {
+        currentFilteredData = allAttendanceData.filter(emp => emp.status === activeFilterStatus);
+    }
+
+    // 2. Apply search filter on top of the status filter
+    const searchTerm = searchEmployeeInput.value.toLowerCase().trim();
+    if (searchTerm) {
+        currentFilteredData = currentFilteredData.filter(emp => 
+            emp.employeeName.toLowerCase().includes(searchTerm)
+        );
+    }
+    
+    // 3. Reset to page 1 and render
+    currentPage = 1;
+    setupPaginationControls();
+    renderPage(1);
 }
 
 
-// STATUS
+// --- دوال منطق العمل (Business Logic) ---
+
 function statusEmployee(object) {
   if (object.isLeave) {
     object.status = "Leave";
   } else if (object.isWFH) {
     object.status = "WFH";
-  } else if (!object.checkIn) {
+  } else if (!object.checkIn || object.checkIn === '--') {
     object.status = "Absent";
   } else {
-    let parts = object.checkIn.split(":");
-    let hours = Number(parts[0]);
-    let minutes = Number(parts[1]);
-    let totalMinutes = hours * 60 + minutes;
+    const parts = object.checkIn.split(":");
+    const hours = Number(parts[0]);
+    const minutes = Number(parts[1]);
+    const totalMinutes = hours * 60 + minutes;
 
-    if (totalMinutes <= 9 * 60) {
-      object.status = "Present";
-    } else if (totalMinutes <= 11 * 60) {
-      object.status = "Late";
-    } else {
-      object.status = "Absent";
+    if (totalMinutes <= 9 * 60) object.status = "Present";
+    else if (totalMinutes <= 11 * 60) object.status = "Late";
+    else object.status = "Absent";
+  }
+}
+
+function getStatusButton(status) {
+    switch (status) {
+        case "Present": return `<button class="btn btn-success btn-sm">Present</button>`;
+        case "Late": return `<button class="btn btn-warning btn-sm">Late</button>`;
+        case "Absent": return `<button class="btn btn-danger btn-sm">Absent</button>`;
+        case "WFH": return `<button class="btn btn-info btn-sm">WFH</button>`;
+        case "Leave": return `<button class="btn btn-secondary btn-sm">Leave</button>`;
+        default: return `<button class="btn btn-dark btn-sm">Unknown</button>`;
     }
-  }
+}
 
-  switch (object.status) {
-    case "Present":
-      return `<button class="btn btn-success btn-sm">Present</button>`;
+function AddEmployee() {
+  if (validateId() && validateName() && employeeIdInput.value && employeeNameInput.value && DateInput.value) {
+    const newAttendance = {
+      employeeId: employeeIdInput.value.trim(),
+      employeeName: employeeNameInput.value.toUpperCase().trim(),
+      date: DateInput.value,
+      checkIn: checkInInput.value,
+      checkOut: checkOutInput.value,
+    };
+    
+    statusEmployee(newAttendance);
 
-    case "Late":
-      return `<button class="btn btn-warning btn-sm">Late</button>`;
-
-    case "Absent":
-      return `<button class="btn btn-danger btn-sm">Absent</button>`;
-
-    case "WFH":
-      return `<button class="btn btn-info btn-sm">WFH</button>`;
-
-    case "Leave":
-      return `<button class="btn btn-secondary btn-sm">Leave</button>`;
-
-    default:
-      return `<button class="btn btn-dark btn-sm">Unknown</button>`;
+    allAttendanceData.unshift(newAttendance);
+    AttendanceRecord.unshift(newAttendance);
+    
+    updateLocalStorage();
+    updateInputs();
+    
+    // Reset filters and refresh the view to show the new item on top
+    searchEmployeeInput.value = '';
+    activeFilterStatus = 'All';
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn[data-status="All"]').classList.add('active');
+    
+    refreshView();
+    
+  } else {
+    new bootstrap.Modal(document.getElementById("errorModal")).show();
   }
 }
 
 
-// LOCAL STORAGE
+// --- دوال جلب البيانات والتحقق ---
+
+async function fetchInitialData(url) {
+    try {
+        const res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return [];
+    }
+}
+
 function updateLocalStorage() {
-  localStorage.setItem("employeesAttendanceInfo", JSON.stringify(employeesAttendanceInfo));
+  localStorage.setItem("employeesAttendanceInfo", JSON.stringify(allAttendanceData));
   localStorage.setItem("AttendanceRecord", JSON.stringify(AttendanceRecord));
+  localStorage.setItem("attendanceManager", JSON.stringify(AttendanceRecord));
 }
 
-// RESET INPUTS
 function updateInputs() {
   employeeIdInput.value = "";
   employeeNameInput.value = "";
@@ -108,128 +200,68 @@ function updateInputs() {
   checkOutInput.value = "";
 }
 
-// GET DATA FROM JSON
-async function getUser() {
-  try {
-    const res = await fetch(`../assets/js/json/attendance_single_day.json`);
-    const data = await res.json();
-
-    employeesAttendanceInfo = [...data];
-    updateLocalStorage(employeesAttendanceInfo);
-    displayArray(employeesAttendanceInfo);
-  } catch (error) {
-    console.error("Error fetching default data:", error);
-  }
-}
-async function getAttendanceRecord() {
-  try {
-    const res = await fetch(`../assets/js/json/attendance-record.json`);
-    const data = await res.json();
-    AttendanceRecord = [...data];
-    console.log(AttendanceRecord);
-    
-  } catch (error) {
-    console.error("Error fetching default data:", error);
-  }
-}
-
-getAttendanceRecord();
-
-// CREATE EMPLOYEE
-function AddEmployee() {
-  let employeeId = employeeIdInput.value.trim();
-  let employeeName = employeeNameInput.value.toUpperCase().trim();
-  let date = DateInput.value;
-  let checkIn = checkInInput.value;
-  let checkOut = checkOutInput.value;
-
-  if (employeeId && employeeName && date && validateId() && validateName()) {
-    let attendance = { employeeId, employeeName, date, checkIn, checkOut };
-
-    statusEmployee(attendance); 
-
-    employeesAttendanceInfo.unshift(attendance);
-
-     updateLocalStorage(employeesAttendanceInfo);
-
-    displayArray(employeesAttendanceInfo);
-
-    updateInputs();
-
-    AttendanceRecord.push(attendance);
-      
-     updateLocalStorage();
-   
-      //  console.log(AttendanceRecord);
-  } else {
-    let errorModal = new bootstrap.Modal(document.getElementById("errorModal"));
-    errorModal.show();
-  }
-}
-
-btnAddAttendance.addEventListener("click", function (e) {
-  e.preventDefault();
-  AddEmployee();
-});
-
-// VALIDATION
 function validateId() {
   const value = employeeIdInput.value.trim();
-  if (!/^[0-9]+$/.test(value)) {
-    idError.innerText = "ID must be numbers only";
-    return false;
-  } else {
-    idError.innerText = "";
-    return true;
-  }
+  const isValid = /^[0-9]+$/.test(value);
+  idError.innerText = isValid ? "" : "ID must be numbers only";
+  return isValid;
 }
 
 function validateName() {
   const value = employeeNameInput.value.trim();
-  if (!/^[a-zA-Z ]+$/.test(value)) {
-    nameError.innerText = "Name must contain letters only";
-    return false;
-  } else {
-    nameError.innerText = "";
-    return true;
-  }
+  const isValid = /^[a-zA-Z ]+$/.test(value);
+  nameError.innerText = isValid ? "" : "Name must contain letters only";
+  return isValid;
 }
+
+
+// --- ربط الأحداث وتشغيل الكود ---
+
+btnAddAttendance.addEventListener("click", (e) => {
+  e.preventDefault();
+  AddEmployee();
+});
 
 employeeIdInput.addEventListener("blur", validateId);
 employeeNameInput.addEventListener("blur", validateName);
 
-// SEARCH
-function searchEmployeeName() {
-  let nameEmployeeSearch = searchEmployeeInput.value.trim().toLowerCase();
-  let containerNamesEmployeesFilter = employeesAttendanceInfo.filter(emp =>
-    emp.employeeName.toLowerCase().includes(nameEmployeeSearch)
-  );
-  displayArray(containerNamesEmployeesFilter);
-}
-
-searchEmployeeInput.addEventListener('input', searchEmployeeName);
-
-// FILTER
-function filteredByStatus(status) {
-  let filtered;
-  if (status === 'All') {
-    filtered = employeesAttendanceInfo;
-  } else {
-    filtered = employeesAttendanceInfo.filter(employee => employee.status === status);
-  }
-  displayArray(filtered);
-}
+searchEmployeeInput.addEventListener('input', refreshView);
 
 btnsFilter.forEach(btn => {
   btn.addEventListener('click', function () {
-    let status = btn.getAttribute("data-status");
-    filteredByStatus(status);
+    btnsFilter.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    activeFilterStatus = this.getAttribute("data-status");
+    refreshView();
   });
 });
 
-// LOGOUT
 document.querySelector('.btn-logout').addEventListener('click', function () {
   localStorage.removeItem("salaries");
-  localStorage.removeItem("employeesAttendanceInfo");
   window.location = "../index.html";
 });
+
+// --- التشغيل الأولي ---
+(async () => {
+    // Load main data
+    let initialData = JSON.parse(localStorage.getItem("employeesAttendanceInfo")) || [];
+    if (initialData.length === 0) {
+        initialData = await fetchInitialData('../assets/js/json/attendance_single_day.json');
+    }
+    allAttendanceData = initialData;
+    // Ensure all items have a status calculated initially
+    allAttendanceData.forEach(emp => statusEmployee(emp));
+
+    // Load secondary record
+    let recordData = JSON.parse(localStorage.getItem("AttendanceRecord")) || [];
+    if (recordData.length === 0) {
+        recordData = await fetchInitialData('../assets/js/json/attendance-record.json');
+    }
+    AttendanceRecord = recordData;
+    
+    updateLocalStorage(); // Sync storage
+
+    // Initial render
+    document.querySelector('.filter-btn[data-status="All"]').classList.add('active');
+    refreshView();
+})();
