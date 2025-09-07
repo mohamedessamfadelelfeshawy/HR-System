@@ -1,6 +1,9 @@
-import { fetchEmployee, setItem, getItem } from "../../../assets/js/exportFun.js";
+import {
+  fetchEmployee,
+  setItem,
+  getItem,
+} from "../../../assets/js/exportFun.js";
 
-// --- عناصر DOM ---
 const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const numEmployee = document.getElementById("numEmployee");
@@ -16,17 +19,14 @@ let currentFilteredData = [];
 let currentPage = 1;
 const rowsPerPage = 10;
 
-
-// --- دوال العرض والتنقل (Pagination) ---
-
 function displayPageOfData(items) {
   let tableRows = "";
   if (!items || items.length === 0) {
     tBody.innerHTML = `<tr><td colspan="4" class="text-center">No matching employees found</td></tr>`;
     return;
   }
-  
-  items.forEach(el => {
+
+  items.forEach((el) => {
     tableRows += `
       <tr>
           <td>${el.id}</td>
@@ -57,7 +57,7 @@ function setupPaginationControls() {
       e.preventDefault();
       renderPage(i);
     });
-    
+
     paginationWrapper.appendChild(li);
   }
 }
@@ -67,33 +67,31 @@ function renderPage(pageNumber) {
   const start = (currentPage - 1) * rowsPerPage;
   const end = start + rowsPerPage;
   const paginatedItems = currentFilteredData.slice(start, end);
-  
+
   displayPageOfData(paginatedItems);
-  
-  document.querySelectorAll(".page-item").forEach(item => {
+
+  document.querySelectorAll(".page-item").forEach((item) => {
     item.classList.remove("active");
-    if (parseInt(item.querySelector('.page-link').innerText) === currentPage) {
+    if (parseInt(item.querySelector(".page-link").innerText) === currentPage) {
       item.classList.add("active");
     }
   });
 }
 
 
-// --- ربط الأحداث والمنطق ---
-
 search.addEventListener("input", () => {
   const searchTerm = search.value.toLowerCase().trim();
-  
+
   if (searchTerm === "") {
     currentFilteredData = [...allEmployeesData];
   } else {
-    currentFilteredData = allEmployeesData.filter(el => 
+    currentFilteredData = allEmployeesData.filter((el) =>
       el.name.toLowerCase().includes(searchTerm)
     );
   }
-  
+
   setupPaginationControls();
-  renderPage(1); // Always go to the first page of results
+  renderPage(1); 
 });
 
 logoutIcon.addEventListener("click", () => {
@@ -110,8 +108,6 @@ btn.addEventListener("click", () => {
   localStorage.setItem("theme", newTheme);
 });
 
-
-// --- التشغيل الأولي ---
 (async () => {
   // Fetch main data
   allEmployeesData = await fetchEmployee("/assets/js/json/employee.json");

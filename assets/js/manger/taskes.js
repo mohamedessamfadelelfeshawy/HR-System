@@ -1,6 +1,5 @@
 import { fetchEmployee, setItem, getItem } from "../../../assets/js/exportFun.js";
 
-// --- عناصر HTML ---
 const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const tBody = document.getElementById("tBody");
@@ -8,7 +7,6 @@ const search = document.getElementById("search");
 const logoutIcon = document.querySelector(".logoutIcon");
 const paginationWrapper = document.getElementById("pagination-wrapper");
 
-// --- متغيرات عامة وبيانات ---
 let allTasksData = [];
 let currentFilteredData = [];
 let currentPage = 1;
@@ -40,7 +38,6 @@ const editTitleError = document.getElementById("editTitleError");
 const editErrorId = document.getElementById("editErrorId");
 
 
-/* --- دوال العرض والتنقل (Pagination) --- */
 
 function displayPageOfData(items) {
     let tableRows = "";
@@ -128,7 +125,6 @@ function refreshDataAndView() {
 }
 
 
-/* --- دوال الأحداث (إضافة، تعديل، حذف) --- */
 
 function attachActionListeners() {
     document.querySelectorAll(".delete-btn").forEach(btn => {
@@ -196,7 +192,6 @@ function updateTask() {
 }
 
 
-/* --- دوال مساعدة ووظائف أخرى --- */
 
 function populateEditModal(index) {
     const task = allTasksData[index];
@@ -250,7 +245,6 @@ function validateId(input, errorEl) {
 }
 
 
-/* --- ربط الأحداث وتشغيل الكود --- */
 
 search.addEventListener("input", () => {
     refreshDataAndView();

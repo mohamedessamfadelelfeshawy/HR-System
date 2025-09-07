@@ -1,4 +1,3 @@
-// --- عناصر DOM ---
 const bodyTable = document.getElementById("bodyTable");
 const employeeIdInput = document.getElementById("employeeId");
 const employeeNameInput = document.getElementById("employeeName");
@@ -12,7 +11,6 @@ const searchEmployeeInput = document.getElementById("searchEmployee");
 const btnsFilter = document.querySelectorAll('.filter-btn');
 const paginationWrapper = document.getElementById("pagination-wrapper");
 
-// --- بيانات ومتغيرات الحالة ---
 let allAttendanceData = [];
 let AttendanceRecord = [];
 let currentFilteredData = [];
@@ -21,7 +19,6 @@ const rowsPerPage = 10;
 let activeFilterStatus = 'All';
 
 
-// --- دوال العرض والتنقل (Pagination) ---
 
 function displayPageOfData(items) {
   if (!items || items.length === 0) {
@@ -30,7 +27,7 @@ function displayPageOfData(items) {
   }
 
   const tableRows = items.map((employee) => {
-    // We need to call statusEmployee to ensure the .status property is up-to-date before rendering
+  
     statusEmployee(employee);
     return `
       <tr>
@@ -110,7 +107,6 @@ function refreshView() {
 }
 
 
-// --- دوال منطق العمل (Business Logic) ---
 
 function statusEmployee(object) {
   if (object.isLeave) {
@@ -174,7 +170,7 @@ function AddEmployee() {
 }
 
 
-// --- دوال جلب البيانات والتحقق ---
+
 
 async function fetchInitialData(url) {
     try {
@@ -215,7 +211,6 @@ function validateName() {
 }
 
 
-// --- ربط الأحداث وتشغيل الكود ---
 
 btnAddAttendance.addEventListener("click", (e) => {
   e.preventDefault();
@@ -241,7 +236,6 @@ document.querySelector('.btn-logout').addEventListener('click', function () {
   window.location = "../index.html";
 });
 
-// --- التشغيل الأولي ---
 (async () => {
     // Load main data
     let initialData = JSON.parse(localStorage.getItem("employeesAttendanceInfo")) || [];
@@ -259,7 +253,7 @@ document.querySelector('.btn-logout').addEventListener('click', function () {
     }
     AttendanceRecord = recordData;
     
-    updateLocalStorage(); // Sync storage
+    updateLocalStorage();
 
     // Initial render
     document.querySelector('.filter-btn[data-status="All"]').classList.add('active');

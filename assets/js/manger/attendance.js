@@ -4,18 +4,16 @@ import {
   getItem,
 } from "../../../assets/js/exportFun.js";
 
-// --- عناصر HTML ---
 const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const tBody = document.getElementById("tBody");
 const search = document.getElementById("search");
 const logoutIcon = document.querySelector(".logoutIcon");
-const paginationWrapper = document.getElementById("pagination-wrapper"); // عنصر أزرار التنقل الجديد
+const paginationWrapper = document.getElementById("pagination-wrapper");
 
-// --- متغيرات خاصة بالـ Pagination ---
 let currentPage = 1;
-const rowsPerPage = 10; // يمكنك تغيير هذا الرقم لعرض عدد مختلف من الصفوف في الصفحة
-let currentFilteredData = []; // سيحتوي هذا المتغير على البيانات التي يتم عرضها حاليًا (سواء كانت كاملة أو بعد البحث)
+const rowsPerPage = 10; 
+let currentFilteredData = []; 
 
 async function calculateSalaries() {
   const allEmployees = getItem("allEmployees");
@@ -79,12 +77,7 @@ logoutIcon.addEventListener("click", () => {
   window.location.replace("../../../index.html");
 });
 
-// --- دوال الـ Pagination الجديدة ---
 
-/**
- * دالة لعرض صفوف الجدول بناءً على مصفوفة بيانات محددة
- * @param {Array} arr - مصفوفة البيانات التي سيتم عرضها في الجدول
- */
 function displayData(arr) {
   let emp = "";
   if (!arr) {
@@ -113,11 +106,7 @@ function displayData(arr) {
   tBody.innerHTML = emp;
 }
 
-/**
- * دالة لإنشاء أزرار التنقل بين الصفحات
- * @param {Array} items - كامل البيانات لتحديد عدد الصفحات
- * @param {HTMLElement} wrapper - العنصر الذي سيحتوي على الأزرار
- */
+
 function setupPagination(items, wrapper) {
   wrapper.innerHTML = "";
   const pageCount = Math.ceil(items.length / rowsPerPage);
@@ -128,11 +117,7 @@ function setupPagination(items, wrapper) {
   }
 }
 
-/**
- * دالة مساعدة لإنشاء زر واحد من أزرار التنقل
- * @param {number} page - رقم الصفحة للزر
- * @returns {HTMLElement} - عنصر <li> للزر
- */
+
 function createPaginationButton(page) {
   const li = document.createElement("li");
   li.classList.add("page-item");
@@ -150,29 +135,24 @@ function createPaginationButton(page) {
   li.addEventListener("click", (e) => {
     e.preventDefault();
     currentPage = page;
-    updatePage(); // استدعاء دالة التحديث
+    updatePage();
   });
 
   return li;
 }
 
-/**
- * دالة لتحديث عرض الجدول والأزرار بناءً على الصفحة الحالية
- */
+
 function updatePage() {
-    // 1. حساب "شريحة" البيانات التي يجب عرضها
+    
     const start = rowsPerPage * (currentPage - 1);
     const end = start + rowsPerPage;
     const paginatedItems = currentFilteredData.slice(start, end);
 
-    // 2. عرض البيانات المقطوعة في الجدول
     displayData(paginatedItems);
 
-    // 3. تحديث الفئة "active" على الأزرار
     const pageButtons = document.querySelectorAll(".page-item");
     pageButtons.forEach((button) => {
         button.classList.remove("active");
-        // نحول innerText إلى رقم للمقارنة
         if (parseInt(button.querySelector('.page-link').innerText) === currentPage) {
             button.classList.add("active");
         }
@@ -180,21 +160,19 @@ function updatePage() {
 }
 
 
-// --- تعديل دالة البحث لتعمل مع الـ Pagination ---
 search.addEventListener("input", (e) => {
   e.preventDefault();
   const searchTerm = search.value.toLowerCase();
   
   if (window.attendants) {
     if (searchTerm === "") {
-      currentFilteredData = [...window.attendants]; // إذا كان البحث فارغًا، اعرض كل البيانات
+      currentFilteredData = [...window.attendants]; 
     } else {
       currentFilteredData = window.attendants.filter((el) =>
         el.status.toLowerCase().includes(searchTerm)
       );
     }
     
-    // عند البحث، ارجع دائمًا للصفحة الأولى
     currentPage = 1; 
     setupPagination(currentFilteredData, paginationWrapper);
     updatePage();
@@ -212,12 +190,10 @@ btn.addEventListener("click", () => {
   localStorage.setItem("theme", newTheme);
 });
 
-// --- تعديل الكود الرئيسي عند بدء التشغيل ---
 (async () => {
   window.attendants = getItem("AttendanceRecord") || [];
-  currentFilteredData = [...window.attendants]; // في البداية، البيانات المفلترة هي كل البيانات
+  currentFilteredData = [...window.attendants]; 
 
-  // قم بإنشاء أزرار التنقل وعرض الصفحة الأولى
   setupPagination(currentFilteredData, paginationWrapper);
   updatePage();
 

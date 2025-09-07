@@ -11,10 +11,6 @@ logoutIcon.addEventListener("click", () => {
   window.location.replace("../../../index.html");
 });
 
-/**
- * دالة لحساب وتصنيف الموظفين بناءً على الأداء مع استبعاد أدوار محددة
- * @returns {Array} - مصفوفة الموظفين المؤهلين مرتبة من الأفضل إلى الأسوأ
- */
 function findIdealEmployees() {
   const allEmployees = getItem("allEmployees") || [];
   const allTasks = getItem("allTasks") || [];
@@ -23,42 +19,38 @@ function findIdealEmployees() {
     return [];
   }
 
-  // --- التعديل المطلوب هنا ---
-  // الخطوة 1: تصفية الموظفين لاستبعاد الأدوار المحددة (HR, Manager, Security)
-  const excludedRoles = ['hr', 'manager', 'security'];
-  const eligibleEmployees = allEmployees.filter(employee => {
-    // نتأكد أن للموظف دور (role) وأن هذا الدور ليس ضمن قائمة الأدوار المستبعدة
-    return employee.role && !excludedRoles.includes(employee.role.toLowerCase());
+  const excludedRoles = ["hr", "manager", "security"];
+  const eligibleEmployees = allEmployees.filter((employee) => {
+    return (
+      employee.role && !excludedRoles.includes(employee.role.toLowerCase())
+    );
   });
 
-  // الخطوة 2: حساب عدد المهام المكتملة للموظفين المؤهلين فقط
-  const employeesWithTaskScores = eligibleEmployees.map(employee => {
-    const employeeTasks = allTasks.filter(task => task.employeeId == employee.id);
-    const completedTasksCount = employeeTasks.filter(task => task.status === "Done").length;
-    
+  const employeesWithTaskScores = eligibleEmployees.map((employee) => {
+    const employeeTasks = allTasks.filter(
+      (task) => task.employeeId == employee.id
+    );
+    const completedTasksCount = employeeTasks.filter(
+      (task) => task.status === "Done"
+    ).length;
+
     return {
       ...employee,
       completedTasks: completedTasksCount,
     };
   });
 
-  // الخطوة 3: ترتيب الموظفين المؤهلين بناءً على المعايير
   employeesWithTaskScores.sort((a, b) => {
-    // المعيار الأول: الأكثر مهامًا مكتملة
     if (b.completedTasks !== a.completedTasks) {
       return b.completedTasks - a.completedTasks;
     }
-    
-    // المعيار الثاني: الأقل جزاءات
+
     return Number(a.Penalties) - Number(b.Penalties);
   });
 
   return employeesWithTaskScores;
 }
 
-/**
- * دالة لعرض الموظفين المثاليين في القائمة
- */
 function displayIdealEmployees() {
   const idealEmployees = findIdealEmployees();
 
@@ -73,12 +65,15 @@ function displayIdealEmployees() {
 
   const topEmployees = idealEmployees.slice(0, 3);
 
-  idealEmployeeList.innerHTML = topEmployees.map((emp, index) => {
-    const isBestEmployee = index === 0;
-    const highlightClass = isBestEmployee ? "highlighted-employee" : "";
-    const starIcon = isBestEmployee ? '<i class="fa-solid fa-star text-warning fs-5 me-2"></i>' : '<i class="fa-solid fa-medal text-muted fs-5 me-2"></i>';
+  idealEmployeeList.innerHTML = topEmployees
+    .map((emp, index) => {
+      const isBestEmployee = index === 0;
+      const highlightClass = isBestEmployee ? "highlighted-employee" : "";
+      const starIcon = isBestEmployee
+        ? '<i class="fa-solid fa-star text-warning fs-5 me-2"></i>'
+        : '<i class="fa-solid fa-medal text-muted fs-5 me-2"></i>';
 
-    return `
+      return `
       <li class="list-group-item shadow-sm border-0 rounded-3 mb-3 p-3 d-flex flex-column align-items-center text-center ${highlightClass}">
         <div class="mb-2">
           ${starIcon}
@@ -93,7 +88,8 @@ function displayIdealEmployees() {
         </div>
       </li>
     `;
-  }).join("");
+    })
+    .join("");
 }
 
 // Theme toggle
