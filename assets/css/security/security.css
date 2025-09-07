@@ -1,0 +1,190 @@
+/* Base body styling */
+body {
+  background: #f0f2f5;
+  font-family: "Inter", sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+p {
+  color: #212529;
+}
+
+/* Primary button customization*/
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #00a2ca;
+  --bs-btn-border-color: #00a2ca;
+  --bs-btn-hover-bg: #0091b3;
+  --bs-btn-hover-border-color: #0089a8;
+  --bs-btn-active-bg: #0089a8;
+  --bs-btn-active-border-color: #007c99;
+  --bs-btn-disabled-bg: #00a2ca;
+  --bs-btn-disabled-border-color: #00a2ca;
+}
+
+/* Header  */
+.header-bar {
+  background: #00a2ca;
+  color: #fff;
+
+  padding: 5px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon styling */
+i {
+  cursor: pointer;
+
+}
+.clock-icon{
+  color:#007c99;
+}
+/* Logo box */
+.box-img-logo {
+  width: 40px;
+}
+
+.box-img-logo img {
+  border-radius: 11px;
+}
+
+/* Special  buttons */
+.btn-spcial {
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  color: #00a2ca; 
+}
+
+/* General custom button style */
+.btn-style {
+  background-color: #00a2ca;
+}
+
+
+/* Dark Mode Styling */
+
+.dark-mode {
+  background: #0d1b2a; 
+  color: #f8f9fa; 
+}
+.dark-mode i {
+  color: #07111d;
+}
+.dark-mode .clock-icon {
+  color: #f8f9fa;
+}
+.dark-mode .btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #0d1b2a;
+  --bs-btn-border-color: #0d1b2a;
+  --bs-btn-hover-bg: #07111b;
+  --bs-btn-hover-border-color: #040b11;
+  --bs-btn-active-bg: #040b11;
+  --bs-btn-active-border-color: #040b11;
+  --bs-btn-disabled-bg: #0d1b2a;
+  --bs-btn-disabled-border-color: #0d1b2a;
+}
+
+/* Header  in dark mode */
+.dark-mode .header-bar {
+  background: #1e2a3b;
+}
+
+/* Cards in dark mode */
+.dark-mode .card {
+  background: #1e2a3b;
+  color: #f1f1f1;
+}
+
+/* Form labels in dark mode */
+.dark-mode .form-floating label {
+  color: #1e1e2e; 
+}
+
+/* Search bar in dark mode */
+.dark-mode .search-bar {
+  background: #1e2a3b;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+/* Dark mode toggle button */
+.toggle-dark {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: #fff;
+  color: #333;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark mode toggle */
+.dark-mode .toggle-dark {
+  background: #333;
+  color: #f8f9fa;
+}
+
+/* Table cells in dark mode */
+.dark-mode .table tbody td {
+  background: #1e2a3b !important;;
+  color: #fff !important;;
+}
+.dark-mode .custom-header th {
+  background-color: #fff !important;
+ color: #1e2a3b !important;
+}
+
+/* Table Styling */
+
+.table-container table {
+  font-size: 16px;
+}
+.custom-header th {
+  background-color: #00a2ca !important;
+  color: #fff !important;
+}
+
+.table th, 
+.table td {
+  white-space: nowrap;   
+}
+
+.modal-header {
+  background-color: #00a2ca !important;
+  color: white  !important;
+}
+.dark-mode .modal-header {
+  background-color: #1e2a3b  !important;
+  color: white  !important;;
+}
+
+.dark-mode .modal-body{
+  color: #1e2a3b !important;
+}
+
+
+@media (max-width: 670px) {
+  .table-responsive table {
+    font-size: 11px;
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    padding: 4px 6px; 
+  }
+
+  .table-responsive .custom-header i {
+    font-size: 8px; 
+  }
+}
