@@ -24,7 +24,6 @@ btn.addEventListener("click", () => {
 // logout start
 let logOutButton = document.querySelector("#logBtn");
 logOutButton.addEventListener("click", (e) => {
-  // Assuming you want to go to the login page which is in the root directory
   window.location.href = "../../../index.html"; 
 });
 // logout end

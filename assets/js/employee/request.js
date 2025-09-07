@@ -116,7 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let makeReqBtn = document.querySelector(".req-btn");
   let idinput = document.querySelector("#sele");
   let empData = getItem("employee");
-
+  idinput.value = empData.id;
+  idinput.style.textAlign = "center";
   makeReqBtn.addEventListener("click", () => {
     if (empData) {
       idinput.textContent = empData.id;
@@ -125,130 +126,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let form = document.querySelector("#form-container form");
 
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  // form.addEventListener("submit", function (e) {
-  //   e.preventDefault();
+    let type = document.querySelector("#sel").value;
+    let notes = document.querySelector("#reason").value;
+    let date = document.querySelector("#intial").value;
 
-  //   let type = document.querySelector("#sel").value;
-  //   let notes = document.querySelector("#reason").value;
-  //   let date = document.querySelector("#intial").value;
+    if (type === "reason" || !date) {
+      alert("Please select type and date.");
+      return;
+    }
 
-  //   if (type === "reason" || !date) {
-  //     alert("Please select type and date.");
-  //     return;
-  //   }
+    // get allRequests from localStorage
+    let allRequests = getItem("allRequests") || [];
 
-  //   // get allRequests from localStorage
-  //   let allRequests = getItem("allRequests") || [];
+    let newId = allRequests.length
+      ? allRequests[allRequests.length - 1].id + 1
+      : 1;
 
-  //   let newId = allRequests.length
-  //     ? allRequests[allRequests.length - 1].id + 1
-  //     : 1;
+    let newRequest = {
+      id: newId,
+      employeeId: empData.id,
+      type: type,
+      notes: notes,
+      date: date,
+      status: "Pending",
+    };
 
-  //   let newRequest = {
-  //     id: newId,
-  //     employeeId: empData.id,
-  //     type: type,
-  //     notes: notes,
-  //     date: date,
-  //     status: "Pending",
-  //   };
+    if (type === "WFH") {
+      newRequest.checkIn = "09:00";
+      newRequest.checkOut = "16:45";
+      newRequest.isWFH = true;
+      newRequest.isLeave = false;
+      newRequest.minutesLate = 0;
+      newRequest.notes = notes || "Working from home";
+    }
 
-  //   // push into allRequests and employeeRequest
-  //   allRequests.push(newRequest);
-  //   currentRequests.push(newRequest);
+    if (type === "Leave") {
+      newRequest.checkIn = "--";
+      newRequest.checkOut = "--";
+      newRequest.isWFH = false;
+      newRequest.isLeave = true;
+      newRequest.minutesLate = 0;
+      newRequest.notes = notes || "Leave request";
+    }
 
-  //   // save both to localStorage
-  //   setItem("allRequests", allRequests);
+    if (type === "Absence") {
+      newRequest.checkIn = "--";
+      newRequest.checkOut = "--";
+      newRequest.isWFH = false;
+      newRequest.isLeave = false;
+      newRequest.minutesLate = 0;
+      newRequest.notes = notes || "Absent";
+    }
 
-  //   // update table
-  //   createTable(currentRequests);
+    // push into allRequests and employeeRequest
+    allRequests.push(newRequest);
+    currentRequests.push(newRequest);
 
-  //   let modal = bootstrap.Modal.getInstance(
-  //     document.getElementById("exampleModal")
-  //   );
-  //   modal.hide();
+    // save both to localStorage
+    setItem("allRequests", allRequests);
 
-  //   form.reset();
-  // });
+    // update table
+    createTable(currentRequests);
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+    let modal = bootstrap.Modal.getInstance(
+      document.getElementById("exampleModal")
+    );
+    modal.hide();
 
-  let type = document.querySelector("#sel").value;
-  let notes = document.querySelector("#reason").value;
-  let date = document.querySelector("#intial").value;
-
-  if (type === "reason" || !date) {
-    alert("Please select type and date.");
-    return;
-  }
-
-  // get allRequests from localStorage
-  let allRequests = getItem("allRequests") || [];
-
-  let newId = allRequests.length
-    ? allRequests[allRequests.length - 1].id + 1
-    : 1;
-
-  // القاعدة الأساسية
-  let newRequest = {
-    id: newId,
-    employeeId: empData.id,
-    type: type,
-    notes: notes,
-    date: date,
-    status: "Pending",
-  };
-
-  // تخصيص بناءً على نوع الطلب
-  if (type === "WFH") {
-    newRequest.checkIn = "09:00";
-    newRequest.checkOut = "16:45";
-    newRequest.isWFH = true;
-    newRequest.isLeave = false;
-    newRequest.minutesLate = 0;
-    newRequest.notes = notes || "Working from home";
-  }
-
-  if (type === "Leave") {
-    newRequest.checkIn = "--";
-    newRequest.checkOut = "--";
-    newRequest.isWFH = false;
-    newRequest.isLeave = true;
-    newRequest.minutesLate = 0;
-    newRequest.notes = notes || "Leave request";
-  }
-
-  if (type === "Absence") {
-    newRequest.checkIn = "--";
-    newRequest.checkOut = "--";
-    newRequest.isWFH = false;
-    newRequest.isLeave = false;
-    newRequest.minutesLate = 0;
-    newRequest.notes = notes || "Absent";
-  }
-
-  // push into allRequests and employeeRequest
-  allRequests.push(newRequest);
-  currentRequests.push(newRequest);
-
-  // save both to localStorage
-  setItem("allRequests", allRequests);
-
-  // update table
-  createTable(currentRequests);
-
-  let modal = bootstrap.Modal.getInstance(
-    document.getElementById("exampleModal")
-  );
-  modal.hide();
-
-  form.reset();
-});
-
-
-
+    form.reset();
+  });
 });
 
 // logout

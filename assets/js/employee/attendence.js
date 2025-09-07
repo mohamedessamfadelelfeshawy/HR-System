@@ -4,8 +4,8 @@ import {
   setItem,
 } from "../../../assets/js/exportFun.js";
 
-   let allData =getItem("AttendanceRecord");
-   console.log(allData);
+let allData = getItem("AttendanceRecord");
+console.log(allData);
 // get employee data
 async function getEmp() {
   try {
@@ -26,9 +26,6 @@ async function getEmp() {
 
 async function getAttendData() {
   try {
- 
-
-
     let empData = getItem("employee");
     if (!empData) {
       console.error("No employee is logged in.");
@@ -38,7 +35,7 @@ async function getAttendData() {
       (record) => record.employeeId === empData.id
     );
     console.log(empAttendance);
-  
+
     createTable(empAttendance);
     cardData(empAttendance);
     renderCalendar(displayedMonth, displayedYear);
@@ -361,4 +358,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 getAttendData();
 getEmp();
-
