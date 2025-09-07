@@ -248,8 +248,78 @@ function updateRequestStatus(requestId, newStatus) {
   return requestUpdated;
 }
 
+// (الكود زي ما هو فوق .. مع تعديل دالة updateAttendanceFiles بس)
 
-// (دالة updateAttendanceFiles تبقى كما هي)
+// function updateAttendanceFiles(request) {
+//   let empId = request.employeeId;
+//   let date = request.date;
+
+//   let singleAttendance = getItem("employeesAttendanceInfo") || [];
+//   let record = singleAttendance.find(
+//     (a) => a.employeeId === empId && a.date === date
+//   );
+
+//   if (!record) {
+//     // لو مفيش record قبل كده نضيف واحد جديد
+//     record = {
+//       id: singleAttendance.length + 1,
+//       employeeId: empId,
+//       employeeName: request.employeeName || "Unknown",
+//       department: request.department || "N/A",
+//       date: date,
+//       checkIn: request.type === "WFH" ? (request.checkIn || "09:00") : "--",
+//       checkOut: request.type === "WFH" ? (request.checkOut || "16:45") : "--",
+//       status: request.type, // يساوي WFH أو Leave حسب النوع
+//       minutesLate: request.type === "WFH" ? (request.minutesLate || 0) : 0,
+//       isWFH: request.type === "WFH",
+//       isLeave: request.type === "Leave",
+//       notes: request.notes || (request.type === "WFH" ? "Working from home" : request.type),
+//     };
+//     singleAttendance.unshift(record);
+//   } else {
+//     // لو موجود بالفعل نحدث البيانات
+//     record.status = request.type;
+//     record.isWFH = request.type === "WFH";
+//     record.isLeave = request.type === "Leave";
+//     record.checkIn = request.type === "WFH" ? (request.checkIn || "09:00") : "--";
+//     record.checkOut = request.type === "WFH" ? (request.checkOut || "16:45") : "--";
+//     record.minutesLate = request.type === "WFH" ? (request.minutesLate || 0) : 0;
+//     record.notes = request.notes || (request.type === "WFH" ? "Working from home" : request.type);
+//   }
+
+//   setItem("employeesAttendanceInfo", singleAttendance);
+
+//   // --- تحديث AttendanceRecord الشهري ---
+//   let attendanceRecord = getItem("AttendanceRecord") || [];
+//   let month = date.slice(0, 7);
+
+//   let monthly = attendanceRecord.find(
+//     (a) => a.employeeId === empId && a.month === month
+//   );
+
+//   if (!monthly) {
+//     monthly = {
+//       id: attendanceRecord.length + 1,
+//       employeeId: empId,
+//       employeeName: request.employeeName || "Unknown",
+//       department: request.department || "N/A",
+//       month: month,
+//       present: 0,
+//       absent: 0,
+//       leave: 0,
+//       wfh: 0,
+//     };
+//     attendanceRecord.unshift(monthly);
+//   }
+
+//   if (request.type === "WFH") {
+//     monthly.wfh += 1;
+//   } else if (request.type === "Leave") {
+//     monthly.leave += 1;
+//   }
+
+//   setItem("AttendanceRecord", attendanceRecord);
+// }
 function updateAttendanceFiles(request) {
   let empId = request.employeeId;
   let date = request.date;
@@ -268,22 +338,45 @@ function updateAttendanceFiles(request) {
       date: date,
       checkIn: "--",
       checkOut: "--",
-      status: request.type === "WFH" ? "WFH" : "Leave",
+      status: "Absence",
       minutesLate: 0,
-      isWFH: request.type === "WFH",
-      isLeave: request.type !== "WFH",
-      notes: request.notes || request.type,
+      isWFH: false,
+      isLeave: false,
+      notes: request.notes || "Absent",
     };
-    singleAttendance.push(record);
-  } else {
-    record.status = request.type === "WFH" ? "WFH" : "Leave";
-    record.isWFH = request.type === "WFH";
-    record.isLeave = request.type !== "WFH";
-    record.notes = request.notes || request.type;
+    singleAttendance.unshift(record);
+  }
+
+  // تحديث بناءً على نوع الطلب
+  if (request.type === "WFH") {
+    record.status = "WFH";
+    record.checkIn = request.checkIn || "09:00";
+    record.checkOut = request.checkOut || "16:45";
+    record.isWFH = true;
+    record.isLeave = false;
+    record.minutesLate = request.minutesLate || 0;
+    record.notes = request.notes || "Working from home";
+  } else if (request.type === "Leave") {
+    record.status = "Leave";
+    record.checkIn = "--";
+    record.checkOut = "--";
+    record.isWFH = false;
+    record.isLeave = true;
+    record.minutesLate = 0;
+    record.notes = request.notes || "Leave request";
+  } else if (request.type === "Absence") {
+    record.status = "Absence";
+    record.checkIn = "--";
+    record.checkOut = "--";
+    record.isWFH = false;
+    record.isLeave = false;
+    record.minutesLate = 0;
+    record.notes = request.notes || "Absent";
   }
 
   setItem("employeesAttendanceInfo", singleAttendance);
 
+  // --- تحديث AttendanceRecord الشهري ---
   let attendanceRecord = getItem("AttendanceRecord") || [];
   let month = date.slice(0, 7);
 
@@ -303,17 +396,21 @@ function updateAttendanceFiles(request) {
       leave: 0,
       wfh: 0,
     };
-    attendanceRecord.push(monthly);
+    attendanceRecord.unshift(monthly);
   }
 
+  // تحديث الإحصائيات
   if (request.type === "WFH") {
     monthly.wfh += 1;
-  } else {
+  } else if (request.type === "Leave") {
     monthly.leave += 1;
+  } else if (request.type === "Absence") {
+    monthly.absent += 1;
   }
 
   setItem("AttendanceRecord", attendanceRecord);
 }
+
 
 // --- تشغيل الكود ---
 fetchedData();

@@ -20,8 +20,10 @@ let currentFilteredData = []; // سيحتوي هذا المتغير على ال�
 async function calculateSalaries() {
   const allEmployees = getItem("allEmployees");
   const settings = getItem("setting system");
-  const attendanceRecords = getItem("AttendanceRecord");
+  const attendanceRecords = getItem("attendanceManager");
 
+  console.log(attendanceRecords);
+  
   if (!attendanceRecords || !allEmployees || !settings) {
     console.error("error: (allEmployees, setting system, attendanceRecords) ");
     return;

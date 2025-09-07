@@ -1,9 +1,18 @@
 import { fetchEmployee, setItem, getItem } from "../../../assets/js/exportFun.js";
+
+// --- عناصر HTML ---
 const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const tBody = document.getElementById("tBody");
 const search = document.getElementById("search");
 const logoutIcon = document.querySelector(".logoutIcon");
+const paginationWrapper = document.getElementById("pagination-wrapper");
+
+// --- متغيرات عامة وبيانات ---
+let allTasksData = [];
+let currentFilteredData = [];
+let currentPage = 1;
+const rowsPerPage = 10;
 
 // Add Task Modal Elements
 const saveTask = document.getElementById('saveTask');
@@ -31,104 +40,166 @@ const editTitleError = document.getElementById("editTitleError");
 const editErrorId = document.getElementById("editErrorId");
 
 
-/* logOut */
-logoutIcon.addEventListener("click", () => {
-    localStorage.removeItem("employee");
-    window.location = "../../../index.html"
-})
-/* validate name */
-function validateName(input, errorEl) {
-    const value = input.value.trim();
-    if (!/^[a-zA-Z ]+$/.test(value) || value === "") {
-        errorEl.innerText = "Name is required and must be letters.";
-        return false;
-    } else {
-        errorEl.innerText = "";
-        return true;
-    }
-}
-/* validate title */
-function validateTitle(input, errorEl) {
-    const value = input.value.trim();
-    if (!/^[a-zA-Z0-9 ]+$/.test(value) || value === "") {
-        errorEl.innerText = "Title is required.";
-        return false;
-    } else {
-        errorEl.innerText = "";
-        return true;
-    }
-}
-//VALIDATE ID
-function validateId(input, errorEl) {
-    const value = input.value.trim();
-    if (!/^[0-9]+$/.test(value)) {
-        errorEl.innerText = "ID is required and must be a number.";
-        return false;
-    } else {
-        errorEl.innerText = "";
-        return true;
-    }
-}
+/* --- دوال العرض والتنقل (Pagination) --- */
 
-/* tasks */
-let dataTasks=await fetchEmployee("/assets/js/json/tasks.json");
-setItem("allTasks", dataTasks);
-let localTasks = getItem("allTasks");
-displayData(localTasks);
+function displayPageOfData(items) {
+    let tableRows = "";
+    if (!items || items.length === 0) {
+        tBody.innerHTML = `<tr><td colspan="6" class="text-center">No tasks to display</td></tr>`;
+        return;
+    }
 
-/* DISPLAY DATA AND ATTACH EVENT LISTENERS */
-function displayData(arr) {
-    let emp = "";
-    arr.map((el, idx) => {
-        emp += `   <tr>
-              <td>${el.id}</td>
-              <td>${el.description}</td>
-              <td>${el.name}</td>
-              <td>${el.dueDate}</td>
-                 <td>
-                    <span class="px-2 py-1 special-status rounded ${el.status === "Pending"
-                ? "bg-warning"
-                : el.status === "In Progress"
-                    ? "bg-info"
-                    : "bg-success" // Changed danger to success for "Done"
-            }">${el.status}</span>
+    items.forEach((task, originalIndex) => {
+        let statusClass = "bg-success"; // Done
+        if (task.status === "Pending") statusClass = "bg-warning";
+        else if (task.status === "In Progress") statusClass = "bg-info";
+
+        tableRows += `
+            <tr>
+                <td>${task.id}</td>
+                <td>${task.description}</td>
+                <td>${task.name}</td>
+                <td>${task.dueDate}</td>
+                <td>
+                    <span class="px-2 py-1 special-status rounded ${statusClass}">${task.status}</span>
                 </td>
                 <td>
-                    <button class="edit-btn btn btn-sm" data-idx="${idx}"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="delete-btn btn btn-sm text-danger" data-idx="${idx}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    <button class="edit-btn btn btn-sm" data-id="${task.id}"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="delete-btn btn btn-sm text-danger" data-id="${task.id}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>
-            </tr>`
-    })
-    tBody.innerHTML = emp;
+            </tr>`;
+    });
+    tBody.innerHTML = tableRows;
     attachActionListeners();
 }
 
-/* ATTACH LISTENERS FOR EDIT AND DELETE BUTTONS */
+function setupPaginationControls() {
+    paginationWrapper.innerHTML = "";
+    const pageCount = Math.ceil(currentFilteredData.length / rowsPerPage);
+
+    for (let i = 1; i <= pageCount; i++) {
+        const li = document.createElement("li");
+        li.classList.add("page-item");
+        if (i === currentPage) li.classList.add("active");
+
+        const a = document.createElement("a");
+        a.classList.add("page-link");
+        a.href = "#";
+        a.innerText = i;
+        li.appendChild(a);
+
+        a.addEventListener("click", (e) => {
+            e.preventDefault();
+            renderPage(i);
+        });
+        paginationWrapper.appendChild(li);
+    }
+}
+
+function renderPage(pageNumber) {
+    currentPage = pageNumber;
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const paginatedItems = currentFilteredData.slice(start, end);
+    
+    displayPageOfData(paginatedItems);
+    
+    document.querySelectorAll(".page-item").forEach(item => {
+        item.classList.remove("active");
+        if (parseInt(item.querySelector('.page-link').innerText) === currentPage) {
+            item.classList.add("active");
+        }
+    });
+}
+
+function refreshDataAndView() {
+    const searchTerm = search.value.toLowerCase().trim();
+    currentFilteredData = searchTerm === "" 
+        ? [...allTasksData]
+        : allTasksData.filter(task => task.name.toLowerCase().includes(searchTerm));
+
+    const totalPages = Math.ceil(currentFilteredData.length / rowsPerPage) || 1;
+    if (currentPage > totalPages) {
+        currentPage = totalPages;
+    }
+    
+    setupPaginationControls();
+    renderPage(currentPage);
+}
+
+
+/* --- دوال الأحداث (إضافة، تعديل، حذف) --- */
+
 function attachActionListeners() {
-    // Delete task
     document.querySelectorAll(".delete-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
-            let idx = e.currentTarget.dataset.idx;
-            localTasks.splice(idx, 1);
-            setItem("allTasks", localTasks);
-            displayData(localTasks);
+            const taskIdToDelete = e.currentTarget.dataset.id;
+            allTasksData = allTasksData.filter(task => task.id != taskIdToDelete);
+            setItem("allTasks", allTasksData);
+            refreshDataAndView();
         });
     });
 
-    // Edit task
     document.querySelectorAll(".edit-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
-            let idx = e.currentTarget.dataset.idx;
-            populateEditModal(idx);
-            const modal = new bootstrap.Modal(editTaskModal);
-            modal.show();
+            const taskIdToEdit = e.currentTarget.dataset.id;
+            const taskIndex = allTasksData.findIndex(task => task.id == taskIdToEdit);
+            if (taskIndex !== -1) {
+                populateEditModal(taskIndex);
+                const modal = new bootstrap.Modal(editTaskModal);
+                modal.show();
+            }
         });
     });
 }
 
-/* POPULATE EDIT MODAL WITH TASK DATA */
+function addTask() {
+    let isIdValid = validateId(taskId, errorId);
+    let isTitleValid = validateTitle(taskTitle, titleError);
+    let isNameValid = validateName(taskAssigned, nameError);
+
+    if (taskDeadline.value && taskStatus.value && isTitleValid && isNameValid && isIdValid) {
+        const newTask = {
+            id: taskId.value.trim(),
+            employeeId: Number(taskId.value.trim()),
+            name: taskAssigned.value.trim(),
+            description: taskTitle.value.trim(),
+            status: taskStatus.value,
+            dueDate: taskDeadline.value,
+        };
+        allTasksData.unshift(newTask);
+        setItem("allTasks", allTasksData);
+        refreshDataAndView();
+        clearData();
+        bootstrap.Modal.getInstance(addTaskModal).hide();
+    }
+}
+
+function updateTask() {
+    const index = editTaskIndexInput.value;
+    let isIdValid = validateId(editTaskId, editErrorId);
+    let isTitleValid = validateTitle(editTaskTitle, editTitleError);
+    let isNameValid = validateName(editTaskAssigned, editNameError);
+
+    if (index !== "" && isIdValid && isTitleValid && isNameValid) {
+        allTasksData[index].id = editTaskId.value.trim();
+        allTasksData[index].employeeId = Number(editTaskId.value.trim());
+        allTasksData[index].description = editTaskTitle.value.trim();
+        allTasksData[index].name = editTaskAssigned.value.trim();
+        allTasksData[index].dueDate = editTaskDeadline.value;
+        allTasksData[index].status = editTaskStatus.value;
+
+        setItem("allTasks", allTasksData);
+        refreshDataAndView();
+        bootstrap.Modal.getInstance(editTaskModal).hide();
+    }
+}
+
+
+/* --- دوال مساعدة ووظائف أخرى --- */
+
 function populateEditModal(index) {
-    const task = localTasks[index];
+    const task = allTasksData[index];
     editTaskIndexInput.value = index;
     editTaskId.value = task.id;
     editTaskTitle.value = task.description;
@@ -137,14 +208,6 @@ function populateEditModal(index) {
     editTaskStatus.value = task.status;
 }
 
-/* search */
-search.addEventListener("input", (e) => {
-    e.preventDefault();
-    let arrFilter = localTasks.filter(el => el.name.toLowerCase().includes(search.value.toLowerCase()));
-    displayData(arrFilter);
-})
-
-//clear INPUTS
 function clearData() {
     taskId.value = "";
     taskTitle.value = "";
@@ -156,66 +219,62 @@ function clearData() {
     nameError.innerText = "";
 }
 
-//CREATE TASK
-function addTask() {
-    let isIdValid = validateId(taskId, errorId);
-    let isTitleValid = validateTitle(taskTitle, titleError);
-    let isNameValid = validateName(taskAssigned, nameError);
-    let deadline = taskDeadline.value;
-    let statue = taskStatus.value;
-
-    if (deadline && statue && isTitleValid && isNameValid && isIdValid) {
-        let newTask = {
-            "id": taskId.value.trim(),
-            "employeeId": taskId.value.trim(),
-            "name": taskAssigned.value.trim(),
-            "description": taskTitle.value.trim(),
-            "status": statue,
-            "dueDate": deadline,
-        };
-        localTasks.unshift(newTask);
-        setItem("allTasks", localTasks);
-        displayData(localTasks);
-        clearData();
-        const modal = bootstrap.Modal.getInstance(addTaskModal);
-        modal.hide();
+function validateName(input, errorEl) {
+    const value = input.value.trim();
+    if (!/^[a-zA-Z ]+$/.test(value) || value === "") {
+        errorEl.innerText = "Name is required and must be letters.";
+        return false;
     }
+    errorEl.innerText = "";
+    return true;
 }
 
-// UPDATE TASK
-function updateTask() {
-    const index = editTaskIndexInput.value;
-    let isIdValid = validateId(editTaskId, editErrorId);
-    let isTitleValid = validateTitle(editTaskTitle, editTitleError);
-    let isNameValid = validateName(editTaskAssigned, editNameError);
-
-    if (index !== "" && isIdValid && isTitleValid && isNameValid) {
-        localTasks[index].id = editTaskId.value.trim();
-        localTasks[index].employeeId = editTaskId.value.trim();
-        localTasks[index].description = editTaskTitle.value.trim();
-        localTasks[index].name = editTaskAssigned.value.trim();
-        localTasks[index].dueDate = editTaskDeadline.value;
-        localTasks[index].status = editTaskStatus.value;
-
-        setItem("allTasks", localTasks);
-        displayData(localTasks);
-
-        const modal = bootstrap.Modal.getInstance(editTaskModal);
-        modal.hide();
+function validateTitle(input, errorEl) {
+    const value = input.value.trim();
+    if (!/^[a-zA-Z0-9 ]+$/.test(value) || value === "") {
+        errorEl.innerText = "Title is required.";
+        return false;
     }
+    errorEl.innerText = "";
+    return true;
 }
 
+function validateId(input, errorEl) {
+    const value = input.value.trim();
+    if (!/^[0-9]+$/.test(value)) {
+        errorEl.innerText = "ID is required and must be a number.";
+        return false;
+    }
+    errorEl.innerText = "";
+    return true;
+}
+
+
+/* --- ربط الأحداث وتشغيل الكود --- */
+
+search.addEventListener("input", () => {
+    refreshDataAndView();
+});
 
 saveTask.addEventListener("click", addTask);
 updateTaskBtn.addEventListener("click", updateTask);
 
-/* dark mode */
-html.setAttribute("data-bs-theme", "light");
+logoutIcon.addEventListener("click", () => {
+    localStorage.removeItem("employee");
+    window.location = "../../../index.html";
+});
+
+const savedTheme = localStorage.getItem("theme") || "light";
+html.setAttribute("data-bs-theme", savedTheme);
 btn.addEventListener("click", () => {
     const currentTheme = html.getAttribute("data-bs-theme");
-    if (currentTheme === "light") {
-        html.setAttribute("data-bs-theme", "dark");
-    } else {
-        html.setAttribute("data-bs-theme", "light");
-    }
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    html.setAttribute("data-bs-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
 });
+
+// Initial Load
+(() => {
+    allTasksData = getItem("allTasks") || [];
+    refreshDataAndView();
+})();

@@ -11,53 +11,89 @@ logoutIcon.addEventListener("click", () => {
   window.location.replace("../../../index.html");
 });
 
-// Get ideal employees (no penalties + has bonus)
-function getIdealEmployees() {
+/**
+ * دالة لحساب وتصنيف الموظفين بناءً على الأداء مع استبعاد أدوار محددة
+ * @returns {Array} - مصفوفة الموظفين المؤهلين مرتبة من الأفضل إلى الأسوأ
+ */
+function findIdealEmployees() {
   const allEmployees = getItem("allEmployees") || [];
-  return allEmployees.filter(emp => Number(emp.Penalties) === 0 && Number(emp.Bonus) > 0);
+  const allTasks = getItem("allTasks") || [];
+
+  if (allEmployees.length === 0) {
+    return [];
+  }
+
+  // --- التعديل المطلوب هنا ---
+  // الخطوة 1: تصفية الموظفين لاستبعاد الأدوار المحددة (HR, Manager, Security)
+  const excludedRoles = ['hr', 'manager', 'security'];
+  const eligibleEmployees = allEmployees.filter(employee => {
+    // نتأكد أن للموظف دور (role) وأن هذا الدور ليس ضمن قائمة الأدوار المستبعدة
+    return employee.role && !excludedRoles.includes(employee.role.toLowerCase());
+  });
+
+  // الخطوة 2: حساب عدد المهام المكتملة للموظفين المؤهلين فقط
+  const employeesWithTaskScores = eligibleEmployees.map(employee => {
+    const employeeTasks = allTasks.filter(task => task.employeeId == employee.id);
+    const completedTasksCount = employeeTasks.filter(task => task.status === "Done").length;
+    
+    return {
+      ...employee,
+      completedTasks: completedTasksCount,
+    };
+  });
+
+  // الخطوة 3: ترتيب الموظفين المؤهلين بناءً على المعايير
+  employeesWithTaskScores.sort((a, b) => {
+    // المعيار الأول: الأكثر مهامًا مكتملة
+    if (b.completedTasks !== a.completedTasks) {
+      return b.completedTasks - a.completedTasks;
+    }
+    
+    // المعيار الثاني: الأقل جزاءات
+    return Number(a.Penalties) - Number(b.Penalties);
+  });
+
+  return employeesWithTaskScores;
 }
 
-// Display ideal employees in list
-// -- تم تعديل هذه الدالة --
+/**
+ * دالة لعرض الموظفين المثاليين في القائمة
+ */
 function displayIdealEmployees() {
-  const employees = getIdealEmployees();
+  const idealEmployees = findIdealEmployees();
 
-  // إذا لم يتم العثور على موظفين، اعرض البطاقة الافتراضية
-  if (employees.length === 0) {
+  if (idealEmployees.length === 0) {
     idealEmployeeList.innerHTML = `
-      <li class="list-group-item shadow-sm border-0 rounded-3 mb-3 p-3 d-flex flex-column align-items-center text-center">
+      <li class="list-group-item shadow-sm border-0 rounded-3 p-3 text-center">
+        <span class="text-muted">No eligible employees found for the ideal employee award.</span>
+      </li>
+    `;
+    return;
+  }
+
+  const topEmployees = idealEmployees.slice(0, 3);
+
+  idealEmployeeList.innerHTML = topEmployees.map((emp, index) => {
+    const isBestEmployee = index === 0;
+    const highlightClass = isBestEmployee ? "highlighted-employee" : "";
+    const starIcon = isBestEmployee ? '<i class="fa-solid fa-star text-warning fs-5 me-2"></i>' : '<i class="fa-solid fa-medal text-muted fs-5 me-2"></i>';
+
+    return `
+      <li class="list-group-item shadow-sm border-0 rounded-3 mb-3 p-3 d-flex flex-column align-items-center text-center ${highlightClass}">
         <div class="mb-2">
-          <i class="fa-solid fa-star text-muted fs-5 me-2"></i>
-          <span class="fw-bold fs-6 text-muted"> Dina Samir</span>
+          ${starIcon}
+          <span class="fw-bold fs-6">${emp.name}</span>
         </div>
-        <span class="badge bg-info mb-2">
-Marketing
-        </span>
-        <div class="d-flex gap-2 mt-2">
-          <span class="badge bg-success"></span>
-          <span class="badge bg-danger">dina10@gmail.com /span>
+        <span class="badge bg-primary mb-2">${emp.department}</span>
+        
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-2">
+          <span class="badge bg-success">Completed Tasks: ${emp.completedTasks}</span>
+          <span class="badge bg-danger">Penalties: ${emp.Penalties}</span>
+          <span class="badge bg-dark">Net Salary: ${emp.NetSalary}</span>
         </div>
       </li>
     `;
-    return; // توقف هنا
-  }
-
-  // إذا تم العثور على موظفين، اعرضهم كالمعتاد
-  idealEmployeeList.innerHTML = employees.map(emp => `
-    <li class="list-group-item shadow-sm border-0 rounded-3 mb-3 p-3 d-flex flex-column align-items-center text-center highlighted-employee">
-      <div class="mb-2">
-        <i class="fa-solid fa-star text-warning fs-5 me-2"></i>
-        <span class="fw-bold fs-6">${emp.name}</span>
-      </div>
-      <span class="badge bg-primary mb-1">${emp.department}</span>
-      <span class="badge bg-secondary mb-1">${emp.email}</span>
-      <div class="d-flex gap-2 mt-2">
-        <span class="badge bg-success">Bonus: ${emp.Bonus}</span>
-        <span class="badge bg-danger">Penalties: ${emp.Penalties}</span>
-        <span class="badge bg-dark">Net: ${emp.NetSalary}</span>
-      </div>
-    </li>
-  `).join("");
+  }).join("");
 }
 
 // Theme toggle

@@ -1,13 +1,20 @@
-import { fetchEmployee } from "../../../assets/js/exportFun.js";
+import { fetchEmployee, getItem } from "../../../assets/js/exportFun.js";
 // add tasks to Table from json
 
 async function getTask() {
   try {
-    let getData = await fetchEmployee(
+    let getData =getItem("allTasks")? getItem("allTasks"):await fetchEmployee(
       "../../../assets/js/json/personalTasks.json"
     );
+    console.log(getData);
+    
+      localStorage.setItem("allTasks", JSON.stringify(getData));
+    console.log("allTasks");
+    
     let loggedEmployee = JSON.parse(localStorage.getItem("employee"));
     let allTasks = getData.filter((t) => t.employeeId === loggedEmployee.id);
+    console.log(allTasks);
+    
     createTable(allTasks);
     return allTasks;
   } catch (error) {
@@ -117,6 +124,8 @@ function saveStatus(taskId, status) {
   if (taskIndex !== -1) {
     savedTasks[taskIndex].status = status;
   }
+  console.log(savedTasks);
+  
   localStorage.setItem("allTasks", JSON.stringify(savedTasks));
 }
 getTask();
