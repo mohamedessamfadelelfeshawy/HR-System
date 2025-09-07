@@ -11,7 +11,6 @@ const search = document.getElementById("search");
 const logoutIcon = document.querySelector(".logoutIcon");
 const paginationWrapper = document.getElementById("pagination-wrapper");
 
-// --- بيانات ومتغيرات الحالة ---
 let allEmployeesData = [];
 let currentFilteredData = [];
 let currentPage = 1;
