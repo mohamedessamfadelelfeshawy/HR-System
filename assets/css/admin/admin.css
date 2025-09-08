@@ -98,3 +98,19 @@
   background-color: #00A2CA !important;
   color: #fff !important;
 }
+
+
+
+footer {
+  background-color: var(--mint-green-color);
+}
+
+ 
+
+[data-bs-theme="dark"] footer {
+  background-color: #0d1b2a;
+}
+[data-bs-theme="dark"] p {
+  color: var(--bs-body-color);
+  font-weight: bold;
+}
