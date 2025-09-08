@@ -66,6 +66,9 @@ i {
 .btn-style {
   background-color: #00a2ca;
 }
+footer{
+  background-color: #00a2ca;
+}
 
 /* ============================= */
 /* Dark Mode Styling */
@@ -191,3 +194,14 @@ i {
     font-size: 8px; 
   }
 }
+
+/*footer  */
+
+
+.dark-mode footer {
+  background-color: #0d1b2a !important;
+}
+.dark-mode footer p{
+  color: white;
+}
+
