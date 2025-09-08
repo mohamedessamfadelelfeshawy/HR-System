@@ -35,7 +35,9 @@
     font-size: 13px;
   }
 }
-
+footer {
+  background-color: var(--mint-green-color);
+}
 /* dark mode start */
 [data-bs-theme="dark"] {
   --bs-body-bg: #0d1b2a;
@@ -63,4 +65,12 @@
 
 [data-bs-theme="dark"] .navbar .nav-link:hover {
   color: #00a2ca !important;
+}
+
+[data-bs-theme="dark"] footer {
+  background-color: #0d1b2a !important;
+}
+
+[data-bs-theme="dark"] footer p {
+  color: var(--bs-border-color) !important;
 }
