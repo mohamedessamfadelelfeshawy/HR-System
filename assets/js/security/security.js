@@ -1,3 +1,4 @@
+import { getItem, setItem } from "../exportFun.js";
 const bodyTable = document.getElementById("bodyTable");
 const employeeIdInput = document.getElementById("employeeId");
 const employeeNameInput = document.getElementById("employeeName");
@@ -27,7 +28,7 @@ function displayPageOfData(items) {
   }
 
   const tableRows = items.map((employee) => {
-  
+
     statusEmployee(employee);
     return `
       <tr>
@@ -63,7 +64,7 @@ function setupPaginationControls() {
       e.preventDefault();
       renderPage(i);
     });
-    
+
     paginationWrapper.appendChild(li);
   }
 }
@@ -73,9 +74,9 @@ function renderPage(pageNumber) {
   const start = (currentPage - 1) * rowsPerPage;
   const end = start + rowsPerPage;
   const paginatedItems = currentFilteredData.slice(start, end);
-  
+
   displayPageOfData(paginatedItems);
-  
+
   document.querySelectorAll(".page-item").forEach(item => {
     item.classList.remove("active");
     if (parseInt(item.querySelector('.page-link').innerText) === currentPage) {
@@ -85,29 +86,26 @@ function renderPage(pageNumber) {
 }
 
 function refreshView() {
-    // 1. Apply status filter
-    if (activeFilterStatus === 'All') {
-        currentFilteredData = [...allAttendanceData];
-    } else {
-        currentFilteredData = allAttendanceData.filter(emp => emp.status === activeFilterStatus);
-    }
 
-    // 2. Apply search filter on top of the status filter
-    const searchTerm = searchEmployeeInput.value.toLowerCase().trim();
-    if (searchTerm) {
-        currentFilteredData = currentFilteredData.filter(emp => 
-            emp.employeeName.toLowerCase().includes(searchTerm)
-        );
-    }
-    
-    // 3. Reset to page 1 and render
-    currentPage = 1;
-    setupPaginationControls();
-    renderPage(1);
+  if (activeFilterStatus === 'All') {
+    currentFilteredData = [...allAttendanceData];
+  } else {
+    currentFilteredData = allAttendanceData.filter(emp => emp.status === activeFilterStatus);
+  }
+
+  // 2. Apply search filter on top of the status filter
+  const searchTerm = searchEmployeeInput.value.toLowerCase().trim();
+  if (searchTerm) {
+    currentFilteredData = currentFilteredData.filter(emp =>
+      emp.employeeName.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  // 3. Reset to page 1 and render
+  currentPage = 1;
+  setupPaginationControls();
+  renderPage(1);
 }
-
-
-
 function statusEmployee(object) {
   if (object.isLeave) {
     object.status = "Leave";
@@ -128,16 +126,15 @@ function statusEmployee(object) {
 }
 
 function getStatusButton(status) {
-    switch (status) {
-        case "Present": return `<button class="btn btn-success btn-sm">Present</button>`;
-        case "Late": return `<button class="btn btn-warning btn-sm">Late</button>`;
-        case "Absent": return `<button class="btn btn-danger btn-sm">Absent</button>`;
-        case "WFH": return `<button class="btn btn-info btn-sm">WFH</button>`;
-        case "Leave": return `<button class="btn btn-secondary btn-sm">Leave</button>`;
-        default: return `<button class="btn btn-dark btn-sm">Unknown</button>`;
-    }
+  switch (status) {
+    case "Present": return `<button class="btn btn-success btn-sm">Present</button>`;
+    case "Late": return `<button class="btn btn-warning btn-sm">Late</button>`;
+    case "Absent": return `<button class="btn btn-danger btn-sm">Absent</button>`;
+    case "WFH": return `<button class="btn btn-info btn-sm">WFH</button>`;
+    case "Leave": return `<button class="btn btn-secondary btn-sm">Leave</button>`;
+    default: return `<button class="btn btn-dark btn-sm">Unknown</button>`;
+  }
 }
-
 function AddEmployee() {
   if (validateId() && validateName() && employeeIdInput.value && employeeNameInput.value && DateInput.value) {
     const newAttendance = {
@@ -147,23 +144,17 @@ function AddEmployee() {
       checkIn: checkInInput.value,
       checkOut: checkOutInput.value,
     };
-    
     statusEmployee(newAttendance);
-
     allAttendanceData.unshift(newAttendance);
     AttendanceRecord.unshift(newAttendance);
-    
     updateLocalStorage();
     updateInputs();
-    
-    // Reset filters and refresh the view to show the new item on top
     searchEmployeeInput.value = '';
     activeFilterStatus = 'All';
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     document.querySelector('.filter-btn[data-status="All"]').classList.add('active');
-    
     refreshView();
-    
+    localStorage.setItem("attendanceManager", JSON.stringify([...AttendanceRecord]));
   } else {
     new bootstrap.Modal(document.getElementById("errorModal")).show();
   }
@@ -173,19 +164,19 @@ function AddEmployee() {
 
 
 async function fetchInitialData(url) {
-    try {
-        const res = await fetch(url);
-        return await res.json();
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        return [];
-    }
+  try {
+    const res = await fetch(url);
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
 }
 
 function updateLocalStorage() {
   localStorage.setItem("employeesAttendanceInfo", JSON.stringify(allAttendanceData));
   localStorage.setItem("AttendanceRecord", JSON.stringify(AttendanceRecord));
-  localStorage.setItem("attendanceManager", JSON.stringify(AttendanceRecord));
+
 }
 
 function updateInputs() {
@@ -237,25 +228,25 @@ document.querySelector('.btn-logout').addEventListener('click', function () {
 });
 
 (async () => {
-    // Load main data
-    let initialData = JSON.parse(localStorage.getItem("employeesAttendanceInfo")) || [];
-    if (initialData.length === 0) {
-        initialData = await fetchInitialData('../assets/js/json/attendance_single_day.json');
-    }
-    allAttendanceData = initialData;
-    // Ensure all items have a status calculated initially
-    allAttendanceData.forEach(emp => statusEmployee(emp));
+  // Load main data
+  let initialData = JSON.parse(localStorage.getItem("employeesAttendanceInfo")) || [];
+  if (initialData.length === 0) {
+    initialData = await fetchInitialData('../assets/js/json/attendance_single_day.json');
+  }
+  allAttendanceData = initialData;
+  // Ensure all items have a status calculated initially
+  allAttendanceData.forEach(emp => statusEmployee(emp));
 
-    // Load secondary record
-    let recordData = JSON.parse(localStorage.getItem("AttendanceRecord")) || [];
-    if (recordData.length === 0) {
-        recordData = await fetchInitialData('../assets/js/json/attendance-record.json');
-    }
-    AttendanceRecord = recordData;
-    
-    updateLocalStorage();
+  // Load secondary record
+  let recordData = JSON.parse(localStorage.getItem("AttendanceRecord")) || [];
+  if (recordData.length === 0) {
+    recordData = await fetchInitialData('../assets/js/json/attendance-record.json');
+  }
+  AttendanceRecord = recordData;
 
-    // Initial render
-    document.querySelector('.filter-btn[data-status="All"]').classList.add('active');
-    refreshView();
+  updateLocalStorage();
+
+  // Initial render
+  document.querySelector('.filter-btn[data-status="All"]').classList.add('active');
+  refreshView();
 })();

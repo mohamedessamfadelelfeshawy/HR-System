@@ -12,18 +12,17 @@ const logoutIcon = document.querySelector(".logoutIcon");
 const paginationWrapper = document.getElementById("pagination-wrapper");
 
 let currentPage = 1;
-const rowsPerPage = 10; 
-let currentFilteredData = []; 
-
+const rowsPerPage = 10;
+let currentFilteredData = [];
+const attendanceRecords = getItem("attendanceManager");
+// ----------------- salaries  -----------------
 async function calculateSalaries() {
   const allEmployees = getItem("allEmployees");
   const settings = getItem("setting system");
-  const attendanceRecords = getItem("attendanceManager");
 
-  console.log(attendanceRecords);
-  
+
   if (!attendanceRecords || !allEmployees || !settings) {
-    console.error("error: (allEmployees, setting system, attendanceRecords) ");
+    console.error("error: (allEmployees, setting system, attendanceManager) ");
     return;
   }
 
@@ -72,12 +71,13 @@ async function calculateSalaries() {
   setItem("allEmployees", updatedEmployees);
 }
 
+// -----------------  logout -----------------
 logoutIcon.addEventListener("click", () => {
   localStorage.removeItem("employee");
   window.location.replace("../../../index.html");
 });
 
-
+// -----------------    display -----------------
 function displayData(arr) {
   let emp = "";
   if (!arr) {
@@ -93,20 +93,19 @@ function displayData(arr) {
           <td>${el.checkIn}</td>
           <td>${el.checkOut}</td>
           <td>
-            <span class="px-2 py-1 special-status rounded ${
-              el.status === "Present"
-                ? "bg-success"
-                : el.status === "Absent"
-                ? "bg-danger"
-                : "bg-warning"
-            }">${el.status}</span>
+            <span class="px-2 py-1 special-status rounded ${el.status === "Present"
+        ? "bg-success"
+        : el.status === "Absent"
+          ? "bg-danger"
+          : "bg-warning"
+      }">${el.status}</span>
           </td>
       </tr>`;
   });
   tBody.innerHTML = emp;
 }
 
-
+// ----------------- Pagination -----------------
 function setupPagination(items, wrapper) {
   wrapper.innerHTML = "";
   const pageCount = Math.ceil(items.length / rowsPerPage);
@@ -116,7 +115,6 @@ function setupPagination(items, wrapper) {
     wrapper.appendChild(btn);
   }
 }
-
 
 function createPaginationButton(page) {
   const li = document.createElement("li");
@@ -141,45 +139,41 @@ function createPaginationButton(page) {
   return li;
 }
 
-
 function updatePage() {
-    
-    const start = rowsPerPage * (currentPage - 1);
-    const end = start + rowsPerPage;
-    const paginatedItems = currentFilteredData.slice(start, end);
-
-    displayData(paginatedItems);
-
-    const pageButtons = document.querySelectorAll(".page-item");
-    pageButtons.forEach((button) => {
-        button.classList.remove("active");
-        if (parseInt(button.querySelector('.page-link').innerText) === currentPage) {
-            button.classList.add("active");
-        }
-    });
+  const start = rowsPerPage * (currentPage - 1);
+  const end = start + rowsPerPage;
+  const paginatedItems = attendanceRecords.slice(start, end);
+  displayData(paginatedItems);
+  const pageButtons = document.querySelectorAll(".page-item");
+  pageButtons.forEach((button) => {
+    button.classList.remove("active");
+    if (parseInt(button.querySelector('.page-link').innerText) === currentPage) {
+      button.classList.add("active");
+    }
+  });
 }
 
-
+// ----------------- search -----------------
 search.addEventListener("input", (e) => {
   e.preventDefault();
   const searchTerm = search.value.toLowerCase();
-  
+
   if (window.attendants) {
     if (searchTerm === "") {
-      currentFilteredData = [...window.attendants]; 
+      currentFilteredData = [...window.attendants];
     } else {
       currentFilteredData = window.attendants.filter((el) =>
         el.status.toLowerCase().includes(searchTerm)
       );
     }
-    
-    currentPage = 1; 
+
+    currentPage = 1;
     setupPagination(currentFilteredData, paginationWrapper);
     updatePage();
   }
 });
 
-// --- dark mode ---
+// ----------------- Dark mode -----------------
 const savedTheme = localStorage.getItem("theme") || "light";
 html.setAttribute("data-bs-theme", savedTheme);
 
@@ -190,9 +184,10 @@ btn.addEventListener("click", () => {
   localStorage.setItem("theme", newTheme);
 });
 
+// ---------------  run -----------------
 (async () => {
-  window.attendants = getItem("AttendanceRecord") || [];
-  currentFilteredData = [...window.attendants]; 
+  window.attendants = getItem("attendanceManager") || [];
+  currentFilteredData = [...window.attendants];
 
   setupPagination(currentFilteredData, paginationWrapper);
   updatePage();
