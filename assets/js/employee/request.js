@@ -182,8 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // push into allRequests and employeeRequest
-    allRequests.push(newRequest);
-    currentRequests.push(newRequest);
+    allRequests.unshift(newRequest);
+    currentRequests.unshift(newRequest);
 
     // save both to localStorage
     setItem("allRequests", allRequests);
