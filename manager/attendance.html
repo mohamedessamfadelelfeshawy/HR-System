@@ -1,93 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance</title>
+    <link rel="stylesheet" href="../assets/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/manger/attendance.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Attendance</title>
-  <link rel="stylesheet" href="../assets/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/css/manger/attendance.css">
-</head>
+  <body>
+    <!-- Navbar -->
 
-<body>
+    <div class="">
+      <nav
+        class="navbar navbar-expand-lg navbar-light colorBtn mb-5 shadow sticky-top">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="../assets/images/manger-images/logo.jpg"
+              alt="Logo"
+              width="40"
+              height="40"
+              class="rounded-circle me-2" />
+            <span class="fw-bold fs-6">Attendance </span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav">
+            <ul class="navbar-nav align-items-center fw-bold">
+              <li class="nav-item">
+                <a class="nav-link" href="manager.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="attendance.html">Attendance</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="taskes.html">Tasks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="requestes.html">Requests</a>
+              </li>
 
-  <!-- Navbar -->
+              <li>
+                <button class="border-0 bg-transparent" id="toggleTheme" title="toggle">
+                  <i class="fa-solid fa-moon p-3 rounded-circle fs-5"></i>
+                </button>
+              </li>
 
-  <div class="">
-    <nav class="navbar navbar-expand-lg navbar-light colorBtn   mb-5  shadow sticky-top">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40"
-            class="rounded-circle me-2">
-          <span class="fw-bold  fs-6 ">Attendance </span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav align-items-center fw-bold">
-            <li class="nav-item"><a class="nav-link " href="manager.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link " href="attendance.html">Attendance</a></li>
-            <li class="nav-item"><a class="nav-link " href="taskes.html">Tasks</a></li>
-            <li class="nav-item"><a class="nav-link " href="requestes.html">Requests</a></li>
-
-            <li>
-              <button class="border-0 bg-transparent" id="toggleTheme">
-                <i class="fa-solid fa-moon p-3 rounded-circle fs-5 "></i>
-              </button>
-            </li>
-
-            <li class="nav-item  mb-2 mb-lg-0 me-lg-2 logoutIcon">
-              <a class="btn  btn-sm " href="#"><i class="fa-solid fa-arrow-right-from-bracket me-3  fs-5"></i></a>
-            </li>
-
-          </ul>
+              <li class="nav-item mb-2 mb-lg-0 me-lg-2 logoutIcon">
+                <a class="btn btn-sm" href="#" title="a"
+                  ><i class="fa-solid fa-arrow-right-from-bracket me-3 fs-5"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
-
-
-  <div class=" container controlFont ">
-    <!-- btn and search -->
-    <div class="container my-4">
-      <form class="row g-3 align-items-center">
-        <div class="col-md-6">
-          <input id="search" type="text" class="form-control" placeholder="Employee Status">
-        </div>
-
-      </form>
+      </nav>
     </div>
 
-    <table class="table  table-hover align-middle text-center mb-0 ">
-      <thead>
-        <tr>
-          <th>Employee Id</th>
-          <th>Employee Name</th>
-          <th>Date</th>
-          <th>Check-In</th>
-          <th>Check-Out</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="tBody">
+    <div class="container controlFont">
+      <!-- btn and search -->
+      <div class="container my-4">
+        <form class="row g-3 align-items-center">
+          <div class="col-md-6">
+            <input
+              id="search"
+              type="text"
+              class="form-control"
+              placeholder="Employee Status" />
+          </div>
+        </form>
+      </div>
 
+      <table class="table table-hover align-middle text-center mb-0">
+        <thead>
+          <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Date</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tBody"></tbody>
+      </table>
+    </div>
 
-
-      </tbody>
-    </table>
-
-  </div>
-  
-  <nav aria-label="Page navigation" class=" mt-5">
-    <ul class="pagination justify-content-center" id="pagination-wrapper">
-    </ul>
-  </nav>
-
-  <script src="../assets/js/bootstrap.bundle.js"></script>
-  <script type="module" src="../assets/js/manger/attendance.js"></script>
-</body>
-
+    <nav aria-label="Page navigation" class="mt-5 pagi">
+      <ul
+        class="pagination justify-content-center"
+        id="pagination-wrapper"></ul>
+    </nav>
+    <footer
+      class="d-flex justify-content-center align-items-center text-white py-2 text-center">
+      <p class="mb-0 flex-grow-1">created by HMMN &copy; ITI 2025</p>
+    </footer>
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script type="module" src="../assets/js/manger/attendance.js"></script>
+  </body>
 </html>

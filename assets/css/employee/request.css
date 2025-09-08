@@ -109,6 +109,9 @@ body {
     font-weight: 500;
   }
 }
+footer {
+  background-color: var(--mint-green-color);
+}
 
 @media all and (max-width: 768px) {
   .navbar {
@@ -247,4 +250,11 @@ footer {
   background-color: var(--bs-card-bg);
   color: var(--bs-body-color);
   border-radius: 5px;
+}
+[data-bs-theme="dark"] footer {
+  background-color: #0d1b2a !important;
+}
+
+[data-bs-theme="dark"] footer p {
+  color: var(--bs-border-color) !important;
 }

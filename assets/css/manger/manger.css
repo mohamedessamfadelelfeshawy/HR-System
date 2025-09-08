@@ -56,13 +56,9 @@
     font-size: 11px;
   }
 }
-
-/* .special-table #tBody td:nth-child(even) {
-  background-color: #00a2ca !important;
+footer {
+  background-color: var(--mint-green-color);
 }
-#tBody td:nth-child(odd) {
-  background-color: #e0e1dd !important;
-} */
 
 /* dark mode start */
 
@@ -85,15 +81,6 @@
   background: linear-gradient(to right, #0d1b2a 50%, #183153 50%);
 }
 
-<<<<<<< HEAD
-/* [data-bs-theme="dark"].colorBtn:hover{
-  color: #e0e1dd !important;
-} */
-
-
-
-=======
->>>>>>> 954e187c141a45269b4d619e75170f484c996b48
 [data-bs-theme="dark"] .navbar {
   background-color: #0d1b2a !important;
 }
@@ -111,5 +98,12 @@
 }
 [data-bs-theme="dark"] .special-table #tBody td:nth-child(odd) {
   background-color: #0d1b2a !important;
+}
+[data-bs-theme="dark"] footer {
+  background-color: #0d1b2a !important;
+}
+
+[data-bs-theme="dark"] footer p {
+  color: var(--bs-border-color) !important;
 }
 /* dark mode end */
