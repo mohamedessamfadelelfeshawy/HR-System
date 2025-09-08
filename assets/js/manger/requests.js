@@ -50,9 +50,7 @@ async function fetchedData() {
     });
 
     setItem("allRequests", allRequests);
-
     allRequestsData = allRequests;
-
     setupPagination();
     displayPage(currentPage);
   } catch (error) {
@@ -97,22 +95,20 @@ function createTable(requests) {
       <td>${request.employeeId}</td>
       <td>${request.employeeName || "Unknown"}</td>
       <td>${request.department || "N/A"}</td>
-      <td>${request.type}<br/><small style='color:grey'>${
-      request.notes || ""
-    }</small></td>
+      <td>${request.type}<br/><small style='color:grey'>${request.notes || ""}
+      </small></td>
       <td>${request.date}</td>
       <td>
-        <span style="font-weight: bold; padding: 5px; border-radius: 5px; background-color: ${
-          request.status === "Approved"
-            ? "#198754"
-            : request.status === "Rejected"
-            ? "#dc3545"
-            : "#ffc107"
-        };">${request.status}</span>
+        <span style="font-weight: bold; padding: 5px; border-radius: 5px; color: white; background-color: ${request.status === "Approved"
+        ? "#198754"
+        : request.status === "Rejected"
+          ? "#dc3545"
+          : "#ffc107"
+      };">${request.status}</span>
       </td>
       <td>
-        <button class="approve" style="border: none; background-color: #198754; margin: 5px; border-radius: 5px;">Approve</button>
-        <button class="reject" style="border: none; background-color: #dc3545; margin: 5px; border-radius: 5px;">Reject</button>
+        <button class="approve" style="border: none; background-color: #198754; color: white; margin: 5px; border-radius: 5px; padding: 5px 10px;">Approve</button>
+        <button class="reject" style="border: none; background-color: #dc3545; color: white; margin: 5px; border-radius: 5px; padding: 5px 10px;">Reject</button>
       </td>
     `;
 
@@ -138,7 +134,6 @@ function displayPage(page) {
   const start = (currentPage - 1) * rowsPerPage;
   const end = start + rowsPerPage;
   const paginatedItems = allRequestsData.slice(start, end);
-
   createTable(paginatedItems);
   updatePaginationButtons();
 }
@@ -146,7 +141,6 @@ function displayPage(page) {
 function setupPagination() {
   paginationWrapper.innerHTML = "";
   const pageCount = Math.ceil(allRequestsData.length / rowsPerPage);
-
   for (let i = 1; i <= pageCount; i++) {
     const btn = createPaginationButton(i);
     paginationWrapper.appendChild(btn);
@@ -161,12 +155,10 @@ function createPaginationButton(page) {
   a.href = "#";
   a.innerText = page;
   li.appendChild(a);
-
   a.addEventListener("click", (e) => {
     e.preventDefault();
     displayPage(page);
   });
-
   return li;
 }
 
@@ -189,12 +181,10 @@ function addEvents() {
     btn.addEventListener("click", function () {
       let row = btn.closest("tr");
       let requestId = parseInt(row.dataset.id);
-
       let updatedRequest = updateRequestStatus(requestId, "Approved");
       if (updatedRequest) {
         updateAttendanceFiles(updatedRequest);
       }
-
       allRequestsData = getItem("allRequests");
       displayPage(currentPage);
     });
@@ -205,7 +195,6 @@ function addEvents() {
       let row = btn.closest("tr");
       let requestId = parseInt(row.dataset.id);
       updateRequestStatus(requestId, "Rejected");
-
       allRequestsData = getItem("allRequests");
       displayPage(currentPage);
     });
@@ -226,7 +215,6 @@ function updateRequestStatus(requestId, newStatus) {
   if (requestUpdated) {
     setItem("allRequests", updatedRequests);
   }
-
   return requestUpdated;
 }
 
@@ -235,66 +223,64 @@ function updateAttendanceFiles(request) {
   let date = request.date;
 
   let singleAttendance = getItem("employeesAttendanceInfo") || [];
-  let record = singleAttendance.find(
+  const recordIndex = singleAttendance.findIndex(
     (a) => a.employeeId === empId && a.date === date
   );
 
-  if (!record) {
-    record = {
-      id: singleAttendance.length + 1,
-      employeeId: empId,
-      employeeName: request.employeeName || "Unknown",
-      department: request.department || "N/A",
-      date: date,
-      checkIn: "--",
-      checkOut: "--",
-      status: "Absence",
-      minutesLate: 0,
-      isWFH: false,
-      isLeave: false,
-      notes: request.notes || "Absent",
-    };
-    singleAttendance.unshift(record);
+  let newRecordData = {
+    employeeId: empId,
+    employeeName: request.employeeName || "Unknown",
+    department: request.department || "N/A",
+    date: date,
+    status: "Absence",
+    checkIn: "--",
+    checkOut: "--",
+    isWFH: false,
+    isLeave: false,
+    minutesLate: 0,
+    notes: ""
+  };
+
+  if (request.type === "Work From Home") {
+    newRecordData.status = "WFH";
+    newRecordData.checkIn = request.checkIn || "09:00";
+    newRecordData.checkOut = request.checkOut || "16:45";
+    newRecordData.isWFH = true;
+    newRecordData.notes = request.notes || "Working from home";
+  } else if (request.type === "Leave") {
+    newRecordData.status = "Leave";
+    newRecordData.isLeave = true;
+    newRecordData.notes = request.notes || "Leave request";
+  } else if (request.type === "Late") {
+    newRecordData.status = "Late";
+    newRecordData.checkIn = request.checkIn || "09:30";
+    newRecordData.checkOut = request.checkOut || "17:00";
+    newRecordData.minutesLate = request.minutesLate || 30;
+    newRecordData.notes = request.notes || "Late arrival";
+  } else {
+    newRecordData.status = "Absence";
+    newRecordData.notes = request.notes || "Absent";
   }
 
-  if (request.type === "WFH") {
-    record.status = "WFH";
-    record.checkIn = request.checkIn || "09:00";
-    record.checkOut = request.checkOut || "16:45";
-    record.isWFH = true;
-    record.isLeave = false;
-    record.minutesLate = request.minutesLate || 0;
-    record.notes = request.notes || "Working from home";
-  } else if (request.type === "Leave") {
-    record.status = "Leave";
-    record.checkIn = "--";
-    record.checkOut = "--";
-    record.isWFH = false;
-    record.isLeave = true;
-    record.minutesLate = 0;
-    record.notes = request.notes || "Leave request";
-  } else if (request.type === "Absence") {
-    record.status = "Absence";
-    record.checkIn = "--";
-    record.checkOut = "--";
-    record.isWFH = false;
-    record.isLeave = false;
-    record.minutesLate = 0;
-    record.notes = request.notes || "Absent";
+  if (recordIndex !== -1) {
+    newRecordData.id = singleAttendance[recordIndex].id;
+    singleAttendance[recordIndex] = newRecordData;
+  } else {
+    newRecordData.id = singleAttendance.length > 0 ? Math.max(...singleAttendance.map(item => item.id)) + 1 : 1;
+    singleAttendance.unshift(newRecordData);
   }
 
   setItem("employeesAttendanceInfo", singleAttendance);
 
   let attendanceRecord = getItem("AttendanceRecord") || [];
   let month = date.slice(0, 7);
-
   let monthly = attendanceRecord.find(
     (a) => a.employeeId === empId && a.month === month
   );
 
   if (!monthly) {
     monthly = {
-      id: attendanceRecord.length + 1,
+      id: attendanceRecord.length > 0 ? Math.max(...attendanceRecord.map(item => item.id)) + 1 : 1,
       employeeId: empId,
       employeeName: request.employeeName || "Unknown",
       department: request.department || "N/A",
@@ -307,16 +293,25 @@ function updateAttendanceFiles(request) {
     attendanceRecord.unshift(monthly);
   }
 
-  if (request.type === "WFH") {
-    monthly.wfh += 1;
-  } else if (request.type === "Leave") {
-    monthly.leave += 1;
-  } else if (request.type === "Absence") {
-    monthly.absent += 1;
-  }
+  // Reset counts before recalculating to prevent double counting
+  monthly.present = 0;
+  monthly.absent = 0;
+  monthly.leave = 0;
+  monthly.wfh = 0;
+
+  // Recalculate monthly stats from the daily records to ensure accuracy
+  singleAttendance
+    .filter(rec => rec.employeeId === empId && rec.date.startsWith(month))
+    .forEach(dayRec => {
+      if (dayRec.status === "WFH") monthly.wfh++;
+      else if (dayRec.status === "Leave") monthly.leave++;
+      else if (dayRec.status === "Absence") monthly.absent++;
+      else if (dayRec.status === "Present" || dayRec.status === "Late") monthly.present++;
+    });
 
   setItem("AttendanceRecord", attendanceRecord);
 }
+
 
 fetchedData();
 
