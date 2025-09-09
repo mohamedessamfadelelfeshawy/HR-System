@@ -105,6 +105,12 @@ function createTable(Request) {
   });
 }
 
+function generateUniqueId(keyName) {
+  let items = getItem(keyName) || [];
+  if (items.length === 0) return 1;
+  return Math.max(...items.map((i) => i.id)) + 1;
+}
+
 // Run after DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   let currentRequests = [];
@@ -141,9 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get allRequests from localStorage
     let allRequests = getItem("allRequests") || [];
 
-    let newId = allRequests.length
-      ? allRequests[allRequests.length - 1].id + 1
-      : 1;
+    let newId = generateUniqueId("allRequests");
 
     let newRequest = {
       id: newId,
