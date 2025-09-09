@@ -73,7 +73,7 @@ const clearData = () => {
 const getEmployee = (employee, enterRole) => {
   let welcomeEmployee = employee.find(
     (em) => em.email.toLowerCase().trim() === valEmail.value.toLowerCase().trim() &&
-      em.role === enterRole
+      em.role === enterRole && em.password === valPassword.value.trim()
   );
   if (welcomeEmployee) {
     localStorage.setItem("employee", JSON.stringify(welcomeEmployee));
