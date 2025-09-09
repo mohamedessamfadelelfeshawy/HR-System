@@ -99,12 +99,13 @@ function createTable(requests) {
       </small></td>
       <td>${request.date}</td>
       <td>
-        <span style="font-weight: bold; padding: 5px; border-radius: 5px; color: white; background-color: ${request.status === "Approved"
-        ? "#198754"
-        : request.status === "Rejected"
-          ? "#dc3545"
-          : "#ffc107"
-      };">${request.status}</span>
+        <span style="font-weight: bold; padding: 5px; border-radius: 5px; color: white; background-color: ${
+          request.status === "Approved"
+            ? "#198754"
+            : request.status === "Rejected"
+            ? "#dc3545"
+            : "#ffc107"
+        };">${request.status}</span>
       </td>
       <td>
         <button class="approve" style="border: none; background-color: #198754; color: white; margin: 5px; border-radius: 5px; padding: 5px 10px;">Approve</button>
@@ -222,12 +223,19 @@ function updateAttendanceFiles(request) {
   let empId = request.employeeId;
   let date = request.date;
 
+  let currentRequests = [];
+
+  fetchedData().then((data) => {
+    currentRequests = data;
+  });
+
   let singleAttendance = getItem("employeesAttendanceInfo") || [];
   const recordIndex = singleAttendance.findIndex(
     (a) => a.employeeId === empId && a.date === date
   );
 
   let newRecordData = {
+    id: singleAttendance.length + 1,
     employeeId: empId,
     employeeName: request.employeeName || "Unknown",
     department: request.department || "N/A",
@@ -238,13 +246,13 @@ function updateAttendanceFiles(request) {
     isWFH: false,
     isLeave: false,
     minutesLate: 0,
-    notes: ""
+    notes: "",
   };
 
   if (request.type === "Work From Home") {
-    newRecordData.status = "WFH";
+    newRecordData.status = "Present(WFH)";
     newRecordData.checkIn = request.checkIn || "09:00";
-    newRecordData.checkOut = request.checkOut || "16:45";
+    newRecordData.checkOut = request.checkOut || "17:00";
     newRecordData.isWFH = true;
     newRecordData.notes = request.notes || "Working from home";
   } else if (request.type === "Leave") {
@@ -252,24 +260,19 @@ function updateAttendanceFiles(request) {
     newRecordData.isLeave = true;
     newRecordData.notes = request.notes || "Leave request";
   } else if (request.type === "Late") {
-    newRecordData.status = "Late";
-    newRecordData.checkIn = request.checkIn || "09:30";
+    newRecordData.status = "Present";
+    newRecordData.checkIn = request.checkIn || "09:00";
     newRecordData.checkOut = request.checkOut || "17:00";
-    newRecordData.minutesLate = request.minutesLate || 30;
+    newRecordData.minutesLate = request.minutesLate ||0;
     newRecordData.notes = request.notes || "Late arrival";
   } else {
     newRecordData.status = "Absence";
     newRecordData.notes = request.notes || "Absent";
   }
 
-  if (recordIndex !== -1) {
-    newRecordData.id = singleAttendance[recordIndex].id;
-    singleAttendance[recordIndex] = newRecordData;
-  } else {
-    newRecordData.id = singleAttendance.length > 0 ? Math.max(...singleAttendance.map(item => item.id)) + 1 : 1;
-    singleAttendance.unshift(newRecordData);
-  }
-
+      
+      singleAttendance.unshift(newRecordData);
+  currentRequests.unshift(newRecordData);
   setItem("employeesAttendanceInfo", singleAttendance);
 
   let attendanceRecord = getItem("AttendanceRecord") || [];
@@ -280,7 +283,10 @@ function updateAttendanceFiles(request) {
 
   if (!monthly) {
     monthly = {
-      id: attendanceRecord.length > 0 ? Math.max(...attendanceRecord.map(item => item.id)) + 1 : 1,
+      id:
+        attendanceRecord.length > 0
+          ? Math.max(...attendanceRecord.map((item) => item.id)) + 1
+          : 1,
       employeeId: empId,
       employeeName: request.employeeName || "Unknown",
       department: request.department || "N/A",
@@ -301,21 +307,21 @@ function updateAttendanceFiles(request) {
 
   // Recalculate monthly stats from the daily records to ensure accuracy
   singleAttendance
-    .filter(rec => rec.employeeId === empId && rec.date.startsWith(month))
-    .forEach(dayRec => {
+    .filter((rec) => rec.employeeId === empId && rec.date.startsWith(month))
+    .forEach((dayRec) => {
       if (dayRec.status === "WFH") monthly.wfh++;
       else if (dayRec.status === "Leave") monthly.leave++;
       else if (dayRec.status === "Absence") monthly.absent++;
-      else if (dayRec.status === "Present" || dayRec.status === "Late") monthly.present++;
+      else if (dayRec.status === "Present" || dayRec.status === "Late")
+        monthly.present++;
     });
 
   setItem("AttendanceRecord", attendanceRecord);
 }
 
-
 fetchedData();
 
-// dark mode and logOut 
+// dark mode and logOut
 const html = document.documentElement;
 const btn = document.getElementById("toggleTheme");
 const logoutIcon = document.querySelector(".logoutIcon");
