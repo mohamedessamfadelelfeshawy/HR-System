@@ -15,7 +15,8 @@ let currentPage = 1;
 const rowsPerPage = 10;
 let currentFilteredData = [];
 const attendanceRecords = getItem("attendanceManager");
-// ----------------- salaries  -----------------
+
+// ----------------- penalties  -----------------
 async function calculateSalaries() {
   const allEmployees = getItem("allEmployees");
   const settings = getItem("setting system");

@@ -61,7 +61,7 @@ function setupPaginationControls() {
     paginationWrapper.appendChild(li);
   }
 }
-
+/* pagination */
 function renderPage(pageNumber) {
   currentPage = pageNumber;
   const start = (currentPage - 1) * rowsPerPage;
@@ -108,6 +108,7 @@ btn.addEventListener("click", () => {
   localStorage.setItem("theme", newTheme);
 });
 
+/*  boxes */
 (async () => {
   // Fetch main data
   allEmployeesData = await fetchEmployee("/assets/js/json/employee.json");
