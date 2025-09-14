@@ -82,7 +82,6 @@ function displayIdealEmployees() {
         <span class="badge bg-primary mb-2">${emp.department}</span>
         
         <div class="d-flex flex-wrap justify-content-center gap-2 mt-2">
-          <span class="badge bg-success">Completed Tasks: ${emp.completedTasks}</span>
           <span class="badge bg-danger">Penalties: ${emp.Penalties}</span>
           <span class="badge bg-dark">Net Salary: ${emp.NetSalary}</span>
         </div>

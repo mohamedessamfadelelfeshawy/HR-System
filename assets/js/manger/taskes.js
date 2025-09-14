@@ -98,9 +98,9 @@ function renderPage(pageNumber) {
     const start = (currentPage - 1) * rowsPerPage;
     const end = start + rowsPerPage;
     const paginatedItems = currentFilteredData.slice(start, end);
-    
+
     displayPageOfData(paginatedItems);
-    
+
     document.querySelectorAll(".page-item").forEach(item => {
         item.classList.remove("active");
         if (parseInt(item.querySelector('.page-link').innerText) === currentPage) {
@@ -111,7 +111,7 @@ function renderPage(pageNumber) {
 
 function refreshDataAndView() {
     const searchTerm = search.value.toLowerCase().trim();
-    currentFilteredData = searchTerm === "" 
+    currentFilteredData = searchTerm === ""
         ? [...allTasksData]
         : allTasksData.filter(task => task.name.toLowerCase().includes(searchTerm));
 
@@ -119,7 +119,7 @@ function refreshDataAndView() {
     if (currentPage > totalPages) {
         currentPage = totalPages;
     }
-    
+
     setupPaginationControls();
     renderPage(currentPage);
 }
