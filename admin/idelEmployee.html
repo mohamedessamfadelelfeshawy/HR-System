@@ -1,99 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HR System">
-    <meta name="keywords" content="HTML, CSS, JavaScript ,bootstrap,jquery-3">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HR System" />
+    <meta name="keywords" content="HTML, CSS, JavaScript ,bootstrap,jquery-3" />
     <title>admin</title>
     <link rel="stylesheet" href="../assets/css/all.min.css" />
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/admin/idelEmployee.css" />
-</head>
-<body>
-  
+  </head>
+  <body>
+    <!-- navbar start -->
 
+    <nav
+      class="navbar navbar-expand-lg navbar-light colorBtn shadow sticky-top mb-5">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img
+            src="../assets/images/manger-images/logo.jpg"
+            alt="Logo"
+            width="40"
+            height="40"
+            class="rounded-circle me-2" />
+          <span class="fw-bold fs-6">HR Admin Dashboard</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav">
+          <ul class="navbar-nav align-items-center fw-bold">
+            <li class="nav-item">
+              <a class="nav-link" href="admin.html">Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="settings.html">Setting </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="idelEmployee.html">Ideal Employee</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="PayRoll.html"> Payroll</a>
+            </li>
 
-<!-- navbar start -->
- 
-    <nav class="navbar navbar-expand-lg navbar-light  colorBtn    shadow sticky-top mb-5">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="../assets/images/manger-images/logo.jpg" alt="Logo" width="40" height="40" class="rounded-circle me-2">
-      <span class="fw-bold  fs-6 ">HR Admin Dashboard</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center fw-bold">
-        <li class="nav-item"><a class="nav-link " href="admin.html">Reports</a></li>
-        <li class="nav-item"><a class="nav-link " href="settings.html">Setting </a></li>
-        <li class="nav-item"><a class="nav-link " href="idelEmployee.html">Ideal Employee</a></li>
-        <li class="nav-item"><a class="nav-link " href="PayRoll.html"> Payroll</a></li>
-       
-     
-       
-      
-       <li>
-        
-  <button class="border-0 bg-transparent" id="toggleTheme">
-    <i class="fa-solid fa-moon p-3 rounded-circle fs-5 "></i>
-  </button>
+            <li>
+              <button class="border-0 bg-transparent" id="toggleTheme">
+                <i class="fa-solid fa-moon p-3 rounded-circle fs-5"></i>
+              </button>
+            </li>
 
-
-       </li>
-
-        <li class="nav-item  mb-2 mb-lg-0 me-lg-2 logoutIcon" id="logBtn">
-           <a class="btn  btn-sm  " href="#"><i class="fa-solid fa-arrow-right-from-bracket me-3  fs-5"></i></a>
-        </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- navbar end -->
-
-
-
-
-<div class="container mt-5">
-<main>
-    
-        <div class="tab-content" id="hrTabsContent">
-     
-
-            <!-- 3. Ideal Employee Award Tab -->
-            <div class="tab-pane fade active show" id="award-tab" role="tabpanel" aria-labelledby="award-tab-btn">
-                 <div class="card  border-top-0 rounded-0 rounded-bottom shadow-sm">
-                    <div class="card-body p-4">
-                       <div class="container text-center p-5">
-                         <h4 class="card-title mb-1">Ideal Employee Award</h4>
-                        <p class="text-muted mb-4">Review eligible employees who met all criteria (no late arrivals, no missed deadlines, no permissions).</p>
-                       </div>
-                        
-                        <ul class="list-group" id="idealEmployeeList">
-                  
-                  
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <li class="nav-item mb-2 mb-lg-0 me-lg-2 logoutIcon" id="logBtn">
+              <a class="btn btn-sm" href="#"
+                ><i class="fa-solid fa-arrow-right-from-bracket me-3 fs-5"></i
+              ></a>
+            </li>
+          </ul>
         </div>
-    </main>
-</div>
+      </div>
+    </nav>
+
+    <!-- navbar end -->
+
+    <div class="container mt-5">
+      <main>
+        <div class="tab-content" id="hrTabsContent">
+          <!-- 3. Ideal Employee Award Tab -->
+          <div
+            class="tab-pane fade active show"
+            id="award-tab"
+            role="tabpanel"
+            aria-labelledby="award-tab-btn">
+            <div class="card border-top-0 rounded-0 rounded-bottom shadow-sm">
+              <div class="card-body p-4">
+                <div class="container text-center p-5">
+                  <h4 class="card-title mb-1">Ideal Employee Award</h4>
+                  <p class="text-muted mb-4">
+                    Review eligible employees who met all criteria (no late
+                    arrivals, no missed deadlines, no permissions).
+                  </p>
+                </div>
+
+                <ul class="list-group" id="idealEmployeeList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
 
     <footer
-      class="d-flex justify-content-center align-items-center  py-2  text-center colorBtn shadow fw-bold">
+      class="d-flex justify-content-center align-items-center py-2 fixed-bottom text-center colorBtn shadow fw-bold">
       <p class="mb-0 flex-grow-1">created by HMMN &copy; ITI 2025</p>
-    </footer>
-
+          
+    </footer>
 
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script type="module" src="../assets/js/admin/idelEmployee.js"></script>
-</body>
-
+  </body>
 </html>

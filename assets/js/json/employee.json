@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,  
+    "id": 1,
     "name": "Ahmed Mostafa",
     "department": "Software Development",
     "role": "Employee",
@@ -161,24 +161,7 @@
     "email": "youssef9@gmail.com",
     "password": "12345678"
   },
-  {
-    "id": 10,
-    "name": "Dina Samir",
-    "department": "Marketing",
-    "role": "Employee",
-    "monthlySalary": 10500,
-    "NetSalary": 10500,
-    "annualVacationDays": 21,
-    "Penalties": "",
-    "bonus": "",
-    "preferences": {
-      "language": "ar",
-      "theme": "dark",
-      "dateFormat": "YYYY/MM/DD"
-    },
-    "email": "dina10@gmail.com",
-    "password": "12345678"
-  },
+
   {
     "id": 11,
     "name": "Mahmoud Fathi",
